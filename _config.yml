@@ -4,6 +4,7 @@ markdown: redcarpet
 redcarpet:
     extensions: [tables]
 highlighter: rouge
+gems: ['bourbon', 'neat']
 exclude: [_drafts, Rakefile, node_modules, docs/README.md]
 
 # TODO: this should be moved to _data
@@ -14,7 +15,7 @@ version:
     codename: "Lawrence of Arabia"
 
 sass:
-    sass_dir: assets/css/_sass
+    sass_dir: _sass
 
 # Blog settings
 paginate: 5

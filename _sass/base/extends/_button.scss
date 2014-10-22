@@ -1,0 +1,8 @@
+%button {
+  @include button(simple, $base-accent-color);
+  font-size: $base-font-size;
+}
+
+.button {
+  @extend %button;
+}

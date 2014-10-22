@@ -1,0 +1,9 @@
+// Pixel to REM converter with PX fallback
+// Use rems for font-size to be relative to the root element
+///////////////////////////////////////////////////////////////////////////////
+@mixin font-size-rem($size: 16, $line: $size * 1.5) {
+  font-size: $size * 1px;
+  line-height: $line * 1px;
+  font-size: $size * 0.1rem;
+  line-height: $line * 0.1rem;
+}

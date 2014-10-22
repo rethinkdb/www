@@ -1,0 +1,81 @@
+// Typography
+///////////////////////////////////////////////////////////////////////////////
+@font-face {
+  font-family: 'Colab-Reg';
+  src: font-url('fonts/ColabReg-webfont.ttf');
+}
+
+@font-face {
+  font-family: 'Colab-Med';
+  src: font-url('fonts/ColabMed-webfont.ttf');
+}
+
+@font-face {
+  font-family: 'Colab-Bold';
+  src: font-url('fonts/ColabBol-webfont.ttf');
+}
+
+@font-face {
+  font-family: 'Colab-Light';
+  src: font-url('fonts/ColabLig-webfont.ttf');
+}
+
+@font-face {
+  font-family: 'Colab-Thin';
+  src: font-url('fonts/ColabThi-webfont.ttf');
+}
+
+$sans-serif: 'Colab-Reg', 'Helvetica Neue', $helvetica, sans-serif;
+$sans-serif-thin: 'Colab-Thin', 'Helvetica Neue Ultra Light', $helvetica, sans-serif;
+$sans-serif-light: 'Colab-Light', 'Helvetica Neue Light', $helvetica;
+$sans-serif-bold: 'Colab-Bold', 'Helvetica Neue Bold', $helvetica;
+$sans-serif-medium: 'Colab-Med', 'Helvetica Neue Medium', $helvetica;
+$serif: $georgia;
+
+$base-font-family: $sans-serif;
+$header-font-family: $base-font-family;
+
+// Sizes
+///////////////////////////////////////////////////////////////////////////////
+$base-font-size: em(16);
+$base-line-height: $base-font-size * 1.5;
+$base-border-radius: em(3);
+$base-padding: em(20);
+$base-margin: em(20);
+
+// Colors
+///////////////////////////////////////////////////////////////////////////////
+
+$eggplant: #584461;
+$blue: #72929e;
+$sapphire: #2c3845;
+$sky-blue: #ccf3e9;
+$turquoise: #328685;
+$dark-gray: #333;
+$medium-gray: #999;
+$blue-gray: #a7bace;
+$light-gray: #DDD;
+$white: #f1f1f1;
+$light-red: #FBE3E4;
+$light-yellow: #FFF6BF;
+// $golden: #d6ad27;
+$light-green: #E6EFC2;
+
+// Body Color
+$base-body-color: white;
+
+//  Font Colors
+$base-font-color: $dark-gray;
+$base-accent-color: $blue;
+
+//  Text Link Colors
+$base-link-color: $base-accent-color;
+$hover-link-color: darken($base-accent-color, 15);
+
+// Border color
+$base-border-color: $light-gray;
+
+// Flash Colors
+$error-color: $light-red;
+$notice-color: $light-yellow;
+$success-color: $light-green;

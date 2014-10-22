@@ -2,6 +2,9 @@ GEM
   remote: https://rubygems.org/
   specs:
     blankslate (2.1.2.4)
+    bourbon (4.0.2)
+      sass (~> 3.3)
+      thor
     celluloid (0.16.0)
       timers (~> 4.0.0)
     classifier-reborn (2.0.1)
@@ -46,6 +49,9 @@ GEM
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
     mercenary (0.3.4)
+    neat (1.7.0)
+      bourbon (>= 4.0)
+      sass (>= 3.3)
     parslet (1.5.0)
       blankslate (~> 2.0)
     posix-spawn (0.3.9)
@@ -57,13 +63,14 @@ GEM
       ffi (>= 0.5.0)
     redcarpet (3.2.0)
     ref (1.0.5)
-    rouge (1.7.2)
+    rouge (1.6.2)
     safe_yaml (1.0.4)
     sass (3.4.6)
     terminal-notifier (1.6.1)
     therubyracer (0.12.1)
       libv8 (~> 3.16.14.0)
       ref
+    thor (0.19.1)
     timers (4.0.1)
       hitimes
     toml (0.1.2)
@@ -74,7 +81,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bourbon (~> 4.0.2)
   jekyll (~> 2.4.0)
-  rouge (~> 1.7.2)
+  neat (~> 1.7.0)
+  rouge (~> 1.6.0)
   terminal-notifier (~> 1.6.1)
   therubyracer (~> 0.12.1)

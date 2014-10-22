@@ -1,0 +1,24 @@
+port: 8888
+# move to kramdown: http://kramdown.gettalong.org/syntax.html
+markdown: redcarpet 
+redcarpet:
+    extensions: [tables]
+highlighter: rouge
+exclude: [_drafts, Rakefile, node_modules, docs/README.md]
+
+# TODO: this should be moved to _data
+# Current RethinkDB version
+version:
+    major: "1.15"
+    minor: 0
+    codename: "Lawrence of Arabia"
+
+sass:
+    sass_dir: assets/css/_sass
+
+# Blog settings
+paginate: 5
+paginate_file: blog/index.html
+paginate_path: /blog/page:num
+permalink: /blog/:title
+excerpt_separator: <!--more-->

@@ -6,7 +6,9 @@ html, body {
   height: 100%;
 }
 
-body {
+
+// First 'theme', set body class
+body.v0 {
   // @include background-image(linear-gradient(#13152c 25%, #1d2247 50%, #644d72));
   // @include background-image(linear-gradient(darken(#a7bace, 10%) 25%, #a7b8bc 50%, #bea38d));
   @include radial-gradient(10% 90%, circle cover, #daa282 2%, lighten($eggplant, 10%),
@@ -15,31 +17,37 @@ body {
   background-repeat: repeat-y;
   border: 1px solid red;
   height: 100%;
+
+  .landing {
+    @include background-image(url('/assets/images/hero-v2.svg'), transparent);
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: 90% top;
+    color: $white;
+  }
+
+  .full-width {
+    background: #fff;
+    color: desaturate($sapphire, 20%);
+  }
+
+  .dark {
+    background: $sapphire;
+    color: $white;
+  }
+
+  // Community
+  .callout {
+    background: lighten($sky-blue, 5%);
+    border-radius: $base-border-radius;
+    color: $sapphire;
+    margin: 0 auto;
+    width: 80%;
+  }
 }
 
-.landing {
-  @include background-image(url('/assets/images/hero-v2.svg'), transparent);
-  background-size: 70%;
+body.v1 {
+  //Separate theme styles here
+  @include background-image(linear-gradient(darken(#a7bace, 10%) 25%, #a7b8bc 50%, #bea38d));
   background-repeat: no-repeat;
-  background-position: 90% top;
-  color: $white;
-}
-
-.full-width {
-  background: #fff;
-  color: desaturate($sapphire, 20%);
-}
-
-.dark {
-  background: $sapphire;
-  color: $white;
-}
-
-// Community
-.callout {
-  background: lighten($sky-blue, 5%);
-  border-radius: $base-border-radius;
-  color: $sapphire;
-  margin: 0 auto;
-  width: 80%;
 }

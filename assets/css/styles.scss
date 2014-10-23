@@ -1,14 +1,14 @@
 ---
 ---
-//Bourbon, Neat, Bitters, Base styles
-//@import "normalize";
+// Bourbon, Neat, Bitters, Base styles
+@import "normalize";
 @import "bourbon";
 @import "base/base";
 @import "neat";
 
-//General styles, Design patterns
+// General styles, Design patterns
 @import "layout";
 @import "navigation";
 
-//View-specific styles
+// View-specific styles
 @import "blog";

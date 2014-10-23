@@ -5,20 +5,21 @@ body_class: blog
 <div class="main-container">
     <div class="content">
         <div class="blog-v1 container">
+        {% for post in paginator.posts %}
             <div class="section">
                 <div class="post">
                     <div class="post-hero">
                         <img src="http://placehold.it/800x400">
                     </div>
-                    <a href="{{page.url}}"><h1 class="title">{{page.title }}</h1></a>
+                    <a href="{{post.url}}"><h1 class="title">{{ post.title }}</h1></a>
                     <div class="post-byline">
                         <a class="avatar" href="#">
                             <img src="http://placehold.it/50x50">
-                            {% if page.author %}{{ page.author }}{% else %}RethinkDB Team{% endif %}
+                            {% if post.author %}{{ post.author }}{% else %}RethinkDB Team{% endif %}
                         </a>
-                        <span class="post-timestamp">{{ page.date | date: "%B %d, %Y" }}</span>
+                        <span class="post-timestamp">{{ post.date | date: "%B %d, %Y" }}</span>
                         <ul class="post-tags">
-                            {% for tag in page.tags %}
+                            {% for tag in post.tags %}
                             <li><a href="#">{{ tag }}</a></li>
                             {% endfor %}
                         </ul>
@@ -27,10 +28,10 @@ body_class: blog
                         </ul>
                     </div>
                     <div class="post-body">
-                        {{ content }}
+                        {{ post.excerpt | markdownify }}
                     </div>
                 </div>
-            </div>
+        {% endfor %}
         </div>
     </div>
 </div>

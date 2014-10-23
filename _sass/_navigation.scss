@@ -5,7 +5,7 @@
 
   li {
     @include inline-block;
-    margin-left: $base-margin;
+    margin-left: $base-margin*2;
   }
 
   a {

@@ -118,15 +118,40 @@ p code {
 }
 
 // Overrides/Helpers
-.centered {
+.center-align {
   text-align: center;
+}
+
+.left-align {
+  text-align: left;
+}
+
+.right-align {
+  text-align: right;
 }
 
 .main-headline {
   @include font-size-rem(28);
-  line-height: em(20);
+  line-height: em(24);
 }
 
 .sub-headline {
   @include font-size-rem(16);
+  margin-bottom: $base-margin/3;
+}
+
+.section-headline {
+  @include font-size-rem(14);
+  font-family: $sans-serif-bold;
+  text-transform: uppercase;
+}
+
+.callout-txt {
+  @include font-size-rem(14);
+  font-family: $sans-serif;
+  margin-bottom: 0;
+}
+
+.emphasized {
+  font-family: $sans-serif-bold;
 }

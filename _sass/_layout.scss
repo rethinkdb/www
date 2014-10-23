@@ -51,6 +51,10 @@ $large-pad: $base-padding * 5;
   @include pad($base-padding 0);
 }
 
+.top-offset {
+  margin-top: $base-padding;
+}
+
 // Grid
 .three-quarter {
   @include span-columns(8 of 12);

@@ -6,7 +6,7 @@ $large-gutter: $base-margin * 2;
 
 //Vertical/horizontal padding
 $medium-pad: $base-padding * 2;
-$large-pad: $base-padding * 4;
+$large-pad: $base-padding * 5;
 
 //100% width, useful for color blocks
 .full-width {
@@ -72,6 +72,11 @@ $large-pad: $base-padding * 4;
   @include omega(4n);
 }
 
+.sixth {
+  @include span-columns(2 of 12);
+  @include omega(6n);
+}
+
 // Directional
 .left {
   float: left;
@@ -79,4 +84,8 @@ $large-pad: $base-padding * 4;
 
 .right {
   float: right;
+}
+
+.middle {
+  margin: 0 auto;
 }

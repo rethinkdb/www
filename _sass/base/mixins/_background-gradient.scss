@@ -1,0 +1,10 @@
+//Linear/Radial gradients
+
+@mixin background-gradient($type, $start-color, $end-color) {
+  @if $type == radial {
+    @include radial-gradient($start-color, $end-color);
+  }
+  @else if $type == linear {
+    @include linear-gradient($start-color 0, $end-color 100%);
+  }
+}

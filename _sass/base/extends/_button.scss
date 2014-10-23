@@ -1,8 +1,35 @@
 %button {
-  @include button(simple, $base-accent-color);
+  // @include button(simple, $base-accent-color);
+  @include inline-block;
+  // @include background-image(linear-gradient(transparent, $sapphire));
+  background: $turquoise;
+  background-clip: padding-box;
+  border-radius: $base-border-radius;
+  color: $white;
+  font-family: $sans-serif-medium;
   font-size: $base-font-size;
+  text-shadow: none;
+  padding: $base-padding/2 $base-padding;
 }
 
 .button {
   @extend %button;
+}
+
+.light {
+  background: rgba(255,255,255, 0.1);
+  border: 1px solid rgba(255,255,255, 0.2);
+  box-shadow: 0 0 3px darken($sapphire, 10%), inset 0 0 3px lighten($sapphire, 5%);
+
+  &:hover {
+    @include transition(background 0.2s linear);
+    background: $base-accent-color;
+    border-color: $base-accent-color;
+    box-shadow: none;
+    color: darken($eggplant, 30%);
+  }
+}
+
+.dark {
+  background: $eggplant;
 }

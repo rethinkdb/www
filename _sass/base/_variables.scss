@@ -1,35 +1,29 @@
 // Typography
 ///////////////////////////////////////////////////////////////////////////////
 @font-face {
-  font-family: 'Colab-Reg';
-  src: font-url('fonts/ColabReg-webfont.ttf');
+  font-family: 'Quick-Book';
+  src: font-url('fonts/IdealSans-Book-Pro.otf');
 }
 
 @font-face {
-  font-family: 'Colab-Med';
-  src: font-url('fonts/ColabMed-webfont.ttf');
+  font-family: 'Quick-Medium';
+  src: font-url('fonts/IdealSans-Medium-Pro.otf');
 }
 
 @font-face {
-  font-family: 'Colab-Bold';
-  src: font-url('fonts/ColabBol-webfont.ttf');
+  font-family: 'Quick-Bold';
+  src: font-url('fonts/IdealSans-Bold-Pro.otf');
 }
 
 @font-face {
-  font-family: 'Colab-Light';
-  src: font-url('fonts/ColabLig-webfont.ttf');
+  font-family: 'Quick-Light';
+  src: font-url('fonts/IdealSans-Light-Pro.otf');
 }
 
-@font-face {
-  font-family: 'Colab-Thin';
-  src: font-url('fonts/ColabThi-webfont.ttf');
-}
-
-$sans-serif: 'Colab-Reg', 'Helvetica Neue', $helvetica, sans-serif;
-$sans-serif-thin: 'Colab-Thin', 'Helvetica Neue Ultra Light', $helvetica, sans-serif;
-$sans-serif-light: 'Colab-Light', 'Helvetica Neue Light', $helvetica;
-$sans-serif-bold: 'Colab-Bold', 'Helvetica Neue Bold', $helvetica;
-$sans-serif-medium: 'Colab-Med', 'Helvetica Neue Medium', $helvetica;
+$sans-serif: 'Quick-Book', 'Helvetica Neue', $helvetica, sans-serif;
+$sans-serif-light: 'Quick-Light', 'Helvetica Neue Ultra Light', $helvetica, sans-serif;
+$sans-serif-medium: 'Quick-Medium', 'Helvetica Neue Light', $helvetica;
+$sans-serif-bold: 'Quick-Bold', 'Helvetica Neue Bold', $helvetica;
 $serif: $georgia;
 
 $base-font-family: $sans-serif;
@@ -47,7 +41,7 @@ $base-margin: em(20);
 ///////////////////////////////////////////////////////////////////////////////
 
 $eggplant: #584461;
-$blue: #72929e;
+$blue: #27728b;
 $sapphire: #2c3845;
 $sky-blue: #ccf3e9;
 $turquoise: #328685;
@@ -58,7 +52,7 @@ $light-gray: #DDD;
 $white: #f1f1f1;
 $light-red: #FBE3E4;
 $light-yellow: #FFF6BF;
-// $golden: #d6ad27;
+$goldenrod: #d6ad27;
 $light-green: #E6EFC2;
 
 // Body Color
@@ -66,7 +60,7 @@ $base-body-color: white;
 
 //  Font Colors
 $base-font-color: $dark-gray;
-$base-accent-color: $blue;
+$base-accent-color: $sky-blue;
 
 //  Text Link Colors
 $base-link-color: $base-accent-color;

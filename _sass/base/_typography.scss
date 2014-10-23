@@ -118,7 +118,15 @@ p code {
 }
 
 // Overrides/Helpers
-
 .centered {
   text-align: center;
+}
+
+.main-headline {
+  @include font-size-rem(28);
+  line-height: em(20);
+}
+
+.sub-headline {
+  @include font-size-rem(16);
 }

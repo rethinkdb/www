@@ -12,7 +12,23 @@
         <script type="text/javascript" src="//use.typekit.net/lmb6cah.js"></script>
         <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
     </head>
-    <body>
+    <body class="{{ page.body_class}}">
+        <!-- nav -->
+        <nav class="global-nav">
+            <div class="outer-container element-pad">
+                <div class="logo left">
+                    <a href="/"><h1>RethinkDB</h1></a>
+                </div>
+                <ul class="right nav-items">
+                    <li><a href="/">FAQ</a></li>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="/blog2">Blog2</a></li>
+                    <li><a href="/">Community</a></li>
+                    <li><a href="/">Events</a></li>
+                    <li><a href="/">About</a></li>
+                </ul>
+            </div>
+        </nav>
         {{ content }}
     </body>
 </html>

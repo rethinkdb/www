@@ -1,0 +1,239 @@
+---
+layout: default
+body_class: blog
+---
+<div class="main-container">
+    <div class="content">
+        <div class="blog-v1 container">
+            <div class="section">
+                <div class="post">
+                    <div class="post-hero">
+                        <img src="http://placehold.it/800x400"></div>
+                        <a href="#">
+                            <h1 class="title">BeerThink: infinite scrolling in a mobile app with Ionic, Node.js, and RethinkDB</h1>
+                        </a>
+                <div class="post-byline">
+                    <a class="avatar" href="#"><img src="http://placehold.it/50x50">Ryan Paul</a>
+                    <span class="post-timestamp">October 07.2014</span>
+                    <ul class="post-tags">
+                        <li><a href="#">Node.js</a> 
+                        <li> <a href="#">mobile</a></li> 
+                        <li><a href="#">Ionic</a></li>
+                        <li><a href="#">beer</a></li>
+                    </ul>
+                    <ul class="post-toc">
+                        <li><a href="#">Content &#x25BE;</a></li>
+                    </ul>
+                </div>
+                <div class="post-body">
+                    <hr>
+                    <p class="post-intro"> Developers often use
+                    pagination to display large collections of data. An
+                    application can fetch content in batches as needed,
+                    presenting a fixed number of records at a time. On
+                    the frontend, paginated user interfaces typically
+                    provide something like "next" and "previous"
+                    navigation buttons so that users can move through
+                    the data set. In modern mobile apps, it is
+                    increasingly common to implement an infinite
+                    scrolling user interface on top of paginated data.
+                    As the user scrolls through a list, the application
+                    fetches and appends new records.</p>
+
+                    <p>To demonstrate the use of pagination in
+                    RethinkDB applications, I made a simple mobile app
+                    called<a href="#">BeerThink</a>. It displays a list
+                    of beers and breweries, providing a detailed
+                    summary when the user taps an item. The app uses a
+                    data dump from the<a href="#">Open Beer
+                        Database</a>, which contains information about
+                    roughly 4,400 beers and 1,200 breweries. I
+                    converted the data to JSON so that it is easy to
+                    import into RethinkDB. There are two tables, one
+                    for beers and one for breweries. The application
+                    uses RethinkDB's support for table joins to
+                    correlate the beers with their respective
+                    breweries.</p>
+
+                    <p>BeerThink's backend is built with Node.js and
+                    Express. It exposes beer and brewery data retrieved
+                    from a RethinkDB database, providing a paginated
+                    API that returns 50 records at a time.</p>
+
+                    <p>The BeerThink frontend is built with<a href=
+                    "#">Ionic</a>, a popular AngularJS-based JavaScript
+                framework designed for mobile web apps. BeerThink
+                uses an infinite scrolling list to present the
+                beers in alphabetical order.</p>
+
+                    <p>BeerThink's architecture aligns with the
+                    API-first approach used by many modern mobile web
+                    applications. The backend is solely an API layer,
+                    completely decoupled from the frontend. The
+                    frontend is a single-page web application designed
+                    to consumes the backend API. This particular
+                    approach makes it easy to build multiple frontend
+                    experiences on top of the same backend. You could,
+                    for example, easily make native desktop and mobile
+                    applications that consume the same backend API.</p>
+
+                    <p>This tutorial demonstrates how BeerThink's
+                    pagination works at each layer of the stack: the
+                    RethinkDB database, the Node backend, and the Ionic
+                    client application.</p>
+
+                    <div class="post-media"><img src=
+                    "http://rethinkdb.com/assets/images/posts/2014-10-07-beerlist.png"><img src="http://rethinkdb.com/assets/images/posts/2014-10-07-beerdetail.png"></div>
+
+                    <h2 class="section-title">Efficient pagination in
+                        RethinkDB</h2>
+
+                    <p>If you'd like to follow along and try the
+                    pagination queries yourself, create a table and
+                    then use the<code>r.http</code> command to add the
+                    beer list to a database:</p>
+
+                    <div class="highlight">
+                        <pre>
+<code class="javascript language-javascript" data-lang=
+"javascript"><span class="nx">r</span><span class="p">.</span><span class=
+"nx">table</span><span class="p">(</span><span class=
+"s2">"beers"</span><span class="p">).</span><span class=
+"nx">insert</span><span class="p">(</span><span class="nx">r</span><span class=
+"p">.</span><span class="nx">http</span><span class="p">(</span><span class=
+"s2">"https://raw.githubusercontent.com/rethinkdb/beerthink/master/data/beers.json"</span><span class="p">,</span><span class="p"> {</span><span class="nx">result_format</span><span class="o">:</span><span class="s2"> "json"</span><span class="p">}))</span></code>
+                        </pre>
+                    </div>
+
+                    <p>To efficiently alphabetize and paginate the beer
+                    list, you first need to create an index on the name
+                    property:</p>
+
+                    <div class="highlight">
+                        <pre>
+<code class="javascript language-javascript" data-lang=
+"javascript"><span class="nx">r</span><span class="p">.</span><span class=
+"nx">tablet</span><span class="p">(</span><span class=
+"s2">"beers"</span><span class="p">).</span><span class=
+"nx">indexCreate</span><span class="p">(</span><span class=
+"s2">"name"</span><span class="p">)</span></code>
+                        </pre>
+
+                        <p>After creating the index, you can use it in
+                        the<code>orderBy</code>command to fetch an
+                        alphabetized list of names:</p>
+
+                        <div class="highlight">
+                            <pre>
+<code class="javascript language-javascript" data-lang=
+"javascript"><span class="nx"> r</span><span class="p">.</span><span class=
+"nx">table</span><span class="p">(</span><span class=
+"s2">"beers"</span><span class="p">).</span><span class=
+"nx">orderBy</span><span class="p">({</span><span class=
+"nx">index</span><span class="o">:</span><span class=
+"s2">"name"</span><span class="p">})</span></code>
+                            </pre>
+                        </div>
+
+                        <p>When paginating records from a database, you
+                        want to be able to obtain a subset of ordered
+                        table records. In a conventional SQL
+                        environment, you might accomplish that by
+                        using<code>OFFSET</code>and<code>LIMIT</code>.
+                        RethinkDB's<code>skip</code>and<code>limit</code>commands
+                        are serviceable equivalents, but the skip
+                        command doesn't offer optimal performance.</p>
+
+                        <p>The<code>between</code>command, which is
+                        commonly used to fetch all documents that are
+                        between two keys in a table, is a much more
+                        efficient way to get the start position of a
+                        table subset. You can optionally specify a
+                        secondary index when using thecommand, which
+                        means that it can operate on the
+                        indexed<code>name</code>property of
+                        the<code>beers</code>table.</p>
+
+                        <p>The following example shows how to use
+                        the<code>between</code>command on
+                        the<code>name</code>index to get all of the
+                        beers between "Petrus Speciale" and "Plank Road
+                        Pale Ale" in alphabetical order:</p>
+
+                        <div class="highlight">
+                            <pre>
+<code class="javascript language-javascript" data-lang=
+"javascript"><span class="nx">r</span><span class="p">.</span><span class=
+"nx">table</span><span class="p">(</span><span class=
+"s2">"beers"</span><span class="p">)</span><span class="p">.</span><span class=
+"nx">between</span><span class="p">(</span><span class=
+"s2">"Petrus Speciale"</span><span class="p">,</span><span class=
+"s2"> "Plank Road Pale Ale"</span><span class="p">,</span><span class=
+"p">{</span><span class="nx">index</span><span class="o">:</span><span class=
+"s2">"name"</span><span class="p">})</span><span class="p">.</span><span class=
+"nx">orderBy</span><span class="p">({</span><span class=
+"nx">index</span><span class="o">:</span><span class=
+"s2">"name"</span><span class="p">})</span></code>
+                            </pre>
+                        </div>
+
+                        <p>When the BeerThink application starts, it
+                        uses<code>orderBy</code>and<code>limit</code>to
+                        fetch the first page of data. To get subsequent
+                        pages, it uses
+                        the<code>between</code>and<code>limit</code>commands.
+                        The value that the program supplies for
+                        the<code>between</code>command's start position
+                        is simply the index of the very last item that
+                        was fetched on the previous page.</p>
+
+                        <div class="highlight">
+                            <pre>
+<code class="javascript language-javascript" data-lang=
+"javascript"><span class="nx">r</span><span class="p">.</span><span class=
+"nx">table</span><span class="p">(</span><span class=
+"s2">"beers"</span><span class="p">)</span><span class="p">.</span><span class=
+"nx">between</span><span class="p">(</span><span class=
+"s2">"Petrus Speciale"</span><span class="p">,</span><span class=
+"kc"> null</span><span class="p">,</span><span class="p"> {</span><span class=
+"nx">leftBound</span><span class="o">:</span><span class=
+"s2">"open"</span><span class="p">,</span><span class=
+"nx">index</span><span class="o">:</span><span class=
+"s2">"name"</span><span class="p">})</span><span class="p">.</span><span class=
+"nx">orderBy</span><span class="p">({</span><span class=
+"nx">index</span><span class="o">:</span><span class=
+"s2">"name"</span><span class="p">}).</span><span class=
+"nx">limit</span><span class="p">(</span><span class="mi">50</span><span class=
+"p">)</span></code>
+                            </pre>
+                        </div>
+
+                        <p>The example above shows how to fetch 50
+                        records, starting from a particular beer.
+                        Because the program doesn't actually know what
+                        beer will be at the end of the new page of
+                        data, the<code>between</code>command is
+                        given<code>null</code>as its closing index
+                        value. That will cause
+                        the<code>between</code>command to return
+                        everything from the start index to the end of
+                        the table. The query uses
+                        the<code>limit</code>command to get only the
+                        desired number of records.</p>
+
+                        <p>Setting the value of
+                        the<code>leftBound</code>option
+                        to<code>open</code>tells
+                        the<code>between</code>command to omit the
+                        first record, the one that we use to define the
+                        start index. That's useful because the item is
+                        one that you already have at the end of your
+                        list---you don't want to add it again.</p>
+                        <h3 class="section-title">The slice command</h3>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

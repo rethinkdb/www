@@ -2,7 +2,7 @@ RethinkDB website
 ===
 
 
-# Building the website
+## Building the website
 
 You must have the following tools available on your system:
 
@@ -15,7 +15,7 @@ Install the necessary gems:
 bundle install
 ```
 
-# Getting your system ready to build the website
+## Getting your system ready to build the website
 
 This guide steps through how to build the website, assuming you have no tools installed. It describes:
 

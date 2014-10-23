@@ -5,7 +5,7 @@ redcarpet:
     extensions: [tables]
 highlighter: rouge
 gems: ['bourbon', 'neat']
-exclude: [_drafts, Rakefile, node_modules, docs/README.md]
+exclude: [_drafts, Rakefile, node_modules, Gemfile, Gemfile.lock]
 
 # TODO: this should be moved to _data
 # Current RethinkDB version

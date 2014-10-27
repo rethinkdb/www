@@ -39,17 +39,21 @@ textarea,
 #{$all-text-inputs} {
   @include box-sizing(border-box);
   @include transition(border-color);
-  background-color: white;
+  background-color: rgba(255, 255,255,0.5);
   border-radius: $form-border-radius;
   border: 1px solid $form-border-color;
   box-shadow: $form-box-shadow;
   font-family: $form-font-family;
   font-size: $form-font-size;
-  margin-bottom: $base-line-height / 2;
+  // margin-bottom: $base-line-height / 2;
   padding: $base-padding/2 $base-padding;
   // padding: ($base-line-height / 3) ($base-line-height / 3);
   resize: vertical;
   width: 100%;
+
+  @include placeholder {
+    color: desaturate(lighten($eggplant, 5), 10);
+  }
 
   &:hover {
     border-color: $form-border-color-hover;
@@ -119,6 +123,7 @@ input[type="submit"] {
 }
 
 .medium,
-.inline-input input.medium {
+.inline-input input.medium,
+.inline-input button.medium {
   width: 50%;
 }

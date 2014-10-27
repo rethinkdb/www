@@ -1,29 +1,34 @@
 // Typography
 ///////////////////////////////////////////////////////////////////////////////
-@font-face {
-  font-family: 'Quick-Book';
-  src: font-url('fonts/IdealSans-Book-Pro.otf');
-}
+// @font-face {
+//   font-family: 'Quick-Book';
+//   src: font-url('../assets/fonts/IdealSans-Book-Pro.otf');
+// }
 
-@font-face {
-  font-family: 'Quick-Medium';
-  src: font-url('fonts/IdealSans-Medium-Pro.otf');
-}
+// @font-face {
+//   font-family: 'Quick-Medium';
+//   src: font-url('../assets/fonts/IdealSans-Medium-Pro.otf');
+// }
 
-@font-face {
-  font-family: 'Quick-Bold';
-  src: font-url('fonts/IdealSans-Bold-Pro.otf');
-}
+// @font-face {
+//   font-family: 'Quick-Bold';
+//   src: font-url('../assets/fonts/IdealSans-Bold-Pro.otf');
+// }
 
-@font-face {
-  font-family: 'Quick-Light';
-  src: font-url('fonts/IdealSans-Light-Pro.otf');
-}
+// @font-face {
+//   font-family: 'Quick-Light';
+//   src: font-url('../assets/fonts/IdealSans-Light-Pro.otf');
+// }
 
-$sans-serif: 'Quick-Book', 'Helvetica Neue', $helvetica, sans-serif;
-$sans-serif-light: 'Quick-Light', 'Helvetica Neue Ultra Light', $helvetica, sans-serif;
-$sans-serif-medium: 'Quick-Medium', 'Helvetica Neue Light', $helvetica;
-$sans-serif-bold: 'Quick-Bold', 'Helvetica Neue Bold', $helvetica;
+@include font-face(SourceSans, '../fonts/SourceSansPro-Regular');
+@include font-face(SourceSansBold, '../fonts/SourceSansPro-Bold');
+@include font-face(SourceSansLight, '../fonts/SourceSansPro-Light');
+@include font-face(SourceSansItalic, '../fonts/SourceSansPro-Italic');
+
+$sans-serif: SourceSans, 'Helvetica Neue', $helvetica, sans-serif;
+$sans-serif-light: SourceSansLight, 'Helvetica Neue Light', $helvetica, sans-serif;
+$sans-serif-italic: SourceSansItalic, 'Helvetica Neue Italic', $helvetica;
+$sans-serif-bold: SourceSansBold, 'Helvetica Neue Bold', $helvetica;
 $serif: $georgia;
 
 $base-font-family: $sans-serif;

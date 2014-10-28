@@ -7,7 +7,7 @@ html, body {
 }
 
 .logo {
-  @include font-size-rem(7);
+  @include font-size-rem(6);
 }
 
 //Friendly theme
@@ -226,5 +226,299 @@ body.v2 {
     @include background-image(url('/assets/images/texture.png'), linear-gradient(saturate(#9ac1c0, 10), darken(#9ac1c0, 35)));
     color: $white;
     padding-top: $base-padding*6;
+  }
+}
+
+//Minimal, light, w/ dark color blocking
+body.v3 {
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin: 0;
+
+  .global-nav {
+    @extend .element-pad;
+    border-top: 4px solid #45D9F1;
+
+    .logo, li a {
+      color: $blue;
+    }
+  }
+
+  a {
+    color: #45D9F1;
+  }
+
+  .social-links.inline li {
+    display: block;
+  }
+
+  .install-container {
+    @extend .content-pad;
+  }
+
+  .landing {
+    @include background(url('/assets/images/hero_background.svg') center top);
+    background-size: 1200px auto;
+    background-repeat: no-repeat;
+    color: #294053;
+  }
+
+  .hero {
+    @include background-image(url('/assets/images/terminal.svg'), transparent);
+    background-size: 75%;
+    background-repeat: no-repeat;
+    background-position: 154% bottom;
+
+    .main-headline {
+      color: #f66956;
+    }
+  }
+
+  .sub-headline {
+    color: $blue;
+    font-family: $sans-serif-medium;
+    margin: em(5) 0;
+  }
+
+  input {
+    border-width: 2px;
+    border-color: #45D9F1;
+    border-bottom-color: darken(#45D9F1, 15);
+    border-width: 3px;
+    box-shadow: 0 1px 0 darken(#45D9F1, 15);
+  }
+
+  .button {
+    background: #f66956;
+    border-width: 2px;
+    border-color: #f66956;
+    box-shadow: 0 3px 0 darken(#f66956, 8), inset 0 1px 0 lighten(#f66956, 8);
+    color: #fff;
+  }
+
+  .button.light {
+    background: #45D9F1;
+    box-shadow: 0 3px 0 darken(#45D9F1, 15);
+    border-color: transparent;
+    color: #fff;
+  }
+
+  .newsbanner {
+    .container {
+      @extend .section-pad;
+    }
+
+    .half {
+      @extend .center-align;
+      float: none;
+      margin: 0 auto;
+
+      &:first-child {
+        @extend .element-pad;
+      }
+    }
+  }
+
+  .offerings .content:nth-child(1n) {
+    padding: 0 em(50) 0 0;
+  }
+
+  .offerings .content:nth-child(2) {
+    padding: 0 0 0 em(50);
+  }
+
+  .community {
+    background: darken(#45D9F1, 20);
+    color: $white;
+
+    .sub-headline {
+      color: #fff;
+      font-family: $serif;
+    }
+
+    .button.light {
+      background: none;
+      box-shadow: none;
+    }
+
+    .vids {
+      @extend .content-offset-y;
+      @extend .center-align;
+      background: darken(#45D9F1, 22);
+      border-radius: $base-border-radius;
+    }
+
+    .testimonials {
+      .testimonial {
+        @include pad(0 $base-padding $base-padding);
+        background: darken(#45D9F1, 22);
+        border-radius: $base-border-radius;
+        box-shadow: 0 4px 0 darken(#45D9F1, 25);
+      }
+    }
+  }
+
+  .support {
+    background: $blue;
+
+    .sub-headline {
+      color: #fff;
+    }
+  }
+
+  .install-banner {
+    @extend .section-pad;
+    background: darken(#294053, 5);
+    margin: 0;
+  }
+
+  footer {
+    background: darken($sapphire, 10);
+    color: #fff;
+  }
+}
+
+//Extra white-space, gray tones
+body.v4 {
+  background: #f2f2f2;
+
+  .global-nav {
+    @extend .content-pad;
+    background: #fff;
+
+    a {
+      color: $medium-gray;
+    }
+  }
+
+  .landing {
+    @include background(url('/assets/images/hero_background.svg') center top no-repeat, url('/assets/images/polygon.png') repeat);
+    background-color: $blue;
+    background-size: 90% auto;
+    color: #f2f2f2;
+  }
+
+  .sub-headline, .section-headline {
+    color: lighten($blue, 35);
+  }
+
+  .logo a {
+    color: #294053;
+  }
+
+  .hero {
+    color: #fff;
+  }
+
+  .hero {
+    @include background-image(url('/assets/images/terminal.svg'), transparent);
+    @include pad($base-padding*8 0);
+    background-size: 78%;
+    background-repeat: no-repeat;
+    background-position: 163% center;
+
+    a {
+      color: $sky-blue;
+    }
+
+    .sub-headline {
+      @extend .callout;
+      color: $light-gray;
+      font-family: $base-font-family;
+    }
+  }
+
+  a {
+    color: #45D9F1;
+  }
+
+  .button.light {
+    background: #45D9F1;
+    border: none;
+    box-shadow: 0 2px 0 lighten($sapphire, 10);
+    color: darken($blue, 5);
+  }
+
+  .newsbanner {
+    background: $light-gray;
+    color: $medium-gray;
+
+    a {
+      color: $blue;
+    }
+  }
+
+  .button, .newsbanner .light.button {
+    background: $blue;
+    border: none;
+    box-shadow: none;
+    color: $white;
+  }
+
+  .examples {
+    background: #f2f2f2;
+    color: $medium-gray;
+    padding-bottom: em(150);
+  }
+
+  .offerings {
+    background: #fff;
+    color: $medium-gray;
+
+    .sub-headline {
+      color: #f66956;
+    }
+
+    .half.content:nth-child(1n) {
+      @include pad(0 $base-padding*6 0 0);
+    }
+
+    .half.content:nth-child(2n) {
+      @include pad(0 0 0 $base-padding*4);
+    }
+  }
+
+  .callout {
+    padding: 0;
+
+    .callout-txt {
+      @include pad(0 $base-padding*2 0 0);
+      @include font-size-rem(11);
+    }
+
+    .button {
+      @extend .callout-txt;
+      background: none;
+      color: lighten(#f66956, 5);
+      font-family: $sans-serif-bold;
+      padding-left: 0;
+    }
+  }
+
+  .support {
+    @include pad($base-padding*3);
+    @include background-image(url('/assets/images/geometry.png'), transparent);
+
+    .sub-headline {
+      color: $white;
+      padding: 0 0 $base-padding/3;
+    }
+
+    .button {
+      background: $blue;
+    }
+  }
+
+  .install-banner {
+    @extend .section-pad;
+    margin: 0;
+  }
+
+  .footer, .install-banner {
+    background-color: darken($sapphire, 10);
+  }
+
+  .footer {
+    padding: em(50) 0;
   }
 }

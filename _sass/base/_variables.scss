@@ -1,38 +1,22 @@
 // Typography
 ///////////////////////////////////////////////////////////////////////////////
-// @font-face {
-//   font-family: 'Quick-Book';
-//   src: font-url('../assets/fonts/IdealSans-Book-Pro.otf');
-// }
 
-// @font-face {
-//   font-family: 'Quick-Medium';
-//   src: font-url('../assets/fonts/IdealSans-Medium-Pro.otf');
-// }
+@include font-face(Regular, '../fonts/GothamRnd-Book');
+@include font-face(Bold, '../fonts/GothamRnd-Bold');
+@include font-face(Light, '../fonts/GothamRnd-Light');
+@include font-face(Italic, '../fonts/GothamRnd-Italic');
+@include font-face(Medium, '../fonts/GothamRnd-Medium');
+@include font-face(Slab, '../fonts/museo_slab_500-webfont');
 
-// @font-face {
-//   font-family: 'Quick-Bold';
-//   src: font-url('../assets/fonts/IdealSans-Bold-Pro.otf');
-// }
-
-// @font-face {
-//   font-family: 'Quick-Light';
-//   src: font-url('../assets/fonts/IdealSans-Light-Pro.otf');
-// }
-
-@include font-face(SourceSans, '../fonts/SourceSansPro-Regular');
-@include font-face(SourceSansBold, '../fonts/SourceSansPro-Bold');
-@include font-face(SourceSansLight, '../fonts/SourceSansPro-Light');
-@include font-face(SourceSansItalic, '../fonts/SourceSansPro-Italic');
-
-$sans-serif: SourceSans, 'Helvetica Neue', $helvetica, sans-serif;
-$sans-serif-light: SourceSansLight, 'Helvetica Neue Light', $helvetica, sans-serif;
-$sans-serif-italic: SourceSansItalic, 'Helvetica Neue Italic', $helvetica;
-$sans-serif-bold: SourceSansBold, 'Helvetica Neue Bold', $helvetica;
-$serif: $georgia;
+$sans-serif: Regular, 'Helvetica Neue', $helvetica, sans-serif;
+$sans-serif-light: Light, 'Helvetica Neue Light', $helvetica, sans-serif;
+$sans-serif-italic: Italic, 'Helvetica Neue Italic', $helvetica;
+$sans-serif-medium: Medium, 'Helvetica Neue Bold', $helvetica;
+$sans-serif-bold: Bold, 'Helvetica Neue Bold', $helvetica;
+$serif: Slab, $georgia;
 
 $base-font-family: $sans-serif;
-$header-font-family: $base-font-family;
+$header-font-family: $serif;
 
 // Sizes
 ///////////////////////////////////////////////////////////////////////////////
@@ -54,6 +38,7 @@ $dark-gray: #333;
 $medium-gray: #999;
 $blue-gray: #a7bace;
 $light-gray: #DDD;
+$medium-gray: #525252;
 $white: #f1f1f1;
 $light-red: #FBE3E4;
 $light-yellow: #FFF6BF;

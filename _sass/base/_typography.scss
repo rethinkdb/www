@@ -8,7 +8,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: $header-font-family;
-  font-weight: 200;
+  font-weight: 500;
   margin: 0;
   text-rendering: optimizeLegibility; // Fix the character spacing for headings
 }
@@ -133,18 +133,22 @@ p code {
 
 .main-headline {
   @include font-size-rem(28);
-  line-height: em(24);
+  font-family: $sans-serif-semi-bold;
+  font-weight: 600;
+  line-height: em(28);
 }
 
 .sub-headline {
   @include font-size-rem(16);
-  // font-family: $base-font-family;
+  font-family: $sans-serif-medium;
+  font-weight: 500;
   margin-bottom: $base-margin/3;
 }
 
 .section-headline {
-  @include font-size-rem(14);
-  font-family: $sans-serif-bold;
+  @include font-size-rem(12);
+  font-family: $sans-serif-semi-bold;
+  font-weight: 600;
   text-transform: uppercase;
 }
 
@@ -155,5 +159,6 @@ p code {
 }
 
 .emphasized {
-  font-family: $sans-serif-bold;
+  font-family: $sans-serif-semi-bold;
+  font-weight: 600;
 }

@@ -1,22 +1,30 @@
 // Typography
 ///////////////////////////////////////////////////////////////////////////////
 
-@include font-face(Regular, '../fonts/GothamRnd-Book');
-@include font-face(Bold, '../fonts/GothamRnd-Bold');
-@include font-face(Light, '../fonts/GothamRnd-Light');
-@include font-face(Italic, '../fonts/GothamRnd-Italic');
-@include font-face(Medium, '../fonts/GothamRnd-Medium');
-@include font-face(Slab, '../fonts/museo_slab_500-webfont');
+// @include font-face(Regular, '../fonts/GothamRnd-Book');
+// @include font-face(Bold, '../fonts/GothamRnd-Bold');
+// @include font-face(Light, '../fonts/GothamRnd-Light');
+// @include font-face(Italic, '../fonts/GothamRnd-Italic');
+// @include font-face(Medium, '../fonts/GothamRnd-Medium');
+// @include font-face(Slab, '../fonts/museo_slab_500-webfont');
 
-$sans-serif: Regular, 'Helvetica Neue', $helvetica, sans-serif;
-$sans-serif-light: Light, 'Helvetica Neue Light', $helvetica, sans-serif;
-$sans-serif-italic: Italic, 'Helvetica Neue Italic', $helvetica;
-$sans-serif-medium: Medium, 'Helvetica Neue Bold', $helvetica;
-$sans-serif-bold: Bold, 'Helvetica Neue Bold', $helvetica;
-$serif: Slab, $georgia;
+// $sans-serif: Regular, 'Helvetica Neue', $helvetica, sans-serif;
+// $sans-serif-light: Light, 'Helvetica Neue Light', $helvetica, sans-serif;
+// $sans-serif-italic: Italic, 'Helvetica Neue Italic', $helvetica;
+// $sans-serif-medium: Medium, 'Helvetica Neue Bold', $helvetica;
+// $sans-serif-bold: Bold, 'Helvetica Neue Bold', $helvetica;
+// $serif: Slab, $georgia;
+
+$sans-serif: "freight-sans-pro", sans-serif;
+$sans-serif-light: sans-serif;
+$sans-serif-italic: sans-serif;
+$sans-serif-medium: "freight-sans-pro-n5", "freight-sans-pro", sans-serif;
+$sans-serif-semi-bold: "freight-sans-pro-n6", "freight-sans-pro", sans-serif;
+$sans-serif-bold: "freight-sans-pro-n7", "freight-sans-pro", sans-serif;
+$serif: Georgia;
 
 $base-font-family: $sans-serif;
-$header-font-family: $serif;
+$header-font-family: $sans-serif-medium;
 
 // Sizes
 ///////////////////////////////////////////////////////////////////////////////

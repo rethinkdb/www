@@ -276,7 +276,7 @@ body.v3 {
 
   .sub-headline {
     color: $blue;
-    font-family: $sans-serif-medium;
+    font-family: $sans-serif-semi-bold;
     margin: em(5) 0;
   }
 
@@ -522,3 +522,217 @@ body.v4 {
     padding: em(50) 0;
   }
 }
+
+// Merge themes together, start of the final design
+
+body.v5 {
+  $teal: #3b9ea1;
+  $rust: #bd4b54;
+  $surf: #daedef;
+
+  .global-nav {
+    @include pad($base-padding/2 0);
+    background: $teal;
+
+    a {
+      @include font-size-rem(9);
+      color: desaturate(lighten($teal, 32), 25);
+      text-transform: uppercase;
+    }
+
+    .logo {
+      @include font-size-rem(7);
+      color: $sapphire;
+      text-transform: none;
+    }
+  }
+
+  a {
+    color: $teal;
+  }
+
+  .button {
+    @include pad($base-padding/2 $base-padding*2);
+    @include font-size-rem(9);
+    background: $rust;
+    border-color: transparent;
+    box-shadow: -1px 2px 0 darken($rust, 8);
+    color: #fff;
+    text-transform: uppercase;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  }
+
+  .landing {
+    background-color: $teal;
+    // border-top: 1px solid darken($teal, 2);
+    // @include radial-gradient(10% 90%, circle cover, saturate(#723a50, 2%) 2%, lighten(desaturate(#723a50, 8%), 10%),
+    // darken(saturate(#723a50, 2%), 8%));
+    // color: darken(desaturate($teal, 40), 15);
+    color: lighten($sapphire, 10);
+    margin: 0;
+  }
+
+  .hero {
+    // @include background(url('/assets/images/terminal.svg') 130% 25% no-repeat,
+    //   url('/assets/images/hero_background.svg') center top no-repeat);
+    // @include background(url('/assets/images/terminal.svg') 130% 25% no-repeat);
+    background-repeat: no-repeat;
+    background-position: 120% bottom;
+    background-size: 100% auto;
+    color: #fff;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+
+    .social-links {
+      @extend .element-pad;
+
+      li {
+        display: block;
+
+        a {
+          @include font-size-rem(8);
+          color: saturate(darken(#a1d6d2, 5), 15);
+          font-weight: 600;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+
+  .newsbanner, .examples, .offerings {
+    background: #fff;
+  }
+
+  .newsbanner {
+    @extend .content-pad;
+    padding-bottom: 0;
+  }
+
+  .example-list {
+    .example {
+      position: relative;
+    }
+
+    p {
+      @extend .left-align;
+      @include pad($base-padding/2);
+      @include position(absolute, 0 0 99% 0);
+      background: rgba(255,255,255, 0.4);
+      height: 25%;
+      z-index: 1;
+    }
+
+    .third.example p {
+      height: 40%;
+      width: 60%;
+    }
+  }
+
+  .offerings {
+    padding-bottom: $base-padding*14;
+
+    .sub-headline {
+      color: $rust;
+    }
+
+    p {
+      @include font-size-rem(12);
+    }
+
+    a {
+      display: block;
+    }
+
+    .half.content:nth-child(1n) {
+      padding-right: $base-padding*4;
+    }
+
+    .half.content:nth-child(2n) {
+      padding-left: $base-padding*2;
+      padding-right: $base-padding*2;
+    }
+  }
+
+  .dark {
+    background: darken($sapphire, 5);
+    // @include background-image(url('/assets/images/stars.svg'), transparent);
+    background-position: center 40%;
+    background-repeat: no-repeat;
+    color: $white;
+  }
+
+  .community {
+    background-color: $surf;
+    position: relative;
+
+    .events a {
+      color: $teal;
+      font-family: $sans-serif-semi-bold;
+      font-weight: 600;
+    }
+
+    .events .button.light {
+      background: $sky-blue;
+      border-color: darken($sky-blue, 10);
+      box-shadow: none;
+      color: $sapphire;
+    }
+  }
+
+  .callout {
+    @extend .center-align;
+    @include position(absolute, -140px 0 0 0);
+    // background: saturate(lighten($teal, 1), 1);
+    height: 270px;
+    margin-bottom: $base-margin*4;
+    text-shadow: 0 1px 1px darken(rgba(175, 102, 102, 0.5), 10);
+
+    .button {
+      @extend .light;
+      box-shadow: none;
+    }
+
+    .half {
+      @include pad($base-padding);
+    }
+  }
+
+  .support, .install-banner, .footer {
+    color: #fff;
+  }
+
+  .support {
+    background: $teal;
+
+    h1 {
+      display: inline-block;
+      margin-right: $base-margin;
+    }
+  }
+
+  .install-banner {
+    @extend .content-pad;
+    display: none;
+    margin: 0;
+
+    h2 {
+      @extend .element-pad;
+      background: saturate(darken(#af6666, 1), 6);
+      border-radius: $base-border-radius;
+      margin: 0 auto;
+      width: 75%
+    }
+  }
+
+  .footer {
+    @include background(url('/assets/images/thinker.png') 60% 120% no-repeat);
+    background-color: darken(#0b2d34, 4);
+    background-size: 800px auto;
+    padding-bottom: 250px;
+    font-weight: 500;
+
+    li {
+      @include font-size-rem(12);
+    }
+  }
+}
+

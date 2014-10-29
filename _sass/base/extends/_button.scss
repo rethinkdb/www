@@ -1,13 +1,12 @@
 %button {
-  // @include button(simple, $base-accent-color);
   @include inline-block;
-  // @include background-image(linear-gradient(transparent, $sapphire));
   background: $turquoise;
   background-clip: padding-box;
   border-radius: $base-border-radius;
   color: $white;
   font-family: $sans-serif-bold;
   font-size: $base-font-size;
+  font-weight: 700;
   text-shadow: none;
   padding: $base-padding/2 $base-padding;
 }
@@ -33,4 +32,3 @@
     background: $eggplant;
   }
 }
-

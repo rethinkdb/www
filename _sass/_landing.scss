@@ -527,7 +527,8 @@ body.v4 {
 
 body.v5 {
   $teal: #3b9ea1;
-  $rust: #bd4b54;
+  $cranberry: #bd4b54;
+  $sunshine: #ebb557;
   $surf: #daedef;
 
   .global-nav {
@@ -554,9 +555,9 @@ body.v5 {
   .button {
     @include pad($base-padding/2 $base-padding*2);
     @include font-size-rem(9);
-    background: $rust;
+    background: $cranberry;
     border-color: transparent;
-    box-shadow: -1px 2px 0 darken($rust, 8);
+    box-shadow: -1px 2px 0 darken($cranberry, 8);
     color: #fff;
     text-transform: uppercase;
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
@@ -631,7 +632,7 @@ body.v5 {
     padding-bottom: $base-padding*14;
 
     .sub-headline {
-      color: $rust;
+      color: $cranberry;
     }
 
     p {
@@ -701,6 +702,244 @@ body.v5 {
   }
 
   .support {
+    background: #09262c;
+
+    h1 {
+      display: inline-block;
+      margin-right: $base-margin;
+    }
+  }
+
+  .install-banner {
+    @extend .content-pad;
+    display: none;
+    margin: 0;
+
+    h2 {
+      @extend .element-pad;
+      background: saturate(darken(#af6666, 1), 6);
+      border-radius: $base-border-radius;
+      margin: 0 auto;
+      width: 75%
+    }
+  }
+
+  .footer {
+    @include background(url('/assets/images/thinker.png') 60% 120% no-repeat);
+    background-color: #071e23;
+    background-size: 800px auto;
+    padding-bottom: 250px;
+    font-weight: 500;
+
+    li {
+      @include font-size-rem(12);
+    }
+  }
+}
+
+body.v6 {
+  $teal: #5babb4;
+  $cranberry: #bd4b54;
+  $sunshine: #ebb557;
+  $surf: #daedef;
+
+  .global-nav {
+    @include pad($base-padding/2 0);
+    background: $teal;
+
+    a {
+      @include font-size-rem(9);
+      color: desaturate(lighten($teal, 32), 25);
+      text-transform: uppercase;
+    }
+
+    .logo {
+      @include font-size-rem(7);
+      color: #fff;
+      font-weight: 700;
+      text-transform: none;
+    }
+  }
+
+  a {
+    color: $teal;
+  }
+
+  .button {
+    @include pad($base-padding/2 $base-padding*2);
+    @include font-size-rem(9);
+    background: $cranberry;
+    border-color: transparent;
+    box-shadow: -1px 2px 0 darken($cranberry, 8);
+    color: #fff;
+    text-transform: uppercase;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  }
+
+  .landing {
+    background-color: $teal;
+    color: lighten($sapphire, 10);
+    margin: 0;
+  }
+
+  .hero {
+    color: #fff;
+    padding-top: 0.5em;
+    position: relative;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+
+    .button {
+      background: $sunshine;
+      box-shadow: -1px 2px 0 darken($sunshine, 8);
+    }
+
+    .social-links {
+      @extend .element-pad;
+      visibility: hidden;
+
+      li {
+        display: block;
+
+        a {
+          @include font-size-rem(8);
+          color: saturate(darken(#a1d6d2, 5), 15);
+          font-weight: 600;
+          text-transform: uppercase;
+        }
+      }
+    }
+
+    .main-headline {
+      padding-right: 1em;
+      font-weight: 400;
+      line-height: 1.25em;
+    }
+
+    .sub-headline {
+      display: none;
+    }
+  }
+
+  .illustration {
+    display: block !important;
+    position: absolute;
+    width: 100%;
+
+    .hero-ui {
+      @include position(absolute, 56px 0 0 560px);
+      clip: rect(0, 545px, 475px, 0);
+      opacity: 0.7;
+    }
+
+    .hero-terminal {
+      @include position(absolute, 280px 0 0 0px);
+      box-shadow: 2px 3px 8px rgba(0,0,0,0.2);
+    }
+  }
+
+  .newsbanner, .examples, .offerings {
+    background: #fff;
+  }
+
+  .newsbanner {
+    @extend .content-pad;
+    margin-top: 60px;
+    padding-bottom: 0;
+    padding-top: 150px;
+  }
+
+  .example-list {
+    .example {
+      position: relative;
+    }
+
+    p {
+      @extend .left-align;
+      @include pad($base-padding/2);
+      @include position(absolute, 0 0 99% 0);
+      background: rgba(255,255,255, 0.4);
+      height: 25%;
+      z-index: 1;
+    }
+
+    .third.example p {
+      height: 40%;
+      width: 60%;
+    }
+  }
+
+  .offerings {
+    padding-bottom: $base-padding*14;
+
+    .sub-headline {
+      color: $cranberry;
+    }
+
+    p {
+      @include font-size-rem(12);
+    }
+
+    a {
+      display: block;
+    }
+
+    .half.content:nth-child(1n) {
+      padding-right: $base-padding*4;
+    }
+
+    .half.content:nth-child(2n) {
+      padding-left: $base-padding*2;
+      padding-right: $base-padding*2;
+    }
+  }
+
+  .dark {
+    background: darken($sapphire, 5);
+    background-position: center 40%;
+    background-repeat: no-repeat;
+    color: $white;
+  }
+
+  .community {
+    background-color: $surf;
+    position: relative;
+
+    .events a {
+      color: $teal;
+      font-family: $sans-serif-semi-bold;
+      font-weight: 600;
+    }
+
+    .events .button.light {
+      background: $sky-blue;
+      border-color: darken($sky-blue, 10);
+      box-shadow: none;
+      color: $sapphire;
+    }
+  }
+
+  .callout {
+    @extend .center-align;
+    @include position(absolute, -140px 0 0 0);
+    height: 270px;
+    margin-bottom: $base-margin*4;
+    text-shadow: 0 1px 1px darken(rgba(175, 102, 102, 0.5), 10);
+
+    .button {
+      @extend .light;
+      box-shadow: none;
+    }
+
+    .half {
+      @include pad($base-padding);
+    }
+  }
+
+  .support, .install-banner, .footer {
+    color: #fff;
+  }
+
+  .support {
     background: $teal;
 
     h1 {
@@ -725,7 +964,7 @@ body.v5 {
 
   .footer {
     @include background(url('/assets/images/thinker.png') 60% 120% no-repeat);
-    background-color: darken(#0b2d34, 4);
+    background-color: darken($teal, 40);
     background-size: 800px auto;
     padding-bottom: 250px;
     font-weight: 500;

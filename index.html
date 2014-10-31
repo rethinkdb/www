@@ -1,6 +1,6 @@
 ---
 layout: default
-body_class: index
+body_class: index v1
 ---
 <div class="landing">
     <!-- hero -->
@@ -9,8 +9,10 @@ body_class: index
             <h3 class="main-headline">The first database for the realtime web</h3>
             <div class="install-container element-pad">
                 <a class="button light" href="/">Install</a>
-                <a class="button light" href="/">Learn more</a>
+                <a class="button light outlined" href="/">Learn more</a>
             </div>
+
+            <p class="rethinkdb-release">Release v1.15.1 (<a href="#">Lawrence of Arabia</a>)</p>
 
             <ul class="social-links inline">
                 <li><a class="icon twitter small" href="/"><i class="small"></i>Follow on Twitter</a></li>
@@ -18,6 +20,11 @@ body_class: index
             </ul>
         </div>
         <div class="illustration" style="display: none;">
+            <div class="hero-map"></div>
+            <div class="hero-terminal-minimal">
+                <p>&gt;&gt;&gt; r.<span class="terminal-term">db</span>(<span class="terminal-str">'instagram'</span>).<span class="terminal-term">table</span>(<span class="terminal-str">'cat_photos'</span>).<span class="terminal-term">changes()</span></p> 
+                <div class="terminal-cursor"></div>
+            </div>
             <img class="hero-ui" src="assets/images/hero-ui.png">
             <img class="hero-terminal" src="assets/images/hero-terminal.png">
         </div>

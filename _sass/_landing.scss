@@ -221,7 +221,7 @@ body.v1 {
     }
 
     p {
-      @include font-size-rem(12);
+      @include font-size-rem(11);
     }
 
     a {
@@ -235,6 +235,19 @@ body.v1 {
     .half.content:nth-child(2n) {
       padding-left: $base-padding*2;
       padding-right: $base-padding*2;
+    }
+
+    .features li {
+        @include font-size-rem(11);
+        list-style-type: disc;
+        margin-left: 40px;
+        color: #888;
+        padding-left: 10px;
+    }
+    .learn-more {
+        @include font-size-rem(11);
+        margin-top: 40px;
+
     }
   }
 

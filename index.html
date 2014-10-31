@@ -6,7 +6,8 @@ body_class: index v1
     <!-- hero -->
     <div class="hero outer-container section-pad">
         <div class="hero-content half content-pad">
-            <h3 class="main-headline">The first database for the realtime web</h3>
+            <h3 class="main-headline">The database for the realtime web</h3>
+            <h4>A fundamental building block for modern, realtime, reactive applications.</h4>
             <div class="install-container element-pad">
                 <a class="button light" href="/">Install</a>
                 <a class="button light outlined" href="/">Learn more</a>
@@ -63,12 +64,12 @@ body_class: index v1
         <div class="outer-container">
             <div class="half content">
                 <h4 class="sub-headline">Event-driven architecture</h4>
-                <p>Polling is obsolete. Get a firehose of changes from your database, or realtime incremental updates to query results.</p>
-                <ul class="features outer-container">
-                    <li>Get realtime updates on all changes to your data.</li>
-                    <li>Incremental query results and aggregations.</li>
-                    <li>Filter and transform realtime streams of data.</li>
-                </ul>
+                <p>Polling is obsolete. Build realtime dashboards, leaderboards, and widgets with incremental updates to query results:</p>
+                <code>r.table('games').max('score').limit(10).changes()</code>
+                <p>Create reactive experiences by subscribing to user events in realtime:</p>
+                <code>r.table('games').filter({'user_id': 123}).changes()</code>
+                <p>Or get a firehose of changes from your database:</p>
+                <code>r.table('games').changes()</code>
                 <a class="learn-more" href="#">Learn more &rarr;</a>
             </div>
             <div class="half">
@@ -80,27 +81,20 @@ body_class: index v1
                 <img src="http://placehold.it/700x440">
             </div>
             <div class="half content">
-                <h4 class="sub-headline">Everything you need to build great apps</h4> <!-- Complete development environment? -->
-                <p>Store and query JSON documents with very little effort. Use a pleasant query language that supports queries like table joins and group by, and is easy to learn.</p>
-                <ul class="features outer-container">
-                    <li>JSON data model and immediate consistency.</li>
-                    <li>Distributed joins, subqueries, aggregation, atomic updates.</li>
-                    <li>Secondary, compound, geospatial, and arbitrarily computed indexes.</li>
-                    <li>Hadoop-style map/reduce.</li>
-                </ul>
+                <h4 class="sub-headline">All the building blocks for great apps</h4>
+                <p>Store, index, query, and modify JSON documents. Structure data your way with distributed joins. Build location-aware apps with geospatial queries and store multimedia with binary data support. Run analytics with Hadoop-style map/reduce.</p>
                 <a class="learn-more" href="#">Learn more &rarr;</a>
             </div>
         </div>
         <div class="outer-container">
             <div class="half content">
                 <h4 class="sub-headline">Hassle-free operation at scale</h4>
-                <p>Scale to multiple machines with very little effort. Use convenient API to shard and replicate in seconds, and have complete control of your cluster.</p>
-                <ul class="features outer-container">
-                    <li>Simple cluster management, monitoring, and job control API.</li>
-                    <li>Friendly web and command-line administration tools.</li>
-                    <li>Sharding and replication to multiple nodes.</li>
-                    <li>Queries are automatically parallelized and distributed.</li>
-                </ul>
+                <p>Scale to multiple machines with a simple API:</p>
+                <code>r.table('games').configure(shards=5, replicas=3)</code>
+                <p>Precise control of your cluster when you need it:</p>
+                <code>r.table('games').table_status()</code>
+                <p>Complete visibility into your cluster with detailed monitoring tools:</p>
+                <code>r.db('system').table('jobs').changes()</code>
                 <a class="learn-more" href="#">Learn more &rarr;</a>
             </div>
             <div class="half">

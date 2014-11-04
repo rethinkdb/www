@@ -1,17 +1,8 @@
-$form-border-color: $base-border-color;
-$form-border-color-hover: darken($base-border-color, 10);
-$form-border-color-focus: $base-accent-color;
-$form-border-radius: $base-border-radius;
-$form-box-shadow: inset 0 1px 3px hsla(0, 0%, 0%, 0.06);
-$form-box-shadow-focus: $form-box-shadow, 0 0 5px rgba(darken($form-border-color-focus, 5), 0.7);
-$form-font-size: $base-font-size;
-$form-font-family: $base-font-family;
-
 fieldset {
   background: lighten($base-border-color, 10);
-  border: 1px solid $base-border-color;
-  margin: 0 0 ($base-line-height / 2) 0;
-  padding: $base-line-height;
+  border: $base-border;
+  margin: 0 0 ($base-spacing / 2) 0;
+  padding: $base-spacing;
 }
 
 input,
@@ -24,7 +15,7 @@ select {
 
 label {
   font-weight: bold;
-  margin-bottom: $base-line-height / 4;
+  margin-bottom: $base-spacing / 4;
 
   &.required:after {
     content: "*";
@@ -36,24 +27,19 @@ label {
 }
 
 textarea,
-#{$all-text-inputs} {
+#{$all-text-inputs},
+select[multiple=multiple] {
   @include box-sizing(border-box);
   @include transition(border-color);
-  background-color: rgba(255, 255,255,0.5);
+  background-color: white;
   border-radius: $form-border-radius;
   border: 1px solid $form-border-color;
   box-shadow: $form-box-shadow;
   font-family: $form-font-family;
   font-size: $form-font-size;
-  // margin-bottom: $base-line-height / 2;
-  padding: $base-padding/2 $base-padding;
-  // padding: ($base-line-height / 3) ($base-line-height / 3);
-  resize: vertical;
+  margin-bottom: $base-spacing / 2;
+  padding: ($base-spacing / 3) ($base-spacing / 3);
   width: 100%;
-
-  @include placeholder {
-    color: desaturate(lighten($eggplant, 5), 10);
-  }
 
   &:hover {
     border-color: $form-border-color-hover;
@@ -66,64 +52,27 @@ textarea,
   }
 }
 
+textarea {
+  resize: vertical;
+}
+
 input[type="search"] {
   @include appearance(none);
 }
 
-input[type="checkbox"], input[type="radio"] {
+input[type="checkbox"],
+input[type="radio"] {
   display: inline;
-  margin-right: $base-line-height / 4;
+  margin-right: $base-spacing / 4;
 }
 
 input[type="file"] {
+  padding-bottom: $base-spacing / 2;
   width: 100%;
 }
 
 select {
+  margin-bottom: $base-spacing;
+  max-width: 100%;
   width: auto;
-  margin-bottom: $base-line-height;
-}
-
-button,
-input[type="submit"] {
-  @extend %button;
-  @include appearance(none);
-  cursor: pointer;
-  user-select: none;
-  vertical-align: middle;
-  white-space: nowrap;
-}
-
-//Overrides/Helpers
-.inline-input {
-  width: 100%;
-
-  #{$all-text-inputs},
-  button,
-  input[type="submit"] {
-    display: block;
-    float: left;
-    width: auto;
-  }
-
-  #{$all-text-inputs} {
-    border-radius: $base-border-radius 0 0 $base-border-radius;
-  }
-
-  button,
-  input[type="submit"] {
-    border-radius: 0 $base-border-radius $base-border-radius 0;
-  }
-}
-
-// Input sizes
-.small
-.inline.input input.small {
-  width: 25%;
-}
-
-.medium,
-.inline-input input.medium,
-.inline-input button.medium {
-  width: 50%;
 }

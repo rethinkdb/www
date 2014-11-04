@@ -1,73 +1,65 @@
 // Typography
-///////////////////////////////////////////////////////////////////////////////
-
-// @include font-face(Regular, '../fonts/GothamRnd-Book');
-// @include font-face(Bold, '../fonts/GothamRnd-Bold');
-// @include font-face(Light, '../fonts/GothamRnd-Light');
-// @include font-face(Italic, '../fonts/GothamRnd-Italic');
-// @include font-face(Medium, '../fonts/GothamRnd-Medium');
-// @include font-face(Slab, '../fonts/museo_slab_500-webfont');
-
-// $sans-serif: Regular, 'Helvetica Neue', $helvetica, sans-serif;
-// $sans-serif-light: Light, 'Helvetica Neue Light', $helvetica, sans-serif;
-// $sans-serif-italic: Italic, 'Helvetica Neue Italic', $helvetica;
-// $sans-serif-medium: Medium, 'Helvetica Neue Bold', $helvetica;
-// $sans-serif-bold: Bold, 'Helvetica Neue Bold', $helvetica;
-// $serif: Slab, $georgia;
-
-$sans-serif: "freight-sans-pro", sans-serif;
-$sans-serif-light: sans-serif;
-$sans-serif-italic: sans-serif;
-$sans-serif-medium: "freight-sans-pro-n5", "freight-sans-pro", sans-serif;
-$sans-serif-semi-bold: "freight-sans-pro-n6", "freight-sans-pro", sans-serif;
-$sans-serif-bold: "freight-sans-pro-n7", "freight-sans-pro", sans-serif;
-$serif: Georgia;
-
+$sans-serif: $helvetica;
+$serif: $georgia;
 $base-font-family: $sans-serif;
-$header-font-family: $sans-serif-medium;
+$header-font-family: $base-font-family;
 
-// Sizes
-///////////////////////////////////////////////////////////////////////////////
-$base-font-size: em(16);
-$base-line-height: $base-font-size * 1.5;
-$base-border-radius: em(3);
-$base-padding: em(20);
-$base-margin: em(20);
+// Font Sizes
+$base-font-size: 1em;
+$h1-font-size: $base-font-size * 2.25;
+$h2-font-size: $base-font-size * 2;
+$h3-font-size: $base-font-size * 1.75;
+$h4-font-size: $base-font-size * 1.5;
+$h5-font-size: $base-font-size * 1.25;
+$h6-font-size: $base-font-size;
+
+// Line height
+$base-line-height: 1.5;
+$header-line-height: 1.25;
+
+// Other Sizes
+$base-border-radius: 3px;
+$base-spacing: $base-line-height * 1em;
+$base-z-index: 0;
 
 // Colors
-///////////////////////////////////////////////////////////////////////////////
-
-$eggplant: #584461;
-$blue: #27728b;
-$sapphire: #2c3845;
-$sky-blue: #ccf3e9;
-$turquoise: #328685;
+$blue: #477DCA;
 $dark-gray: #333;
 $medium-gray: #999;
-$blue-gray: #a7bace;
 $light-gray: #DDD;
-$medium-gray: #525252;
-$white: #f1f1f1;
 $light-red: #FBE3E4;
 $light-yellow: #FFF6BF;
-$goldenrod: #d6ad27;
 $light-green: #E6EFC2;
 
-// Body Color
-$base-body-color: white;
+// Background Color
+$base-background-color: white;
 
-//  Font Colors
+// Font Colors
 $base-font-color: $dark-gray;
-$base-accent-color: $sky-blue;
+$base-accent-color: $blue;
 
-//  Text Link Colors
+// Link Colors
 $base-link-color: $base-accent-color;
 $hover-link-color: darken($base-accent-color, 15);
+$base-button-color: $base-link-color;
+$hover-button-color: $hover-link-color;
+
+// Flash Colors
+$alert-color: $light-yellow;
+$error-color: $light-red;
+$notice-color: lighten($base-accent-color, 40);
+$success-color: $light-green;
 
 // Border color
 $base-border-color: $light-gray;
+$base-border: 1px solid $base-border-color;
 
-// Flash Colors
-$error-color: $light-red;
-$notice-color: $light-yellow;
-$success-color: $light-green;
+// Forms
+$form-border-color: $base-border-color;
+$form-border-color-hover: darken($base-border-color, 10);
+$form-border-color-focus: $base-accent-color;
+$form-border-radius: $base-border-radius;
+$form-box-shadow: inset 0 1px 3px rgba(black,0.06);
+$form-box-shadow-focus: $form-box-shadow, 0 0 5px rgba(darken($form-border-color-focus, 5), 0.7);
+$form-font-size: $base-font-size;
+$form-font-family: $base-font-family;

@@ -5,9 +5,9 @@ body_class: index v1
 <div class="landing">
     <!-- hero -->
     <div class="hero outer-container section-pad">
+        <img class="hero-map" src="/assets/images/map-scan3.png">
         <div class="hero-content half content-pad">
-            <h3 class="main-headline">The database for the realtime web</h3>
-            <h4>A fundamental building block for modern, realtime, reactive applications.</h4>
+            <h3 class="main-headline">The open source database for the realtime web.</h3>
             <div class="install-container element-pad">
                 <a class="button light" href="/">Install</a>
                 <a class="button light outlined" href="/">Learn more</a>
@@ -20,14 +20,9 @@ body_class: index v1
                 <li><a class="icon star small" href="/"><i class="small"></i># GitHub followers</a></li>
             </ul>
         </div>
-        <div class="illustration" style="display: none;">
-            <div class="hero-map"></div>
-            <div class="hero-terminal-minimal">
-                <p>&gt;&gt;&gt; r.<span class="terminal-term">db</span>(<span class="terminal-str">'instagram'</span>).<span class="terminal-term">table</span>(<span class="terminal-str">'cat_photos'</span>).<span class="terminal-term">changes()</span></p> 
-                <div class="terminal-cursor"></div>
-            </div>
-            <img class="hero-ui" src="assets/images/hero-ui.png">
-            <img class="hero-terminal" src="assets/images/hero-terminal.png">
+        <div class="hero-terminal-minimal">
+            <p>&gt;&gt;&gt; r.<span class="terminal-term">db</span>(<span class="terminal-str">'instagram'</span>).<span class="terminal-term">table</span>(<span class="terminal-str">'cat_photos'</span>).<span class="terminal-term">changes()</span></p> 
+            <div class="terminal-cursor"></div>
         </div>
     </div>
     <!-- news banner -->
@@ -42,8 +37,8 @@ body_class: index v1
             <div class="half">
                 <div class="outer-container">
                     <div class="inline-input joined">
-                        <input class="medium" type="text" placeholder="Your email address" type="text">
                         <button class="button light medium" type="submit">Subscribe</button>
+                        <input class="medium" type="text" placeholder="Your email address" type="text">
                     </div>
                 </div>
             </div>
@@ -51,54 +46,123 @@ body_class: index v1
     </div>
 
     <!-- examples -->
+    <div class="examples">
+        <div class="example-list center-align container">
+            <h2>A fundamental building block for modern, realtime, apps.</h2>
+            <div class="example example-1 example-earthquake-map">
+                <p>Location-aware apps</p>
+            </div>
+            <div class="example example-2 example-docker-dokku">
+                <p>Realtime analytics</p>
+            </div>
+            <div class="example example-3 example-beerthink">
+                <p>Click tracking</p>
+            </div>
+            <div class="example example-4 example-beerthink">
+                <p>Click tracking</p>
+            </div>
+        </div>
+    </div>
+    <!--
+    <div class="examples">
+        <div class="example-list center-align container">
+            <div class="example example-1 example-earthquake-map">
+                <p>Building an earthquake map with RethinkDB and GeoJSON</p>
+            </div>
+            <div class="example example-2 example-docker-dokku">
+                <p>Deploying apps with Docker on Dokku</p>
+            </div>
+            <div class="example example-3 example-beerthink">
+                <p>BeerThink: infinite scrolling in a mobile app</p>
+            </div>
+            <div class="example example-4 example-cats-of-instagram">
+                <p>Cats of Instagram</p>
+            </div>
+        </div>
+    </div>
+    -->
+    <!--
+    <div class="examples">
+        <div class="example-list center-align container">
+            <div class="example-container-x">
+                <div class="example example-left example-earthquake-map">
+                    <p>Building an earthquake map with RethinkDB and GeoJSON</p>
+                    <img src="/assets/images/examples/earthquake-map.png">
+                </div>
+                <div class="example-container-x example-right">
+                    <div class="example example-docker-dokku">
+                        <p>Deploying apps with Docker on Dokku</p>
+                        <img src="/assets/images/examples/dokku.png">
+                    </div>
+                </div>
+                <div class="example-container-y example-left">
+                    <div class="example example-beerthink">
+                        <p>BeerThink: infinite scrolling in a mobile app</p>
+                        <img src="/assets/images/examples/beerthink.png">
+                    </div>
+                    <div class="example example-cats-of-instagram">
+                        <p>Cats of Instagram</p>
+                        <img src="/assets/images/examples/cats-of-instagram.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    -->
+    <!--
     <div class="examples full-width content-pad">
-        <h3 class="element-pad center-align">Build realtime apps</h3>
-        <div class="example-list center-align element-pad outer-container">
+        <div class="example-list center-align outer-container">
             <div class="example">
                 <img src="assets/images/examples/all.png" alt="Placeholder examples">
             </div>
         </div>
-    </div>
+        </div>-->
     <!-- features -->
-    <div class="offerings section-pad full-width">
-        <div class="outer-container">
-            <div class="half content">
-                <h4 class="sub-headline">Event-driven architecture</h4>
-                <p>Polling is obsolete. Build realtime dashboards, leaderboards, and widgets with incremental updates to query results:</p>
-                <code>r.table('games').max('score').limit(10).changes()</code>
-                <p>Create reactive experiences by subscribing to user events in realtime:</p>
-                <code>r.table('games').filter({'user_id': 123}).changes()</code>
-                <p>Or get a firehose of changes from your database:</p>
-                <code>r.table('games').changes()</code>
-                <a class="learn-more" href="#">Learn more &rarr;</a>
-            </div>
-            <div class="half">
-                <img src="http://placehold.it/700x440">
-            </div>
-        </div>
-        <div class="outer-container section-pad">
-            <div class="half">
-                <img src="http://placehold.it/700x440">
-            </div>
-            <div class="half content">
-                <h4 class="sub-headline">All the building blocks for great apps</h4>
-                <p>Store, index, query, and modify JSON documents. Structure data your way with distributed joins. Build location-aware apps with geospatial queries and store multimedia with binary data support. Run analytics with Hadoop-style map/reduce.</p>
-                <a class="learn-more" href="#">Learn more &rarr;</a>
+    <div class="offerings">
+        <div class="offering section-pad full-width">
+            <div class="outer-container">
+                <div class="half content">
+                    <h4 class="sub-headline">Event-driven architecture</h4>
+                    <p>Polling is obsolete. Build realtime dashboards, leaderboards, and widgets with incremental updates to query results:</p>
+                    <code>&gt; r.<span class="term">table</span>(<span class="str">'games'</span>).<span class="term">max</span>(<span class="str">'score'</span>).<span class="term">limit</span>(<span class="num">10</span>).<span class="term">changes</span>()</code>
+                    <p>Create reactive experiences by subscribing to user events in realtime:</p>
+                    <code>&gt; r.<span class="term">table</span>(<span class="str">'games'</span>).<span class="term">filter</span>({<span class="str">'user_id'</span>: <span class="num">123</span>}).<span class="term">changes</span>()</code>
+                    <p>Or get a firehose of changes from your database:</p>
+                    <code>&gt; r.<span class="term">table</span>(<span class="str">'games'</span>).<span class="term">changes</span>()</code>
+                    <a class="learn-more" href="#">Learn more &rarr;</a>
+                </div>
+                <div class="half">
+                    <img class="offset" src="/assets/images/landing-offerings_@2x.png">
+                </div>
             </div>
         </div>
-        <div class="outer-container">
-            <div class="half content">
-                <h4 class="sub-headline">Hassle-free operation at scale</h4>
-                <p>Scale to multiple machines with a simple API:</p>
-                <code>r.table('games').configure(shards=5, replicas=3)</code>
-                <p>Precise control of your cluster when you need it:</p>
-                <code>r.table('games').table_status()</code>
-                <p>Complete visibility into your cluster with detailed monitoring tools:</p>
-                <code>r.db('system').table('jobs').changes()</code>
-                <a class="learn-more" href="#">Learn more &rarr;</a>
+        <div class="offering section-pad full-width highlighted">
+            <div class="outer-container">
+                <div class="half">
+                    <img src="http://placehold.it/700x440">
+                </div>
+                <div class="half content">
+                    <h4 class="sub-headline">All the building blocks for great apps</h4>
+                    <p>Store, index, query, and modify JSON documents. Structure data your way with distributed joins. Build location-aware apps with geospatial queries and store multimedia with binary data support. Run analytics with Hadoop-style map/reduce.</p>
+                    <a class="learn-more" href="#">Learn more &rarr;</a>
+                </div>
             </div>
-            <div class="half">
-                <img src="http://placehold.it/700x440">
+        </div>
+        <div class="offering section-pad full-width">
+            <div class="outer-container">
+                <div class="half content">
+                    <h4 class="sub-headline">Hassle-free operation at scale</h4>
+                    <p>Scale to multiple machines with a simple API:</p>
+                    <code>r.table('games').configure(shards=5, replicas=3)</code>
+                    <p>Precise control of your cluster when you need it:</p>
+                    <code>r.table('games').table_status()</code>
+                    <p>Complete visibility into your cluster with detailed monitoring tools:</p>
+                    <code>r.db('system').table('jobs').changes()</code>
+                    <a class="learn-more" href="#">Learn more &rarr;</a>
+                </div>
+                <div class="half">
+                    <img src="http://placehold.it/700x440">
+                </div>
             </div>
         </div>
     </div>

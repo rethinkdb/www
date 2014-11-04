@@ -1,3 +1,9 @@
+/* colors */
+$teal: #1A424C;
+$cranberry: #C5586D;
+$sunshine: #ebb557;
+$surf: #D9E6E5;
+
 html {
   min-height: 100%;
 }
@@ -8,21 +14,19 @@ html, body {
 
 .logo {
   @include font-size-rem(6);
+  h1 {
+    font-family: 'Copse';
+    }
 }
 
-body.v1 {
-  $teal: #59AFB6;
-  $cranberry: #C5586D;
-  $sunshine: #ebb557;
-  $surf: #daedef;
-
+.v1, .v2 {
   .global-nav {
     @include pad($base-padding/2 0);
     background: $teal;
 
     a {
       @include font-size-rem(9);
-      color: desaturate(lighten($teal, 32), 25);
+      color: desaturate(lighten($teal, 37), 25);
       text-transform: uppercase;
     }
 
@@ -39,14 +43,14 @@ body.v1 {
   }
 
   .button {
-    @include pad($base-padding/2 $base-padding*2);
-    @include font-size-rem(9);
+    @include pad($base-padding/3 $base-padding*2);
+    @include font-size-rem(12);
+    font-weight: 500;
     background: $cranberry;
     border-color: transparent;
     box-shadow: -1px 2px 0 darken($cranberry, 8);
     color: #fff;
-    text-transform: uppercase;
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
   }
 
   .landing {
@@ -60,6 +64,7 @@ body.v1 {
     padding-top: 0.5em;
     position: relative;
     text-shadow: 0 1px 2px darken(rgba(104, 169, 177, 0.3), 20);
+    padding-bottom: 100px !important;
 
     .rethinkdb-release {
         @include font-size-rem(11); 
@@ -80,9 +85,9 @@ body.v1 {
 
     .button.outlined {
         background: transparent;
-        border: 2px solid $cranberry;
+        border: 1px solid rgba(255,255,255,0.4);
         box-shadow: none;
-        border-radius: 4px;
+        border-radius: 5px;
     }
 
     .social-links {
@@ -103,19 +108,72 @@ body.v1 {
     }
 
     .main-headline {
-      padding-right: 1em;
-      font-weight: 400;
-      line-height: 1.25em;
+      padding-right: 1rem;
+      font-weight: 200;
+      line-height: 3.1rem;
+      margin-bottom: 1.75rem;
     }
 
     .sub-headline {
-      display: none;
+      line-height: 2rem;
+      padding-right: 1rem;
     }
 
     .install-container {
-        margin-top: 40px;
+        margin-top: 100px;
         padding-bottom: 20px;
     }   
+  }
+
+  .hero-map {
+      position: absolute;
+      height: 408px;
+      width: 624px;
+      right: 0;
+      top: 20px;
+  }
+  // Not using this currently, remove this class if we end up not using it
+  .hero-terminal-minimal {
+      display: none; // TODO this class is hidden for now
+      &:before {
+          $_height: 18px;
+          $_radius: 5px;
+          content: "";
+          display: block;
+          position: relative;
+          height: $_height;
+          top: -$_height;
+          background: #CFE4E2;
+          border-top-left-radius: $_radius;
+          border-top-right-radius: $_radius;
+      }
+      background: #324753;
+      position: absolute;
+      top: 380px;
+      left: 125px;
+      width: 800px;
+      height: 63px;
+      p {
+          @include font-size-rem(12);
+          font-family: 'Inconsolata';
+          margin-left: 1.5em;
+          .terminal-str { color: #FCDE98;}
+          .terminal-term { color: #E79288;}
+          display: inline-block;
+      }
+      .terminal-cursor {
+          @include keyframes(flicker) {
+              0% { opacity: 0.8; }
+              50% { opacity: 0; }
+              100% { opacity: 0.8; }
+          }
+          display: inline-block;
+          height: 1.2em;
+          width: 0.7em;
+          margin-left: 0.3em;
+          background-color: #CFE4E2;
+          @include animation(flicker 1.5s infinite);
+      }
   }
 
   .illustration {
@@ -123,63 +181,6 @@ body.v1 {
     position: absolute;
     width: 100%;
 
-    .hero-map {
-        background: url('/assets/images/map.svg');
-        background-repeat: no-repeat;
-        background-size: 600px 330px;
-        height: 330px;
-        width: 600px;
-        position: absolute;
-        right: -65px;
-        top: 20px;
-        opacity: 0.2;
-    }
-
-    .hero-terminal, .hero-ui {
-         display: none;
-    }
-
-    .hero-terminal-minimal {
-        &:before {
-            $_height: 18px;
-            $_radius: 5px;
-            content: "";
-            display: block;
-            position: relative;
-            height: $_height;
-            top: -$_height;
-            background: #CFE4E2;
-            border-top-left-radius: $_radius;
-            border-top-right-radius: $_radius;
-        }
-        background: #324753;
-        position: absolute;
-        top: 380px;
-        left: 125px;
-        width: 800px;
-        height: 63px;
-        p {
-            @include font-size-rem(12);
-            font-family: 'Source Code Pro';
-            margin-left: 1.5em;
-            .terminal-str { color: #FCDE98;}
-            .terminal-term { color: #E79288;}
-            display: inline-block;
-        }
-        .terminal-cursor {
-            @include keyframes(flicker) {
-                0% { opacity: 0.8; }
-                50% { opacity: 0; }
-                100% { opacity: 0.8; }
-            }
-            display: inline-block;
-            height: 1.2em;
-            width: 0.7em;
-            margin-left: 0.3em;
-            background-color: #CFE4E2;
-            @include animation(flicker 1.5s infinite);
-        }
-    }
   }
 
   .newsbanner, .examples, .offerings {
@@ -187,44 +188,74 @@ body.v1 {
   }
 
   .newsbanner {
-    @extend .content-pad;
-    margin-top: 60px;
-    padding-bottom: 0;
     background: $surf;
-  }
-
-  .example-list {
-    .example {
-      position: relative;
+    .callout-txt {
+    @include font-size-rem(12);
+        line-height: 2.5rem;
     }
-
-    p {
-      @extend .left-align;
-      @include pad($base-padding/2);
-      @include position(absolute, 0 0 99% 0);
-      background: rgba(255,255,255, 0.4);
-      height: 25%;
-      z-index: 1;
+    .container {
+        padding: 0.5em 0;
     }
-
-    .third.example p {
-      height: 40%;
-      width: 60%;
+    .inline-input.joined {
+        button {
+            width: auto;
+        }
+        input, button {
+            float: right;
+        }
     }
   }
 
-  .offerings {
-    padding-bottom: $base-padding*14;
+  .offering {
+    overflow: hidden;
+    .outer-container { position: relative; }
+
+    img.offset {
+        position: absolute;
+        right: -21em;
+        top: -4em;
+        max-width: 50em;
+    }
+
+    &:last-child {
+        padding-bottom: $base-padding*14;
+    }
+
+    &.highlighted {
+        background: #eee;
+    }
 
     .sub-headline {
-      color: $cranberry;
+      color: darken($teal, 20);//$cranberry;
+      font-weight: 200;
+      @include font-size-rem(20);
     }
 
     p {
       @include font-size-rem(11);
+      line-height: 1.6rem;
     }
 
     a {
+      display: block;
+    }
+
+    code {
+      //background: #F4F4F4;
+      color: #2D4654;
+      @include font-size-rem(12);
+      font-family: 'Inconsolata';
+      /*
+      .str { color: darken(#FCDE98, 30); }
+      .term { color: darken(#E79288, 30); }
+      .num { color: darken(#6DBDB7, 30); }
+      */
+
+      .str { color: $teal; }
+      .term { color: $cranberry; }
+      .num { color: darken(#6DBDB7,1); }
+      padding-bottom: 1rem;
+      font-size: 1rem;
       display: block;
     }
 
@@ -245,7 +276,7 @@ body.v1 {
         padding-left: 10px;
     }
     .learn-more {
-        @include font-size-rem(11);
+        @include font-size-rem(12);
         margin-top: 40px;
 
     }
@@ -332,3 +363,91 @@ body.v1 {
     }
   }
 }
+
+.v1 .examples {
+    padding: 2rem 0;
+    .example-list { padding: 0; }
+    background: #FBFBF9;
+    h2 {
+        margin-bottom: 2rem;
+    }
+    .example {
+        float: left;
+        position: relative;
+        width: 25%;
+        p {
+            $_border-color: #E2DFDF;
+            @include font-size-rem(14);
+            border: 1px solid $_border-color;
+            border-radius: 8px;
+            color: darken($teal, 20);
+            font-weight: 400;
+            height: 250px;
+            margin: 0 1rem;
+            max-width: 100%;
+            padding-top: 1rem;
+            box-shadow: 1px 1px 8px darken(rgba(251,251,249,0.1), 20);
+        }
+        &:first-child p { margin-left: 0; }
+        &:last-child p { margin-right: 0; }
+    }
+}
+
+.v2 .example-list {
+    position: relative;
+    padding: 0;
+    $_height: 300px;
+    .example {
+        float: left;
+        position: relative;
+        border: 1px solid #d7d7d7;
+        p {
+            position: absolute;
+            top: 0;            
+            width: 200px;
+            background: darken($teal, 35);
+            color: #fff;
+            font-weight: 600;
+            opacity: 0.95;
+            @include font-size-rem(12);
+            z-index: 10;
+            padding: 0.7rem 1rem;
+            text-align: left;
+        }
+        &:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,0.3);
+        }
+    }
+    .example-1 {
+        width: 40%;
+        height: $_height;
+        background-image: url('/assets/images/examples/earthquake-map.png');
+        background-clip: border-box;
+        border-width: 0 1px 0 0;
+    }
+    .example-2 {
+        width: 25%;
+        height: $_height;
+        background-image: url('/assets/images/examples/dokku.png');
+        border-width: 0 1px 0 1px;
+    }
+    .example-3, .example-4 {
+        width: 35%;
+        height: $_height/2;
+    }
+    .example-3 {
+        background-image: url('/assets/images/examples/beerthink.png');
+        border-width: 0 01px 1px;
+    }
+    .example-4 {
+        background-image: url('/assets/images/examples/cats-of-instagram.png');
+        border-width: 1px 0 0 1px;
+    }
+}
+

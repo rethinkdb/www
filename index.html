@@ -1,0 +1,179 @@
+---
+layout: default
+body_class: landing
+---
+<div class="landing">
+    <!-- hero -->
+    <section class="hero site-container">
+        <h1>The open source database for the realtime web.</h1>
+        <div class="hero-install">
+            <a class="button install" href="/">Install</a>
+            <a class="button learn-more" href="/">Learn more</a>
+        </div>
+        <p class="hero-release">Release v1.15.1 (<a href="#">Lawrence of Arabia</a>)</p>
+        <ul class="social-links">
+            <li><a class="icon twitter" href="/"><i></i>Follow on Twitter</a></li>
+            <li><a class="icon star" href="/"><i></i># GitHub followers</a></li>
+        </ul>
+        <img class="hero-map" src="/assets/images/map-scan3.png">
+    </section>
+
+    <!-- news banner -->
+    <section class="news-banner">
+        <div class="site-container">
+            <p class="headline">
+                Join us in SF for developer<a href="#" class="emphasized">office hours</a>!
+            </p>
+            <div class="mailing-list">
+                <button class="button subscribe" type="submit">Subscribe</button>
+                <input class="medium" type="text" placeholder="Your email address" type="text">
+            </div>
+        </div>
+    </section>
+    
+    <!-- examples -->
+    <section class="examples">
+        <h2>A fundamental building block for modern, realtime, apps.</h2>
+        <ul>
+            <li class="example">
+                <p>Location-aware apps</p>
+            </li>
+            <li class="example">
+                <p>Realtime analytics</p>
+            </li>
+            <li class="example">
+                <p>Click tracking</p>
+            </li>
+            <li class="example">
+                <p>Click tracking</p>
+            </li>
+        </ul>
+    </section>
+
+    <!-- features -->
+    <section class="features">
+        <article class="feature">
+            <div class="site-container">
+                <h1>Event-driven architecture</h1>
+                <p>
+                    Polling is obsolete. Build realtime dashboards, leaderboards,
+                    and widgets with incremental updates to query results:
+                </p>
+                <code>&gt; r.<span class="term">table</span>(<span class="str">'games'</span>).<span class="term">max</span>(<span class="str">'score'</span>).<span class="term">limit</span>(<span class="num">10</span>).<span class="term">changes</span>()</code>
+                <p>
+                    Create reactive experiences by subscribing to user events in
+                    realtime:
+                </p>
+                <code>&gt; r.<span class="term">table</span>(<span class="str">'games'</span>).<span class="term">filter</span>({<span class="str">'user_id'</span>: <span class="num">123</span>}).<span class="term">changes</span>()</code>
+                <p>
+                    Or get a firehose of changes from your database:
+                </p>
+                <code>&gt; r.<span class="term">table</span>(<span class="str">'games'</span>).<span class="term">changes</span>()</code>
+                <a class="learn-more" href="#">Learn more &rarr;</a>
+            </div>
+        </article>
+        <article class="feature">
+            <div class="site-container">
+                <h1>All the building blocks for great apps</h1>
+                <p>
+                    Store, index, query, and modify JSON documents.
+                    Structure data your way with distributed joins. Build
+                    location-aware apps with geospatial queries and store
+                    multimedia with binary data support. Run analytics
+                    with Hadoop-style map/reduce.
+                </p>
+                <a class="learn-more" href="#">Learn more &rarr;</a>
+            </div>
+        </article>
+        <article class="feature">
+            <div class="site-container">
+                <h1>Hassle-free operation at scale</h1>
+                <p>
+                    Scale to multiple machines with a simple API:
+                </p>
+                <code>r.table('games').configure(shards=5, replicas=3)</code>
+                <p>
+                    Precise control of your cluster when you need it:
+                </p>
+                <code>r.table('games').table_status()</code>
+                <p>
+                    Complete visibility into your cluster with detailed
+                    monitoring tools:
+                </p>
+                <code>r.db('system').table('jobs').changes()</code>
+                <a class="learn-more" href="#">Learn more &rarr;</a>
+            </div>
+        </article>
+    </section>
+
+    <!-- getting started -->
+    <section class="get-started">
+        <div class="site-container">
+            <h1>Join 23,000 developers</h1>
+            <p>Install in seconds on Linux or OS X.</p>
+            <a class="button install" href="/">Install</a>
+            <a class="button learn-more" href="/">Learn more</a>
+        </div>
+    </section>
+
+    <!-- community -->
+    <section class="community">
+        <section class="events">
+            <h1>Upcoming events</h1>
+            <ul>
+                <li>
+                    <h2>RethinkDB at Heavybit in SF</h2>
+                    <p>
+                        Beginners workshop, great talks & demos!
+                    </p>
+                </li>
+                <li>
+                    <h2>RethinkDB office hours</h2>
+                    <p>
+                        Join our engineers at Workshop Cafe in SF for help with
+                        your apps.
+                    </p>
+                </li>
+                <li>
+                    <h2>The 2.1 release webcast</h2>
+                    <p>
+                        Hear our founders talk about new and exciting
+                        features in the upcoming 2.1 release.
+                    </p>
+                </li>
+        </section>
+        <section class="videos">
+            <img class="video" src="http://placehold.it/404x200">
+            <img class="video" src="http://placehold.it/404x200">
+        </section>
+        <section class="testimonials">
+            <ul>
+                <li class="testimonial">
+                    <blockquote>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Integer posuere erat a ante venenatis
+                        <cite>Name / Company</cite>
+                    </blockquote>
+                    <blockquote>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Integer posuere erat a ante venenatis
+                        <cite>Name / Company</cite>
+                    </blockquote>
+                    <blockquote>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Integer posuere erat a ante venenatis
+                        <cite>Name / Company</cite>
+                    </blockquote>
+                </li>
+            </ul>
+        </section>
+    </section>
+
+    <!-- support -->
+    <section class="support">
+        <div class="site-container">
+            <h1>Need 24 hour support, architectural consulting, or training?</h1>
+            <a class="button" href="/">Buy support</a>
+        </div>
+    </section>
+</div>

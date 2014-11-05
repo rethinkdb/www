@@ -29,13 +29,11 @@
         </script>
     </head>
     <body class="{{ page.body_class}}">
-        <!-- nav -->
-        <nav class="global-nav">
-            <div class="outer-container element-pad">
-                <div class="logo left">
-                    <a href="/" class="logo"><h1>RethinkDB</h1></a>
-                </div>
-                <ul class="right nav-item emphasized">
+        <!-- site nav -->
+        <nav class="site-nav">
+            <div class="outer-container">
+                <h1 class="logo"><a href="/">RethinkDB</a></h1>
+                <ul>
                     <li><a href="/">FAQ</a></li>
                     <li><a href="/blog">Blog</a></li>
                     <li><a href="/">Community</a></li>
@@ -45,5 +43,56 @@
             </div>
         </nav>
         {{ content }}
+        
+        <!-- site footer -->
+        <footer class="site-footer">
+            <section class="get-started">
+                <h1>Join 23,000 developers</h1>
+                <p>Install in seconds on Linux or OS X.</p>
+                <a class="button install" href="/">Install</a>
+                <a class="button learn-more" href="/">Learn more</a>
+            </section>
+            <ul class="footer-links">
+                <li>FAQ</li>
+                <li>Docs</li>
+                <li>API</li>
+                <li>
+                    Community
+                    <ul>
+                        <li>Sublink</li>
+                        <li>Sublink</li>
+                        <li>Sublink</li>
+                        <li>Sublink</li>
+                    </ul>
+                </li>
+                <li>
+                    Events 
+                    <ul>
+                        <li>Sublink</li>
+                        <li>Sublink</li>
+                        <li>Sublink</li>
+                        <li>Sublink</li>
+                    </ul>
+                </li>
+                <li>
+                    About
+                    <ul>
+                        <li>Sublink</li>
+                        <li>Sublink</li>
+                        <li>Sublink</li>
+                        <li>Sublink</li>
+                    </ul>
+                </li>
+            </ul>
+            <section class="contact-info">
+                <h1>Office</h1>
+                <address>
+                    156 E Dana St,
+                    Mountain View, CA 94041
+                </address>
+                <h1>IRC</h1>
+                <p>#rethinkdb on freenode</p>
+            </section>
+        </footer>
     </body>
 </html>

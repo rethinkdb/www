@@ -1,4 +1,19 @@
+html {
+    font-size: 62.5%;
+}
+
 html, body {
     margin: 0;
     padding: 0;
 }
+
+body {
+    @include font-size-rem(16);
+}
+
+.site-container {
+    @include outer-container;
+    @include pad(0 $base-spacing);
+}
+
+// Mandatory spacing under the global nav

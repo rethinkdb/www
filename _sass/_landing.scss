@@ -1,0 +1,40 @@
+body.landing {
+    // Override
+    .site-nav {
+        margin-bottom: 0;
+    }
+
+    // Hero
+    .hero {
+        background: $teal;
+        color: $cream;
+        overflow: hidden;
+        padding: $base-spacing*5 0;
+
+        .site-container {
+            position: relative;
+        }
+
+        a {
+            color: $cream;
+        }
+
+        h1 {
+            @include font-size-rem(36);
+            font-weight: 200;
+            max-width: 50%;
+        }
+
+        .hero-install {
+            padding: $base-spacing*3 0;
+        }
+
+        .hero-map {
+            height: auto;
+            position: absolute;
+            top: em(-40);
+            right: 0px;
+            width: 60%;
+        }
+    }
+}

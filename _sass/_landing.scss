@@ -4,6 +4,16 @@ body.landing {
         margin-bottom: 0;
     }
 
+    // Move these styles to typography.scss? Discuss.
+    h1 {
+        @include font-size-rem(33);
+        font-weight: 200;
+    }
+    p {
+        @include font-size-rem(17);
+        color: lighten(desaturate($teal, 35), 20);
+    }
+
     // Hero
     .hero {
         background: $teal;
@@ -35,6 +45,68 @@ body.landing {
             top: em(-40);
             right: 0px;
             width: 60%;
+        }
+    }
+
+    // News banner
+    .news-banner {
+        background: $surf;
+    }
+
+    // Examples
+    .examples {
+        background: darken($cream, 3);
+
+        .example {
+            @extend .quarter;
+        }
+    }
+
+    // Features
+    .features {
+        .feature {
+
+        }
+
+        // Alternating bg-color for color blocking
+        .feature:nth-child(2n) {
+            background: darken($cream, 3);
+        }
+    }
+
+    // Get started & Install
+    .get-started {
+
+    }
+
+    // Community
+    .community {
+        background: $surf;
+
+        .events {
+            @extend .half;
+        }
+
+        .videos {
+            @extend .half;
+        }
+
+        .testimonials {
+            @include fill-parent;
+
+            .testimonial {
+                @extend .third;
+            }
+        }
+    }
+
+    // Support
+    .support {
+        background: $teal;
+        color: $cream;
+
+        a {
+            color: $cream;
         }
     }
 }

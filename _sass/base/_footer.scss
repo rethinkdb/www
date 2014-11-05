@@ -1,0 +1,22 @@
+// Site footer
+.site-footer {
+    background: darken($teal, 10);
+    color: $cream;
+
+    a { color: $cream }
+
+    // Get started, install
+    .get-started {
+        @extend .quarter;
+    }
+
+    // Footer links
+    .footer-links {
+        @extend .half;
+    }
+
+    // Contact information
+    .contact-info {
+        @extend .quarter;
+    }
+}

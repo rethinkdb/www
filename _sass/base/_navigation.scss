@@ -1,0 +1,30 @@
+//Global navigation
+.site-nav {
+    background: $teal;
+    margin-bottom: $base-spacing;
+
+    .site-container {
+        @include pad($base-spacing);
+    }
+
+    a {
+        color: $cream;
+    }
+
+    .logo {
+        @include font-size-rem(20);
+        @include span-columns(2);
+    }
+
+    ul {
+        @include span-columns(10);
+        text-align: right;
+    }
+
+    li {
+        @include pad(0 0 0 $base-spacing*2);
+        @include inline-block;
+        @include font-size-rem(14);
+        font-weight: 500;
+    }
+}

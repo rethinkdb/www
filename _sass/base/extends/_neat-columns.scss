@@ -1,0 +1,15 @@
+// Width based on .site-container, includes outer-container()
+.half {
+    @include span-columns(6);
+    @include omega(2n);
+}
+
+.third {
+    @include span-columns(4);
+    @include omega(3n);
+}
+
+.quarter {
+    @include span-columns(3);
+    @include omega(4n);
+}

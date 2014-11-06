@@ -3,6 +3,7 @@
     background: $teal;
     margin-bottom: $base-spacing;
 
+    // Mandatory spacing under the global nav
     .site-container {
         @include pad($base-spacing);
     }

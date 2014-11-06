@@ -55,9 +55,9 @@ body_class: landing
     </section>
 
     <!-- features -->
-    <section class="features">
-        <article class="feature">
-            <div class="site-container">
+    <div class="feature-block first">
+        <div class="site-container">
+            <section class="feature">
                 <h1>Event-driven architecture</h1>
                 <p>
                     Polling is obsolete. Build realtime dashboards, leaderboards,
@@ -74,10 +74,13 @@ body_class: landing
                 </p>
                 <code>&gt; r.<span class="term">table</span>(<span class="str">'games'</span>).<span class="term">changes</span>()</code>
                 <a class="learn-more" href="#">Learn more &rarr;</a>
-            </div>
-        </article>
-        <article class="feature">
-            <div class="site-container">
+            </section>
+            <img src="/assets/images/landing-offerings_@2x.png">
+        </div>
+    </div>
+    <div class="feature-block second">
+        <div class="site-container">
+            <section class="feature">
                 <h1>All the building blocks for great apps</h1>
                 <p>
                     Store, index, query, and modify JSON documents.
@@ -87,28 +90,30 @@ body_class: landing
                     with Hadoop-style map/reduce.
                 </p>
                 <a class="learn-more" href="#">Learn more &rarr;</a>
-            </div>
-        </article>
-        <article class="feature">
-            <div class="site-container">
+            </section>
+        </div>
+    </div>
+    <div class="feature-block third">
+        <div class="site-container">
+            <section class="feature">
                 <h1>Hassle-free operation at scale</h1>
                 <p>
                     Scale to multiple machines with a simple API:
                 </p>
-                <code>r.table('games').configure(shards=5, replicas=3)</code>
+                <code>&gt; r.<span class="term">table</span>(<span class="str">'games'</span>).<span class="term">configure</span>(shards=5, replicas=3)</code>
                 <p>
                     Precise control of your cluster when you need it:
                 </p>
-                <code>r.table('games').table_status()</code>
+                <code>&gt; r.<span class="term">table</span>(<span class="str">'games'</span>).<span class="term">table_status</span>()</code>
                 <p>
                     Complete visibility into your cluster with detailed
                     monitoring tools:
                 </p>
-                <code>r.db('system').table('jobs').changes()</code>
+                <code>&gt; r.<span class="term">db</span>(<span class="str">'system'</span>).<span class="term">table</span>(<span class="str">'jobs'</span>).<span class="term">changes</span>()</code>
                 <a class="learn-more" href="#">Learn more &rarr;</a>
-            </div>
-        </article>
-    </section>
+            </section>
+        </div>
+    </div>
 
     <!-- getting started -->
     <section class="get-started">

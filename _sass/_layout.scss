@@ -15,5 +15,3 @@ body {
     @include outer-container;
     @include pad(0 $base-spacing);
 }
-
-// Mandatory spacing under the global nav

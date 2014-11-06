@@ -55,6 +55,10 @@ body.landing {
 
     // Examples
     .examples {
+        h2 {
+            font-weight: normal;
+            text-align: center;
+        }
         background: darken($cream, 3);
 
         .example {
@@ -63,14 +67,45 @@ body.landing {
     }
 
     // Features
-    .features {
-        .feature {
+    .feature-block {
+        position: relative;
+        overflow: hidden;
 
+        h1 { margin-bottom: em(12); }
+        p { line-height: em(24); }
+        code {
+            @include font-size-rem(16);
+            font-family: $monospaced;
+            color: #2D4654;
+            padding-bottom: 1rem;
+            display: block;
+
+            .str { color: $teal; }
+            .term { color: $cranberry; }
+            .num { color: darken(#6DBDB7,1); }
         }
 
-        // Alternating bg-color for color blocking
-        .feature:nth-child(2n) {
-            background: darken($cream, 3);
+        // Padding for each feature block
+        .site-container { padding: em(60) 0; }
+
+        &.first img {
+            position: absolute;
+            width: 40%;
+            
+        }
+
+        // Odd features should be left-aligned
+        &:nth-child(2n) .feature {
+            @extend .half;
+        }
+        // Even features should be right-aligned + colored
+        &:nth-child(2n+1) {
+            background: darken($cream, 5);
+
+            .feature {
+                @extend .half;
+                @include shift(6);
+            }
         }
     }
 

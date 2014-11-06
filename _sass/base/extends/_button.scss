@@ -1,13 +1,13 @@
-%button {
+%button, .button {
+  @include font-size-rem(16);
   -webkit-font-smoothing: antialiased;
   background-color: $base-button-color;
   border-radius: $base-border-radius;
   color: white;
   display: inline-block;
-  font-size: $base-font-size;
-  font-weight: bold;
+  font-weight: 500;
   line-height: 1;
-  padding: 0.75em 1em;
+  padding: $base-spacing/2 $base-spacing*2;
   text-decoration: none;
 
   &:hover {
@@ -18,5 +18,9 @@
   &:disabled {
     cursor: not-allowed;
     opacity: 0.5;
+  }
+
+  &.light {
+    background-color: darken($cranberry, 5);
   }
 }

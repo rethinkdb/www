@@ -12,6 +12,7 @@ h3,
 h4,
 h5,
 h6 {
+  color: $base-font-color;
   font-family: $header-font-family;
   line-height: $header-line-height;
   margin: 0;
@@ -76,15 +77,33 @@ picture {
 }
 
 blockquote {
-  border-left: 2px solid $base-border-color;
+  @include font-size-rem(22);
+  font-weight: 200;
   color: lighten($base-font-color, 15);
   margin: $base-spacing 0;
   padding-left: $base-spacing / 2;
+  position: relative;
+
+  &:before {
+    @include font-size-rem(80);
+    font-family: $serif;
+    color: lighten($base-font-color, 40);
+    content: '“';
+    position: absolute;
+    top: em(-10);
+    left: 0px;
+  }
+
+  cite {
+    @include font-size-rem(18);
+  }
 }
 
 cite {
   color: lighten($base-font-color, 25);
+  display: block;
   font-style: italic;
+  padding-top: $base-spacing / 2;
 
   &:before {
     content: "\2014 \00A0";

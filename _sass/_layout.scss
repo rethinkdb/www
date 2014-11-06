@@ -9,6 +9,7 @@ html, body {
 
 body {
     @include font-size-rem(16);
+    color: lighten(desaturate($teal, 35), 20);
 }
 
 .site-container {

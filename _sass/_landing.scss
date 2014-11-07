@@ -324,7 +324,6 @@ body.landing {
         }
 
         .testimonials {
-            @include outer-container;
             clear: both;
             padding: $base-spacing*5 0 0;
 

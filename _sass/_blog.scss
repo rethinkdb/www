@@ -1,0 +1,118 @@
+.blog {
+    // Shared typographic styles
+    h1 {
+        @include font-size-rem(34);
+        font-weight: 300;
+        line-height: em(20);
+    }
+
+    h2 {
+        @include font-size-rem(28);
+        font-weight: 400;
+    }
+
+    // Shared layout styles
+    .posts, .post-container { @extend .three-quarter; }
+    .filters, .toc { @extend .quarter; }
+
+    .post {
+        border-bottom: 1px solid darken($smoke-gray, 5);
+        padding-bottom: $base-spacing*3;
+        padding-top: $base-spacing*3;
+
+        a { color: lighten(saturate($teal, 25), 25); }
+    }
+
+    .post-byline {
+        color: lighten(desaturate($teal, 35), 20);
+        padding-bottom: $base-spacing/1.5;
+        padding-top: $base-spacing/1.5;
+    }
+
+    .avatar, .post-timestamp, .post-tags {
+        @include inline-block;
+    }
+
+    .avatar {
+        @include font-size-rem(14);
+        font-weight: 500;
+        margin-right: $base-spacing;
+
+        img {
+            border-radius: 50%;
+            height: 30px;
+            margin-right: $base-spacing/2;
+            overflow: hidden;
+            width: 30px;
+            vertical-align: middle;
+        }
+    }
+
+    .post-timestamp {
+        @include font-size-rem(12);
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+
+    .post-tags {
+        margin-left: $base-spacing;
+
+        li {
+            @include font-size-rem(11);
+            font-weight: 500;
+            background: $smoke-gray;
+            border-bottom: 2px solid $cranberry;
+            border-radius: $base-border-radius/2;
+            padding: $base-spacing/6 $base-spacing/2;
+        }
+    }
+
+    .post-hero {
+        padding-top: $base-spacing;
+        width: 100%;
+    }
+
+    .post-body {
+        color: lighten(desaturate($teal, 35), 20);
+        padding-bottom: $base-spacing;
+        padding-top: $base-spacing;
+
+        li, p {
+            @include font-size-rem(16);
+            line-height: em(30);
+        }
+
+        li {
+            border-left: 3px solid lighten(saturate($teal, 30), 30);
+            padding-left: $base-spacing;
+            margin-bottom: $base-spacing/4;
+        }
+
+        p { margin-bottom: $base-spacing; }
+    }
+
+    .post-link {
+        @include font-size-rem(18);
+        color: lighten(saturate($teal, 25), 25);
+        font-weight: 400;
+    }
+
+    .filters, .toc {
+        padding: $base-spacing*4 0 0 $base-spacing*4;
+
+        li:first-child { font-weight: 600; }
+
+        li {
+            @include font-size-rem(14);
+            font-weight: 500;
+            margin-bottom: $base-spacing/2;
+        }
+
+        a {
+            @include font-size-rem(11);
+            background: $smoke-gray;
+            border-radius: $base-border-radius/2;
+            padding: $base-spacing/6 $base-spacing/2;
+        }
+    }
+}

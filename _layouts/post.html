@@ -2,35 +2,39 @@
 layout: default
 body_class: blog
 ---
-<div class="main-container">
-    <div class="content">
-        <div class="blog-v1 container">
-            <div class="section">
-                <div class="post">
-                    <div class="post-hero">
-                        <img src="http://placehold.it/800x400">
-                    </div>
-                    <a href="{{page.url}}"><h1 class="title">{{page.title }}</h1></a>
-                    <div class="post-byline">
-                        <a class="avatar" href="#">
-                            <img src="http://placehold.it/50x50">
-                            {% if page.author %}{{ page.author }}{% else %}RethinkDB Team{% endif %}
-                        </a>
-                        <span class="post-timestamp">{{ page.date | date: "%B %d, %Y" }}</span>
-                        <ul class="post-tags">
-                            {% for tag in page.tags %}
-                            <li><a href="#">{{ tag }}</a></li>
-                            {% endfor %}
-                        </ul>
-                        <ul class="post-toc">
-                            <li><a href="#">Content &#x25BE;</a></li>
-                        </ul>
-                    </div>
-                    <div class="post-body">
-                        {{ content }}
-                    </div>
+    <div class="blog-v1 site-container">
+        <div class="post-container">
+            <div class="post">
+                <a class="post-link" href="/blog">Read all posts</a>
+                <div class="post-hero">
+                    <img src="http://placehold.it/800x400">
+                </div>
+                <a href="{{page.url}}"><h1 class="title">{{page.title }}</h1></a>
+                <div class="post-byline">
+                    <a class="avatar" href="#">
+                        <img src="http://placehold.it/50x50">
+                        {% if page.author %}{{ page.author }}{% else %}RethinkDB Team{% endif %}
+                    </a>
+                    <span class="post-timestamp">{{ page.date | date: "%B %d, %Y" }}</span>
+                    <ul class="post-tags">
+                        {% for tag in page.tags %}
+                        <li><a href="#">{{ tag }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="post-body">
+                    {{ content }}
                 </div>
             </div>
         </div>
+        <div class="toc">
+            <ul>
+                <li>Contents</li>
+                <li>Section 1: This</li>
+                <li>Section 2: That</li>
+                <li>Section 3: Here</li>
+                <li>Section 4: There</li>
+                <li>Section 5: Elsewhere</li>
+            </ul>
+        </div>
     </div>
-</div>

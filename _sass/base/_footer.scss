@@ -2,21 +2,68 @@
 .site-footer {
     background: darken($teal, 10);
     color: $cream;
+    padding-bottom: em(200);
 
-    a { color: $cream }
+    .site-container {
+        padding-top: $base-spacing*2;
+    }
+
+    .get-started, .contact-info {
+        h1 {
+            @include font-size-rem(16);
+            font-weight: 500;
+        }
+
+        address, p {
+            @include font-size-rem(14);
+            color: $surf;
+            margin-bottom: $base-spacing;
+        }
+    }
+
+    .button {
+        @include font-size-rem(12);
+    }
+
+    a, h1 { color: $cream }
 
     // Get started, install
     .get-started {
         @extend .quarter;
+        margin-top: $base-spacing*2;
+        margin-bottom: $base-spacing;
     }
 
     // Footer links
     .footer-links {
-        @extend .half;
+        @extend .three-quarter;
+        margin-top: $base-spacing*2;
+        text-align: center;
+
+        ul { @include outer-container; }
+
+        li {
+            @extend .sixth;
+            @include font-size-rem(14);
+            font-weight: 500;
+            margin-bottom: $base-spacing;
+
+            ul {
+                margin-top: $base-spacing/3;
+            }
+
+            ul li {
+                @include fill-parent;
+                font-weight: 200;
+                margin-bottom: 0;
+            }
+        }
     }
 
     // Contact information
     .contact-info {
-        @extend .quarter;
+        @include font-size-rem(14);
+        font-weight: 400;
+        margin-top: $base-spacing*2;
     }
 }

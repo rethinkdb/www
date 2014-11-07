@@ -31,14 +31,12 @@ textarea,
 select[multiple=multiple] {
   @include box-sizing(border-box);
   @include transition(border-color);
-  background-color: white;
+  background-color: rgba(255,255,255, 0.5);
   border-radius: $form-border-radius;
   border: 1px solid $form-border-color;
-  box-shadow: $form-box-shadow;
   font-family: $form-font-family;
   font-size: $form-font-size;
-  margin-bottom: $base-spacing / 2;
-  padding: ($base-spacing / 3) ($base-spacing / 3);
+  padding: ($base-spacing/2) $base-spacing/2;
   width: 100%;
 
   &:hover {
@@ -46,8 +44,8 @@ select[multiple=multiple] {
   }
 
   &:focus {
+    border-left: 4px solid $form-border-color;
     border-color: $form-border-color-focus;
-    box-shadow: $form-box-shadow-focus;
     outline: none;
   }
 }

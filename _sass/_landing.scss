@@ -11,7 +11,6 @@ body.landing {
     }
     p {
         @include font-size-rem(17);
-        color: lighten(desaturate($teal, 35), 20);
     }
 
     // Hero
@@ -26,17 +25,19 @@ body.landing {
         }
 
         a {
+            @extend .light;
             color: $cream;
         }
 
         h1 {
             @include font-size-rem(36);
+            color: $cream;
             font-weight: 200;
             max-width: 50%;
         }
 
         .hero-install {
-            padding: $base-spacing*3 0;
+            padding: $base-spacing*3 0 $base-spacing;
         }
 
         .hero-map {
@@ -51,18 +52,129 @@ body.landing {
     // News banner
     .news-banner {
         background: $surf;
+        padding-bottom: $base-spacing;
+        padding-top: $base-spacing;
+
+        p, .mailing-list, input, .button {
+            @extend .half;
+            text-align: center;
+        }
+
+        p {
+            font-weight: 500;
+            text-align: center;
+            margin-bottom: 0;
+            padding-top: $base-spacing/4;
+        }
+    }
+
+    // Padding for multiple sections
+    .examples, .feature-block .site-container, .community {
+        padding-bottom: $base-spacing*6;
+        padding-top: $base-spacing*6;
+
+        // Mobile styles for features
+        @include media($mobile) {
+            padding-bottom: $base-spacing*3;
+            padding-top: $base-spacing*3;
+        }
     }
 
     // Examples
     .examples {
-        h2 {
-            font-weight: normal;
-            text-align: center;
-        }
         background: darken($cream, 3);
 
+        h2 {
+            @include font-size-rem(28);
+            font-weight: 200;
+            text-align: center;
+        }
+
         .example {
-            @extend .quarter;
+            background: url('https://dl.dropboxusercontent.com/u/5049340/office%402x.png') center bottom no-repeat;
+            background-size: cover;
+            border: thin solid $smoke-gray;
+            border-top: em(4) solid darken($teal, 3);
+            border-radius: $base-border-radius*1.5;
+            color: $white;
+            margin-top: $base-spacing*2;
+            min-height: em(240);
+            padding: $base-spacing*1.5;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+
+            // Set to half on a tablet device
+            @include media($medium-screen-up) {
+                @include span-columns(6 of 12);
+                @include omega(2n);
+            }
+
+            // Set to a quarter on a desktop
+            @include media($large-screen-up) {
+                @include omega-reset(2n);
+                @include span-columns(3 of 12);
+                @include omega(4n);
+            }
+
+            p {
+                @include font-size-rem(22);
+                font-weight: 300;
+                position: relative;
+                text-shadow: 0 1px 40px rgba(0, 0, 0, 0.3);
+                z-index: 3;
+            }
+
+            &:after {
+                @include transition(opacity 0.2s linear);
+                bottom: 0;
+                content: '';
+                left: 0;
+                position: absolute;
+                top: 0;
+                right: 0;
+                z-index: 2;
+                opacity: .80;
+            }
+
+            &:hover:after { opacity: 1; }
+
+            &:nth-child(1) {
+                background-image: url("http://rethinkdb.com/assets/images/posts/2014-10-07-dokkudroplet.png");
+                border-top: em(4) solid darken(saturate($surf, 20), 30);
+
+                &:after {
+                    @include background(linear-gradient(to bottom right, darken($teal, 2), darken(saturate($surf, 20), 30)));
+                }
+                &:hover:after{ background: darken(saturate($surf, 20), 30); }
+            }
+            &:nth-child(2) {
+                background-image: url("http://rethinkdb.com/assets/images/posts/2014-10-07-beerlist.png");
+                border-top: em(4) solid lighten(saturate($teal, 30), 20);
+
+                &:after {
+                    @include background(linear-gradient(to bottom right, darken($teal, 2), lighten(saturate($teal, 30), 10)));
+                }
+                &:hover:after{ background: lighten(saturate($teal, 30), 20); }
+            }
+            &:nth-child(3) {
+                background-image: url("http://rethinkdb.com/assets/images/posts/2014-09-09-earthquake-geojson.png");
+                border-top: em(4) solid darken(desaturate($mint-green, 10), 5);
+
+                &:after {
+                    @include background(linear-gradient(to bottom right, darken($teal, 2), darken(desaturate($mint-green, 10), 5)));
+                }
+                &:hover:after{ background: darken(desaturate($mint-green, 10), 5); }
+            }
+            &:nth-child(4) {
+                background-image: url("http://blog.carbonfive.com/wp-content/uploads/2014/03/rethinkdb_evaluation1.jpg");
+                border-top: em(4) solid darken(desaturate($cranberry, 5), 5);
+
+                &:after {
+                    @include background(linear-gradient(to bottom right, darken($teal, 2), darken(desaturate($cranberry, 20), 5)));
+                }
+                &:hover:after{ background: darken(desaturate($cranberry, 5), 5); }
+            }
         }
     }
 
@@ -85,52 +197,142 @@ body.landing {
             .num { color: darken(#6DBDB7,1); }
         }
 
-        // Padding for each feature block
-        .site-container { padding: em(60) 0; }
-
-        &.first img {
-            position: absolute;
-            width: 40%;
-            
-        }
-
-        // Odd features should be left-aligned
-        &:nth-child(2n) .feature {
+        .feature {
             @extend .half;
+            padding-right: $base-spacing*4;
         }
+
+        // Set the size for the img in the first and third feature
+        &.first img, &.third-feature img {
+            @extend .half;
+            max-width: em(900);
+            position: absolute;
+            left: 50%;
+            width: em(800);
+        }
+
         // Even features should be right-aligned + colored
         &:nth-child(2n+1) {
             background: darken($cream, 5);
 
             .feature {
-                @extend .half;
-                @include shift(6);
+                @include shift(7);
             }
+        }
+
+        // Mobile styles for features
+        @include media($mobile) {
+            img { display: none; }
+            &:nth-child(2n+1) .feature { @include shift(0); }
+            .feature { padding-right: $base-spacing; }
         }
     }
 
     // Get started & Install
-    .get-started {
+    .get-started.callout {
+        padding: $base-spacing 0;
+        position: relative;
+        text-align: center;
 
+        &:after {
+            background: lighten($surf, 5);
+            bottom: 0px;
+            color: $surf;
+            content: '';
+            display: block;
+            height: 50%;
+            position: absolute;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .site-container {
+            background: $cream;
+            border: 1px solid $surf;
+            border-top: 4px solid lighten($teal, 20);
+            border-radius: $base-border-radius;
+            max-width: em(700);
+            padding: $base-spacing*2;
+            position: relative;
+            z-index: 2;
+        }
+
+        p {
+            padding: $base-spacing 0;
+        }
     }
 
     // Community
     .community {
-        background: $surf;
+        background: lighten($surf, 5);
+
+        h1 {
+            margin-bottom: $base-spacing/2;
+        }
+
+        h2 {
+            @include font-size-rem(16);
+            font-weight: 600;
+            margin-bottom: $base-spacing/4;
+        }
 
         .events {
             @extend .half;
+
+            ul { margin-top: $base-spacing*2 }
+
+            li {
+                max-width: em(420);
+                margin-bottom: $base-spacing*2;
+                padding-top: $base-spacing*1.8;
+                position: relative;
+
+                &:before {
+                    content:"";
+                    background: darken(saturate($surf, 20), 30);
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: 4px;
+                    width: 15%;
+                }
+
+                span {
+                    @include font-size-rem(12);
+                    font-weight: 600;
+                    position: absolute;
+                    top: em(10);
+                }
+
+                &:nth-child(2n):before { background: lighten(saturate($teal, 30), 20); }
+                &:nth-child(3n):before { background: darken(desaturate($cranberry, 5), 5); }
+            }
         }
 
         .videos {
             @extend .half;
+            text-align: right;
+
+            .video {
+                margin: 0 0 $base-spacing/2;
+                max-width: em(320);
+            }
+
+            img {
+                width: 100%;
+            }
         }
 
         .testimonials {
-            @include fill-parent;
+            clear: both;
+            padding: $base-spacing*5 0 0;
 
             .testimonial {
                 @extend .third;
+            }
+
+            blockquote {
+                padding: 0 $base-spacing;
             }
         }
     }
@@ -138,7 +340,15 @@ body.landing {
     // Support
     .support {
         background: $teal;
-        color: $cream;
+        padding: $base-spacing 0;
+        text-align: center;
+
+        h1 {
+            @include font-size-rem(24);
+            @include inline-block;
+            color: $cream;
+            margin-right: $base-spacing;
+        }
 
         a {
             color: $cream;

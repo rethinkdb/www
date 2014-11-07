@@ -10,5 +10,17 @@ $max-width: em(1088);
 $medium-screen: em(640);
 $large-screen: em(860);
 
+$mobile: new-breakpoint(max-width $medium-screen 4);
 $medium-screen-up: new-breakpoint(min-width $medium-screen 4);
 $large-screen-up: new-breakpoint(min-width $large-screen 8);
+
+// ------------------------------------------------------------
+// Omega Reset
+// A mixin that let's you change the number of columns at any breakpoint
+// Based on the work of http://joshfry.me/blog/2013/05/13/omega-reset-for-bourbon-neat
+// ------------------------------------------------------------
+
+@mixin omega-reset($nth) {
+  &:nth-child(#{$nth}) { margin-right: flex-gutter(); }
+  &:nth-child(#{$nth}+1) { clear: none }
+}

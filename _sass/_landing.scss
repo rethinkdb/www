@@ -218,6 +218,14 @@ body.landing {
             .feature {
                 @include shift(7);
             }
+
+            img {
+              @extend .half;
+               max-width: em(800);
+               position: absolute;
+               left: 0%;
+               width: em(700);
+            }
         }
 
         // Mobile styles for features

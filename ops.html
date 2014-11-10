@@ -1,0 +1,138 @@
+---
+layout: default
+body_class: landing
+---
+<div class="landing">
+    <!-- hero -->
+    <section class="hero">
+        <div class="site-container">
+            <h1>Hassle-free operation at scale</h1>
+        </div>
+    </section>
+
+    <!-- features -->
+    <div class="feature-block first">
+        <div class="site-container">
+            <section class="feature">
+                <h1>Scale to multiple machines with a simple API</h1>
+                <p>
+                    Shard and replicate a table in seconds with a simple API:
+                </p>
+                <code>&gt; r.table('users').configure(shards=2, replicas=3)</code>
+                <p>
+                    Apply replication settings to all tables in a database:
+                </p>
+                <code>&gt; r.db('my_app').configure(shards=2, replicas=3)</code>
+                <p>
+                    Set up <a href="#">server tags</a> and scale to multiple datacenters:
+                </p>
+                <code>&gt; r.table('users').configure(shards=2, replicas={ 'us_east': 3, 'us_west': 2 })</code>
+                <a class="learn-more" href="#">Learn more &rarr;</a>
+            </section>
+            <img src="/assets/images/landing-offerings_@2x.png">
+        </div>
+    </div>
+    <div class="feature-block second">
+        <div class="site-container">
+            <section class="feature">
+                <h1>Fine-grained control of your cluster</h1>
+                <p>
+                    Query full cluster configuration details:
+                </p>
+                <code>&gt; r.db('system').table('table_config')</code>
+                <p>
+                    The `configure` command automatically picks optimal settings and writes them to the `table_config` system table. Update table configurations manually and place shards and replicas on specific servers for complete control:
+                </p>
+<pre>
+&gt; r.db('system').table('table_config')
+   .update(NEW_CONFIG)
+</pre>
+                <a class="learn-more" href="#">Learn more &rarr;</a>
+            </section>
+        </div>
+    </div>
+    <div class="feature-block third-feature">
+        <div class="site-container">
+            <section class="feature">
+                <h1>Detailed insight into cluster status</h1>
+                <p>
+                    View detailed status of all tables in your cluster:
+                </p>
+                <code>&gt; r.db('system').table('table_status')</code>
+                <p>
+                    Or the status of all servers:
+                </p>
+                <code>&gt; r.db('system').table('server_status')</code>
+                <p>
+                    Subscribe to status changefeeds to monitor your cluster in realtime:
+                </p>
+                <code>&gt; r.db('system').table('server_status').changes()</code>
+                <a class="learn-more" href="#">Learn more &rarr;</a>
+            </section>
+            <img src="/assets/images/landing-offerings-3_@2x.png">
+        </div>
+    </div>
+    <div class="feature-block second">
+        <div class="site-container">
+            <section class="feature">
+                <h1>Query cluster statistics</h1>
+                <p>
+                    View disk, memory, and network statistics in your cluster:
+                </p>
+                <code>&gt; r.db('system').table('stats')</code>
+                <p>
+                    Use the query language to group data to quickly get the information you need:
+                </p>
+                <code>&gt; r.db('system').table('stats').group('server').avg('cpu')</code>
+                <p>
+                    Or query for specific statistics:
+                </p>
+                <code>&gt; r.db('system').table('stats').filter({'table': 'my_table'})</code>
+                <a class="learn-more" href="#">Learn more &rarr;</a>
+            </section>
+            <img src="/assets/images/landing-offerings_@2x.png">
+        </div>
+    </div>
+    <div class="feature-block first">
+        <div class="site-container">
+            <section class="feature">
+                <h1>Full control of running jobs</h1>
+                <p>
+                    See disk compaction, cluster replication jobs, and long-running user queries:
+                </p>
+                <code>&gt; r.db('system').table('jobs')</code>
+                <p>
+                    Filter for specific jobs you're interested in:
+                </p>
+                <code>&gt; r.db('system').table('jobs').filter({'type': 'compaction'})</code>
+                <p>
+                    Kill long-running queries by deleting them from the `jobs` table:
+                </p>
+                <code>&gt; r.db('system').table('jobs').get(JOB_ID).delete()</code>
+                <a class="learn-more" href="#">Learn more &rarr;</a>
+            </section>
+        </div>
+    </div>
+    <div class="feature-block second">
+        <div class="site-container">
+            <section class="feature">
+                <h1>Complete view into cluster issues</h1>
+                <p>
+                    Discover problems like unreachable servers quickly by seeing an actionable list of cluster issues:
+                </p>
+                <code>&gt; r.db('system').table('issues')</code>
+                <p>
+                    Query for specific issues to create specialized administration tools:
+                </p>
+                <code>&gt; r.db('system').table('issues').filter({'type': 'server_down'})</code>
+                <p>
+                    Monitor cluster issues in realtime:
+                </p>
+                <code>&gt; r.db('system').table('issues').changes()</code>
+                <a class="learn-more" href="#">Learn more &rarr;</a>
+            </section>
+            <img src="/assets/images/landing-offerings-3_@2x.png">
+        </div>
+    </div>
+
+</div>

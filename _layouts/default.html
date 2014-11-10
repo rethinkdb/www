@@ -14,14 +14,13 @@
         <script type="text/javascript" src="//use.typekit.net/lmb6cah.js"></script>
         <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
         <script type="text/javascript" src="/assets/js/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="/assets/js/waypoints.min.js"></script>
+        <script type="text/javascript" src="/assets/js/waypoints-sticky.js"></script>
         <script type="text/javascript">
             $(document).ready(function() {
-                $(document).keyup(function(event) {
-                    number = event.which - 48;
-                    if (number >= 0 && number < 10) {
-                        $('body').removeClass('v0 v1 v2 v3 v4 v5 v6 v7 v8 v9');
-                        $('body').addClass('v'+number);
-                    }
+                $('.social-integration').waypoint(function(direction) {
+                    // Blog right panel should be set to a fixed position on scroll
+                    $(this).toggleClass('sticky');
                 });
             });
         </script>

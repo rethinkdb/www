@@ -12,7 +12,7 @@ body_class: blog
                 <a href="{{page.url}}"><h1 class="title">{{page.title }}</h1></a>
                 <div class="post-byline">
                     <a class="avatar" href="#">
-                        <img src="http://placehold.it/50x50">
+                        <img src="https://avatars1.githubusercontent.com/u/48436?v=3&s=96">
                         {% if page.author %}{{ page.author }}{% else %}RethinkDB Team{% endif %}
                     </a>
                     <span class="post-timestamp">{{ page.date | date: "%B %d, %Y" }}</span>
@@ -27,14 +27,24 @@ body_class: blog
                 </div>
             </div>
         </div>
-        <div class="toc">
+        <div class="social-integration">
             <ul>
-                <li>Contents</li>
-                <li>Section 1: This</li>
-                <li>Section 2: That</li>
-                <li>Section 3: Here</li>
-                <li>Section 4: There</li>
-                <li>Section 5: Elsewhere</li>
+                <li>
+                    <p>
+                        <span>What is RethinkDB?</span>
+                        Vestibulum id turpis ornare, malesuada augue in, iaculis libero.
+                    </p>
+                </li>
+                <li>
+                    <span>Want the latest updates?</span>
+                    <input class="medium" type="text" placeholder="Your email address" type="text">
+                    <button class="button subscribe small" type="submit">Subscribe</button>
+                </li>
+                <li>
+                    <span>Share</span>
+                    <a href="icon twitter">Twitter</a>
+                    <a href="icon facebook">Facebook</a>
+                </li>
             </ul>
         </div>
     </div>

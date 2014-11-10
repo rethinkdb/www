@@ -15,4 +15,5 @@ body {
 .site-container {
     @include outer-container;
     @include pad(0 $base-spacing);
+    position: relative;
 }

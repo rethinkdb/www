@@ -18,10 +18,6 @@ body.landing {
         overflow: hidden;
         padding: $base-spacing*5 0;
 
-        .site-container {
-            position: relative;
-        }
-
         a {
             @extend .light;
             color: $cream;
@@ -223,11 +219,11 @@ body.landing {
             }
 
             img {
-              @extend .half;
-               max-width: em(800);
-               position: absolute;
-               left: 0%;
-               width: em(700);
+               @extend .half;
+                max-width: em(800);
+                position: absolute;
+                left: 0%;
+                width: em(700);
             }
         }
 

@@ -2,36 +2,52 @@
 layout: default
 body_class: blog
 ---
-<div class="main-container">
-    <div class="content">
-        <div class="blog-v1 container">
+
+<div class="site-container">
+    <div class="posts">
         {% for post in paginator.posts %}
-            <div class="section">
-                <div class="post">
-                    <div class="post-hero">
-                        <img src="http://placehold.it/800x400">
-                    </div>
-                    <a href="{{post.url}}"><h1 class="title">{{ post.title }}</h1></a>
-                    <div class="post-byline">
-                        <a class="avatar" href="#">
-                            <img src="http://placehold.it/50x50">
-                            {% if post.author %}{{ post.author }}{% else %}RethinkDB Team{% endif %}
-                        </a>
-                        <span class="post-timestamp">{{ post.date | date: "%B %d, %Y" }}</span>
-                        <ul class="post-tags">
-                            {% for tag in post.tags %}
-                            <li><a href="#">{{ tag }}</a></li>
-                            {% endfor %}
-                        </ul>
-                        <ul class="post-toc">
-                            <li><a href="#">Content &#x25BE;</a></li>
-                        </ul>
-                    </div>
-                    <div class="post-body">
-                        {{ post.excerpt | markdownify }}
-                    </div>
+            <div class="post">
+                <a href="{{post.url}}"><h1 class="title">{{ post.title }}</h1></a>
+                <div class="post-byline">
+                    <a class="avatar" href="#">
+                        <img src="http://placehold.it/50x50">
+                        {% if post.author %}{{ post.author }}{% else %}RethinkDB Team{% endif %}
+                    </a>
+                    <span class="post-timestamp">{{ post.date | date: "%B %d, %Y" }}</span>
+                    <ul class="post-tags">
+                        {% for tag in post.tags %}
+                        <li><a href="#">{{ tag }}</a></li>
+                        {% endfor %}
+                    </ul>
                 </div>
+                <div class="post-hero">
+                    <img src="http://rethinkdb.com/assets/images/posts/2014-10-14-compose.png">
+                </div>
+                <div class="post-body">
+                    {{ post.excerpt | markdownify }}
+                </div>
+                <a class="post-link" href="{{post.url}}">Read more</a>
+            </div>
         {% endfor %}
-        </div>
+    </div>
+    <div class="filters">
+        <ul>
+            <li>Filter by</li>
+            <li>
+                <a href-"#">Release</a>
+            </li>
+            <li>
+                <a href-"#">Filter type</a>
+            </li>
+            <li>
+                <a href-"#">Filter type</a>
+            </li>
+            <li>
+                <a href-"#">Filter type</a>
+            </li>
+            <li>
+                <a href-"#">Filter type</a>
+            </li>
+        </ul>
     </div>
 </div>

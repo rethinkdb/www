@@ -6,7 +6,8 @@
   border-radius: $base-border-radius;
   color: white;
   display: inline-block;
-  font-weight: 500;
+  font-family: $sans-serif-semi-bold;
+  font-weight: 600;
   line-height: 1;
   padding: $base-spacing/2 $base-spacing*2;
   text-decoration: none;
@@ -23,10 +24,12 @@
 
   &.light {
     background-color: darken($cranberry, 5);
+
+    &:hover { background-color: darken($cranberry, 10); }
   }
 
   &.small {
-    @include font-size-rem(13);
+    @include font-size-rem(15);
     padding: $base-spacing/2 $base-spacing;
   }
 }

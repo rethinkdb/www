@@ -72,7 +72,8 @@ hr {
 }
 
 strong {
-  font-weight: 500;
+  font-family: $sans-serif-semi-bold;
+  font-weight: 600;
 }
 
 img,
@@ -83,7 +84,8 @@ picture {
 
 blockquote {
   @include font-size-rem(22);
-  font-weight: 200;
+  font-family: $sans-serif;
+  font-weight: 400;
   color: lighten($base-font-color, 15);
   margin: $base-spacing 0;
   padding-left: $base-spacing / 2;
@@ -95,8 +97,8 @@ blockquote {
     color: lighten($base-font-color, 40);
     content: '“';
     position: absolute;
-    top: rem(-10);
-    left: 0px;
+    top: rem(-40);
+    left: rem(-20);
   }
 
   cite {
@@ -107,7 +109,8 @@ blockquote {
 cite {
   color: lighten($base-font-color, 25);
   display: block;
-  font-style: italic;
+  font-family: $sans-serif-italic;
+  font-weight: 400;
   padding-top: $base-spacing / 2;
 
   &:before {

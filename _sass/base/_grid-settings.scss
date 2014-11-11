@@ -7,8 +7,8 @@ $grid-columns: 12;
 $max-width: rem(1088);
 
 // Neat Breakpoints
-$medium-screen: rem(640);
-$large-screen: rem(860);
+$medium-screen: rem(440);
+$large-screen: rem(760);
 
 $mobile: new-breakpoint(max-width $medium-screen 4);
 $medium-screen-up: new-breakpoint(min-width $medium-screen 4);

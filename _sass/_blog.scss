@@ -1,32 +1,38 @@
 .blog {
     // Shared typographic styles
-    h1 {
-        @include font-size-rem(34);
-        font-weight: 300;
-        line-height: rem(20);
-    }
+    .posts, .post-container {
+        h1 {
+            @include font-size-rem(34);
+            font-weight: 400;
+            line-height: rem(38);
+        }
 
-    h2 {
-        @include font-size-rem(28);
-        font-weight: 400;
+        h2 {
+            @include font-size-rem(22);
+            font-weight: 500;
+        }
+
+        h1, h2 { margin: $base-spacing 0; }
     }
 
     // Shared layout styles
-    .posts, .post-container { @extend .three-quarter; }
-    .filters, .toc { @extend .quarter; }
+    .posts, .post-container {
+        @extend .three-quarter;
+        padding: 0 $base-spacing*3 0 0;
+    }
+    .social-integration { @extend .quarter; }
 
+    // Individual element styles
     .post {
         border-bottom: 1px solid darken($smoke-gray, 5);
-        padding-bottom: $base-spacing*3;
-        padding-top: $base-spacing*3;
+        padding-bottom: $base-spacing*2;
+        padding-top: $base-spacing*2;
 
         a { color: lighten(saturate($teal, 25), 25); }
     }
 
     .post-byline {
         color: lighten(desaturate($teal, 35), 20);
-        padding-bottom: $base-spacing/1.5;
-        padding-top: $base-spacing/1.5;
     }
 
     .avatar, .post-timestamp, .post-tags {
@@ -34,23 +40,23 @@
     }
 
     .avatar {
-        @include font-size-rem(14);
+        @include font-size-rem(16);
         font-weight: 500;
         margin-right: $base-spacing;
 
         img {
             border-radius: 50%;
-            height: 30px;
+            height: rem(50);
             margin-right: $base-spacing/2;
             overflow: hidden;
-            width: 30px;
+            width: rem(50);
             vertical-align: middle;
         }
     }
 
     .post-timestamp {
-        @include font-size-rem(12);
-        font-weight: 500;
+        @include font-size-rem(14);
+        font-weight: 600;
         text-transform: uppercase;
     }
 
@@ -58,10 +64,9 @@
         margin-left: $base-spacing;
 
         li {
-            @include font-size-rem(11);
+            @include font-size-rem(12);
             font-weight: 500;
             background: $smoke-gray;
-            border-bottom: 2px solid $cranberry;
             border-radius: $base-border-radius/2;
             padding: $base-spacing/6 $base-spacing/2;
         }
@@ -79,13 +84,15 @@
 
         li, p {
             @include font-size-rem(20);
-            line-height: rem(23);
+            line-height: rem(30);
         }
 
+        ul li:last-child { margin-bottom: $base-spacing; }
+
         li {
-            border-left: 3px solid lighten(saturate($teal, 30), 30);
+            border-left: 3px solid lighten(saturate($teal, 0), 40);
+            margin-bottom: $base-spacing/3;
             padding-left: $base-spacing;
-            margin-bottom: $base-spacing/4;
         }
 
         p { margin-bottom: $base-spacing; }
@@ -97,22 +104,44 @@
         font-weight: 400;
     }
 
-    .filters, .toc {
-        padding: $base-spacing*4 0 0 $base-spacing*4;
+    // Fixed right-side panel
+    .social-integration {
+        padding-top: $base-spacing*4;
+        max-width: rem(380);
 
-        li:first-child { font-weight: 600; }
-
-        li {
-            @include font-size-rem(14);
-            font-weight: 500;
-            margin-bottom: $base-spacing/2;
+        &.sticky {
+            left: 50%;
+            padding-top: $base-spacing;
+            position: fixed;
+            margin-left: 255px;
+            top: 0%;
         }
 
-        a {
-            @include font-size-rem(11);
-            background: $smoke-gray;
-            border-radius: $base-border-radius/2;
-            padding: $base-spacing/6 $base-spacing/2;
+        li, p {
+            @include font-size-rem(16);
+            margin-bottom: $base-spacing*2;
+        }
+
+        span {
+            display: block;
+            font-weight: 500;
+            margin-bottom: $base-spacing/3;
+        }
+
+        button { margin-top: $base-spacing/2; }
+    }
+
+    // Helpers, flash messages, info boxes
+    .infobox {
+        background: lighten($sunshine, 10);
+        box-shadow: 1px 1px 1px darken($cream, 5), inset 3px 0px 0px darken($sunshine, 20);
+        margin: $base-spacing 0;
+        padding: $base-spacing $base-spacing $base-spacing/2 $base-spacing*1.5;
+        max-width: rem(500);
+
+        strong:first-child {
+            display: block;
+            margin-bottom: $base-spacing/2;
         }
     }
 }

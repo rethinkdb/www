@@ -10,7 +10,7 @@ body_class: blog
                 <a href="{{post.url}}"><h1 class="title">{{ post.title }}</h1></a>
                 <div class="post-byline">
                     <a class="avatar" href="#">
-                        <img src="http://placehold.it/50x50">
+                        <img src="https://avatars1.githubusercontent.com/u/48436?v=3&s=96">
                         {% if post.author %}{{ post.author }}{% else %}RethinkDB Team{% endif %}
                     </a>
                     <span class="post-timestamp">{{ post.date | date: "%B %d, %Y" }}</span>
@@ -30,23 +30,23 @@ body_class: blog
             </div>
         {% endfor %}
     </div>
-    <div class="filters">
+    <div class="social-integration">
         <ul>
-            <li>Filter by</li>
             <li>
-                <a href-"#">Release</a>
+                <p>
+                    <span>What is RethinkDB?</span>
+                    Vestibulum id turpis ornare, malesuada augue in, iaculis libero.
+                </p>
             </li>
             <li>
-                <a href-"#">Filter type</a>
+                <span>Want the latest updates?</span>
+                <input class="medium" type="text" placeholder="Your email address" type="text">
+                <button class="button subscribe small" type="submit">Subscribe</button>
             </li>
             <li>
-                <a href-"#">Filter type</a>
-            </li>
-            <li>
-                <a href-"#">Filter type</a>
-            </li>
-            <li>
-                <a href-"#">Filter type</a>
+                <span>Share</span>
+                <a href="icon twitter">Twitter</a>
+                <a href="icon facebook">Facebook</a>
             </li>
         </ul>
     </div>

@@ -97,8 +97,8 @@ blockquote {
     color: lighten($base-font-color, 40);
     content: '“';
     position: absolute;
-    top: -40px;
-    left: -20px;
+    top: rem(-40);
+    left: rem(-20);
   }
 
   cite {

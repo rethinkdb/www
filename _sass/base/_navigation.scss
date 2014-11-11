@@ -4,13 +4,10 @@
     margin-bottom: $base-spacing;
 
     // Mandatory spacing under the global nav
-    .site-container {
-        @include pad($base-spacing);
-    }
+    .site-container { padding: $base-spacing; }
 
     a {
         color: $cream;
-
         &:hover { color: darken($cream, 10); }
     }
 
@@ -30,7 +27,7 @@
     li {
         @include pad($base-spacing/4 0 0 $base-spacing*2.5);
         @include font-size-rem(18);
-        @include inline-block;
+        display: inline-block;
         font-family: $sans-serif-semi-bold;
         line-height: rem(28);
         text-transform: lowercase;

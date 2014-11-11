@@ -1,12 +1,13 @@
 // Typography
-$sans-serif: $helvetica;
-$serif: $georgia;
+$sans-serif: "freight-sans-pro";
+$serif: 'Copse';
 $monospaced: 'Inconsolata';
 $base-font-family: $sans-serif;
 $header-font-family: $base-font-family;
 
 // Font Sizes
 $base-font-size: 1em;
+$em-base: 10px; // This is what the rem() mixin is based on. Since the default is 16px, and the font-size is 62.5%, we need to reduce this to 10px.
 $h1-font-size: $base-font-size * 2.25;
 $h2-font-size: $base-font-size * 2;
 $h3-font-size: $base-font-size * 1.75;
@@ -36,7 +37,7 @@ $pale-red: #ff6868;
 $mint-green: #53daa8;
 
 //Padding/Margin
-$base-spacing: em(20);
+$base-spacing: rem(20);
 
 // Background Color
 $base-background-color: $cream;

@@ -4,6 +4,7 @@ body {
   color: $base-font-color;
   font-family: $base-font-family;
   line-height: $base-line-height;
+  font-weight: 400;
 }
 
 h1,
@@ -94,7 +95,7 @@ blockquote {
     color: lighten($base-font-color, 40);
     content: '“';
     position: absolute;
-    top: em(-10);
+    top: rem(-10);
     left: 0px;
   }
 

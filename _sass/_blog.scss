@@ -3,7 +3,7 @@
     h1 {
         @include font-size-rem(34);
         font-weight: 300;
-        line-height: em(20);
+        line-height: rem(20);
     }
 
     h2 {
@@ -78,8 +78,8 @@
         padding-top: $base-spacing;
 
         li, p {
-            @include font-size-rem(16);
-            line-height: em(30);
+            @include font-size-rem(20);
+            line-height: rem(23);
         }
 
         li {

@@ -2,6 +2,8 @@
 .site-footer {
     background: darken($teal, 10);
     color: $cream;
+    font-family: $sans-serif-medium;
+    font-weight: 500;
     padding-bottom: rem(200);
 
     .site-container {
@@ -10,19 +12,15 @@
 
     .get-started, .contact-info {
         h1 {
-            @include font-size-rem(16);
+            @include font-size-rem(20);
             font-weight: 500;
         }
 
         address, p {
-            @include font-size-rem(14);
+            @include font-size-rem(16);
             color: $surf;
             margin-bottom: $base-spacing;
         }
-    }
-
-    .button {
-        @include font-size-rem(12);
     }
 
     a, h1 { color: $cream }
@@ -44,8 +42,9 @@
 
         li {
             @extend .sixth;
-            @include font-size-rem(14);
-            font-weight: 500;
+            @include font-size-rem(16);
+            font-family: $sans-serif-semi-bold;
+            font-weight: 600;
             margin-bottom: $base-spacing;
 
             ul {
@@ -54,7 +53,8 @@
 
             ul li {
                 @include fill-parent;
-                font-weight: 200;
+                font-family: $sans-serif-medium;
+                font-weight: 500;
                 margin-bottom: 0;
             }
         }

@@ -44,13 +44,13 @@
         font-weight: 500;
         margin-right: $base-spacing;
 
-        // TODO: Set to rem sizes
+        // Set to rem sizes
         img {
             border-radius: 50%;
-            height: 50px;
+            height: rem(50);
             margin-right: $base-spacing/2;
             overflow: hidden;
-            width: 50px;
+            width: rem(50);
             vertical-align: middle;
         }
     }

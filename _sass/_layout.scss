@@ -8,7 +8,7 @@ html, body {
 }
 
 body {
-    @include font-size-rem(16);
+    @include font-size-rem(18);
     color: lighten(desaturate($teal, 35), 20);
 }
 

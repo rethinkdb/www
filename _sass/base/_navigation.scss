@@ -13,8 +13,9 @@
     }
 
     .logo {
-        @include font-size-rem(20);
+        @include font-size-rem(24);
         @include span-columns(2);
+        font-family: $serif;
     }
 
     ul {
@@ -23,9 +24,11 @@
     }
 
     li {
-        @include pad(0 0 0 $base-spacing*2);
+        @include pad(0 0 0 $base-spacing*2.5);
         @include inline-block;
-        @include font-size-rem(14);
-        font-weight: 500;
+        @include font-size-rem(18);
+        line-height: rem(28);
+        text-transform: lowercase;
+        font-weight: 600;
     }
 }

@@ -1,5 +1,5 @@
 %button, .button {
-  @include font-size-rem(16);
+  @include font-size-rem(18);
   -webkit-font-smoothing: antialiased;
   background-color: $base-button-color;
   border-radius: $base-border-radius;

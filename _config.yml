@@ -1,6 +1,6 @@
 port: 8888
 # move to kramdown: http://kramdown.gettalong.org/syntax.html
-markdown: redcarpet 
+markdown: redcarpet
 redcarpet:
     extensions: [tables]
 highlighter: rouge

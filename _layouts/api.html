@@ -1,0 +1,56 @@
+---
+layout: default
+js: [unevent, api]
+active: api
+no_footer: true
+---
+
+<div class="section no-footer">
+    <div id="api-app">
+        <div id="api-header">
+            <div class="sticky-wrapper">
+            <div id="api-command-bar">
+            <div id="docs-switcher" class="infobox infobox-slim page-nav-selector lang-selector">
+                <a class="lang-link javascript {% if page.language == 'JavaScript' %}active{% endif %}" href="../javascript/" id="_js"><i class="sprite javascript"></i><p class="category">JavaScript</p></a> |
+                <a class="lang-link python {% if page.language == 'Python' %}active{% endif %}" href="../python/" id="_py"><i class="sprite python"></i><p class="category">Python</p></a> |
+                <a class="lang-link ruby {% if page.language == 'Ruby' %}active{% endif %}" href="../ruby/" id="_rb"><i class="sprite ruby"></i><p class="category">Ruby</p></a>
+                </div>
+                <h1 class="title">{{page.language}} ReQL command reference</h1>
+                </div>
+            </div>
+        </div>
+        <div id="api-nav">
+            <div id="api-nav-footer"><p>&#955;</p></div>
+        </div>
+        <div id="api-sections-wrapper">
+            <div class="infobox infobox-info">
+                <p>
+                    <strong>Looking for documentation for a community driver?</strong><br/>
+                    <a href="/docs/install-drivers">Find the project page</a>
+                    for your driver for specific ReQL documentation. 
+                </p>
+            </div>
+            <div id="api-sections">
+                {{ content }}
+            </div>
+            
+            <div id="api-footer">
+                <h2>Improve this doc</h2>
+                <p>Help us improve this document.</p>
+                <ul>
+                    <li class="github"><strong>Help us</strong> improve the docs <a href="https://github.com/rethinkdb/docs/blob/master{{page.path | remove_first: 'docs' }}">by editing</a> this document</li>
+                    <li class="github"><strong>Post an issue</strong> on the docs <a href="https://github.com/rethinkdb/docs/issues">issue tracker</a> on GitHub</li>
+                </ul>
+
+                <h2>Get more help</h2>
+                <p>We always welcome suggestions on how to improve our documentation, or specific ReQL questions.</p>
+                <ul>
+                    <li class="stack-overflow"><strong>Ask a question</strong> on <a href="http://stackoverflow.com/questions/tagged/rethinkdb">Stack Overflow</a></li>
+                    <li class="irc"><strong>Talk to the team</strong> on <a href="irc://freenode.net/#rethinkdb">#rethinkdb@freenode.net</a> &mdash; via <a href="http://webchat.freenode.net/?channels=#rethinkdb">Webchat</a></li>
+                    <li class="github"><strong>Post an issue</strong> on our <a href="https://github.com/rethinkdb/rethinkdb/issues">issue tracker</a> on GitHub</li>
+                    <li class="twitter"><strong>Follow</strong> <a href="http://twitter.com/rethinkdb">@rethinkdb</a> on Twitter</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

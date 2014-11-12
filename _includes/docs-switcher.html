@@ -1,0 +1,35 @@
+<div id="docs-switcher" class="infobox infobox-slim page-nav-selector lang-selector">
+    {% if page.js != false %}
+    <a class="lang-link javascript {% if page.language == 'JavaScript' %}active{% endif %}"
+        href="{% apiurltag javascript %}{{page.permalink}}{% endapiurltag %}">
+            <i class="sprite javascript"></i><p class="category">JavaScript</p>
+        </a> |
+    {% endif %}
+    {% if page.js == false %}
+        <span class="lang-link javascript {% if page.language == 'JavaScript' %}active{% endif %}">
+            <i class="sprite javascript"></i><p class="category disabled">JavaScript</p>
+        </span> |
+    {% endif %}
+    {% if page.py != false %}
+        <a class="lang-link python {% if page.language == 'Python' %}active{% endif %}"
+            href="{% apiurltag python %}{{page.permalink}}{% endapiurltag %}">
+            <i class="sprite python"></i><p class="category">Python</p>
+        </a> |
+    {% endif %}
+    {% if page.py == false %}
+        <span class="lang-link python {% if page.language == 'Python' %}active{% endif %}">
+            <i class="sprite python"></i><p class="category disabled">Python</p>
+        </span> |
+    {% endif %}
+    {% if page.rb != false %}
+        <a class="lang-link ruby {% if page.language == 'Ruby' %}active{% endif %}"
+            href="{% apiurltag ruby %}{{page.permalink}}{% endapiurltag %}">
+            <i class="sprite ruby"></i><p class="category">Ruby</p>
+        </a>
+    {% endif %}
+    {% if page.rb == false %}
+        <span class="lang-link ruby {% if page.language == 'Ruby' %}active{% endif %}">
+            <i class="sprite ruby"></i><p class="category disabled">Ruby</p>
+        </span>
+    {% endif %}
+</div>

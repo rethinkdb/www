@@ -1,0 +1,65 @@
+<div class="infobox infobox-info infobox-recipe">
+    <p>
+        <strong>Don't see the recipe you're looking for?</strong> Feel free to <a class="recipe" href="#wufoo-z7x2z1">request a recipe</a> or <a class="recipe" href="#wufoo-z7x1k9">add a recipe</a>.
+    </p>
+    <div class="wufoo-recipe-form" id="wufoo-z7x2z1"> Request a new recipe using <a href="http://rethinkdb.wufoo.com/forms/z7x2z1">this form</a>.</div>
+    <div class="wufoo-recipe-form" id="wufoo-z7x1k9"> Add a new recipe using <a href="http://rethinkdb.wufoo.com/forms/z7x2z1">this form</a>.</div>
+</div>
+
+<script type="text/javascript">
+    var z7x2z1;(function(d, t) {
+    var s = d.createElement(t), options = {
+    'userName':'rethinkdb', 
+    'formHash':'z7x2z1', 
+    'autoResize':false,
+    'height':'225',
+    'async':true,
+    'header':'show', 
+    'ssl':false};
+    s.src = ('https:' == d.location.protocol ? 'https://' : 'http://') + 'wufoo.com/scripts/embed/form.js';
+    s.onload = s.onreadystatechange = function() {
+    var rs = this.readyState; if (rs) if (rs != 'complete') if (rs != 'loaded') return;
+    try { z7x2z1 = new WufooForm();z7x2z1.initialize(options);z7x2z1.display(); } catch (e) {}};
+    var scr = d.getElementsByTagName(t)[0], par = scr.parentNode; par.insertBefore(s, scr);
+    })(document, 'script');
+
+
+    var z7x1k9;(function(d, t) {
+    var s = d.createElement(t), options = {
+    'userName':'rethinkdb', 
+    'formHash':'z7x1k9', 
+    'autoResize':false,
+    'height':'225',
+    'async':true,
+    'header':'show', 
+    'ssl':false};
+    s.src = ('https:' == d.location.protocol ? 'https://' : 'http://') + 'wufoo.com/scripts/embed/form.js';
+    s.onload = s.onreadystatechange = function() {
+    var rs = this.readyState; if (rs) if (rs != 'complete') if (rs != 'loaded') return;
+    try { z7x1k9 = new WufooForm();z7x1k9.initialize(options);z7x1k9.display(); } catch (e) {}};
+    var scr = d.getElementsByTagName(t)[0], par = scr.parentNode; par.insertBefore(s, scr);
+    })(document, 'script');
+
+    $(function() {
+        $('a.recipe').click(function(e) {
+            e.preventDefault();
+            
+            // highlight the right link
+            if ($(this).hasClass('active'))
+                $(this).removeClass('active');
+            else {
+                $('a.recipe').removeClass('active');
+                $(this).addClass('active');
+            }
+
+            // make sure the right form is showing
+            this_form = $(this).attr('href');
+            if ($(this_form).is(':visible'))
+                $(this_form).slideUp();
+            else {
+                $('.wufoo-recipe-form').slideUp();
+                $(this_form).slideDown();
+            }
+        });
+    })
+</script>

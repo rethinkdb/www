@@ -77,7 +77,19 @@ body_class: docs
             </ul>
         </div>
         <div class="documentation-content {% if page.cookbook %}cookbook{% endif %}">
-            <h1>{{ page.title | page_title }}</h1>
+            {{ page.title | page_title }}
+
+            {% if page.toc %}
+                <ul>
+                    <li>
+                        <a href="#">One to many relations</a>
+                    </li>
+                    <li>
+                        <a href="#">Many to many relations</a>
+                    </li>
+                </ul>
+            {% endif %}
+
             {{content}}
         </div>
     </div>

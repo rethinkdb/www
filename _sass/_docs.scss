@@ -23,14 +23,12 @@
         .documentation-content {
             @extend .three-quarter;
 
-            // Title is centered
-            > h1 {
+            h1 {
                 @include font-size-rem(33);
                 font-weight: 400;
                 line-height: rem(38);
-                margin-bottom: $base-spacing*2;
-                text-align: center;
             }
+            .title { margin-bottom: $base-spacing*2; }
         }
 
         .docs-index {
@@ -48,12 +46,6 @@
                 @extend .half;
                 margin: $base-spacing/1.5 0;
             }
-            // Hero illustration
-            // li:first-child {
-            //     @include fill-parent;
-            //     text-align: center;
-            // }
-
             p { max-width: rem(300); }
         }
     }

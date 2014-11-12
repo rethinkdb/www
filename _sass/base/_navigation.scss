@@ -1,5 +1,5 @@
 //Global navigation
-.site-nav {
+.site-nav, .sub-nav {
     background: $teal;
     margin-bottom: $base-spacing;
 
@@ -32,5 +32,21 @@
         line-height: rem(28);
         text-transform: lowercase;
         font-weight: 600;
+    }
+}
+
+// Sub navigation
+.sub-nav {
+    background: $surf;
+    margin-bottom: 0;
+    a { color: $teal; }
+    ul {
+        @include fill-parent;
+        text-align: center;
+    }
+    li {
+        @include font-size-rem(16);
+        line-height: rem(20);
+        padding: $base-spacing/4 $base-spacing;
     }
 }

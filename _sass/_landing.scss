@@ -1,8 +1,6 @@
 body.landing {
     // Override
-    .site-nav {
-        margin-bottom: 0;
-    }
+    .site-nav { margin-bottom: 0; }
 
     h1 {
         @include font-size-rem(32);

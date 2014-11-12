@@ -5,6 +5,7 @@ active: docs
 docs_active: secondary-indexes
 permalink: docs/secondary-indexes/python/
 alias: docs/secondary-indexes/
+toc: true
 switcher: true
 language : Python
 js: [fancybox]
@@ -17,7 +18,7 @@ js: [fancybox]
 Secondary indexes are data structures that improve the speed of many
 read queries at the slight cost of increased storage space and decreased
 write performance.
-
+     
 RethinkDB supports different types of secondary indexes:
 
 - __Simple indexes__ based on the value of a single field.

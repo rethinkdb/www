@@ -1,5 +1,6 @@
 ---
 layout: default
+body_class: docs
 ---
 <section class="documentation">
     <div class="site-container">
@@ -9,7 +10,6 @@ layout: default
         {% if page.title_image %}
             <img class="title-image" src="{{page.title_image}}" />
         {% endif %}
-        {{ page.title | page_title }}
         <div class="navigation doc_navigation">
             <h1>About RethinkDB</h1>
             <ul>
@@ -76,7 +76,10 @@ layout: default
                 <li{% if page.docs_active == 'paas' %} class="active"{% endif %}>               <a href="/docs/paas/">Deploying with PaaS</a></li>
             </ul>
         </div>
-        <div class="documentation-content {% if page.cookbook %}cookbook{% endif %}">{{content}}</div>
+        <div class="documentation-content {% if page.cookbook %}cookbook{% endif %}">
+            <h1>{{ page.title | page_title }}</h1>
+            {{content}}
+        </div>
     </div>
 </section>
 

@@ -1,0 +1,60 @@
+.docs {
+    .documentation {
+        padding: $base-spacing*2 0;
+        a { color: lighten(saturate($teal, 25), 25); }
+
+        // Left-side docs navigation
+        .doc_navigation {
+            @extend .quarter;
+
+            h1 {
+                @include font-size-rem(14);
+                font-family: $sans-serif-semi-bold;
+                font-weight: 600;
+            }
+            ul { margin-bottom: $base-spacing/3; }
+            a {
+                @include font-size-rem(14);
+                font-family: $sans-serif-medium;
+                font-weight: 500;
+            }
+        }
+        // Right-side documentation content
+        .documentation-content {
+            @extend .three-quarter;
+
+            // Title is centered
+            > h1 {
+                @include font-size-rem(33);
+                font-weight: 400;
+                line-height: rem(38);
+                margin-bottom: $base-spacing*2;
+                text-align: center;
+            }
+        }
+
+        .docs-index {
+            ul { @extend .site-container; }
+            h1 {
+                @include font-size-rem(22);
+                font-family: $sans-serif-semi-bold;
+                padding-top: $base-spacing/4;
+                padding-bottom: $base-spacing/4;
+                text-align: left;
+                font-weight: 600;
+            }
+
+            li {
+                @extend .half;
+                margin: $base-spacing/1.5 0;
+            }
+            // Hero illustration
+            // li:first-child {
+            //     @include fill-parent;
+            //     text-align: center;
+            // }
+
+            p { max-width: rem(300); }
+        }
+    }
+}

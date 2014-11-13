@@ -5,18 +5,19 @@ active: docs
 docs_active: secondary-indexes
 permalink: docs/secondary-indexes/ruby/
 switcher: true
+toc: true
 language : Ruby
 js: [fancybox]
 ---
-
-<img src="/assets/images/docs/api_illustrations/secondary-indexes.png"
-     alt="Secondary Indexes Illustration"
-     class="api_command_illustration" />
 
 Secondary indexes are data structures that improve the speed of many
 read queries at the slight cost of increased storage space and decreased
 write performance.
 
+<img src="/assets/images/docs/api_illustrations/secondary-indexes.png"
+     alt="Secondary Indexes Illustration"
+     class="api_command_illustration" />
+     
 RethinkDB supports different types of secondary indexes:
 
 - __Simple indexes__ based on the value of a single field.

@@ -1,11 +1,24 @@
 .docs {
     .documentation {
-        padding: $base-spacing*2 0;
+        padding: $base-spacing*3 0;
         a { color: lighten(saturate($teal, 25), 25); }
 
+        // Share typographic styles
+        .doc_navigation, .toc {
+            li {
+                @include font-size-rem(14);
+                font-weight: 500;
+                line-height: rem(16);
+                margin: $base-spacing/3 0;
+            }
+            a {
+                font-family: $sans-serif-medium;
+                font-weight: 500;
+            }
+        }
         // Left-side docs navigation
         .doc_navigation {
-            @extend .quarter;
+            @extend .sixth;
 
             h1 {
                 @include font-size-rem(14);
@@ -13,24 +26,57 @@
                 font-weight: 600;
             }
             ul { margin-bottom: $base-spacing/3; }
-            a {
-                @include font-size-rem(14);
-                font-family: $sans-serif-medium;
-                font-weight: 500;
-            }
         }
         // Right-side documentation content
         .documentation-content {
-            @extend .three-quarter;
+            @extend .two-third;
+            padding: 0 0 0 $base-spacing*3;
+            position: relative;
 
+            h1, h2, h3 {
+                margin-top: $base-spacing*2;
+                margin-bottom: $base-spacing/2;
+            }
             h1 {
                 @include font-size-rem(33);
                 font-weight: 400;
                 line-height: rem(38);
             }
-            .title { margin-bottom: $base-spacing*2; }
-        }
 
+            h2 {
+                @include font-size-rem(22);
+                font-family: $sans-serif-semi-bold;
+                font-weight: 600;
+            }
+
+            h3 {
+                @include font-size-rem(18);
+                color: lighten(desaturate($teal, 30), 30);
+                font-family: $sans-serif-semi-bold;
+                font-weight: 600;
+                text-transform: uppercase;
+            }
+            .title { margin: 0 0 $base-spacing*2; }
+            p { margin: $base-spacing/2 0 $base-spacing; }
+            ul { padding: 0 0 $base-spacing 0; }
+            li {
+                @include font-size-rem(16);
+                border-radius: $base-border-radius/2;
+                font-family: $sans-serif-medium;
+                font-weight: 500;
+                list-style-type: disc;
+                list-style-position: outside;
+                padding: 0 0 0 $base-spacing/2;
+                margin-bottom: $base-spacing/3;
+                margin-left: 2rem;
+            }
+            p img {
+                display: block;
+                margin: 4% auto;
+                width: 40%;
+            }
+        }
+        // First page on load
         .docs-index {
             ul { @extend .site-container; }
             h1 {
@@ -47,6 +93,51 @@
                 margin: $base-spacing/1.5 0;
             }
             p { max-width: rem(300); }
+        }
+
+        // Language selector
+        .lang-selector {
+            background: none;
+            border: 1px solid $smoke-gray;
+            box-shadow: none;
+            padding: $base-spacing/6 0 $base-spacing/5;
+            position: absolute;
+            text-align: center;
+            top: -70px;
+            max-width: none;
+            left: $base-spacing;
+            width: 18%;
+
+            p { margin-bottom: 0; }
+
+            a {
+                @include font-size-rem(14);
+                display: inline-block;
+                font-family: $sans-serif-medium;
+                font-weight: 500;
+                padding: 0 $base-spacing/4;
+            }
+        }
+
+        // Placeholder table of contents
+        .toc {
+            @extend .quarter;
+            padding: 0 $base-spacing 0 0;
+            position: absolute;
+            top: 0px;
+            right: -80px;
+
+            &.sticky {
+                left: 50%;
+                padding-top: 2rem;
+                position: fixed;
+                margin-left: 370px;
+                top: 0%;
+            }
+
+            li {
+                margin-bottom: $base-spacing/2;
+            }
         }
     }
 }

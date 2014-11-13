@@ -78,20 +78,26 @@ body_class: docs
         </div>
         <div class="documentation-content {% if page.cookbook %}cookbook{% endif %}">
             {{ page.title | page_title }}
-
-            {% if page.toc %}
-                <ul>
-                    <li>
-                        <a href="#">One to many relations</a>
-                    </li>
-                    <li>
-                        <a href="#">Many to many relations</a>
-                    </li>
-                </ul>
-            {% endif %}
-
             {{content}}
         </div>
+
+        {% if page.toc %}
+            <ul class="toc">
+                <li>Contents</li>
+                <li>
+                    <a href="#">One to many relations</a>
+                </li>
+                <li>
+                    <a href="#">Many to many relations</a>
+                </li>
+                <li>
+                    <a href="#">Resolving field name conflicts</a>
+                </li>
+                <li>
+                    <a href="#">Read more</a>
+                </li>
+            </ul>
+        {% endif %}
     </div>
 </section>
 

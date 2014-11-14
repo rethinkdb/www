@@ -57,11 +57,13 @@
                 text-transform: uppercase;
             }
             .title { margin: 0 0 $base-spacing*2; }
-            p { margin: $base-spacing/2 0 $base-spacing; }
-            ul { padding: 0 0 $base-spacing 0; }
+            p { margin: $base-spacing 0; }
+            ul {
+                padding: $base-spacing/3 0;
+                margin: $base-spacing/3 0;
+            }
             li {
                 @include font-size-rem(16);
-                border-radius: $base-border-radius/2;
                 font-family: $sans-serif-medium;
                 font-weight: 500;
                 list-style-type: disc;
@@ -138,6 +140,47 @@
             li {
                 margin-bottom: $base-spacing/2;
             }
+        }
+
+        // Info boxes
+        .infobox {
+            p {
+                @include font-size-rem(16);
+                font-family: $sans-serif-medium;
+                font-weight: 500;
+                margin: 0;
+                padding-top: $base-spacing;
+            }
+            ul {
+                padding-bottom: 0;
+                margin-bottom: 0;
+            }
+        }
+
+        em {
+            font-family: $sans-serif-medium;
+            font-weight: 500;
+            color: $teal;
+        }
+
+        blockquote:before { content: ''; }
+
+        // Code
+        code {
+            @include font-size-rem(16);
+            background: $smoke-gray;
+            border-radius: $base-border-radius;
+            margin: 0 $base-spacing/6;
+            padding: 0 2px 1px 2px;
+        }
+        .highlight {
+            @include font-size-rem(16);
+            background: $smoke-gray;
+            border-radius: $base-border-radius;
+            padding: $base-spacing/2;
+            margin: $base-spacing/2 0;
+
+            pre { margin: 0; }
         }
     }
 }

@@ -16,21 +16,57 @@
                 font-weight: 500;
             }
         }
+        // Search
+        .search { margin-bottom: $base-spacing; }
         // Left-side docs navigation
         .doc_navigation {
-            @extend .sixth;
+            @extend .quarter;
 
             h1 {
-                @include font-size-rem(14);
-                font-family: $sans-serif-semi-bold;
+                @include font-size-rem(16);
+                color: lighten(desaturate($teal, 30), 30);
+                cursor: pointer;
+                font-family: $sans-serif-medium;
                 font-weight: 600;
+                border-bottom: 1px solid $smoke-gray;
+                padding: $base-spacing/2 0;
+                width: 90%;
             }
-            ul { margin-bottom: $base-spacing/3; }
+            // Hide initially for accordion
+            ul { display: none; }
+            li.active a { color: $teal; }
+            ul.active {
+                display: block;
+            }
+            // Related articles
+            .related-articles {
+                background: lighten($smoke-gray, 2);
+                border-radius: $base-border-radius;
+                margin: $base-spacing*2 0;
+                padding: $base-spacing/2 $base-spacing;
+                width: 90%;
+
+                h1 {
+                    @include font-size-rem(14);
+                    border-bottom: none;
+                    color: $teal;
+                    font-family: $sans-serif-semi-bold;
+                    font-weight: 600;
+                    margin-bottom: 0;
+                    padding-bottom: 0;
+                    text-transform: uppercase;
+                }
+                a {
+                    @include font-size-rem(15);
+                    display: block;
+                }
+                ul { display: block; }
+            }
         }
         // Right-side documentation content
         .documentation-content {
-            @extend .two-third;
-            padding: 0 0 0 $base-spacing*3;
+            @extend .three-quarter;
+            padding: 0;
             position: relative;
 
             h1, h2, h3 {
@@ -77,6 +113,34 @@
                 margin: 4% auto;
                 width: 40%;
             }
+
+            // Placeholder table of contents
+            .toc {
+                @extend .third;
+                background: desaturate(lighten($surf, 5), 10);
+                border-radius: $base-border-radius;
+                float: right;
+                padding: $base-spacing !important;
+                margin-left: $base-spacing*2;
+
+                li {
+                    list-style-type: none;
+                    margin-bottom: $base-spacing/2;
+                    margin-left: 0;
+                    padding-left: 0;
+
+                    &:first-child {
+                        font-family: $sans-serif-semi-bold;
+                        font-weight: 600;
+                        text-transform: uppercase;
+                    }
+
+                    a {
+                        @include font-size-rem(15);
+                        color: lighten(desaturate($teal, 30), 30);
+                    }
+                }
+            }
         }
         // First page on load
         .docs-index {
@@ -100,50 +164,34 @@
         // Language selector
         .lang-selector {
             background: none;
-            border: 1px solid $smoke-gray;
             box-shadow: none;
-            padding: $base-spacing/6 0 $base-spacing/5;
+            color: $smoke-gray;
+            padding: 0;
             position: absolute;
-            text-align: center;
-            top: -70px;
-            max-width: none;
-            left: $base-spacing;
-            width: 18%;
+            text-align: right;
+            top: rem(-20);
+            right: 0px;
+            width: 33%;
 
-            p { margin-bottom: 0; }
-
-            a {
-                @include font-size-rem(14);
-                display: inline-block;
+            a p {
+                @include font-size-rem(13);
                 font-family: $sans-serif-medium;
                 font-weight: 500;
+                margin-bottom: 0;
+                padding-top: 0;
+            }
+
+            a {
+                display: inline-block;
                 padding: 0 $base-spacing/4;
-            }
-        }
-
-        // Placeholder table of contents
-        .toc {
-            @extend .quarter;
-            padding: 0 $base-spacing 0 0;
-            position: absolute;
-            top: 0px;
-            right: -80px;
-
-            &.sticky {
-                left: 50%;
-                padding-top: 2rem;
-                position: fixed;
-                margin-left: 370px;
-                top: 0%;
-            }
-
-            li {
-                margin-bottom: $base-spacing/2;
             }
         }
 
         // Info boxes
         .infobox {
+            margin-top: $base-spacing;
+            overflow: hidden;
+
             p {
                 @include font-size-rem(16);
                 font-family: $sans-serif-medium;
@@ -177,7 +225,7 @@
             @include font-size-rem(16);
             background: $smoke-gray;
             border-radius: $base-border-radius;
-            padding: $base-spacing/2;
+            padding: $base-spacing;
             margin: $base-spacing/2 0;
 
             pre { margin: 0; }

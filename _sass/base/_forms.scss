@@ -48,6 +48,11 @@ select[multiple=multiple] {
     border-color: $form-border-color-focus;
     outline: none;
   }
+
+  &.small {
+    padding: $base-spacing/4 $base-spacing/2;
+    width: 80%;
+  }
 }
 
 textarea {

@@ -183,12 +183,11 @@ body.landing {
 
         h1 {margin-bottom: rem(12); }
         p { line-height: rem(28); }
-        code {
-            @include font-size-rem(16);
+        pre {
+            code { @include font-size-rem(13); }
             font-family: $monospaced;
             color: #2D4654;
-            display: block;
-            padding-bottom: 1rem;
+            padding: 0.5rem 0.6rem;
 
             .str { color: $teal; }
             .term { color: $cranberry; }

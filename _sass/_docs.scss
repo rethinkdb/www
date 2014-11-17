@@ -43,7 +43,7 @@
                 background: lighten($smoke-gray, 2);
                 border-radius: $base-border-radius;
                 margin: $base-spacing*2 0;
-                padding: $base-spacing/2 $base-spacing;
+                padding: $base-spacing;
                 width: 90%;
 
                 h1 {
@@ -53,7 +53,7 @@
                     font-family: $sans-serif-semi-bold;
                     font-weight: 600;
                     margin-bottom: 0;
-                    padding-bottom: 0;
+                    padding-top: 0;
                     text-transform: uppercase;
                 }
                 a {
@@ -92,7 +92,13 @@
                 font-weight: 600;
                 text-transform: uppercase;
             }
-            .title { margin: 0 0 $base-spacing*2; }
+            .title {
+                margin: 0 0 $base-spacing*2;
+
+                @include media($mobile) {
+                    margin-bottom: 0;
+                }
+            }
             p { margin: $base-spacing 0; }
             ul {
                 padding: $base-spacing/3 0;
@@ -156,9 +162,21 @@
 
             li {
                 @extend .half;
-                margin: $base-spacing/1.5 0;
+                list-style-type: none;
+                margin: $base-spacing/2 0;
+                padding: 0;
             }
             p { max-width: rem(300); }
+            img { margin-top: $base-spacing; }
+
+            @include media($mobile) {
+                .quickstart {
+                    margin: 0;
+                    padding: 0;
+                }
+                h1 { margin-top: $base-spacing; }
+                p { margin: $base-spacing/3 0; }
+            }
         }
 
         // Language selector

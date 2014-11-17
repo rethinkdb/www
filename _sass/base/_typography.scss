@@ -7,12 +7,7 @@ body {
   font-weight: 400;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   color: $base-font-color;
   font-family: $header-font-family;
   line-height: $header-line-height;
@@ -20,33 +15,14 @@ h6 {
   text-rendering: optimizeLegibility; // Fix the character spacing for headings
 }
 
-h1 {
-  font-size: $h1-font-size;
-}
+h1 { font-size: $h1-font-size; }
+h2 { font-size: $h2-font-size; }
+h3 { font-size: $h3-font-size; }
+h4 { font-size: $h4-font-size; }
+h5 { font-size: $h5-font-size; }
+h6 { font-size: $h6-font-size; }
 
-h2 {
-  font-size: $h2-font-size;
-}
-
-h3 {
-  font-size: $h3-font-size;
-}
-
-h4 {
-  font-size: $h4-font-size;
-}
-
-h5 {
-  font-size: $h5-font-size;
-}
-
-h6 {
-  font-size: $h6-font-size;
-}
-
-p {
-  margin: 0 0 ($base-spacing / 2);
-}
+p { margin: 0 0 ($base-spacing / 2); }
 
 a {
   @include transition(color 0.1s linear);
@@ -101,9 +77,7 @@ blockquote {
     left: rem(-20);
   }
 
-  cite {
-    @include font-size-rem(18);
-  }
+  cite { @include font-size-rem(18); }
 }
 
 cite {
@@ -116,4 +90,27 @@ cite {
   &:before {
     content: "\2014 \00A0";
   }
+}
+
+// Code blocks
+code {
+    @include font-size-rem(15);
+    background: $smoke-gray;
+    border-radius: $base-border-radius;
+    margin: 0 $base-spacing/6;
+    padding: 3px 4px;
+    //padding: 0 2px 1px 2px;
+}
+.highlight {
+    background: $smoke-gray;
+    border-radius: $base-border-radius;
+    padding: $base-spacing/2 ;
+    margin: $base-spacing/1.5 0;
+
+    pre { margin: 0.4rem 1.2rem; }
+    code {
+        @include font-size-rem(15);
+        margin: 0;
+        padding: 0;
+    }
 }

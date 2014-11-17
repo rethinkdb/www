@@ -62,16 +62,16 @@ body_class: landing
                     Polling is obsolete. Build realtime dashboards, leaderboards,
                     and widgets with incremental updates to query results:
                 </p>
-                <code>&gt; r.<span class="term">table</span>(<span class="str">'games'</span>).<span class="term">max</span>(<span class="str">'score'</span>).<span class="term">limit</span>(<span class="num">10</span>).<span class="term">changes</span>()</code>
+                <pre><code>&gt; r.<span class="term">table</span>(<span class="str">'games'</span>).<span class="term">max</span>(<span class="str">'score'</span>).<span class="term">limit</span>(<span class="num">10</span>).<span class="term">changes</span>()</code></pre>
                 <p>
                     Create reactive experiences by subscribing to user events in
                     realtime:
                 </p>
-                <code>&gt; r.<span class="term">table</span>(<span class="str">'games'</span>).<span class="term">filter</span>({<span class="str">'user_id'</span>: <span class="num">123</span>}).<span class="term">changes</span>()</code>
+                <pre><code>&gt; r.<span class="term">table</span>(<span class="str">'games'</span>).<span class="term">filter</span>({<span class="str">'user_id'</span>: <span class="num">123</span>}).<span class="term">changes</span>()</code></pre>
                 <p>
                     Or get a firehose of changes from your database:
                 </p>
-                <code>&gt; r.<span class="term">table</span>(<span class="str">'games'</span>).<span class="term">changes</span>()</code>
+                <pre><code>&gt; r.<span class="term">table</span>(<span class="str">'games'</span>).<span class="term">changes</span>()</code></pre>
                 <a class="learn-more" href="/streaming.html">Learn more &rarr;</a>
             </section>
             <img src="/assets/images/landing-offerings_@2x.png">
@@ -99,16 +99,16 @@ body_class: landing
                 <p>
                     Scale to multiple machines with a simple API:
                 </p>
-                <code>&gt; r.<span class="term">table</span>(<span class="str">'games'</span>).<span class="term">configure</span>(shards=5, replicas=3)</code>
+                <pre><code>&gt; r.<span class="term">table</span>(<span class="str">'games'</span>).<span class="term">configure</span>(shards=5, replicas=3)</code></pre>
                 <p>
                     Precise control of your cluster when you need it:
                 </p>
-                <code>&gt; r.<span class="term">table</span>(<span class="str">'games'</span>).<span class="term">table_status</span>()</code>
+                <pre><code>&gt; r.<span class="term">table</span>(<span class="str">'games'</span>).<span class="term">table_status</span>()</code></pre>
                 <p>
                     Complete visibility into your cluster with detailed
                     monitoring tools:
                 </p>
-                <code>&gt; r.<span class="term">db</span>(<span class="str">'system'</span>).<span class="term">table</span>(<span class="str">'jobs'</span>).<span class="term">changes</span>()</code>
+                <pre><code>&gt; r.<span class="term">db</span>(<span class="str">'system'</span>).<span class="term">table</span>(<span class="str">'jobs'</span>).<span class="term">changes</span>()</code></pre>
                 <a class="learn-more" href="/ops.html">Learn more &rarr;</a>
             </section>
             <img src="/assets/images/landing-offerings-3_@2x.png">

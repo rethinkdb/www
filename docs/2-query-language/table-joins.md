@@ -2,6 +2,7 @@
 layout: documentation
 title: Table joins in RethinkDB
 active: docs
+toc: true
 docs_active: table-joins
 permalink: docs/table-joins/
 ---

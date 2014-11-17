@@ -1,0 +1,234 @@
+.docs {
+    .documentation {
+        padding: $base-spacing*3 0;
+        a { color: lighten(saturate($teal, 25), 25); }
+
+        // Share typographic styles
+        .doc_navigation, .toc {
+            li {
+                @include font-size-rem(14);
+                font-weight: 500;
+                line-height: rem(16);
+                margin: $base-spacing/3 0;
+            }
+            a {
+                font-family: $sans-serif-medium;
+                font-weight: 500;
+            }
+        }
+        // Search
+        .search { margin-bottom: $base-spacing; }
+        // Left-side docs navigation
+        .doc_navigation {
+            @extend .quarter;
+
+            h1 {
+                @include font-size-rem(16);
+                color: lighten(desaturate($teal, 30), 30);
+                cursor: pointer;
+                font-family: $sans-serif-medium;
+                font-weight: 600;
+                border-bottom: 1px solid $smoke-gray;
+                padding: $base-spacing/2 0;
+                width: 90%;
+            }
+            // Hide initially for accordion
+            ul { display: none; }
+            li.active a { color: $teal; }
+            ul.active {
+                display: block;
+            }
+            // Related articles
+            .related-articles {
+                background: lighten($smoke-gray, 2);
+                border-radius: $base-border-radius;
+                margin: $base-spacing*2 0;
+                padding: $base-spacing/2 $base-spacing;
+                width: 90%;
+
+                h1 {
+                    @include font-size-rem(14);
+                    border-bottom: none;
+                    color: $teal;
+                    font-family: $sans-serif-semi-bold;
+                    font-weight: 600;
+                    margin-bottom: 0;
+                    padding-bottom: 0;
+                    text-transform: uppercase;
+                }
+                a {
+                    @include font-size-rem(15);
+                    display: block;
+                }
+                ul { display: block; }
+            }
+        }
+        // Right-side documentation content
+        .documentation-content {
+            @extend .three-quarter;
+            padding: 0;
+            position: relative;
+
+            h1, h2, h3 {
+                margin-top: $base-spacing*2;
+                margin-bottom: $base-spacing/2;
+            }
+            h1 {
+                @include font-size-rem(33);
+                font-weight: 400;
+                line-height: rem(38);
+            }
+
+            h2 {
+                @include font-size-rem(22);
+                font-family: $sans-serif-semi-bold;
+                font-weight: 600;
+            }
+
+            h3 {
+                @include font-size-rem(18);
+                color: lighten(desaturate($teal, 30), 30);
+                font-family: $sans-serif-semi-bold;
+                font-weight: 600;
+                text-transform: uppercase;
+            }
+            .title { margin: 0 0 $base-spacing*2; }
+            p { margin: $base-spacing 0; }
+            ul {
+                padding: $base-spacing/3 0;
+                margin: $base-spacing/3 0;
+            }
+            li {
+                @include font-size-rem(16);
+                font-family: $sans-serif-medium;
+                font-weight: 500;
+                list-style-type: disc;
+                list-style-position: outside;
+                padding: 0 0 0 $base-spacing/2;
+                margin-bottom: $base-spacing/3;
+                margin-left: 2rem;
+            }
+            p img {
+                display: block;
+                margin: 4% auto;
+                width: 40%;
+            }
+
+            // Placeholder table of contents
+            .toc {
+                @extend .third;
+                background: desaturate(lighten($surf, 5), 10);
+                border-radius: $base-border-radius;
+                float: right;
+                padding: $base-spacing !important;
+                margin-left: $base-spacing*2;
+
+                li {
+                    list-style-type: none;
+                    margin-bottom: $base-spacing/2;
+                    margin-left: 0;
+                    padding-left: 0;
+
+                    &:first-child {
+                        font-family: $sans-serif-semi-bold;
+                        font-weight: 600;
+                        text-transform: uppercase;
+                    }
+
+                    a {
+                        @include font-size-rem(15);
+                        color: lighten(desaturate($teal, 30), 30);
+                    }
+                }
+            }
+        }
+        // First page on load
+        .docs-index {
+            ul { @extend .site-container; }
+            h1 {
+                @include font-size-rem(22);
+                font-family: $sans-serif-semi-bold;
+                padding-top: $base-spacing/4;
+                padding-bottom: $base-spacing/4;
+                text-align: left;
+                font-weight: 600;
+            }
+
+            li {
+                @extend .half;
+                margin: $base-spacing/1.5 0;
+            }
+            p { max-width: rem(300); }
+        }
+
+        // Language selector
+        .lang-selector {
+            background: none;
+            box-shadow: none;
+            color: $smoke-gray;
+            padding: 0;
+            position: absolute;
+            text-align: right;
+            top: rem(-20);
+            right: 0px;
+            width: 33%;
+
+            a p {
+                @include font-size-rem(13);
+                font-family: $sans-serif-medium;
+                font-weight: 500;
+                margin-bottom: 0;
+                padding-top: 0;
+            }
+
+            a {
+                display: inline-block;
+                padding: 0 $base-spacing/4;
+            }
+        }
+
+        // Info boxes
+        .infobox {
+            margin-top: $base-spacing;
+            overflow: hidden;
+
+            p {
+                @include font-size-rem(16);
+                font-family: $sans-serif-medium;
+                font-weight: 500;
+                margin: 0;
+                padding-top: $base-spacing;
+            }
+            ul {
+                padding-bottom: 0;
+                margin-bottom: 0;
+            }
+        }
+
+        em {
+            font-family: $sans-serif-medium;
+            font-weight: 500;
+            color: $teal;
+        }
+
+        blockquote:before { content: ''; }
+
+        // Code
+        code {
+            @include font-size-rem(16);
+            background: $smoke-gray;
+            border-radius: $base-border-radius;
+            margin: 0 $base-spacing/6;
+            padding: 0 2px 1px 2px;
+        }
+        .highlight {
+            @include font-size-rem(16);
+            background: $smoke-gray;
+            border-radius: $base-border-radius;
+            padding: $base-spacing;
+            margin: $base-spacing/2 0;
+
+            pre { margin: 0; }
+        }
+    }
+}

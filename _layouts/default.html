@@ -22,6 +22,10 @@
                     // Blog right panel should be set to a fixed position on scroll
                     $(this).toggleClass('sticky');
                 });
+
+                $('.doc_navigation h1').click(function(event) {
+                    $(this).toggleClass('expand').next('ul').slideToggle()
+                });
             });
         </script>
 

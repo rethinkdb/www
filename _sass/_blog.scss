@@ -101,21 +101,6 @@
             margin-bottom: $base-spacing/3;
             margin-left: 2rem;
         }
-        // Code
-        code {
-            @include font-size-rem(16);
-            background: $smoke-gray;
-            border-radius: $base-border-radius;
-            margin: 0 $base-spacing/6;
-            padding: 0 2px 1px 2px;
-        }
-        .highlight {
-            @include font-size-rem(16);
-            background: $smoke-gray;
-            border-radius: $base-border-radius;
-            padding: $base-spacing/4 $base-spacing;
-            margin: $base-spacing/2 0;
-        }
 
         p { margin-bottom: $base-spacing; }
         .infobox p {

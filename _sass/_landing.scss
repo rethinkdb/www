@@ -1,6 +1,9 @@
 body.landing {
     // Override
-    .site-nav { margin-bottom: 0; }
+    .site-nav {
+        margin-bottom: 0;
+        background: #18141D;
+    }
 
     h1 {
         @include font-size-rem(32);
@@ -9,7 +12,7 @@ body.landing {
 
     // Hero
     .hero {
-        background: #005662 url('/assets/images/hero-image-town-transparent.png');
+        background: #005662 url('/assets/images/map-practice.png');
         background-size: cover;
         color: $cream;
         overflow: hidden;

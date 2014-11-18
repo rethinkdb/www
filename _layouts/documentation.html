@@ -87,24 +87,7 @@ body_class: docs
                 {% include docs-switcher.html %}
             {% endif %}
             {{ page.title | page_title }}
-            {% if page.toc %}
-                <ul class="toc">
-                    <li>In this article</li>
-                    <li>
-                        <a href="#">One to many relations</a>
-                    </li>
-                    <li>
-                        <a href="#">Many to many relations</a>
-                    </li>
-                    <li>
-                        <a href="#">Resolving field name conflicts</a>
-                    </li>
-                    <li>
-                        <a href="#">Read more</a>
-                    </li>
-                </ul>
-            {% endif %}
-            {{content}}
+            {{ content }}
         </div>
     </div>
 </section>

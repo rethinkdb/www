@@ -123,17 +123,25 @@
                 padding: $base-spacing !important;
                 margin-left: $base-spacing*2;
 
+                ul#markdown-toc {
+                    margin-top: 1.5rem;
+                    margin-bottom: 0;
+                    padding: 0;
+                }
+
+                h1 {
+                    @include font-size-rem(16);
+                    font-family: $sans-serif-semi-bold;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    margin-top: 0;
+                }
+
                 li {
                     list-style-type: none;
                     margin-bottom: $base-spacing/2;
                     margin-left: 0;
                     padding-left: 0;
-
-                    &:first-child {
-                        font-family: $sans-serif-semi-bold;
-                        font-weight: 600;
-                        text-transform: uppercase;
-                    }
 
                     a {
                         @include font-size-rem(15);

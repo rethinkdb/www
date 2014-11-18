@@ -1,8 +1,10 @@
 port: 8888
-# move to kramdown: http://kramdown.gettalong.org/syntax.html
-markdown: redcarpet
-redcarpet:
-    extensions: [tables]
+markdown: kramdown
+kramdown:
+    input: GFM
+    syntax_highlighter: rouge
+    hard_wrap: false
+    toc_levels: '1'
 highlighter: rouge
 gems: ['bourbon', 'neat']
 exclude: [_drafts, Rakefile, node_modules, Gemfile, Gemfile.lock]

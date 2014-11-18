@@ -6,9 +6,9 @@
         </a> |
     {% endif %}
     {% if page.js == false %}
-        <span class="lang-link javascript {% if page.language == 'JavaScript' %}active{% endif %}">
+        <a class="lang-link javascript {% if page.language == 'JavaScript' %}active{% endif %}">
             <i class="sprite javascript"></i><p class="category disabled">JavaScript</p>
-        </span> |
+        </a> |
     {% endif %}
     {% if page.py != false %}
         <a class="lang-link python {% if page.language == 'Python' %}active{% endif %}"
@@ -17,9 +17,9 @@
         </a> |
     {% endif %}
     {% if page.py == false %}
-        <span class="lang-link python {% if page.language == 'Python' %}active{% endif %}">
+        <a class="lang-link python {% if page.language == 'Python' %}active{% endif %}">
             <i class="sprite python"></i><p class="category disabled">Python</p>
-        </span> |
+        </a> |
     {% endif %}
     {% if page.rb != false %}
         <a class="lang-link ruby {% if page.language == 'Ruby' %}active{% endif %}"
@@ -28,8 +28,8 @@
         </a>
     {% endif %}
     {% if page.rb == false %}
-        <span class="lang-link ruby {% if page.language == 'Ruby' %}active{% endif %}">
+        <a class="lang-link ruby {% if page.language == 'Ruby' %}active{% endif %}">
             <i class="sprite ruby"></i><p class="category disabled">Ruby</p>
-        </span>
+        </a>
     {% endif %}
 </div>

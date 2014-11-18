@@ -3,37 +3,34 @@ layout: default
 js: [unevent, api]
 active: api
 no_footer: true
+body_class: api
 ---
 
-<div class="section no-footer">
-    <div id="api-app">
-        <div id="api-header">
-            <div class="sticky-wrapper">
-            <div id="api-command-bar">
+<section class="documentation section no-footer">
+    <div id="api-app" class="site-container">
+        <div id="api-nav" class="doc_navigation">
+            <div class="search">
+                <input class="small" type="text" placeholder="Search commands...">
+            </div>
+        </div>
+        <div id="api-sections-wrapper" class="documentation-content">
+            <h1 class="title">{{page.language}} ReQL command reference</h1>
             <div id="docs-switcher" class="infobox infobox-slim page-nav-selector lang-selector">
                 <a class="lang-link javascript {% if page.language == 'JavaScript' %}active{% endif %}" href="../javascript/" id="_js"><i class="sprite javascript"></i><p class="category">JavaScript</p></a> |
                 <a class="lang-link python {% if page.language == 'Python' %}active{% endif %}" href="../python/" id="_py"><i class="sprite python"></i><p class="category">Python</p></a> |
                 <a class="lang-link ruby {% if page.language == 'Ruby' %}active{% endif %}" href="../ruby/" id="_rb"><i class="sprite ruby"></i><p class="category">Ruby</p></a>
-                </div>
-                <h1 class="title">{{page.language}} ReQL command reference</h1>
-                </div>
             </div>
-        </div>
-        <div id="api-nav">
-            <div id="api-nav-footer"><p>&#955;</p></div>
-        </div>
-        <div id="api-sections-wrapper">
             <div class="infobox infobox-info">
                 <p>
                     <strong>Looking for documentation for a community driver?</strong><br/>
                     <a href="/docs/install-drivers">Find the project page</a>
-                    for your driver for specific ReQL documentation. 
+                    for your driver for specific ReQL documentation.
                 </p>
             </div>
             <div id="api-sections">
                 {{ content }}
             </div>
-            
+
             <div id="api-footer">
                 <h2>Improve this doc</h2>
                 <p>Help us improve this document.</p>
@@ -53,4 +50,4 @@ no_footer: true
             </div>
         </div>
     </div>
-</div>
+</section>

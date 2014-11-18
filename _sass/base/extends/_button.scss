@@ -1,5 +1,5 @@
 %button, .button {
-  @include transition(background 0.2s linear);
+  @include transition(background 0.1s linear);
   @include font-size-rem(18);
   -webkit-font-smoothing: antialiased;
   background-color: $base-button-color;
@@ -26,6 +26,20 @@
     background-color: darken($cranberry, 5);
 
     &:hover { background-color: darken($cranberry, 10); }
+  }
+
+  &.outlined {
+    background: transparent;
+    border: 1px solid lighten(saturate($teal, 25), 25);
+    color: lighten(saturate($teal, 25), 25);
+    font-family: $sans-serif;
+    font-weight: 400;
+    padding: $base-spacing/2 $base-spacing;
+
+    &:hover {
+      background: lighten(saturate($teal, 25), 25);
+      color: #fff;
+    }
   }
 
   &.small {

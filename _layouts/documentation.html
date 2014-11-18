@@ -75,12 +75,6 @@ body_class: docs
                 <li{% if page.docs_active == 'security' %} class="active"{% endif %}>           <a href="/docs/security/">Secure your cluster</a></li>
                 <li{% if page.docs_active == 'paas' %} class="active"{% endif %}>               <a href="/docs/paas/">Deploying with PaaS</a></li>
             </ul>
-            <div class="related-articles">
-                <h1>Related articles:</h1>
-                <a href="#">Sharding and replication</a>
-                <a href="#">Map-reduce in RethinkDB</a>
-                <a href="#">Geospatial queries</a>
-            </div>
         </div>
         <div class="documentation-content {% if page.cookbook %}cookbook{% endif %}">
             {% if page.switcher %}

@@ -1,4 +1,4 @@
-.docs {
+.docs, .api {
     .documentation {
         padding: $base-spacing*3 0;
         a { color: lighten(saturate($teal, 25), 25); }
@@ -17,50 +17,49 @@
             }
         }
         // Search
-        .search { margin-bottom: $base-spacing; }
+        .search input {
+            border: none;
+            padding-bottom: $base-spacing/2;
+            padding-left: 0;
+        }
         // Left-side docs navigation
         .doc_navigation {
             @extend .quarter;
 
-            h1 {
+            h1, .nav-header {
                 @include font-size-rem(16);
                 color: lighten(desaturate($teal, 30), 30);
                 cursor: pointer;
                 font-family: $sans-serif-medium;
                 font-weight: 600;
-                border-bottom: 1px solid $smoke-gray;
-                padding: $base-spacing/2 0;
+                padding: $base-spacing/2 0 0;
                 width: 90%;
+            }
+            .nav-header {
+                border-bottom: none;
+                padding-bottom: 0;
             }
             // Hide initially for accordion
-            ul { display: none; }
-            li.active a { color: $teal; }
-            ul.active {
-                display: block;
+            ul {
+                border-left: 1px solid $smoke-gray;
+                display: none;
+                padding-left: $base-spacing/2;
             }
-            // Related articles
-            .related-articles {
-                background: lighten($smoke-gray, 2);
-                border-radius: $base-border-radius;
-                margin: $base-spacing*2 0;
-                padding: $base-spacing/2 $base-spacing;
-                width: 90%;
-
-                h1 {
-                    @include font-size-rem(14);
-                    border-bottom: none;
-                    color: $teal;
-                    font-family: $sans-serif-semi-bold;
-                    font-weight: 600;
-                    margin-bottom: 0;
-                    padding-bottom: 0;
-                    text-transform: uppercase;
-                }
-                a {
-                    @include font-size-rem(15);
-                    display: block;
-                }
-                ul { display: block; }
+            li.active a { color: $teal; }
+            ul.active { display: block; }
+            // Scrolling navigation for api
+            &.scrolling {
+                position: fixed;
+                bottom: 0;
+                overflow-y: auto;
+            }
+        }
+        // Api header
+        #api-header {
+            overflow: auto;
+            &.stuck {
+                position: fixed;
+                top: 0;
             }
         }
         // Right-side documentation content
@@ -114,6 +113,38 @@
                 width: 40%;
             }
 
+            // Intro
+            .intro {
+                border-bottom: 1px solid $smoke-gray;
+                padding: $base-spacing 0 $base-spacing/2;
+
+                img {
+                    display: block;
+                    margin: 4% auto;
+                    width: 40%;
+                }
+            }
+
+            // Api command blocks
+            .api-command {
+                padding-bottom: $base-spacing*2;
+                border-bottom: 1px solid $smoke-gray;
+
+                h2 a { color: $teal; }
+
+                .command-body {
+                    border-left: 1px solid darken($smoke-gray, 5);
+                    padding-left: $base-spacing/2;
+
+                    p {
+                        @include font-size-rem(16);
+                        font-family: $monospaced;
+                        padding: 0;
+                        margin: $base-spacing/3 0;
+                    }
+                }
+            }
+
             // Placeholder table of contents
             .toc {
                 @extend .third;
@@ -122,6 +153,7 @@
                 float: right;
                 padding: $base-spacing !important;
                 margin-left: $base-spacing*2;
+                margin-top: 0;
 
                 li {
                     list-style-type: none;
@@ -164,17 +196,20 @@
         // Language selector
         .lang-selector {
             background: none;
+            border: 1px solid $smoke-gray;
+            border-radius: $base-border-radius;
             box-shadow: none;
             color: $smoke-gray;
-            padding: 0;
+            padding: 0 $base-spacing/4 $base-spacing/4;
             position: absolute;
-            text-align: right;
-            top: rem(-20);
+            text-align: center;
+            top: rem(-15);
             right: 0px;
-            width: 33%;
+            width: auto;
 
             a p {
                 @include font-size-rem(13);
+                display: inline;
                 font-family: $sans-serif-medium;
                 font-weight: 500;
                 margin-bottom: 0;
@@ -212,5 +247,21 @@
         }
 
         blockquote:before { content: ''; }
+    }
+}
+
+// API style overrides
+.api .documentation .doc_navigation ul {
+    display: block;
+    border-left: none;
+    padding-left: 0;
+}
+.api .api-command p:last-child {
+    margin: 0;
+
+    a {
+        @extend .button;
+        @extend .outlined;
+        margin-top: $base-spacing/2;
     }
 }

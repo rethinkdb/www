@@ -350,7 +350,7 @@ body.landing {
 
         h1 {
             @include font-size-rem(24);
-            @include inline-block;
+            display: inline-block;
             color: $cream;
             margin-right: $base-spacing;
         }

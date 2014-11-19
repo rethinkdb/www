@@ -49,11 +49,14 @@ module Jekyll
 
     def process_pages
       @site.pages.each do |page|
-        generate_aliases(page.destination('').gsub(/index\.(html|htm)$/, ''), page.data['alias'])
+        generate_aliases(page.url, page.data['alias'])
       end
     end
 
-    def generate_aliases(destination_path, aliases)
+    # Generates the alias files for a post / page. Takes two arguments:
+    #    - destination_url: the URL that the aliases should point to
+    #    - aliases: the list of alias files to generate
+    def generate_aliases(destination_url, aliases)
       alias_paths ||= Array.new
       alias_paths << aliases
       alias_paths.compact!
@@ -70,7 +73,7 @@ module Jekyll
         FileUtils.mkdir_p(fs_path_to_dir)
 
         File.open(File.join(fs_path_to_dir, alias_file), 'w') do |file|
-          file.write(alias_template(destination_path))
+          file.write(alias_template(destination_url))
         end
 
         alias_sections.size.times do |sections|
@@ -80,14 +83,14 @@ module Jekyll
       end
     end
 
-    def alias_template(destination_path)
+    def alias_template(destination_url)
       <<-EOF
       <!DOCTYPE html>
       <html>
       <head>
-      <link rel="canonical" href="#{destination_path}"/>
+      <link rel="canonical" href="#{destination_url}"/>
       <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-      <meta http-equiv="refresh" content="0;url=#{destination_path}" />
+      <meta http-equiv="refresh" content="0;url=#{destination_url}" />
       </head>
       </html>
       EOF

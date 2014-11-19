@@ -36,7 +36,7 @@
     }
 
     .avatar, .post-timestamp, .post-tags {
-        @include inline-block;
+        display: inline-block;
     }
 
     .avatar {

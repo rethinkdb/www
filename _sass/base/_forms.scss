@@ -36,15 +36,18 @@ select[multiple=multiple] {
   border: 1px solid $form-border-color;
   font-family: $form-font-family;
   font-size: $form-font-size;
-  padding: ($base-spacing/2) $base-spacing/2;
+  padding: ($base-spacing/1.5);
   width: 100%;
+
+  @include placeholder {
+    color: darken($surf, 20);
+  }
 
   &:hover {
     border-color: $form-border-color-hover;
   }
 
   &:focus {
-    border-left: 4px solid $form-border-color;
     border-color: $form-border-color-focus;
     outline: none;
   }

@@ -1,6 +1,7 @@
 // Site footer
 .site-footer {
-    background: darken($teal, 10);
+    background: darken($teal, 10) url("/assets/images/bg-footer-2.png") left bottom no-repeat;
+    background-size: auto 100%;
     color: $cream;
     font-family: $sans-serif-medium;
     font-weight: 500;

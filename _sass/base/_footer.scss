@@ -46,6 +46,7 @@
             @include font-size-rem(16);
             font-family: $sans-serif-semi-bold;
             font-weight: 600;
+            text-transform: lowercase;
             margin-bottom: $base-spacing;
 
             ul {

@@ -28,17 +28,23 @@
                 $('.doc_navigation h1').click(function(event) {
                     $(this).toggleClass('expand').next('ul').slideToggle()
                 });
+
+                // Mobile navigation
+                $('.menu-trigger a').click(function(event) {
+                    event.preventDefault();
+                    $('body').toggleClass('pmr-open');
+                });
             });
         </script>
 
         </script>
     </head>
     <body class="{{ page.body_class}}">
-        <!-- site nav -->
-        <nav class="site-nav">
-            <div class="site-container">
-                <h1 class="logo"><a href="/">RethinkDB</a></h1>
+        <div id="wrapper">
+            <!-- site nav -->
+            <nav class="mobile-menu push-menu-right">
                 <ul>
+                    <li class="menu-trigger"><a href="/">Close</a></li>
                     <li><a href="/">FAQ</a></li>
                     <li><a href="/docs">Docs</a></li>
                     <li><a href="/blog">Blog</a></li>
@@ -46,9 +52,23 @@
                     <li><a href="/">Events</a></li>
                     <li><a href="/about">About</a></li>
                 </ul>
-            </div>
-        </nav>
-        {{ content }}
+            </nav>
+            <nav class="site-nav">
+                <div class="site-container">
+                    <h1 class="logo"><a href="/">RethinkDB</a></h1>
+                    <ul>
+                        <li class="menu-trigger"><a href="/">Menu</a></li>
+                        <li><a href="/">FAQ</a></li>
+                        <li><a href="/docs">Docs</a></li>
+                        <li><a href="/blog">Blog</a></li>
+                        <li><a href="/">Community</a></li>
+                        <li><a href="/">Events</a></li>
+                        <li><a href="/about">About</a></li>
+                    </ul>
+                </div>
+            </nav>
+                {{ content }}
+        </div>
 
         <!-- site footer -->
         <footer class="site-footer">

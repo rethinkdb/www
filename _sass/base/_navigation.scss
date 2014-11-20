@@ -1,10 +1,13 @@
-//Global navigation
+// Shared navigation styles
 .site-nav, .sub-nav {
     background: #005563;
     margin-bottom: $base-spacing;
 
     // Mandatory spacing under the global nav
-    .site-container { padding: $base-spacing; }
+    .site-container {
+        padding: $base-spacing;
+        position: relative;
+    }
 
     a {
         color: $cream;
@@ -15,8 +18,8 @@
         @include span-columns(2);
         @include font-size-rem(26);
         font-weight: 400;
-        line-height: rem(40);
         font-family: $serif;
+        line-height: rem(40);
     }
 
     ul {
@@ -33,9 +36,81 @@
         text-transform: lowercase;
         font-weight: 600;
     }
+    // Hide the menu trigger
+    .menu-trigger { display: none; }
 }
 
-// Sub navigation
+// Slider navigation
+
+body { overflow-x: hidden; }
+
+#wrapper {
+    @include transition(all 0.3s linear);
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 5;
+}
+
+.mobile-menu {
+    @include transition(all 0.3s linear);
+    background-color: darken($teal, 10);
+    position: fixed;
+    z-index: 6;
+    overflow: hidden;
+
+    a { color: $cream; }
+
+    // Sliding menu is initial hidden
+    &.push-menu-right {
+        height: 100%;
+        right: -300px;
+        top: 0;
+        width: 300px;
+
+        li {
+            border-bottom: solid 1px darken($teal, 5);
+            border-top: solid 1px darken($teal, 15);
+            display: block;
+            &:last-child { border-bottom: none; }
+        }
+
+        a {
+            @include font-size-rem(18);
+            font-family: $sans-serif-semi-bold;
+            font-weight: 600;
+            display: block;
+            padding: $base-spacing/1.8 $base-spacing;
+        }
+
+        // Add 'x' to close btn
+        .menu-trigger a:before {
+            content: '\2715';
+            display: inline-block;
+            padding-right: $base-spacing/2;
+        }
+    }
+}
+
+// Set sliding position when open
+body.pmr-open .push-menu-right {
+    right: 0;
+}
+body.pmr-open #wrapper {
+    left: -300px;
+}
+
+// Global desktop nav styles
+@include media($mobile) {
+    .site-nav {
+        // Hide other links until user taps 'Menu'
+        li { display: none; }
+        // Only show the 'menu' link at first
+        .menu-trigger { display: block; }
+    }
+}
+
+// Sub navigation (about page)
 .sub-nav {
     background: $surf;
     margin-bottom: 0;

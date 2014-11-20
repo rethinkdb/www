@@ -17,3 +17,9 @@ body {
     @include pad(0 $base-spacing);
     position: relative;
 }
+
+@include media($mobile) {
+    html {
+        font-size: 58%;
+    }
+}

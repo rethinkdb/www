@@ -100,10 +100,11 @@ code {
     margin: 0 $base-spacing/6;
     padding: 3px 4px;
 }
-div.highlighter-rouge {
+pre { border-radius: $base-border-radius; }
+div.highlighter-rouge, .highlight {
     background: $smoke-gray;
     border-radius: $base-border-radius;
-    padding: $base-spacing/2 ;
+    padding: $base-spacing/2;
     margin: $base-spacing/1.5 0;
 
     pre { margin: 0.4rem 1.2rem; }

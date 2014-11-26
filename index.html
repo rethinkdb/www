@@ -4,18 +4,23 @@ body_class: landing
 ---
 <div class="landing">
     <!-- hero -->
-    <section class="hero">
+    <section class="hero v2">
         <div class="site-container">
             <h1>The open source database for the realtime web.</h1>
             <div class="hero-install">
-                <a class="button install" href="/">Install</a>
-                <a class="button learn-more" href="/">Learn more</a>
+                <a class="button install light" href="/">Install</a>
+                <a class="button learn-more outlined" href="/">Learn more</a>
             </div>
             <p class="hero-release">Release v1.15.1 (<a href="#">Lawrence of Arabia</a>)</p>
             <ul class="social-links">
                 <li><a class="icon twitter" href="/"><i></i>Follow on Twitter</a></li>
                 <li><a class="icon star" href="/"><i></i># GitHub followers</a></li>
             </ul>
+            <div class="hero-notifications">
+                <p>{<span> name: Michael,</span><span>location: "Arcade"</span> }</p>
+                <p>{<span> name: Aki,</span><span>location: "Coffee House"</span> }</p>
+                <p>{<span> name: Jane,</span><span>location: "Lincoln Park"</span> }</p>
+            </div>
         </div>
     </section>
 
@@ -35,19 +40,27 @@ body_class: landing
     <!-- examples -->
     <section class="examples">
         <div class="site-container">
-            <h2>A fundamental building block for modern, <strong>realtime</strong>, apps.</h2>
+            <h2>A fundamental building block for modern, <strong>realtime</strong> apps.</h2>
             <ul>
                 <li class="example">
                     <p>Location-aware apps</p>
+                    <img src="/assets/images/examples/map.png">
+                    <a href="#">explore live map</a>
                 </li>
                 <li class="example">
                     <p>Realtime analytics</p>
+                    <img src="/assets/images/examples/analytics.png">
+                    <a href="#">use streaming analytics</a>
                 </li>
                 <li class="example">
                     <p>Click tracking</p>
+                    <img src="/assets/images/examples/clicks.png">
+                    <a href="#">play with tracking</a>
                 </li>
                 <li class="example">
-                    <p>Click tracking</p>
+                    <p>Mobile apps</p>
+                    <img src="/assets/images/examples/mobile.png">
+                    <a href="#">build mobile apps</a>
                 </li>
             </ul>
         </div>
@@ -62,16 +75,16 @@ body_class: landing
                     Polling is obsolete. Build realtime dashboards, leaderboards,
                     and widgets with incremental updates to query results:
                 </p>
-                <pre><code>&gt; r.<span class="term">table</span>(<span class="str">'games'</span>).<span class="term">max</span>(<span class="str">'score'</span>).<span class="term">limit</span>(<span class="num">10</span>).<span class="term">changes</span>()</code></pre>
+                <pre><code>r.<span class="term">table</span>(<span class="str">'games'</span>).<span class="term">max</span>(<span class="str">'score'</span>).<span class="term">limit</span>(<span class="num">10</span>).<span class="term">changes</span>()</code></pre>
                 <p>
                     Create reactive experiences by subscribing to user events in
                     realtime:
                 </p>
-                <pre><code>&gt; r.<span class="term">table</span>(<span class="str">'games'</span>).<span class="term">filter</span>({<span class="str">'user_id'</span>: <span class="num">123</span>}).<span class="term">changes</span>()</code></pre>
+                <pre><code>r.<span class="term">table</span>(<span class="str">'games'</span>).<span class="term">filter</span>({<span class="str">'user_id'</span>: <span class="num">123</span>}).<span class="term">changes</span>()</code></pre>
                 <p>
                     Or get a firehose of changes from your database:
                 </p>
-                <pre><code>&gt; r.<span class="term">table</span>(<span class="str">'games'</span>).<span class="term">changes</span>()</code></pre>
+                <pre><code>r.<span class="term">table</span>(<span class="str">'games'</span>).<span class="term">changes</span>()</code></pre>
                 <a class="learn-more" href="/streaming.html">Learn more &rarr;</a>
             </section>
             <img src="/assets/images/landing-offerings_@2x.png">
@@ -99,16 +112,16 @@ body_class: landing
                 <p>
                     Scale to multiple machines with a simple API:
                 </p>
-                <pre><code>&gt; r.<span class="term">table</span>(<span class="str">'games'</span>).<span class="term">configure</span>(shards=5, replicas=3)</code></pre>
+                <pre><code>r.<span class="term">table</span>(<span class="str">'games'</span>).<span class="term">configure</span>(shards=5, replicas=3)</code></pre>
                 <p>
                     Precise control of your cluster when you need it:
                 </p>
-                <pre><code>&gt; r.<span class="term">table</span>(<span class="str">'games'</span>).<span class="term">table_status</span>()</code></pre>
+                <pre><code>r.<span class="term">table</span>(<span class="str">'games'</span>).<span class="term">table_status</span>()</code></pre>
                 <p>
                     Complete visibility into your cluster with detailed
                     monitoring tools:
                 </p>
-                <pre><code>&gt; r.<span class="term">db</span>(<span class="str">'system'</span>).<span class="term">table</span>(<span class="str">'jobs'</span>).<span class="term">changes</span>()</code></pre>
+                <pre><code>r.<span class="term">db</span>(<span class="str">'system'</span>).<span class="term">table</span>(<span class="str">'jobs'</span>).<span class="term">changes</span>()</code></pre>
                 <a class="learn-more" href="/ops.html">Learn more &rarr;</a>
             </section>
             <img src="/assets/images/landing-offerings-3_@2x.png">
@@ -120,7 +133,7 @@ body_class: landing
         <div class="site-container">
             <h1>Join 23,000 developers</h1>
             <p>Install in seconds on Linux or OS X.</p>
-            <a class="button install" href="/">Install</a>
+            <a class="button install light" href="/">Install</a>
             <a class="button learn-more" href="/">Learn more</a>
         </div>
     </section>
@@ -128,9 +141,37 @@ body_class: landing
     <!-- community -->
     <section class="community">
         <div class="site-container">
+            <section class="videos">
+                <div class="video">
+                    <p>
+                        RethinkDB 1.13: pull data via HTTP, push data via changefeed
+                        <span>Michael Lucy</span>
+                    </p>
+                </div>
+                <div class="video">
+                    <p>
+                        RethinkDB 1.13: pull data via HTTP, push data via changefeed
+                        <span>Michael Lucy</span>
+                    </p>
+                </div>
+                <div class="video">
+                    <p>
+                        RethinkDB 1.13: pull data via HTTP, push data via changefeed
+                        <span>Michael Lucy</span>
+                    </p>
+                </div>
+                <div class="video">
+                    <p>
+                        RethinkDB 1.13: pull data via HTTP, push data via changefeed
+                        <span>Michael Lucy</span>
+                    </p>
+                </div>
+            </section>
             <section class="events">
-                <h1>Upcoming events</h1>
                 <ul>
+                    <li>
+                        <h1>Upcoming events</h1>
+                    </li>
                     <li>
                         <span>Nov 12</span>
                         <h2>RethinkDB at Heavybit in SF</h2>
@@ -154,11 +195,17 @@ body_class: landing
                             features in the upcoming 2.1 release.
                         </p>
                     </li>
-            </section>
-            <section class="videos">
-                <img class="video" src="http://placehold.it/404x200">
-                <img class="video" src="http://placehold.it/404x200">
-                <img class="video" src="http://placehold.it/404x200">
+                    <li>
+                        <span>Dec 9</span>
+                        <h2>The 2.1 release webcast</h2>
+                        <p>
+                            Hear our founders talk about new and exciting
+                            features in the upcoming 2.1 release.
+                        </p>
+                    </li>
+                    <li>
+                        <a href="/events">All events</a>
+                    </li>
             </section>
             <section class="testimonials site-container">
                 <ul>

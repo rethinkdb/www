@@ -1,9 +1,6 @@
 body.landing {
     // Override
-    .site-nav {
-        margin-bottom: 0;
-        background: #18141D;
-    }
+    .site-nav { margin-bottom: 0; }
 
     h1 {
         @include font-size-rem(32);
@@ -12,35 +9,160 @@ body.landing {
 
     // Hero
     .hero {
-        background: #005662 url('/assets/images/map-practice.png');
-        background-size: cover;
+        @include background(url('/assets/images/hero-v8.png'), linear-gradient(#005563, #005563), center no-repeat transparent scroll);
+        background-position: left bottom;
+        background-repeat: repeat-x;
         color: $cream;
+        text-align: center;
         overflow: hidden;
-        padding: $base-spacing*5 0;
+        padding: $base-spacing*4 0 $base-spacing*12;
 
-        a {
-            @extend .light;
-            color: $cream;
+        a { color: $cream; }
+        .hero-install a {
+            @include font-size-rem(18);
+            margin: 0 $base-spacing;
+            padding: $base-spacing/1.5 inherit;
+            width: rem(200);
         }
 
         h1 {
             @include font-size-rem(46);
             line-height: rem(55);
             color: $cream;
-            font-weight: 200;
+            font-family: $sans-serif-semi-bold;
+            font-weight: 600;
+            margin: 0 auto;
             max-width: 50%;
         }
 
-        .hero-install {
-            padding: $base-spacing*3 0 $base-spacing;
+        .hero-install { padding: $base-spacing*3 0 $base-spacing; }
+        .social-links { visibility: hidden; }
+        .hero-notifications {
+            position: absolute;
+            height: 100%;
+            top: 0px;
+            width: 100%;
+
+            // Animation timeline sequence
+            @include keyframes(fadeIn) {
+                0% {
+                    @include transform(translateY(rem(20)));
+                    opacity: 0;
+                }
+                20% {
+                    @include transform(translateY(0));
+                    opacity: 1;
+                }
+                80% {
+                    @include transform(translateY(0));
+                    opacity: 1;
+                }
+                100% {
+                    @include transform(translateY(rem(-10)));
+                    opacity: 0;
+                }
+            }
+
+            // Loading animation mixin
+            @mixin animation--fadedown($delay) {
+                @include animation(fadeIn 0.3s ease-in-out);
+                @include animation-duration(3s);
+                @include animation-iteration-count(1);
+                @include animation-fill-mode(forwards);
+                @include animation-delay(#{$delay}s);
+            }
+
+            p {
+                @include font-size-rem(12);
+                background: rgba(255, 255, 255, 0.1);
+                border-radius: $base-border-radius;
+                color: rgba(255, 255, 255, 0.5);
+                font-family: $monospaced;
+                font-weight: 600;
+                padding: $base-spacing/3 $base-spacing/2;
+                position: absolute;
+                opacity: 0;
+                text-align: left;
+                top: 0px;
+                right: 0px;
+                width: 19%;
+
+                // Stagger positioning
+                &:nth-child(1) {
+                    left: -2%;
+                    top: 112%;
+                }
+                &:nth-child(2) {
+                    right: 8%;
+                    top: 88%;
+                }
+                &:nth-child(3) {
+                    left: 18%;
+                    top: 89%;
+                }
+
+                // Animate through the notifications in a sequence
+                @for $i from 1 through 3 {
+                    &:nth-child(#{$i}) {
+                        @include animation--fadedown($i*1.5);
+                    }
+                }
+
+                // Dotted line to buildings
+                &:after {
+                    top: 100%;
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    left: 50%;
+                    height: rem(180);
+                    width: 2px;
+                    border-left: 2px dotted lighten($teal, 20);
+                }
+
+                span {
+                    display: block;
+                    text-indent: $base-spacing/2;
+                }
+            }
+        }
+    }
+
+    .hero.v2 {
+        background-position: right bottom;
+        background-repeat: no-repeat;
+        padding: $base-spacing*5 0 $base-spacing*7;
+        text-align: left;
+
+        h1 {
+            text-align: left;
+            margin: 0;
         }
 
-        .hero-map {
-            height: auto;
-            position: absolute;
-            top: rem(-40);
-            right: 0px;
-            width: 60%;
+        .hero-install { padding-bottom: $base-spacing;}
+
+        .hero-install a {
+            text-align: center;
+            margin-left: 0;
+        }
+
+        .hero-notifications p {
+            // Stagger positioning
+            &:nth-child(1) {
+                left: initial;
+                right: 1%;
+                top: 62%;
+            }
+            &:nth-child(2) {
+                left: initial;
+                right: 30%;
+                top: 46%;
+            }
+            &:nth-child(3) {
+                left: initial;
+                right: 18%;
+                top: 12%;
+            }
         }
     }
 
@@ -50,10 +172,9 @@ body.landing {
         padding-bottom: $base-spacing;
         padding-top: $base-spacing;
 
-        p, .mailing-list, input, .button {
-            @extend .half;
-            text-align: center;
-        }
+        p, .mailing-list, input, .button { @extend .half; }
+
+        .button { width: auto; }
 
         p {
             @include font-size-rem(21);
@@ -81,7 +202,7 @@ body.landing {
     .examples {
         padding-top: $base-spacing*2;
         padding-bottom: $base-spacing*4;
-        background: darken($cream, 3);
+        background: darken($cream, 2);
 
         h2 {
             @include font-size-rem(33);
@@ -91,19 +212,7 @@ body.landing {
         }
 
         .example {
-            background: url('https://dl.dropboxusercontent.com/u/5049340/office%402x.png') center bottom no-repeat;
-            background-size: cover;
-            border: thin solid $smoke-gray;
-            border-top: rem(4) solid darken($teal, 3);
-            border-radius: $base-border-radius*1.5;
-            color: $white;
-            margin-top: $base-spacing*2;
-            min-height: rem(240);
-            padding: $base-spacing*1.5;
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-
+            text-align: center;
             // Set to half on a tablet device
             @include media($medium-screen-up) {
                 @include span-columns(6 of 12);
@@ -117,64 +226,26 @@ body.landing {
                 @include omega(4n);
             }
 
-            p {
-                @include font-size-rem(22);
+            p { margin-top: $base-spacing*2; }
+
+            p, a {
+                @include font-size-rem(20);
+                color: $teal;
                 font-family: $sans-serif-medium;
                 font-weight: 500;
-                position: relative;
-                text-shadow: 0 1px 40px rgba(0, 0, 0, 0.3);
-                z-index: 3;
             }
 
-            &:after {
-                @include transition(opacity 0.2s linear);
-                bottom: 0;
-                content: '';
-                left: 0;
-                position: absolute;
-                top: 0;
-                right: 0;
-                z-index: 2;
-                opacity: .80;
-            }
+            img { margin: $base-spacing/2 0; }
 
-            &:hover:after { opacity: 1; }
+            a {
+                @include font-size-rem(14);
+                color: darken(saturate($surf, 5), 30);
+                display: block;
+                font-family: $sans-serif-semi-bold;
+                font-weight: 600;
+                text-transform: uppercase;
 
-            &:nth-child(1) {
-                background-image: url("http://rethinkdb.com/assets/images/posts/2014-10-07-dokkudroplet.png");
-                border-top: rem(4) solid darken(saturate($surf, 20), 30);
-
-                &:after {
-                    @include background(linear-gradient(to bottom right, darken($teal, 2), darken(saturate($surf, 20), 30)));
-                }
-                &:hover:after{ background: darken(saturate($surf, 20), 30); }
-            }
-            &:nth-child(2) {
-                background-image: url("http://rethinkdb.com/assets/images/posts/2014-10-07-beerlist.png");
-                border-top: rem(4) solid lighten(saturate($teal, 30), 20);
-
-                &:after {
-                    @include background(linear-gradient(to bottom right, darken($teal, 2), lighten(saturate($teal, 30), 10)));
-                }
-                &:hover:after{ background: lighten(saturate($teal, 30), 20); }
-            }
-            &:nth-child(3) {
-                background-image: url("http://rethinkdb.com/assets/images/posts/2014-09-09-earthquake-geojson.png");
-                border-top: rem(4) solid darken(desaturate($mint-green, 10), 5);
-
-                &:after {
-                    @include background(linear-gradient(to bottom right, darken($teal, 2), darken(desaturate($mint-green, 10), 5)));
-                }
-                &:hover:after{ background: darken(desaturate($mint-green, 10), 5); }
-            }
-            &:nth-child(4) {
-                background-image: url("http://blog.carbonfive.com/wp-content/uploads/2014/03/rethinkdb_evaluation1.jpg");
-                border-top: rem(4) solid darken(desaturate($cranberry, 5), 5);
-
-                &:after {
-                    @include background(linear-gradient(to bottom right, darken($teal, 2), darken(desaturate($cranberry, 20), 5)));
-                }
-                &:hover:after{ background: darken(desaturate($cranberry, 5), 5); }
+                &:hover { color: $teal; }
             }
         }
     }
@@ -213,11 +284,9 @@ body.landing {
 
         // Even features should be right-aligned + colored
         &:nth-child(2n+1) {
-            background: darken($cream, 5);
+            background: darken($cream, 2);
 
-            .feature {
-                @include shift(7);
-            }
+            .feature { @include shift(7); }
 
             img {
                @extend .half;
@@ -238,41 +307,18 @@ body.landing {
 
     // Get started & Install
     .get-started.callout {
+        background: rgb(199, 225, 227);
         padding: $base-spacing 0;
         position: relative;
         text-align: center;
 
-        &:after {
-            background: lighten($surf, 5);
-            bottom: 0px;
-            color: $surf;
-            content: '';
-            display: block;
-            height: 50%;
-            position: absolute;
-            width: 100%;
-            z-index: 1;
-        }
-
-        .site-container {
-            background: $cream;
-            border: 1px solid $surf;
-            border-top: 4px solid lighten($teal, 20);
-            border-radius: $base-border-radius;
-            max-width: rem(700);
-            padding: $base-spacing*2;
-            position: relative;
-            z-index: 2;
-        }
-
+        .site-container { padding: $base-spacing*2; }
         p { padding: $base-spacing 0; }
     }
 
     // Community
     .community {
-        background: lighten($surf, 5);
-
-        h1 { margin-bottom: $base-spacing/2; }
+        background: lighten($surf, 3);
 
         h2 {
             @include font-size-rem(18);
@@ -283,48 +329,136 @@ body.landing {
 
         .events {
             @extend .half;
+            @include media($medium-screen-up) {
+                margin-left: 0;
+                width: 100%;
 
-            ul { margin-top: $base-spacing*2 }
+                ul { margin-top: $base-spacing*2; }
+            }
+
+            @include media($large-screen-up) {
+                margin-left: 10%;
+                width: 40%;
+                ul { margin-top: 0; }
+            }
+
+            h1, a {
+                @include font-size-rem(16);
+                color: lighten(desaturate($teal, 25), 20);
+                font-family: $sans-serif-semi-bold;
+                font-weight: 600;
+                margin: 0;
+                padding: 0;
+                text-transform: uppercase;
+            }
+
+            a { color: lighten(saturate($teal, 25), 25); }
 
             li {
-                max-width: rem(380);
-                margin-bottom: $base-spacing*2;
-                padding-top: $base-spacing*1.8;
-                position: relative;
-
-                &:before {
-                    content:"";
-                    background: darken(saturate($surf, 20), 30);
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    height: 4px;
-                    width: 15%;
-                }
+                margin-bottom: $base-spacing*1.6;
 
                 span {
-                    @include font-size-rem(14);
-                    font-weight: 600;
-                    position: absolute;
-                    top: rem(10);
+                    @include font-size-rem(13);
+                    display: block;
+                    font-family: $helvetica;
+                    font-weight: 500;
+                    margin-bottom: $base-spacing/3;
+                    text-transform: uppercase;
                 }
 
-                &:nth-child(2n):before { background: lighten(saturate($teal, 30), 20); }
-                &:nth-child(3n):before { background: darken(desaturate($cranberry, 5), 5); }
+                &:first-child {
+                    border-top: 1px solid lighten(desaturate($teal, 35), 54);
+                    padding-top: $base-spacing;
+                }
+
+                &:last-child {
+                    border-top: 1px solid lighten(desaturate($teal, 35), 54);
+                    padding-top: $base-spacing;
+                }
             }
         }
 
         .videos {
             @extend .half;
-            text-align: right;
+            @include column-count(2);
+            @include column-gap(1rem);
 
-            .video {
-                margin: 0 0 $base-spacing/2;
-                max-width: rem(320);
+            @include media($mobile) {
+                @include column-count(1);
+                width: 100%;
+                margin-right: 0;
+                padding-right: 0;
+
+                .video { height: rem(100) !important; }
             }
 
-            img {
+            @include media($medium-screen-up) {
+                padding-right: 0;
+                margin-right: 0;
                 width: 100%;
+            }
+
+            @include media($large-screen-up) { width: 50%; }
+
+            .video {
+                background: url('/assets/images/events/lucy.png') center center no-repeat;
+                background-size: cover;
+                border-radius: $base-border-radius;
+                color: $white;
+                display: table;
+                margin: 0 0 $base-spacing/2;
+                padding: $base-spacing*2;
+                position: relative;
+
+                &:before {
+                    background: lighten(saturate($teal, 5), 10);
+                    content: '';
+                    left: 0px;
+                    height: 100%;
+                    position: absolute;
+                    opacity: 0.7;
+                    top: 0px;
+                    width: 100%;
+                }
+
+                &:after {
+                    background: transparent url('/assets/images/icons/icon-right.png') center center no-repeat;
+                    content: '';
+                    right: $base-spacing;
+                    height: rem(40);
+                    position: absolute;
+                    bottom: $base-spacing;
+                    width: rem(40);
+                }
+
+                // Adjust variable height
+                &:nth-child(2), &:nth-child(3) { height: rem(200); }
+                &:nth-child(1), &:nth-child(4) { height: rem(300); }
+
+                p {
+                    @include font-size-rem(22);
+                    font-family: $sans-serif-semi-bold;
+                    font-weight: 500;
+                    display: table-cell;
+                    line-height: rem(32);
+                    position: relative;
+                    vertical-align: middle;
+                }
+
+                span {
+                    @include font-size-rem(16);
+                    display: block;
+                    font-family: $sans-serif-italic;
+                    margin-top: $base-spacing;
+                    visibility: hidden;
+                }
+
+                &:hover {
+                    background-image: none;
+                    span { visibility: visible; }
+
+                    &:before { background: lighten(saturate($teal, 15), 25); }
+                }
             }
         }
 
@@ -332,13 +466,9 @@ body.landing {
             clear: both;
             padding: $base-spacing*5 0 0;
 
-            .testimonial {
-                @extend .third;
-            }
+            .testimonial { @extend .third; }
 
-            blockquote {
-                padding: 0 $base-spacing;
-            }
+            blockquote { padding: 0 $base-spacing; }
         }
     }
 
@@ -355,8 +485,6 @@ body.landing {
             margin-right: $base-spacing;
         }
 
-        a {
-            color: $cream;
-        }
+        a { color: $cream; }
     }
 }

@@ -92,6 +92,11 @@ cite {
   }
 }
 
+address {
+  font-family: $sans-serif-italic;
+  font-weight: 500;
+}
+
 // Code blocks
 code {
     @include font-size-rem(15);

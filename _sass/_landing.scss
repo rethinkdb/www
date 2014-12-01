@@ -2,6 +2,7 @@ body.landing {
     // Override
     .site-nav { margin-bottom: 0; }
 
+    // All h1s
     h1 {
         @include font-size-rem(32);
         font-weight: 400;
@@ -17,12 +18,25 @@ body.landing {
         overflow: hidden;
         padding: $base-spacing*4 0 $base-spacing*12;
 
-        a { color: $cream; }
-        .hero-install a {
-            @include font-size-rem(18);
-            margin: 0 $base-spacing;
-            padding: $base-spacing/1.5 inherit;
-            width: rem(200);
+        @include media($mobile) { padding: $base-spacing*2 0; }
+
+        // Shared z-index
+        .hero-install a, h1, .hero-release {
+            position: relative;
+            z-index: 5;
+        }
+
+        .hero-install {
+            padding: $base-spacing*3 0 $base-spacing;
+
+            a {
+                @include font-size-rem(18);
+                margin: 0 $base-spacing;
+                padding: $base-spacing/1.5 inherit;
+                width: rem(200);
+
+                @include media($mobile) { width: rem(140); }
+            }
         }
 
         h1 {
@@ -32,18 +46,28 @@ body.landing {
             font-family: $sans-serif-semi-bold;
             font-weight: 600;
             margin: 0 auto;
-            max-width: 50%;
 
             @include media($mobile) { max-width: none; }
+            @include media($medium-screen-up) { max-width: 70%; }
+            @include media($large-screen-up) { max-width: 50%; }
         }
 
-        .hero-install { padding: $base-spacing*3 0 $base-spacing; }
+        .hero-release {
+            @include font-size-rem(16);
+            a {
+                color: saturate($surf, 10);
+                font-weight: 500;
+                &:hover { color: $cream; }
+            }
+        }
+
         .social-links { visibility: hidden; }
         .hero-notifications {
             position: absolute;
             height: 100%;
             top: 0px;
             width: 100%;
+            z-index: 4;
 
             // Animation timeline sequence
             @include keyframes(fadeIn) {
@@ -104,9 +128,11 @@ body.landing {
                 }
 
                 // Animate through the notifications in a sequence
-                @for $i from 1 through 3 {
-                    &:nth-child(#{$i}) {
-                        @include animation--fadedown($i*1.5);
+                @include media($medium-screen-up) {
+                    @for $i from 1 through 3 {
+                        &:nth-child(#{$i}) {
+                            @include animation--fadedown($i*1.5);
+                        }
                     }
                 }
 
@@ -166,6 +192,11 @@ body.landing {
                 top: 12%;
             }
         }
+
+        @include media($mobile) {
+            padding: $base-spacing*2 0;
+            background-position: left bottom;
+        }
     }
 
     // News banner
@@ -185,6 +216,11 @@ body.landing {
             text-align: center;
             margin-bottom: 0;
             padding-top: $base-spacing/4;
+        }
+
+        @include media($mobile) {
+            .mailing-list { margin-top: $base-spacing; }
+            .mailing-list input { @include span-columns(7 of 12); }
         }
     }
 
@@ -211,18 +247,14 @@ body.landing {
             line-height: rem(60);
             font-weight: 300;
             text-align: center;
+
+            @include media($mobile) { line-height: rem(44); }
         }
 
         .example {
             text-align: center;
-            // Set to half on a tablet device
+            // Set to a quarter on a tablet and up
             @include media($medium-screen-up) {
-                @include span-columns(6 of 12);
-                @include omega(2n);
-            }
-
-            // Set to a quarter on a desktop
-            @include media($large-screen-up) {
                 @include omega-reset(2n);
                 @include span-columns(3 of 12);
                 @include omega(4n);
@@ -311,11 +343,11 @@ body.landing {
     .get-started.callout {
         background: rgb(199, 225, 227);
         padding: $base-spacing 0;
-        position: relative;
         text-align: center;
 
         .site-container { padding: $base-spacing*2; }
         p { padding: $base-spacing 0; }
+        a.light { margin-right: $base-spacing; }
     }
 
     // Community
@@ -331,19 +363,8 @@ body.landing {
 
         .events {
             @extend .half;
-            @include media($medium-screen-up) {
-                margin-left: 0;
-                width: 100%;
-                ul { margin-top: $base-spacing*2; }
-            }
 
-            @include media($large-screen-up) {
-                margin-left: 10%;
-                width: 40%;
-                ul { margin-top: 0; }
-            }
-
-            h1, a {
+            h1, li:last-child a {
                 @include font-size-rem(16);
                 color: lighten(desaturate($teal, 25), 20);
                 font-family: $sans-serif-semi-bold;
@@ -352,8 +373,6 @@ body.landing {
                 padding: 0;
                 text-transform: uppercase;
             }
-
-            a { color: lighten(saturate($teal, 25), 25); }
 
             li {
                 margin-bottom: $base-spacing*1.6;
@@ -375,7 +394,28 @@ body.landing {
                 &:last-child {
                     border-top: 1px solid lighten(desaturate($teal, 35), 54);
                     padding-top: $base-spacing;
+                    a { color: lighten(saturate($teal, 25), 25); }
                 }
+            }
+
+            @include media($mobile) {
+                li:first-child, li:last-child {
+                    border: none;
+                    padding: 0;
+                }
+                ul { margin-top: $base-spacing*2; }
+            }
+
+            @include media($medium-screen-up) {
+                margin-left: 0;
+                width: 100%;
+                ul { margin-top: $base-spacing*2; }
+            }
+
+            @include media($large-screen-up) {
+                margin-left: 10%;
+                width: 40%;
+                ul { margin-top: 0; }
             }
         }
 
@@ -467,9 +507,15 @@ body.landing {
             clear: both;
             padding: $base-spacing*5 0 0;
 
+            blockquote { padding: 0 $base-spacing; }
             .testimonial { @extend .third; }
 
-            blockquote { padding: 0 $base-spacing; }
+            @include media($mobile) {
+                padding-top: $base-spacing;
+
+                blockquote { padding: 0; }
+                blockquote:before { display: none; }
+            }
         }
     }
 
@@ -487,5 +533,9 @@ body.landing {
         }
 
         a { color: $cream; }
+
+        @include media($mobile) {
+            a { margin: $base-spacing auto 0; }
+        }
     }
 }

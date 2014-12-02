@@ -19,7 +19,7 @@ body.about {
     // Shared section styles
     .about section { padding: 6% 0 8%; }
     // Hero
-    .hero-test {
+    .hero {
         @include background-image(url("https://pbs.twimg.com/profile_banners/52351557/1399070558/1500x500"));
         background-size: cover;
         height: rem(460);

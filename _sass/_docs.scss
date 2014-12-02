@@ -47,12 +47,10 @@
             }
             li.active a { color: $teal; }
             ul.active { display: block; }
-            // Scrolling navigation for api
-            &.scrolling {
-                position: fixed;
-                bottom: 0;
-                overflow-y: auto;
-            }
+
+            // Hide the menu on mobile devices
+            @include media($mobile) { display: none; }
+            @include media($medium-screen-up) { display: block; }
         }
         // Api header
         #api-header {
@@ -111,6 +109,48 @@
                 display: block;
                 margin: 4% auto;
                 width: 40%;
+            }
+
+            // Mobile menu trigger
+            .docs-menu-trigger { display: none; }
+            @include media($mobile) {
+                .docs-menu-trigger { display: block; }
+            }
+
+            // Search results
+            .search-results {
+                background: rgba(251, 251, 249, 0.95);
+                display: none;
+                height: 100%;
+                position: absolute;
+                top: 0px;
+                right: 0px;
+                z-index: 6;
+                width: 100%;
+
+                .results-header {
+                    @include outer-container;
+                }
+                h1 {
+                    @extend .three-quarter;
+                    margin-top: 0;
+                }
+                h2 { margin: 0; }
+                .close-results {
+                    @extend .quarter;
+                    color: lighten(desaturate($teal, 30), 30);
+                    float: right;
+                    text-align: right;
+                }
+
+                ul {
+                    clear: right;
+                    li {
+                        list-style-type: none;
+                        padding: 0;
+                        margin: 0;
+                    }
+                }
             }
 
             // Intro

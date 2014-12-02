@@ -153,6 +153,9 @@ $ ->
     # First, create the table of contents
     section_list = $("<ul class='nav nav-list'></ul>")
 
+    # Build mobile api nav...this isn't working
+    $('.api .doc-mobile-nav .mobile-doc-links').append(section_list)
+    # Build desktop api nav
     $('#api-nav').append(section_list)
 
     # Go through each section to add it to the table of contents

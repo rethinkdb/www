@@ -5,3 +5,5 @@ _deploy/
 *~
 node_modules/
 .sass-cache
+_deploy-config.yml
+_algolia-build

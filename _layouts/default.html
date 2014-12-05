@@ -83,6 +83,19 @@
                     $('.documentation-content .search-results').hide();
                     $('.search input').val('');
                 });
+                // Landing - videos, show video on click
+                $('.video p').click(function(event) {
+                    event.preventDefault();
+                    $(this).next('.video-modal').fadeIn();
+                });
+                $('.video-modal').on('click', dismissVideoModal);
+                $(document).keyup(function(event) {
+                    if (event.keyCode == 27)
+                        dismissVideoModal();
+                })
+                function dismissVideoModal() {
+                    $('.video-modal').fadeOut();
+                }
             });
         </script>
 

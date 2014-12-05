@@ -40,7 +40,7 @@ select[multiple=multiple] {
   width: 100%;
 
   @include placeholder {
-    color: darken($surf, 20);
+    color: rgb(198, 222, 220);
   }
 
   &:hover {

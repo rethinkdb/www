@@ -450,6 +450,11 @@ body.landing {
                 margin: 0 0 $base-spacing/2;
                 padding: $base-spacing*2;
                 position: relative;
+                -webkit-column-break-inside:avoid;
+                -moz-column-break-inside:avoid;
+                -o-column-break-inside:avoid;
+                -ms-column-break-inside:avoid;
+                column-break-inside:avoid;
 
                 &:before {
                     background: lighten(saturate($teal, 5), 10);

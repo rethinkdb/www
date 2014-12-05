@@ -13,7 +13,32 @@ body_class: api
                 <input class="small" type="text" placeholder="Search commands...">
             </div>
         </div>
+        <div class="doc-mobile-nav push-menu-left">
+            <div class="mobile-search">
+                <input class="small" type="text" placeholder="Search commands...">
+                <a class="clear-search" href="#">&#x2715;</a>
+                <ul class="search-results">
+                    <li>Result</li>
+                    <li>Result</li>
+                </ul>
+            </div>
+            <div class="mobile-doc-links"></div>
+        </div>
         <div id="api-sections-wrapper" class="documentation-content">
+            <div class="search-results">
+                <div class="results-header">
+                    <h1>Results</h1>
+                    <a class="close-results" href="#">&#x2715;</a>
+                </div>
+                <ul>
+                    <li>
+                        <h2>Section heading</h2>
+                        <p>Blurb of matching string</p>
+                        <span>Language</span>
+                    </li>
+                </ul>
+            </div>
+            <a class="docs-menu-trigger" href="#">Menu</a>
             <h1 class="title">{{page.language}} ReQL command reference</h1>
             <div id="docs-switcher" class="infobox infobox-slim page-nav-selector lang-selector">
                 <a class="lang-link javascript {% if page.language == 'JavaScript' %}active{% endif %}" href="../javascript/" id="_js"><i class="sprite javascript"></i><p class="category">JavaScript</p></a> |

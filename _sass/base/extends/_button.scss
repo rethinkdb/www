@@ -6,7 +6,7 @@
   border: 1px solid $base-button-color;
   border-bottom: 2px solid darken($base-button-color, 4);
   border-top: 1px solid lighten($base-button-color, 6);
-  border-radius: $base-border-radius*2;
+  border-radius: $base-border-radius;
   color: white;
   display: inline-block;
   font-family: $sans-serif-semi-bold;
@@ -40,13 +40,38 @@
 
     &:hover {
       background: $teal;
+      border-color: darken($teal, 2);
+    }
+    &.dark {
       border-color: $teal;
-      border-bottom: 2px solid darken($teal, 4);
+      color: $teal;
+
+      &:hover { color: $cream; }
+    }
+    i {
+      padding-left: rem(10);
+      vertical-align: -4%;
     }
   }
 
   &.small {
     @include font-size-rem(15);
     padding: $base-spacing/3 $base-spacing/2;
+  }
+
+  &.minimal {
+    @include transition(all 0.1s linear);
+    background: none;
+    border: none;
+    color: lighten($teal, 15);
+    display: block;
+    font-family: $sans-serif-semi-bold;
+    font-weight: 600;
+    padding: 0;
+    text-transform: uppercase;
+    &:hover {
+      color: $teal;
+      i { left: rem(10); }
+    }
   }
 }

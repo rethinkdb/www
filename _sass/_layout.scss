@@ -1,7 +1,3 @@
-html {
-    font-size: 62.5%;
-}
-
 html, body {
     margin: 0;
     padding: 0;
@@ -18,8 +14,21 @@ body {
     position: relative;
 }
 
+// Adjust font sizes globally
 @include media($mobile) {
     html {
         font-size: 58%;
+    }
+}
+
+@include media($medium-screen-up) {
+    html {
+        font-size: 60%;
+    }
+}
+
+@include media($large-screen-up) {
+    html {
+        font-size: 62.5%;
     }
 }

@@ -11,7 +11,7 @@
 
     a {
         color: $cream;
-        &:hover { color: darken($cream, 10); }
+        &:hover { color: darken($cream, 8); }
     }
 
     .logo {
@@ -41,38 +41,38 @@
 }
 
 // Slider navigation
-
 body { overflow-x: hidden; }
 
 #wrapper {
-    @include transition(all 0.3s linear);
+    @include transition(all 0.1s linear);
     position: relative;
     top: 0;
     left: 0;
     z-index: 5;
 }
 
-.mobile-menu {
-    @include transition(all 0.3s linear);
+.mobile-menu, .doc-mobile-nav {
+    @include transition(all 0.1s linear);
     background-color: darken($teal, 10);
     position: fixed;
     z-index: 6;
     overflow: hidden;
 
-    a { color: $cream; }
+    a {
+        color: $cream;
+        text-transform: lowercase;
+    }
 
     // Sliding menu is initial hidden
-    &.push-menu-right {
+    &.push-menu-right, &.push-menu-left {
         height: 100%;
-        right: -300px;
+        right: -50%;
         top: 0;
-        width: 300px;
+        width: 50%;
 
         li {
             border-bottom: solid 1px darken($teal, 5);
-            border-top: solid 1px darken($teal, 15);
             display: block;
-            &:last-child { border-bottom: none; }
         }
 
         a {
@@ -80,7 +80,11 @@ body { overflow-x: hidden; }
             font-family: $sans-serif-semi-bold;
             font-weight: 600;
             display: block;
-            padding: $base-spacing/1.8 $base-spacing;
+            padding: $base-spacing/2 $base-spacing $base-spacing/1.8;
+
+            &:hover {
+                background: darken($teal, 11);
+            }
         }
 
         // Add 'x' to close btn
@@ -90,14 +94,92 @@ body { overflow-x: hidden; }
             padding-right: $base-spacing/2;
         }
     }
+    &.push-menu-left {
+        background-color: darken($teal, 6);
+        left: -80%;
+        width: 80%;
+    }
+    .mobile-search {
+        left: 0px;
+        padding: $base-spacing;
+        position: absolute;
+        top: 0px;
+        width: 100%;
+
+        input {
+            @include font-size-rem(16);
+            background: darken($teal, 8);
+            border: none;
+            color: $cream;
+            margin: 0 auto;
+            padding: $base-spacing/2;
+            text-align: center;
+            width: 100%;
+        }
+        .clear-search {
+            color: $surf;
+            border-radius: 50%;
+            display: none;
+            height: rem(30);
+            padding: $base-spacing/2;
+            position: absolute;
+            right: $base-spacing*1.5;
+            top: $base-spacing/1.1;
+            width: rem(30);
+            &:hover { background: none; }
+        }
+
+        // Initially hide the search results
+        .search-results {
+            display: none;
+
+            li {
+                border-bottom: 1px solid darken($teal, 4);
+                color: $cream;
+                padding: $base-spacing/2 0;
+            }
+        }
+    }
+    // Allow doc menu links to scroll
+    .mobile-doc-links {
+        height: 92%;
+        overflow-y: scroll;
+        margin-top: $base-spacing*4;
+        width: 106%;
+
+        h1, .nav-header {
+            @include font-size-rem(14);
+            color: lighten($teal, 15);
+            cursor: pointer;
+            font-family: $sans-serif-semi-bold;
+            font-weight: 600;
+            padding: $base-spacing $base-spacing 0;
+            text-transform: uppercase;
+
+            &:hover { background: none; }
+        }
+        ul { display: none; }
+        // API nav list needs to show
+        ul.nav-list { display: block; }
+        ul li a {
+            @include font-size-rem(16);
+            color: $surf;
+        }
+    }
 }
 
-// Set sliding position when open
-body.pmr-open .push-menu-right {
-    right: 0;
-}
-body.pmr-open #wrapper {
-    left: -300px;
+// Set right global nav sliding position when open
+body.pmr-open .push-menu-right { right: 0; }
+body.pmr-open #wrapper { left: -50%; }
+
+// Set left docs/api nav sliding position when open
+body.pml-open .push-menu-left { left: 0; }
+body.pml-open #wrapper { left: 80%; }
+// Open wider on mobile search (like FB)
+body.pml-open-wide {
+    #wrapper { left: 100%; }
+    .push-menu-left { width: 100%; }
+    .mobile-search input { text-align: left; }
 }
 
 // Global desktop nav styles

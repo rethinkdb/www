@@ -16,6 +16,7 @@
 
   &:hover {
     background-color: $hover-button-color;
+    border-top: 1px solid transparent;
     color: $cream;
   }
 
@@ -46,6 +47,6 @@
 
   &.small {
     @include font-size-rem(15);
-    padding: $base-spacing/2 $base-spacing;
+    padding: $base-spacing/3 $base-spacing/2;
   }
 }

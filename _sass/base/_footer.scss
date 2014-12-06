@@ -1,15 +1,10 @@
 // Site footer
 .site-footer {
-    background: darken($teal, 10) url("/assets/images/bg-footer-2.png") left bottom no-repeat;
-    background-size: auto 100%;
+    background: darken($teal, 10);
     color: $cream;
     font-family: $sans-serif-medium;
     font-weight: 500;
-    padding-bottom: rem(200);
-
-    .site-container {
-        padding-top: $base-spacing*2;
-    }
+    padding-bottom: $base-spacing*5;
 
     .get-started, .contact-info {
         h1 {
@@ -19,8 +14,7 @@
 
         address, p {
             @include font-size-rem(16);
-            color: $surf;
-            margin-bottom: $base-spacing;
+            color : $surf;
         }
     }
 
@@ -29,15 +23,20 @@
     // Get started, install
     .get-started {
         @extend .quarter;
-        margin-top: $base-spacing*2;
-        margin-bottom: $base-spacing;
+        padding-top: $base-spacing*2;
+
+        .button {
+            margin-right: $base-spacing/2;
+            margin-bottom: $base-spacing/3;
+        }
     }
+
+    hr { border-color: darken($teal, 5); }
 
     // Footer links
     .footer-links {
         @extend .three-quarter;
         margin-top: $base-spacing*2;
-        text-align: center;
 
         ul { @include outer-container; }
 
@@ -48,16 +47,21 @@
             font-weight: 600;
             text-transform: lowercase;
             margin-bottom: $base-spacing;
-
-            ul {
-                margin-top: $base-spacing/3;
-            }
+            padding: 0 0 0 $base-spacing*2.5;
 
             ul li {
                 @include fill-parent;
                 font-family: $sans-serif-medium;
                 font-weight: 500;
                 margin-bottom: 0;
+                padding: 0;
+            }
+
+            @include media($mobile) {
+                padding-left: 0;
+                padding-bottom: $base-spacing;
+
+                ul li { padding-top: $base-spacing/3; }
             }
         }
     }
@@ -66,6 +70,6 @@
     .contact-info {
         @include font-size-rem(14);
         font-weight: 400;
-        margin-top: $base-spacing*2;
+        margin-top: $base-spacing;
     }
 }

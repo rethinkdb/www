@@ -140,13 +140,38 @@ body.landing {
     }
 
     // Intro
-    .intro { background: white; }
+    .intro {
+        background: white;
+
+        .realtime-mobile {
+            background: url('/assets/images/realtime/bg-mobile.png') 0 0 no-repeat;
+            background-size: cover;
+            height: rem(422);
+            position: absolute;
+            left: 0;
+            top: rem(32);
+            width: rem(228);
+            z-index: 6;
+        }
+
+        .realtime-desktop {
+            background: url('/assets/images/realtime/bg-desktop.png') 0 0 no-repeat;
+            background-size: cover;
+            height: rem(454);
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            width: rem(470);
+            z-index: 5;
+        }
+    }
 
     // Shared typography styles, Intro & Features
     .intro, .feature {
-        .intro-content, .intro-illustration, .feature-content, img {
-            @extend .half;
-        }
+        position: relative;
+        overflow: hidden;
+
+        .intro-content, .intro-illustration, .feature-content, img { @extend .half; }
 
         .intro-content, &:nth-child(even) .feature-content { padding-right: $base-spacing*3; }
         &:nth-child(odd) .feature-content { padding-left: $base-spacing*3; }
@@ -157,6 +182,13 @@ body.landing {
             &:nth-child(odd) .feature-content { padding: $base-spacing/2 0; }
             &:nth-child(even) img { display: none; }
             img { margin: $base-spacing 0; }
+        }
+
+        .offset-img {
+            left: 50%;
+            max-width: rem(900);
+            position: absolute;
+            width: rem(660);
         }
 
         p {
@@ -210,21 +242,12 @@ body.landing {
 
     // Features
     .feature {
-        position: relative;
-        overflow: hidden;
-
         &:nth-child(odd) {
             padding-bottom: 0;
             .button { margin-top: $base-spacing*2; }
         }
 
-        // Set the size for the img for the second feature
-        &:nth-child(even) img {
-            left: 50%;
-            max-width: rem(900);
-            position: absolute;
-            width: rem(800);
-        }
+        &:nth-child(even) img { width: rem(800); }
     }
 
     // Get started & Install

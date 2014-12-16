@@ -39,7 +39,77 @@ body_class: landing
                  <pre><code>r.<span class="term">table</span>(<span class="str">'games'</span>).<span class="term">changes</span>()</code></pre>
                  <a class="button minimal" href="/streaming">More about changefeeds in RethinkDB <i class="right-arrow">go</i></a>
             </div>
-            <img src="http://placehold.it/500x680">
+            <div class="offset-img">
+                <div class="realtime-mobile">
+                    <h1>Thinker</h1>
+                    <div class="content-mask">
+                        <ul>
+                            <li class="thinker">
+                                <span>line</span>
+                                <span>line</span>
+                                <span>line</span>
+                                <span>line</span>
+                            </li>
+                            <li class="recipient">
+                                <span>line</span>
+                                <span>line</span>
+                                <span>line</span>
+                            </li>
+                            <li class="thinker">
+                                <span>line</span>
+                                <span>line</span>
+                            </li>
+                            <li class="thinker image">
+                                <img src="http://placehold.it/150x150">
+                            </li>
+                            <li class="recipient">
+                                <span>line</span>
+                                <span>line</span>
+                                <span>line</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <p>
+                        <span>.</span>
+                        <span>.</span>
+                        <span>.</span>
+                    </p>
+                </div>
+                <div class="realtime-desktop">
+                    <div class="content-mask">
+                        <ul>
+                            <li class="recipient">
+                                <span>line</span>
+                                <span>line</span>
+                            </li>
+                            <li class="thinker">
+                                <span>line</span>
+                                <span>line</span>
+                            </li>
+                            <li class="recipient">
+                                <span>line</span>
+                                <span>line</span>
+                            </li>
+                            <li class="recipient image">
+                                <img src="http://placehold.it/150x150">
+                            </li>
+                            <li class="thinker">
+                                <span>line</span>
+                                <span>line</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <p>
+                        <span>.</span>
+                        <span>.</span>
+                        <span>.</span>
+                    </p>
+                </div>
+                <div class="realtime-thinker">
+                    <div class="push-poll"></div>
+                    <img src="http://placehold.it/400x100">
+                </div>
+            </div>
         </div>
     </section>
 
@@ -97,7 +167,7 @@ body_class: landing
                 <pre><code>r.<span class="term">db</span>(<span class="str">'system'</span>).<span class="term">table</span>(<span class="str">'jobs'</span>).<span class="term">changes</span>()</code></pre>
                  <a class="button outlined dark" href="/ops.html">Learn more <i class="right-arrow">go</i></a>
             </section>
-            <img src="/assets/images/landing-offerings-3_@2x.png">
+            <img class="offset-img" src="/assets/images/landing-offerings-3_@2x.png">
         </div>
     </div>
 
@@ -240,3 +310,39 @@ body_class: landing
         </div>
     </section>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        // Landing animations
+        $('.landing .intro').waypoint(function(direction) {
+            // Start the landing animation on scroll
+            $('.landing .realtime-desktop p').addClass('animate');
+            $('.landing .push-poll').addClass('animate');
+        });
+
+        // Listen for the mobile loading animation callback
+        $('.landing .realtime-desktop p span:last-child').bind('oanimationend animationend webkitAnimationEnd', function() {
+            // Move the messages up, show image!
+            $('.landing .realtime-mobile ul').addClass('animate');
+            $('.landing .realtime-desktop ul').addClass('animate');
+            $('.landing .realtime-desktop p').removeClass('animate');
+        });
+
+        $('.landing .realtime-desktop ul').bind('oanimationend animationend webkitAnimationEnd', function() {
+            // Peeps be typing again
+            if($(this).hasClass('animate final')) {
+                // Final animation sequence, clean up
+                $('.landing .realtime-mobile p').remove('animate');
+            }
+            else {
+                // First animation sequence
+                $('.landing .realtime-mobile p').addClass('animate');
+            }
+        });
+        $('.landing .realtime-mobile p span:last-child').bind('oanimationend animationend webkitAnimationEnd', function() {
+            // Move the messages up one more time!
+            $('.landing .realtime-mobile ul').addClass('final');
+            $('.landing .realtime-desktop ul').addClass('final');
+        });
+    });
+</script>

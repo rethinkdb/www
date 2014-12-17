@@ -140,29 +140,249 @@ body.landing {
     }
 
     // Intro
-    .intro {
-        background: white;
+    .intro { background: white; }
 
-        .realtime-mobile {
-            background: url('/assets/images/realtime/bg-mobile.png') 0 0 no-repeat;
-            background-size: cover;
-            height: rem(422);
+    // Text messages
+    .content-mask {
+        p {
+            @include font-size-rem(80);
+            color: #97acb0;
+            left: $base-spacing/3;
+            letter-spacing: rem(-8);
+            line-height: $base-spacing;
             position: absolute;
-            left: 0;
-            top: rem(32);
-            width: rem(228);
-            z-index: 6;
+
+            // Hide loading dots initially
+            span { opacity: 0; }
+
+            &.animate span {
+                @include animation(fadeIn 0.8s linear);
+                @include animation-iteration-count(3);
+
+                @for $i from 1 through 4 {
+                    &:nth-child(#{$i}) {
+                        @include animation-delay(0.2s * $i);
+                    }
+                }
+            }
         }
 
-        .realtime-desktop {
-            background: url('/assets/images/realtime/bg-desktop.png') 0 0 no-repeat;
-            background-size: cover;
-            height: rem(454);
+        // Message animation
+        ul.animate {
+            li {
+                @include animation(moveUp 0.5s ease);
+                @include animation-fill-mode(forwards);
+
+                @for $i from 1 through 4 {
+                    &:nth-child(#{$i}) {
+                        @include animation-delay(0.1s * $i);
+                    }
+                }
+            }
+            .image { display: table;}
+        }
+
+        li {
+            background: #e5eeed;
+            border-radius: $base-border-radius;
+            padding: $base-spacing/2;
+            margin-top: $base-spacing/2;
+        }
+
+        // "Your" msgs
+        .recipient {
+            background: #5babb4;
+            span { background: white; }
+        }
+
+        li span {
+            background: #97acb0;
+            border-radius: $base-border-radius*3;
+            display: block;
+            height: rem(4);
+            margin: $base-spacing/3 0;
+            text-indent: -9999px;
+            width: 100%;
+        }
+
+        // Image message
+        .image {
+            display: none;
+            img { width: 100%; }
+        }
+    }
+
+
+    // Phone illustration
+    .realtime-mobile {
+        background: url('/assets/images/realtime/bg-mobile.png') 0 0 no-repeat;
+        background-size: cover;
+        height: rem(422);
+        position: absolute;
+        left: 0;
+        top: rem(32);
+        width: rem(228);
+        z-index: 6;
+
+        h1 {
+            @include font-size-rem(24);
+            background: url('/assets/images/realtime/avatar.png') left bottom no-repeat;
+            background-size: rem(30);
+            left: rem(20);
+            padding-left: rem(40);
             position: absolute;
-            top: 0px;
-            right: 0px;
-            width: rem(470);
-            z-index: 5;
+            top: rem(34);
+        }
+
+        .content-mask {
+            left: rem(5);
+            height: rem(258);
+            overflow: hidden;
+            position: absolute;
+            top: rem(80);
+            width: rem(218);
+        }
+
+        // Message width
+        li { width: 70%; }
+        // Loading
+        p { bottom: $base-spacing*1.5; }
+        // Message offset positioning
+        .thinker { margin-left: $base-spacing/2; }
+        .recipient { margin-left: $base-spacing*2.8; }
+    }
+
+    // Desktop illustration
+    .realtime-desktop {
+        background: url('/assets/images/realtime/bg-desktop.png') 0 0 no-repeat;
+        background-size: cover;
+        height: rem(454);
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        width: rem(480);
+        z-index: 5;
+
+        .mobile-content {
+            border: 1px solid green;
+            left: 0;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+        }
+
+        .content-mask {
+            left: rem(12);
+            height: rem(240);
+            overflow: hidden;
+            position: absolute;
+            top: rem(30);
+            width: rem(455);
+        }
+
+        p {
+            bottom: $base-spacing*1.5;
+            left: $base-spacing*2;
+        }
+
+        // Message width
+        li {
+            margin-top: $base-spacing;
+            position: relative;
+            width: 60%;
+
+            &:before {
+                background: url('/assets/images/realtime/avatar.png') 0 center no-repeat;
+                background-size: rem(30);
+                content: '';
+                display: block;
+                left: rem(-40);
+                height: rem(30);
+                padding-left: $base-spacing;
+                position: absolute;
+                top: rem(10);
+                width: rem(30);
+            }
+            &.recipient:before {
+                background: url('/assets/images/realtime/avatar-user.png') 0 center no-repeat;
+                background-size: rem(30);
+                left: inherit;
+                right: rem(-40);
+            }
+        }
+        // Message offset positioning
+        .thinker { margin-left: $base-spacing*3.5; }
+        .recipient {
+            background-position: right center;
+            margin-left: $base-spacing*5;
+        }
+        .image { width: 28%; }
+    }
+
+    // Thinker
+    .realtime-thinker {
+        bottom: 0;
+        left: $base-spacing*4;
+        position: absolute;
+
+        .push-poll {
+            @include transform(rotate(45deg));
+            @include transform-style(preserve-3d);
+            @include animation(moveDashes 2s ease);
+            @include animation-iteration-count(infinite);
+            @include animation-fill-mode(forwards);
+
+            background-image: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(0,0,0,1) 10px, rgba(0,0,0,1) 20px);
+            background-size: 30px;
+            bottom: rem(130);
+            height: rem(150);
+            left: rem(120);
+            position: absolute;
+            width: rem(150);
+
+            &:before {
+                background: white;
+                content: '';
+                display: block;
+                left: 0;
+                height: 100%;
+                margin: -1px;
+                position: absolute;
+                top: 0;
+                width: 100%;
+            }
+        }
+
+        img { width: 100%; }
+    }
+
+    // Push-poll dashes
+    @include keyframes(moveDashes) {
+        to {
+            background-position: 100px 0;
+        }
+        from {
+            background-position: 0;
+        }
+    }
+    // Move up animation for messages
+    @include keyframes(moveUp) {
+        to {
+            @include transform(translate3d(0, -130px, 0));
+        }
+        from {
+            @include transform(translate3d(0, 0, 0));
+            opacity: 1;
+        }
+    }
+
+    // Fade in animation
+    @include keyframes(fadeIn) {
+        to {
+            opacity: 0;
+        }
+        from {
+            opacity: 1;
         }
     }
 
@@ -186,6 +406,7 @@ body.landing {
 
         .offset-img {
             left: 50%;
+            height: 100%;
             max-width: rem(900);
             position: absolute;
             width: rem(660);

@@ -41,11 +41,65 @@ body_class: landing
             </div>
             <div class="offset-img">
                 <div class="realtime-mobile">
-                    <div class="mobile-content">
-
+                    <h1>Thinker</h1>
+                    <div class="content-mask">
+                        <ul>
+                            <li class="thinker">
+                                <span>line</span>
+                                <span>line</span>
+                                <span>line</span>
+                                <span>line</span>
+                            </li>
+                            <li class="recipient">
+                                <span>line</span>
+                                <span>line</span>
+                                <span>line</span>
+                            </li>
+                            <li class="thinker">
+                                <span>line</span>
+                                <span>line</span>
+                            </li>
+                            <li class="thinker image">
+                                <img src="http://placehold.it/150x150">
+                            </li>
+                        </ul>
+                        <p>
+                            <span>.</span>
+                            <span>.</span>
+                            <span>.</span>
+                        </p>
                     </div>
                 </div>
-                <div class="realtime-desktop"></div>
+                <div class="realtime-desktop">
+                    <div class="content-mask">
+                        <ul>
+                            <li class="thinker">
+                                <span>line</span>
+                                <span>line</span>
+                            </li>
+                            <li class="recipient">
+                                <span>line</span>
+                                <span>line</span>
+                            </li>
+                            <li class="thinker">
+                                <span>line</span>
+                                <span>line</span>
+                            </li>
+                            <li class="thinker image">
+                                <img src="http://placehold.it/150x150">
+                            </li>
+                        </ul>
+                        <p>
+                            <span>.</span>
+                            <span>.</span>
+                            <span>.</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="realtime-thinker">
+                    <div class="push-poll"></div>
+                    <img src="http://placehold.it/400x100">
+                </div>
             </div>
         </div>
     </section>
@@ -247,3 +301,28 @@ body_class: landing
         </div>
     </section>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        // Landing animations
+        $('.landing .realtime-mobile p').addClass('animate');
+
+        // Listen for the mobile loading animation callback
+        $('.landing .realtime-mobile p span:last-child').bind('oanimationend animationend webkitAnimationEnd', function() {
+            // Move the messages up!
+            $('.landing .realtime-mobile ul').addClass('animate');
+        });
+
+        // Now, listen for the message moveUp animation callback
+        $('.landing .realtime-mobile ul li:last-child').bind('oanimationend animationend webkitAnimationEnd', function() {
+            // Start desktop loading animation
+            $('.landing .realtime-desktop p').addClass('animate');
+        });
+
+        // Finally, listen for the desktop loading animation callback
+        $('.landing .realtime-desktop p span:last-child').bind('oanimationend animationend webkitAnimationEnd', function() {
+            // Move the messages up!
+            $('.landing .realtime-desktop ul').addClass('animate');
+        });
+    });
+</script>

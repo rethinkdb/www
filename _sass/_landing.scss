@@ -549,7 +549,6 @@ body.landing {
     @include media($large-screen-up) { width: 55%; }
 
     .video {
-        background: url('/assets/images/events/lucy.png') center center no-repeat;
         border-radius: $base-border-radius;
         color: $white;
         cursor: pointer;

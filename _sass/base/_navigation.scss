@@ -51,7 +51,7 @@ body { overflow-x: hidden; }
     z-index: 5;
 }
 
-.mobile-menu, .doc-mobile-nav {
+.mobile-menu, .docs-mobile-nav {
     @include transition(all 0.1s linear);
     background-color: darken($teal, 10);
     position: fixed;

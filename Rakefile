@@ -1,5 +1,5 @@
-deploy_config = '_deploy-config.yml'
-algolia_root = '_algolia-build'
+$deploy_config = '_deploy-config.yml'
+$algolia_root = '_algolia-build'
 
 task :default => :serve
 
@@ -50,6 +50,12 @@ task :algolia do
     require 'yaml'
     require 'nokogiri'
 
+    # Check if there's a deployment config, before indexing
+    if not File.file?($deploy_config)
+         puts "Missing deployment configuration: #{$deploy_config}\nYou can use _deploy-config.example.yml as a base for your deployment configuration."
+         exit 1
+    end
+
     # Figure out which files to index, and where they'll be after Jekyll generates them
     index = {}
     to_index = ['docs']
@@ -85,7 +91,7 @@ task :algolia do
                     article = {
                         file: f,
                         title: header['title'],
-                        language: header['languge'],
+                        language: header['language'],
                         permalink: header['permalink'],
                         layout: header['layout'],
                     }
@@ -108,14 +114,14 @@ task :algolia do
     puts "Building documents with Jekyll..."
 
     # Build the files using Jekyll
-    #jekyll('build -d ' + algolia_root)
+    jekyll('build -d ' + $algolia_root)
     
     # Fetch the article content and strip the HTML for each article
     docs_processed = 0
     index.each_with_index do |(title, article_set), i|
         article_set.each do |article|
             # Check if the file exists
-            path = algolia_root + '/' + article[:path]
+            path = $algolia_root + '/' + article[:path]
             if not File.exist?(path)
                 puts "Article not found:\n\t * Expected location: #{path}\n\t * Title: #{article[:title]}"
             # Otherwise, pull out the article content
@@ -133,6 +139,7 @@ task :algolia do
                 when 'api-command'
                     article_content = article_content.at_css('#api-details')
                     article_content.search("#docs-switcher").remove()
+                    article_content.search(".linksbox-container").remove()
                     article_content = article_content.text()
                 else
                     article_content = ''
@@ -147,13 +154,15 @@ task :algolia do
 
     index = index.values.flatten(1)
 
+
+    # Deploy the index to Algolia
     require 'rubygems'
     require 'algoliasearch'
 
-    deploy_config = YAML.load_file(deploy_config)
+    deploy = YAML.load_file($deploy_config)
 
     puts "\nUploading index to Algolia..."
-    Algolia.init :application_id => deploy_config['algolia']['application_id'], :api_key => deploy_config['algolia']['api_key']
+    Algolia.init :application_id => deploy['algolia']['app_id'], :api_key => deploy['algolia']['api_key']
     algolia_index = Algolia::Index.new('docs')
     algolia_index.clear_index
     algolia_index.add_objects(index)

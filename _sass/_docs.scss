@@ -27,9 +27,6 @@
         .doc_navigation {
             @extend .quarter;
 
-            // Hide on docs/index
-            &.hide-menu { display: none; }
-
             h1, .nav-header {
                 @include font-size-rem(16);
                 color: lighten(desaturate($teal, 30), 30);
@@ -65,7 +62,7 @@
             }
         }
         // Right-side documentation content
-        .documentation-content {
+        .docs-article-container {
             @extend .three-quarter;
             padding: 0;
             position: relative;
@@ -133,18 +130,18 @@
 
             // Search results
             .search-results {
+
+                &.dropdown {
+
+                }
                 background: rgba(251, 251, 249, 0.95);
                 display: none;
-                height: 100%;
                 position: absolute;
                 top: 0px;
                 right: 0px;
                 z-index: 6;
                 width: 100%;
 
-                .results-header {
-                    @include outer-container;
-                }
                 h1 {
                     @extend .three-quarter;
                     margin-top: 0;
@@ -237,7 +234,7 @@
             }
         }
         // First page on load
-        .documentation-content .docs-index, .docs-index-articles {
+        .docs-article-container .docs-index, .docs-index-articles {
             @include outer-container;
             margin-top: $base-spacing*2;
 
@@ -258,7 +255,7 @@
 
             p { margin-top: 0; }
         }
-        .documentation-content .docs-index {
+        .docs-article-container .docs-index {
             li {
                 background: #fff;
                 border: 1px solid lighten($smoke-gray, 2);
@@ -300,7 +297,7 @@
                 li { min-height: rem(390); }
             }
         }
-        .documentation-content .search-embed {
+        .docs-article-container .search-embed {
             @include font-size-rem(24);
             border: 6px solid darken($cream, 2);
             border-radius: $base-border-radius*2;

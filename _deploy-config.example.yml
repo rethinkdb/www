@@ -1,0 +1,5 @@
+--- # Deployment config
+# Connection details for Algolia
+algolia:
+    app_id: your_algolia_app_id
+    api_key: your_algolia_api_key

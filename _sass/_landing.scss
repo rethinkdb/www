@@ -10,9 +10,16 @@ body.landing {
 }
 
 // Hero
+.landing .hero-wrapper {
+    @include background-image(url('/assets/images/hero-desk.png'), 
+        linear-gradient(rgb(33, 71, 83) 0%, rgb(26, 81, 97) 50%,
+        rgb(28, 80, 100) 81%, rgb(29, 79, 95) 100%));
+    background-size: cover;
+
+    .site-nav { background-color: transparent; }
+}
+
 .landing .hero {
-    @include linear-gradient(rgb(33, 71, 83) 0%, rgb(26, 81, 97) 50%,
-        rgb(28, 80, 100) 81%, rgb(29, 79, 95) 100%);
     color: $cream;
     text-align: center;
     overflow: hidden;
@@ -78,7 +85,7 @@ body.landing {
 
 // Mailing list
 .landing .mailing-list {
-    background: rgb(24, 75, 90);
+    background: rgba(24, 75, 90, 0.8);
     padding-bottom: $base-spacing/2;
     padding-top: $base-spacing/2;
 
@@ -346,8 +353,10 @@ body.landing {
     position: relative;
     overflow: hidden;
 
-    .intro-content, .intro-illustration, .feature-content, img { @extend .half; }
+    // Grid settings for intro content
+    .intro-content, .intro-illustration, .feature-content-two, img { @extend .half; }
 
+    // Alternating padding for even and odd content
     .intro-content, &:nth-child(even) .feature-content { padding-right: $base-spacing*3; }
     &:nth-child(odd) .feature-content { padding-left: $base-spacing*3; }
 
@@ -425,6 +434,43 @@ body.landing {
         @include media($large-screen-up) {
             .button { margin-top: $base-spacing*2; }
         }
+    }
+    
+    &.modern-stacks {
+        padding-top: 0;
+        section.feature-content {
+            padding-left: 0;
+            padding-top: rem(30);
+        }
+        article {
+            @include omega-reset(2n);
+            @include span-columns(6 of 12);
+            @include omega(2n);
+            padding-top: rem(20);
+            margin-bottom: rem(100);
+
+            border-bottom: thin solid #dedede;
+            height: rem(300);
+            overflow: hidden;
+
+            h2 {
+                font-weight: 500;
+                @include font-size-rem(20);
+            }
+            p:first-of-type {
+                margin-top: rem(10);
+            }
+            img {
+                float: none;
+                width: auto;
+                margin-top: rem(30);
+            }
+            &:nth-child(odd) { padding-right: rem(40); }
+            &:nth-child(even) { padding-left: rem(40); }
+        }
+
+
+
     }
 }
 

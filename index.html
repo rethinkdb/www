@@ -3,27 +3,30 @@ layout: default
 body_class: landing
 ---
 <div class="landing">
-    <!-- hero -->
-    <section class="hero">
-        <div class="site-container">
-            <h1>The open source database <span>for the realtime web.</span></h1>
-            <div class="hero-install">
-                <a class="button install light" href="/">Install <span>Release v1.15.1</span></a>
-                <a class="button learn-more outlined" href="/">Learn more <span>What is RethinkDB?</span></a>
+    <div class="hero-wrapper">
+        {% include navbar.html %}
+        <!-- hero -->
+        <section class="hero">
+            <div class="site-container">
+                <h1>The open source database <span>for the realtime web.</span></h1>
+                <div class="hero-install">
+                    <a class="button install light" href="/">Install <span>Release v1.15.1</span></a>
+                    <a class="button learn-more outlined" href="/">Learn more <span>What is RethinkDB?</span></a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- mailing list -->
-    <section class="mailing-list">
-        <div class="site-container">
-            <p class="headline">Latest release: RethinkDB 1.15.2 (Lawrence of Arabia)</p>
-            <div class="list-signup">
-                <input class="medium" type="text" placeholder="Join the mailing list for updates" type="text">
-                <button class="button subscribe outlined" type="submit">Subscribe</button>
+        <!-- mailing list -->
+        <section class="mailing-list">
+            <div class="site-container">
+                <p class="headline">Latest release: RethinkDB 1.15.2 (Lawrence of Arabia)</p>
+                <div class="list-signup">
+                    <input class="medium" type="text" placeholder="Join the mailing list for updates" type="text">
+                    <button class="button subscribe outlined" type="submit">Subscribe</button>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
     <!-- intro -->
     <section class="intro">
@@ -139,24 +142,60 @@ body_class: landing
     </section>
 
     <!-- features -->
-    <div class="feature">
+    <div class="feature modern-stacks">
         <div class="site-container">
-            <img src="http://placehold.it/400x400">
+            <h1>Works with modern stacks</h1>
             <section class="feature-content">
-                <h1>Works with modern stacks</h1>
-                <p>
-                    Get started by querying JSON documents with Python, Ruby, Node.js or <a href="/">dozens of other languages</a>.
-                </p>
-                <p>Build a modern app using <a href="/">your favorite</a> framework, paired with realtime technologies like Socket.io or SignalR.</p>
-                <p>RethinkDB is packed with all the features you need to work with high velocity data, like distributed joins, geospatial queries, binary data, Hadoop-style map-reduce, and more.</p>
-
-                 <a class="button outlined dark" href="/blocks.html">Learn more <i class="right-arrow">go</i></a>
+                <article>
+                    <h2>JSON data model</h2>
+                    <p>
+                        Get started by querying JSON documents with Python, Ruby,
+                        Node.js or <a href="/">dozens of other languages</a>. Build
+                        a modern app using <a href="/">your favorite</a> framework,
+                        paired with realtime technologies like Socket.io or
+                        SignalR.
+                    </p>
+                    <img src="/assets/images/modern-features/1.png">
+                </article>
+                <article>
+                    <h2>Immediate consistency</h2>
+                    <p>
+                        Get started by querying JSON documents with Python, Ruby,
+                        Node.js or <a href="/">dozens of other languages</a>. Build
+                        a modern app using <a href="/">your favorite</a> framework,
+                        paired with realtime technologies like Socket.io or
+                        SignalR.
+                    </p>
+                    <img src="/assets/images/modern-features/2.png">
+                </article>
+                <article>
+                    <h2>Distributed joins and subqueries</h2>
+                    <p>
+                        Get started by querying JSON documents with Python, Ruby,
+                        Node.js or <a href="/">dozens of other languages</a>. Build
+                        a modern app using <a href="/">your favorite</a> framework,
+                        paired with realtime technologies like Socket.io or
+                        SignalR.
+                    </p>
+                    <img src="/assets/images/modern-features/3.png">
+                </article>
+                <article>
+                    <h2>Aggregation and atomic updates</h2>
+                    <p>
+                        Get started by querying JSON documents with Python, Ruby,
+                        Node.js or <a href="/">dozens of other languages</a>. Build
+                        a modern app using <a href="/">your favorite</a> framework,
+                        paired with realtime technologies like Socket.io or
+                        SignalR.
+                    </p>
+                    <img src="/assets/images/modern-features/4.png">
+                </article>
             </section>
         </div>
     </div>
     <div class="feature">
         <div class="site-container">
-            <section class="feature-content">
+            <section class="feature-content feature-content-two">
                 <h1>Hassle-free operation at scale</h1>
                 <p>
                     When you're ready to scale your app, shard and replicate in a few clicks using an intuitive web UI.

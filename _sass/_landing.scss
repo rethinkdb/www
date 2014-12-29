@@ -390,7 +390,6 @@ body.landing {
             padding-top: rem(30);
         }
         article {
-            @include media($medium-screen-up);
             @include omega-reset(2n);
             @include span-columns(6 of 12);
             @include omega(2n);
@@ -400,7 +399,6 @@ body.landing {
             border-bottom: thin solid #dedede;
             height: rem(300);
             overflow: hidden;
-            //box-shadow: inset 0px 0px 14px 10px rgba(0,0,0,0.4);
 
             h2 {
                 font-weight: 500;

@@ -8,7 +8,7 @@ body_class: docs
             <img class="title-image" src="{{page.title_image}}" />
         {% endif %}
         <!-- TODO: change conditional to something less fragile than page.title -->
-        <div class="navigation doc_navigation {% if page.title == 'RethinkDB Documentation' %}hide-menu{% endif %}">
+        <div class="navigation doc_navigation {% if page.title == 'Documentation' %}hide-menu{% endif %}">
             <div class="search">
                 <input class="small" type="text" placeholder="Search commands...">
             </div>
@@ -28,7 +28,7 @@ body_class: docs
             </div>
         </div>
         <!-- TODO: change conditional to something less fragile than page.title -->
-        <div class="documentation-content {% if page.cookbook %}cookbook{% endif %} {% if page.title == 'RethinkDB Documentation' %}full-width{% endif %} ">
+        <div class="documentation-content {% if page.cookbook %}cookbook{% endif %} {% if page.title == 'Documentation' %}full-width{% endif %} ">
             <div class="search-results">
                 <div class="results-header">
                     <h1>Results</h1>

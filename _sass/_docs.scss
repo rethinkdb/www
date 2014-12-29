@@ -236,30 +236,14 @@
                 }
             }
         }
-        // First page on load
-        .documentation-content .docs-index, .docs-index-articles {
-            @include outer-container;
-            margin-top: $base-spacing*2;
 
-            h1 {
-                @include font-size-rem(22);
-                font-family: $sans-serif-semi-bold;
-                padding-top: $base-spacing/4;
-                padding-bottom: $base-spacing/4;
-                margin-top: 0;
-                text-align: left;
-                font-weight: 600;
-            }
+        // This is the list of large action items at the top of the docs index (image + link)
+        .documentation-content .docs-index {
+            @include outer-container;
             li {
                 @extend .third;
                 list-style: none;
                 margin-left: 0;
-            }
-
-            p { margin-top: 0; }
-        }
-        .documentation-content .docs-index {
-            li {
                 border-radius: $base-border-radius*2;
                 padding: $base-spacing*1.5;
                 position: relative;
@@ -268,8 +252,9 @@
                 background-position: center top;
                 display: table;
 
-                // TODO - conflicts with the h1 classes in the preceding section -- review after all changes are in
                 h1 {
+                    font-family: $sans-serif-semi-bold;
+                    font-weight: 600;
                     @include font-size-rem(28);
                     margin-top: $base-spacing * 1.5;
                     text-align: center;
@@ -331,10 +316,12 @@
 
                 ul {
                     border-left: thin solid #eee;
-                    li { list-style-type: none; }
+                    li {
+                        list-style-type: none;
+                        margin-left: rem(15);
+                    }
                     margin-top: rem(15);
                     padding: 0;
-                    li { margin-left: rem(15); }
                 }
 
                 h1 {
@@ -354,41 +341,6 @@
             input {
                 font-size: 2rem;
                 background: none;
-            }
-        }
-        // Docs index - article list
-        .docs-index-articles {
-            h1 {
-                padding-bottom: 0;
-                margin-bottom: 0;
-                a {
-                    @include font-size-rem(18);
-                    color: $teal;
-                }
-            }
-            li {
-                @include fill-parent;
-                border-bottom: 1px solid $smoke-gray;
-                padding-bottom: $base-spacing/1.3;
-                padding-left: 0;
-                margin-top: 0;
-
-                @include media($mobile) { border-bottom: none; }
-
-                p {
-                    display: inline-block;
-                    max-width: rem(600);
-                    margin: 0;
-                }
-                span {
-                    @include font-size-rem(14);
-                    color: darken($surf, 25);
-                    display: inline-block;
-                    float: right;
-                    font-family: $sans-serif-semi-bold;
-                    font-weight: 600;
-                    text-transform: uppercase;
-                }
             }
         }
 

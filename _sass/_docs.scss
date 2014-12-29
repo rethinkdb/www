@@ -260,15 +260,36 @@
         }
         .documentation-content .docs-index {
             li {
-                background: #fff;
-                border: 1px solid lighten($smoke-gray, 2);
                 border-radius: $base-border-radius*2;
                 padding: $base-spacing*1.5;
                 position: relative;
+                min-height: rem(380);
+                background-repeat: no-repeat;
+                background-position: center top;
+                display: table;
+
+                // TODO - conflicts with the h1 classes in the preceding section -- review after all changes are in
+                h1 {
+                    @include font-size-rem(28);
+                    margin-top: $base-spacing * 1.5;
+                    text-align: center;
+                    vertical-align: bottom;
+                    display: table-cell;
+                }
 
                 &:hover {
-                    background: lighten($cream, 1);
                     h1 a { color: $teal; }
+                }
+                &:nth-child(1) {
+                    background-image: url('/assets/images/docs/api_illustrations/quickstart.png');
+                    background-position: center 4rem; // TODO -- remove, temporary for placeholders
+                }
+                &:nth-child(2) {
+                    background-image: url('/assets/images/docs/api_illustrations/insert_ruby.png');
+                }
+                &:nth-child(3) {
+                    background-image: url('/assets/images/docs/api_illustrations/faq.png');
+                    background-position: center 2rem; // TODO -- remove, temporary for placeholders
                 }
             }
             p { margin: $base-spacing/2 0 0; }
@@ -293,11 +314,33 @@
                     img { display: none; }
                 }
             }
-            @include media($medium-screen-up) {
-                li { min-height: rem(380); }
-            }
-            @include media($large-screen-up) {
-                li { min-height: rem(390); }
+        }
+        .documentation-content nav.docs-nav {
+            @include column-count(3);
+            @include column-gap(rem(10));
+            margin-left: 0;
+            margin-top: rem(50);
+
+            section {
+                -webkit-column-break-inside:avoid;
+                -moz-column-break-inside:avoid;
+                -o-column-break-inside:avoid;
+                -ms-column-break-inside:avoid;
+                column-break-inside:avoid;
+                margin-bottom: rem(40);
+
+                ul {
+                    border-left: thin solid #eee;
+                    li { list-style-type: none; }
+                    margin-top: rem(15);
+                    padding: 0;
+                    li { margin-left: rem(15); }
+                }
+
+                h1 {
+                    margin-top: 0;
+                    @include font-size-rem(24);
+                }
             }
         }
         .documentation-content .search-embed {

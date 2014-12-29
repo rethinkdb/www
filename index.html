@@ -32,85 +32,27 @@ body_class: landing
     <section class="intro">
         <div class="site-container">
             <div class="intro-content">
-                <h1>Built for realtime apps</h1>
-                <p>Polling limits what you can build on the web. When your app polls for data, it becomes slow, unscalable, and cumbersome to maintain.</p>
-                <p>Instead, RethinkDB pushes data to your app in realtime via changefeeds:</p>
-                 <pre><code>r.<span class="term">table</span>(<span class="str">'games'</span>).<span class="term">filter</span>({<span class="str">'user_id'</span>: <span class="num">123</span>}).<span class="term">changes</span>()</code></pre>
-                 <p>Changefeeds change how you build realtime apps. Here's how you can build a realtime leaderboard, with incremental updates to query results:</p>
-                 <pre><code>r.<span class="term">table</span>(<span class="str">'games'</span>).<span class="term">max</span>(<span class="str">'score'</span>).<span class="term">limit</span>(<span class="num">10</span>).<span class="term">changes</span>()</code></pre>
-                 <p>Or, just get a firehose of changes from your database:</p>
-                 <pre><code>r.<span class="term">table</span>(<span class="str">'games'</span>).<span class="term">changes</span>()</code></pre>
-                 <a class="button minimal" href="/streaming">More about changefeeds in RethinkDB <i class="right-arrow">go</i></a>
+                <p>Traditional databases limit what you can build on the web. When your app polls for data, it becomes slow, unscalable, and cumbersome to maintain.</p>
+                <p>RethinkDB is an open-source, scalable database that <em>pushes</em> JSON to your app <strong>in realtime</strong>:</p>
+                 <a class="button outlined dark" href="/streaming">Build your first app<i class="right-arrow">go</i></a>
             </div>
             <div class="offset-img">
-                <div class="realtime-mobile">
-                    <h1>Thinker</h1>
-                    <div class="content-mask">
+                <div class="realtime-queries">
+                    <header></header>
+                    <div class="query-panel">
+                        <p class="query-label">Query:</p>
+                        <p class="query">r.table('scores').filter({'score' &lt; 10).changes()</p>
+                    </div>
+                    <div class="query-results">
+                        <p class="query-loading">Streaming RethinkDB results...</p>
                         <ul>
-                            <li class="thinker">
-                                <span>line</span>
-                                <span>line</span>
-                                <span>line</span>
-                                <span>line</span>
-                            </li>
-                            <li class="recipient">
-                                <span>line</span>
-                                <span>line</span>
-                                <span>line</span>
-                            </li>
-                            <li class="thinker">
-                                <span>line</span>
-                                <span>line</span>
-                            </li>
-                            <li class="thinker image">
-                                <img src="http://placehold.it/150x150">
-                            </li>
-                            <li class="recipient">
-                                <span>line</span>
-                                <span>line</span>
-                                <span>line</span>
+                            <li>{
+        'mary': 43,
+        'scott': 56
+    }
                             </li>
                         </ul>
                     </div>
-                    <p>
-                        <span>.</span>
-                        <span>.</span>
-                        <span>.</span>
-                    </p>
-                </div>
-                <div class="realtime-desktop">
-                    <div class="content-mask">
-                        <ul>
-                            <li class="recipient">
-                                <span>line</span>
-                                <span>line</span>
-                            </li>
-                            <li class="thinker">
-                                <span>line</span>
-                                <span>line</span>
-                            </li>
-                            <li class="recipient">
-                                <span>line</span>
-                                <span>line</span>
-                            </li>
-                            <li class="recipient image">
-                                <img src="http://placehold.it/150x150">
-                            </li>
-                            <li class="thinker">
-                                <span>line</span>
-                                <span>line</span>
-                            </li>
-                        </ul>
-                    </div>
-                    <p>
-                        <span>.</span>
-                        <span>.</span>
-                        <span>.</span>
-                    </p>
-                </div>
-                <div class="realtime-thinker">
-                    <div class="push-poll"></div>
-                    <img src="http://placehold.it/400x100">
                 </div>
             </div>
         </div>
@@ -141,6 +83,8 @@ body_class: landing
         </div>
     </section>
 
+    <div class="site-container"><hr class="section-divider"></div>
+ 
     <!-- features -->
     <div class="feature modern-stacks">
         <div class="site-container">

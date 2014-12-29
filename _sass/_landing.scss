@@ -7,6 +7,30 @@ body.landing {
         @include font-size-rem(32);
         font-weight: 400;
     }
+
+    // Stylized horizontal rule for sections
+    hr.section-divider {
+        $_size: rem(18);
+        $_color: tint($base-font-color, 60%);
+        height: 0;
+        border-bottom: thin solid $_color;
+        clear: both;
+        position: relative;
+        opacity: 0.5;
+        &:before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: -$_size/2*1.3;
+            width: $_size;
+            height: $_size;
+            border: rem(2) solid $_color;
+            outline: rem(11) solid $cream;
+            background: $_color;
+            margin: rem(3);
+            @include transform(rotate(45deg));
+        }
+    }
 }
 
 // Hero
@@ -150,202 +174,125 @@ body.landing {
 }
 
 // Intro
-.landing .intro { background: white; }
-.landing .intro .offset-img { height: 100%; }
+.landing .intro {
+    background: white; 
+    padding-bottom: 0;
 
-// Typing/loading dots
-.intro .realtime-mobile p, .intro .realtime-desktop p {
-    @include font-size-rem(80);
-    color: #97acb0;
-    letter-spacing: rem(-8);
-    line-height: $base-spacing;
-    position: absolute;
-
-    // Hide loading dots initially
-    span { opacity: 0; }
-
-    // Animation in _landing-animations
+    .intro-content {
+        margin-bottom: $base-spacing*3;
+        p {
+            @include font-size-rem(23);
+            margin-bottom: rem(25);
+        }
+        a.button { margin-top: rem(40); }
+    }
+    
+    .offset-img {
+        height: 100%;
+        position: relative;
+        float: left;
+    }
 }
 
-// Text messages styles
-.intro .content-mask {
-    // Message animation styles in _landing-animations
-    li {
-        background: #e5eeed;
-        border-radius: $base-border-radius;
-        padding: $base-spacing/2;
-        margin-top: $base-spacing/2;
+// TODO -- move animations into loading-animations, change _padding to use $base-spacing if that makes sense
+.intro .realtime-queries {
+    background: #E5EEED;
+    position: absolute;
+    bottom: 0;
+    margin-left: rem(75);
+    overflow: auto;
+    $_padding: rem(10);
 
-        &:last-child { display: none; }
-    }
+    p { margin: 0; }
 
-    // "Your" msgs
-    .recipient {
-        background: #5babb4;
-        span { background: white; }
-    }
-
-    li span {
-        background: #97acb0;
-        border-radius: $base-border-radius*3;
-        display: block;
-        height: rem(4);
-        margin: $base-spacing/3 0;
-        text-indent: -9999px;
+    header {
+        background: #214753;
+        border-radius: 5px 5px 0 0;
+        height: rem(20);
         width: 100%;
     }
 
-    // Image message
-    .image {
-        display: none;
-        img { width: 100%; }
+    .query-panel {
+        background: #dae6e5; 
+        padding: $_padding $_padding*1.5;
+        $title-width: rem(80);
+        p.query {
+            background: #fff;
+            border: thin solid #5babb4;
+            border-radius: 3px;
+            padding: rem(5) rem(10);
+            margin-left: $title-width;
+            font-family: $monospaced;
+            @include font-size-rem(18);
+        }
+
+        p.query-label {
+            text-transform: uppercase;
+            color: #214753;
+            font-weight: 600;
+            float: left;
+            @include font-size-rem(17);
+            line-height: rem(37);
+        }
     }
-}
-
-
-// Phone illustration
-.intro .realtime-mobile {
-    background: url('/assets/images/realtime/bg-mobile.png') 0 0 no-repeat;
-    background-size: cover;
-    height: rem(422);
-    position: absolute;
-    left: 0;
-    top: rem(32);
-    width: rem(228);
-    z-index: 6;
-
-    h1 {
-        @include font-size-rem(24);
-        background: url('/assets/images/realtime/avatar.png') left bottom no-repeat;
-        background-size: rem(30);
-        left: rem(20);
-        padding-left: rem(40);
-        position: absolute;
-        top: rem(34);
-    }
-
-    .content-mask {
-        left: rem(5);
-        height: rem(258);
-        overflow: hidden;
-        position: absolute;
-        top: rem(80);
-        width: rem(218);
-    }
-
-    // Message width
-    li { width: 70%; }
-    // Loading
-    p {
-        bottom: $base-spacing*3.8;
-        left: $base-spacing;
-    }
-    // Message offset positioning
-    .thinker { margin-left: $base-spacing/2; }
-    .recipient { margin-left: $base-spacing*2.8; }
-}
-
-// Desktop illustration
-.intro .realtime-desktop {
-    background: url('/assets/images/realtime/bg-desktop.png') 0 0 no-repeat;
-    background-size: cover;
-    height: rem(454);
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    width: rem(480);
-    z-index: 5;
-
-    .mobile-content {
-        border: 1px solid green;
-        left: 0;
-        overflow: hidden;
-        position: absolute;
-        top: 0;
-    }
-
-    .content-mask {
-        left: rem(12);
-        height: rem(240);
-        overflow: hidden;
-        position: absolute;
-        top: rem(30);
-        width: rem(455);
-    }
-
-    p {
-        bottom: $base-spacing*8.8;
-        left: $base-spacing*4;
-    }
-
-    // Message width
-    li {
-        margin-top: $base-spacing;
-        position: relative;
-        width: 60%;
+    
+    // Loading text + animation (pulsating dot)
+    p.query-loading {
+        $_size: rem(9);
+        $_color: #91bd09;
+        display: inline-block;
+        text-transform: uppercase;
+        @include font-size-rem(14);
+        font-weight: 500;
 
         &:before {
-            background: url('/assets/images/realtime/avatar.png') 0 center no-repeat;
-            background-size: rem(30);
             content: '';
-            display: block;
-            left: rem(-40);
-            height: rem(30);
-            padding-left: $base-spacing;
-            position: absolute;
-            top: rem(10);
-            width: rem(30);
+            display: inline-block;
+            margin-right: $_size*1.5;
+            height: $_size;
+            width: $_size;
+            border-radius: $_size/2;
+            background-color: $_color;
+            @include animation(pulse 2s infinite);
         }
-        &.recipient:before {
-            background: url('/assets/images/realtime/avatar-user.png') 0 center no-repeat;
-            background-size: rem(30);
-            left: inherit;
-            right: rem(-40);
-        }
-    }
-    // Message offset positioning
-    .thinker { margin-left: $base-spacing*3.5; }
-    .recipient {
-        background-position: right center;
-        margin-left: $base-spacing*5;
-    }
-    .image {
-        margin-left: rem(228);
-        width: 32%;
-    }
-}
 
-// Thinker
-.intro .realtime-thinker {
-    bottom: 0;
-    left: $base-spacing*4;
-    position: absolute;
-
-    .push-poll {
-        // Animation styles in _landing-animations
-        background-image: repeating-linear-gradient(45deg, transparent, transparent rem(10), $teal rem(10), $teal rem(20));
-        background-size: 30px;
-        bottom: rem(130);
-        height: rem(150);
-        left: rem(120);
-        position: absolute;
-        width: rem(150);
-
-        //BG overlay to cover up dashes
-        &:before {
-            background: white;
-            content: '';
-            display: block;
-            left: 0;
-            height: 100%;
-            margin: -1px;
-            position: absolute;
-            top: 0;
-            width: 100%;
+        // Pulse and fade in / out animations for the loading indicator
+        @include keyframes(pulse) {
+            $blur-size: 4px;
+            from {
+                background-color: $_color;
+                box-shadow: 0 0 $blur-size rgba(255,255,255,0.4);
+            }
+            50% {
+                background-color: lighten($_color, 8);;
+                box-shadow: 0 0 $blur-size*8 lighten($_color, 8);
+            }
+            to {
+                background-color: $_color;
+                box-shadow: 0 0 $blur-size rgba(255,255,255,0.1);
+            } 
         }
     }
 
-    img { width: 100%; }
+    .query-results {
+        padding: $_padding $_padding*1.2;
+        ul {
+            background: rgba(255,255,255,0.8);
+            padding: $_padding;
+            margin-top: $_padding;
+            margin-bottom: $_padding;
+            border: thin solid rgba(91, 171, 180, 0.5);
+            border-radius: 5px;
+            height: rem(250);
+        }
+
+        li {
+            @include font-size-rem(16);
+            font-family: $monospaced;
+            border-bottom: thin solid rgba(255,255,255,0.2);
+            &:last-child { border-bottom: 0; }
+        }
+    }
 }
 
 // Shared typography styles, Intro & Features
@@ -373,11 +320,6 @@ body.landing {
         max-width: rem(900);
         position: absolute;
         width: rem(660);
-    }
-
-    p {
-        line-height: rem(28);
-        margin: $base-spacing*1.5 0 0;
     }
 
     p a { border-bottom: 1px dotted $cranberry; }
@@ -426,6 +368,11 @@ body.landing {
 
 // Features
 .landing .feature {
+    p {
+        line-height: rem(28);
+        margin: $base-spacing*1.5 0 0;
+    }
+
     &:nth-child(odd) {
         padding-bottom: 0;
         @include media($medium-screen-up) {
@@ -437,7 +384,7 @@ body.landing {
     }
     
     &.modern-stacks {
-        padding-top: 0;
+        padding-top: $base-spacing*4;
         section.feature-content {
             padding-left: 0;
             padding-top: rem(30);
@@ -470,9 +417,6 @@ body.landing {
             &:nth-child(odd) { padding-right: rem(40); }
             &:nth-child(even) { padding-left: rem(40); }
         }
-
-
-
     }
 }
 

@@ -61,30 +61,46 @@ body_class: landing
     <!-- examples -->
     <section class="examples">
         <div class="site-container">
-            <h2>A fundamental building block for modern, <strong>realtime</strong> apps.</h2>
+            <h1>A fundamental building block for modern, <strong>realtime</strong> apps.</h1>
             <ul>
-                <li class="example">
-                    <img src="/assets/images/examples/map.png">
-                    <a href="#" class="button minimal">Realtime marketplaces <i class="right-arrow">go</i></a>
+                <li class="example active">
+                    <img class="active" src="/assets/images/examples/marketplaces_@2x.png">
+                    <div class="example-text">
+                        <h3 class="active">Realtime marketplaces</h3>
+                        <p class="active">Build a modern app using your favorite framework, paired with realtime technologies like Socket.io or SignalR.</p>
+                    </div>
                 </li>
                 <li class="example">
-                    <img src="/assets/images/examples/analytics.png">
-                    <a href="#" class="button minimal">Streaming analytics <i class="right-arrow">go</i></a>
+                    <img src="/assets/images/examples/analytics_@2x.png">
+                    <div class="example-text">
+                        <h3>Streaming analytics</h3>
+                        <p>Build a modern app using your favorite framework, paired with realtime technologies like Socket.io or SignalR.</p>
+                    </div>
                 </li>
                 <li class="example">
-                    <img src="/assets/images/examples/clicks.png">
-                    <a href="#" class="button minimal">Multiplayer games <i class="right-arrow">go</i></a>
+                    <img src="/assets/images/examples/games_@2x.png">
+                    <div class="example-text">
+                        <h3>Multiplayer games</h3>
+                        <p>Build a modern app using your favorite framework, paired with realtime technologies like Socket.io or SignalR.</p>
+                    </div>
                 </li>
                 <li class="example">
-                    <img src="/assets/images/examples/mobile.png">
-                    <a href="#" class="button minimal">Reactive web + mobile apps <i class="right-arrow">go</i></a>
+                    <img src="/assets/images/examples/mobile-desktop_@2x.png">
+                    <div class="example-text">
+                        <h3>Reactive web + mobile apps</h3>
+                        <p>Build a modern app using your favorite framework, paired with realtime technologies like Socket.io or SignalR.</p>
+                    </div>
                 </li>
             </ul>
+            <nav>
+                <a href="#" class="active">Realtime marketplaces</a>
+                <a href="#">Streaming analytics</a>
+                <a href="#">Multiplayer games</a>
+                <a href="#">Reactive web + mobile apps</a>
+            </nav>
         </div>
     </section>
 
-    <div class="site-container"><hr class="section-divider"></div>
- 
     <!-- features -->
     <div class="feature modern-stacks">
         <div class="site-container">
@@ -296,36 +312,28 @@ body_class: landing
 
 <script type="text/javascript">
     $(document).ready(function() {
-        // Landing animations
-        $('.landing .intro').waypoint(function(direction) {
-            // Start the landing animation on scroll
-            $('.landing .realtime-desktop p').addClass('animate');
-            $('.landing .push-poll').addClass('animate');
-        });
+        // Landing animation & functionality
+        $('.examples nav a').on('click', showExample);
 
-        // Listen for the mobile loading animation callback
-        $('.landing .realtime-desktop p span:last-child').bind('oanimationend animationend webkitAnimationEnd', function() {
-            // Move the messages up, show image!
-            $('.landing .realtime-mobile ul').addClass('animate');
-            $('.landing .realtime-desktop ul').addClass('animate');
-            $('.landing .realtime-desktop p').removeClass('animate');
-        });
+        function showExample(event) {
+            event.preventDefault();
+            // Add active border styling to the link and remove previous active states
+            $(this).siblings().removeClass('active');
+            $(this).addClass('active');
+            $tab_index = $(this).index();
+            // Remove the current active example
+            $('.examples .example, .example h3, .example p, .example img').removeClass('active');
+            // Show the correct example using the index
+            $('.examples .example').eq($tab_index).addClass('active');
 
-        $('.landing .realtime-desktop ul').bind('oanimationend animationend webkitAnimationEnd', function() {
-            // Peeps be typing again
-            if($(this).hasClass('animate final')) {
-                // Final animation sequence, clean up
-                $('.landing .realtime-mobile p').remove('animate');
-            }
-            else {
-                // First animation sequence
-                $('.landing .realtime-mobile p').addClass('animate');
-            }
-        });
-        $('.landing .realtime-mobile p span:last-child').bind('oanimationend animationend webkitAnimationEnd', function() {
-            // Move the messages up one more time!
-            $('.landing .realtime-mobile ul').addClass('final');
-            $('.landing .realtime-desktop ul').addClass('final');
-        });
+            // Target active (visible) elements
+            $img_el = $('.example.active').children();
+            $txt_el = $('.example.active .example-text').children();
+            // Wait half a second and then animate the content in
+            setTimeout(function() {
+                $('.example.active').children().addClass('active');
+                $('.example.active .example-text').children().addClass('active');
+            }, 500);
+        }
     });
 </script>

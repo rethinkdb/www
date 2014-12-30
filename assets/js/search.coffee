@@ -7,7 +7,7 @@ window.rdb_search =
     # Timer to track when the user last typed in the search box
     typing_timer: undefined,
     # Length of time in ms to wait before fetching results
-    typing_interval: 25,
+    typing_interval: 250,
     # Templates for search results
     templates:
         # data is an object that should have the following properties:
@@ -57,7 +57,10 @@ search_algolia = (success, content) ->
 
         # Use the search result template to build the list of results
         for result in results
-            first = Object.keys(result)[0]
+            # Pick one of the returned results for the template (it doesn't
+            # matter which one, because we're going to render all the languages
+            # as a compound result)
+            first = result[Object.keys(result)[0]]
             snippet = first._snippetResult.content.value
             out += tmpl(first.title, snippet, first.permalink)
 
@@ -72,13 +75,14 @@ $ ->
     # ---
     $('.search input').keyup (event) ->
         query = $(this).val()
-        console.log query
-        if (not query and event.keycode is 8)
+        # No query, so hide the results
+        if (not query)
             $('.docs .search-results').hide()
         else if query.length > 0
             # Timer to track when the user last typed in the search box
             clearTimeout(rdb_search.typing_timer)
             rdb_search.typing_timer = setTimeout ->
+                console.log 'Querying Algolia: '+query
                 rdb_search.index.search(query, search_algolia, { attributesToSnippet: 'content:20'})
             , rdb_search.typing_interval
             # Show the results

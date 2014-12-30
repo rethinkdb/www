@@ -3,36 +3,57 @@ layout: default
 body_class: landing
 ---
 <div class="landing">
-    <!-- hero -->
-    <section class="hero v2">
-        <div class="site-container">
-            <h1>The open source database for the realtime web.</h1>
-            <div class="hero-install">
-                <a class="button install light" href="/">Install</a>
-                <a class="button learn-more outlined" href="/">Learn more</a>
+    <div class="hero-wrapper">
+        {% include navbar.html %}
+        <!-- hero -->
+        <section class="hero">
+            <div class="site-container">
+                <h1>The open source database <span>for the realtime web.</span></h1>
+                <div class="hero-install">
+                    <a class="button install light" href="/">Install <span>Release v1.15.1</span></a>
+                    <a class="button learn-more outlined" href="/">Learn more <span>What is RethinkDB?</span></a>
+                </div>
             </div>
-            <p class="hero-release">Release v1.15.1 (<a href="#">Lawrence of Arabia</a>)</p>
-            <ul class="social-links">
-                <li><a class="icon twitter" href="/"><i></i>Follow on Twitter</a></li>
-                <li><a class="icon star" href="/"><i></i># GitHub followers</a></li>
-            </ul>
-            <div class="hero-notifications">
-                <p>{<span> name: Michael,</span><span>location: "Arcade"</span> }</p>
-                <p>{<span> name: Aki,</span><span>location: "Coffee House"</span> }</p>
-                <p>{<span> name: Jane,</span><span>location: "Lincoln Park"</span> }</p>
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- news banner -->
-    <section class="news-banner">
+        <!-- mailing list -->
+        <section class="mailing-list">
+            <div class="site-container">
+                <p class="headline">Latest release: RethinkDB 1.15.2 (Lawrence of Arabia)</p>
+                <div class="list-signup">
+                    <input class="medium" type="text" placeholder="Join the mailing list for updates" type="text">
+                    <button class="button subscribe outlined" type="submit">Subscribe</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- intro -->
+    <section class="intro">
         <div class="site-container">
-            <p class="headline">
-                Join us in SF for developer <a href="#" class="emphasized">office hours</a>!
-            </p>
-            <div class="mailing-list">
-                <input class="medium" type="text" placeholder="Your email address" type="text">
-                <button class="button subscribe" type="submit">Subscribe</button>
+            <div class="intro-content">
+                <p>Traditional databases limit what you can build on the web. When your app polls for data, it becomes slow, unscalable, and cumbersome to maintain.</p>
+                <p>RethinkDB is an open-source, scalable database that <em>pushes</em> JSON to your app <strong>in realtime</strong>:</p>
+                 <a class="button outlined dark" href="/streaming">Build your first app<i class="right-arrow">go</i></a>
+            </div>
+            <div class="offset-img">
+                <div class="realtime-queries">
+                    <header></header>
+                    <div class="query-panel">
+                        <p class="query-label">Query:</p>
+                        <p class="query">r.table('scores').filter({'score' &lt; 10).changes()</p>
+                    </div>
+                    <div class="query-results">
+                        <p class="query-loading">Streaming RethinkDB results...</p>
+                        <ul>
+                            <li>{
+        'mary': 43,
+        'scott': 56
+    }
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -43,128 +64,157 @@ body_class: landing
             <h2>A fundamental building block for modern, <strong>realtime</strong> apps.</h2>
             <ul>
                 <li class="example">
-                    <p>Location-aware apps</p>
                     <img src="/assets/images/examples/map.png">
-                    <a href="#">explore live map</a>
+                    <a href="#" class="button minimal">Realtime marketplaces <i class="right-arrow">go</i></a>
                 </li>
                 <li class="example">
-                    <p>Realtime analytics</p>
                     <img src="/assets/images/examples/analytics.png">
-                    <a href="#">use streaming analytics</a>
+                    <a href="#" class="button minimal">Streaming analytics <i class="right-arrow">go</i></a>
                 </li>
                 <li class="example">
-                    <p>Click tracking</p>
                     <img src="/assets/images/examples/clicks.png">
-                    <a href="#">play with tracking</a>
+                    <a href="#" class="button minimal">Multiplayer games <i class="right-arrow">go</i></a>
                 </li>
                 <li class="example">
-                    <p>Mobile apps</p>
                     <img src="/assets/images/examples/mobile.png">
-                    <a href="#">build mobile apps</a>
+                    <a href="#" class="button minimal">Reactive web + mobile apps <i class="right-arrow">go</i></a>
                 </li>
             </ul>
         </div>
     </section>
 
+    <div class="site-container"><hr class="section-divider"></div>
+ 
     <!-- features -->
-    <div class="feature-block first">
+    <div class="feature modern-stacks">
         <div class="site-container">
-            <section class="feature">
-                <h1>Event-driven architecture</h1>
-                <p>
-                    Polling is obsolete. Build realtime dashboards, leaderboards,
-                    and widgets with incremental updates to query results:
-                </p>
-                <pre><code>r.<span class="term">table</span>(<span class="str">'games'</span>).<span class="term">max</span>(<span class="str">'score'</span>).<span class="term">limit</span>(<span class="num">10</span>).<span class="term">changes</span>()</code></pre>
-                <p>
-                    Create reactive experiences by subscribing to user events in
-                    realtime:
-                </p>
-                <pre><code>r.<span class="term">table</span>(<span class="str">'games'</span>).<span class="term">filter</span>({<span class="str">'user_id'</span>: <span class="num">123</span>}).<span class="term">changes</span>()</code></pre>
-                <p>
-                    Or get a firehose of changes from your database:
-                </p>
-                <pre><code>r.<span class="term">table</span>(<span class="str">'games'</span>).<span class="term">changes</span>()</code></pre>
-                <a class="learn-more" href="/streaming.html">Learn more &rarr;</a>
+            <h1>Works with modern stacks</h1>
+            <section class="feature-content">
+                <article>
+                    <h2>JSON data model</h2>
+                    <p>
+                        Get started by querying JSON documents with Python, Ruby,
+                        Node.js or <a href="/">dozens of other languages</a>. Build
+                        a modern app using <a href="/">your favorite</a> framework,
+                        paired with realtime technologies like Socket.io or
+                        SignalR.
+                    </p>
+                    <img src="/assets/images/modern-features/1.png">
+                </article>
+                <article>
+                    <h2>Immediate consistency</h2>
+                    <p>
+                        Get started by querying JSON documents with Python, Ruby,
+                        Node.js or <a href="/">dozens of other languages</a>. Build
+                        a modern app using <a href="/">your favorite</a> framework,
+                        paired with realtime technologies like Socket.io or
+                        SignalR.
+                    </p>
+                    <img src="/assets/images/modern-features/2.png">
+                </article>
+                <article>
+                    <h2>Distributed joins and subqueries</h2>
+                    <p>
+                        Get started by querying JSON documents with Python, Ruby,
+                        Node.js or <a href="/">dozens of other languages</a>. Build
+                        a modern app using <a href="/">your favorite</a> framework,
+                        paired with realtime technologies like Socket.io or
+                        SignalR.
+                    </p>
+                    <img src="/assets/images/modern-features/3.png">
+                </article>
+                <article>
+                    <h2>Aggregation and atomic updates</h2>
+                    <p>
+                        Get started by querying JSON documents with Python, Ruby,
+                        Node.js or <a href="/">dozens of other languages</a>. Build
+                        a modern app using <a href="/">your favorite</a> framework,
+                        paired with realtime technologies like Socket.io or
+                        SignalR.
+                    </p>
+                    <img src="/assets/images/modern-features/4.png">
+                </article>
             </section>
-            <img src="/assets/images/landing-offerings_@2x.png">
         </div>
     </div>
-    <div class="feature-block second">
+    <div class="feature">
         <div class="site-container">
-            <section class="feature">
-                <h1>All the building blocks for great apps</h1>
-                <p>
-                    Store, index, query, and modify JSON documents.
-                    Structure data your way with distributed joins. Build
-                    location-aware apps with geospatial queries and store
-                    multimedia with binary data support. Run analytics
-                    with Hadoop-style map/reduce.
-                </p>
-                <a class="learn-more" href="/blocks.html">Learn more &rarr;</a>
-            </section>
-        </div>
-    </div>
-    <div class="feature-block third-feature">
-        <div class="site-container">
-            <section class="feature">
+            <section class="feature-content feature-content-two">
                 <h1>Hassle-free operation at scale</h1>
                 <p>
-                    Scale to multiple machines with a simple API:
+                    When you're ready to scale your app, shard and replicate in a few clicks using an intuitive web UI.
                 </p>
+                <p>If you need it, a simple API provides precise control over the cluster:</p>
                 <pre><code>r.<span class="term">table</span>(<span class="str">'games'</span>).<span class="term">configure</span>(shards=5, replicas=3)</code></pre>
-                <p>
-                    Precise control of your cluster when you need it:
-                </p>
-                <pre><code>r.<span class="term">table</span>(<span class="str">'games'</span>).<span class="term">table_status</span>()</code></pre>
-                <p>
-                    Complete visibility into your cluster with detailed
-                    monitoring tools:
-                </p>
+                <p>Monitor your production cluster with live statistics and visibility into running jobs:</p>
                 <pre><code>r.<span class="term">db</span>(<span class="str">'system'</span>).<span class="term">table</span>(<span class="str">'jobs'</span>).<span class="term">changes</span>()</code></pre>
-                <a class="learn-more" href="/ops.html">Learn more &rarr;</a>
+                 <a class="button outlined dark" href="/ops.html">Learn more <i class="right-arrow">go</i></a>
             </section>
-            <img src="/assets/images/landing-offerings-3_@2x.png">
+            <img class="offset-img" src="/assets/images/landing-offerings-3_@2x.png">
         </div>
     </div>
 
     <!-- getting started -->
     <section class="get-started callout">
         <div class="site-container">
-            <h1>Join 23,000 developers</h1>
-            <p>Install in seconds on Linux or OS X.</p>
+            <h1>Install in seconds on Linux or OS X.</h1>
             <a class="button install light" href="/">Install</a>
-            <a class="button learn-more" href="/">Learn more</a>
+            <a class="button learn-more outlined dark" href="/">Learn more <i class="right-arrow">go</i></a>
         </div>
     </section>
 
     <!-- community -->
     <section class="community">
+        <h1>Join 23,000 developers</h1>
         <div class="site-container">
             <section class="videos">
                 <div class="video">
                     <p>
-                        RethinkDB 1.13: pull data via HTTP, push data via changefeed
-                        <span>Michael Lucy</span>
+                        RethinkDB Geolocation Features
+                        <span>Ryan Paul <small>Nov 4, 2014</small></span>
                     </p>
+                    <div class="video-modal">
+                        <a href="#" class="close">&#x2715;</a>
+                        <div class="iframe-container">
+                            <iframe width="560" height="315" src="//www.youtube.com/embed/BWGL1eAmscE" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
                 </div>
                 <div class="video">
                     <p>
-                        RethinkDB 1.13: pull data via HTTP, push data via changefeed
-                        <span>Michael Lucy</span>
+                        Deploying realtime apps with RethinkDB and Docker
+                        <span>Michael Glukhovsky <small>Nov 7, 2014</small></span>
                     </p>
+                    <div class="video-modal">
+                        <a href="#" class="close">&#x2715;</a>
+                        <div class="iframe-container">
+                            <iframe width="560" height="315" src="//www.youtube.com/embed/yDS1e_Sg4WQ" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
                 </div>
                 <div class="video">
                     <p>
-                        RethinkDB 1.13: pull data via HTTP, push data via changefeed
-                        <span>Michael Lucy</span>
+                        Publish-Subscribe with RethinkDB
+                        <span>Josh Kuhn <small>Sept 11, 2014</small></span>
                     </p>
+                    <div class="video-modal">
+                        <a href="#" class="close">&#x2715;</a>
+                        <div class="iframe-container">
+                            <iframe width="560" height="315" src="//www.youtube.com/embed/3FQtVXZuG8c" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
                 </div>
                 <div class="video">
                     <p>
-                        RethinkDB 1.13: pull data via HTTP, push data via changefeed
-                        <span>Michael Lucy</span>
+                        Art and Open Source
+                        <span>Annie Ruygt <small>Sept 11, 2014</small></span>
                     </p>
+                    <div class="video-modal">
+                        <a href="#" class="close">&#x2715;</a>
+                        <div class="iframe-container">
+                            <iframe width="560" height="315" src="//www.youtube.com/embed/aH19JpTy6x8" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
                 </div>
             </section>
             <section class="events">
@@ -204,7 +254,7 @@ body_class: landing
                         </p>
                     </li>
                     <li>
-                        <a href="/events">All events</a>
+                        <a href="/events" class="button minimal">All events <i class="right-arrow">go</i></a>
                     </li>
             </section>
             <section class="testimonials site-container">
@@ -243,3 +293,39 @@ body_class: landing
         </div>
     </section>
 </div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        // Landing animations
+        $('.landing .intro').waypoint(function(direction) {
+            // Start the landing animation on scroll
+            $('.landing .realtime-desktop p').addClass('animate');
+            $('.landing .push-poll').addClass('animate');
+        });
+
+        // Listen for the mobile loading animation callback
+        $('.landing .realtime-desktop p span:last-child').bind('oanimationend animationend webkitAnimationEnd', function() {
+            // Move the messages up, show image!
+            $('.landing .realtime-mobile ul').addClass('animate');
+            $('.landing .realtime-desktop ul').addClass('animate');
+            $('.landing .realtime-desktop p').removeClass('animate');
+        });
+
+        $('.landing .realtime-desktop ul').bind('oanimationend animationend webkitAnimationEnd', function() {
+            // Peeps be typing again
+            if($(this).hasClass('animate final')) {
+                // Final animation sequence, clean up
+                $('.landing .realtime-mobile p').remove('animate');
+            }
+            else {
+                // First animation sequence
+                $('.landing .realtime-mobile p').addClass('animate');
+            }
+        });
+        $('.landing .realtime-mobile p span:last-child').bind('oanimationend animationend webkitAnimationEnd', function() {
+            // Move the messages up one more time!
+            $('.landing .realtime-mobile ul').addClass('final');
+            $('.landing .realtime-desktop ul').addClass('final');
+        });
+    });
+</script>

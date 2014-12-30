@@ -1,3 +1,19 @@
+// General icons
+.right-arrow {
+    @include transition(all 0.1s linear);
+    background-image: url("/assets/images/icons/icon-sm-right-arrow.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 25px;
+    left: rem(4);
+    position: relative;
+    text-indent: -9999px;
+    vertical-align: top;
+    width: 7px;
+}
+
+// API language selector
 .lang-selector {
     .active {
         p {

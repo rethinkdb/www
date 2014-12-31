@@ -35,11 +35,31 @@ body.landing {
 
 // Hero
 .landing .hero-wrapper {
-    @include background-image(url('/assets/images/hero-desk.png'),
-        linear-gradient(rgb(33, 71, 83) 0%, rgb(26, 81, 97) 50%,
+    @include background-image(linear-gradient(rgb(33, 71, 83) 0%, rgb(26, 81, 97) 50%,
         rgb(28, 80, 100) 81%, rgb(29, 79, 95) 100%));
-    background-size: cover;
+    position: relative;
 
+    &:before {
+        background: url('/assets/images/bg-hero.png') 0 bottom no-repeat;
+        content: '';
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        @include media($mobile) {
+            background-size: auto 55%;
+            background-position: center bottom;
+        }
+        @include media($medium-screen-up) {
+            background-size: auto 77%;
+            background-position: rem(-278) rem(175);
+        }
+        @include media($large-screen-up) {
+            background-size: auto 100%;
+            background-position: center bottom;
+        }
+    }
     .site-nav { background-color: transparent; }
 }
 

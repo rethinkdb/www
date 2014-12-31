@@ -1,402 +1,425 @@
-.docs, .api {
-    .documentation {
-        padding: $base-spacing*3 0;
-        a { color: lighten(saturate($teal, 25), 25); }
-        @include media($mobile) { padding: $base-spacing; }
+// ---
+// Documentation search
+// ---
+// Search box
+.docs .search { 
+    position: relative;
 
-        // Share typographic styles
-        .doc_navigation, .toc {
-            li {
-                @include font-size-rem(14);
-                font-weight: 500;
-                line-height: rem(16);
-                margin: $base-spacing/3 0;
-            }
-            a {
-                font-family: $sans-serif-medium;
-                font-weight: 500;
+    &.search-xl {
+        @include font-size-rem(24);
+        border: 6px solid darken($cream, 2);
+        border-radius: $base-border-radius*2;
+        background: white;
+        margin: $base-spacing 0;
+        padding: $base-spacing/2 0;
+
+        input {
+            font-size: rem(20);
+            background: none;
+            margin: 0 $base-spacing;
+        }
+    }
+}
+
+// Search results
+//   -> Several parent selectors are precisely specified because of CSS
+//      specificity order on their child elements.
+.docs ul.search-results, .docs .documentation .docs-article-container ul.search-results {
+    display: none; // Search results are hidden by default, shown with JS
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    top: 100%;
+    left: 0;
+    max-height: rem(400);
+    overflow: scroll;
+    background: white;
+    border: 6px solid darken($cream, 2);
+    border-top: 0;
+    margin-left: -6px;
+    margin-right: -6px;
+
+    // Search results: each is a list element
+    li.search-result {
+        $_height: $base-spacing*2;
+        list-style-type: none;
+        margin: 0;
+        padding: 0 $base-spacing*1.25;
+        border-top: thin solid darken($cream, 1);
+        height: $_height;
+        overflow: hidden;
+        width: 100%;
+
+        &:hover {
+            background: lighten($cream, 1);
+            cursor: pointer;
+        }
+
+        p {
+            margin: 0;
+            line-height: $_height;
+            text-overflow: ellipsis;
+            // TODO -- this should be revisted after the
+            //_layout.scss vs _variables.scss mess is sorted
+            //out (which is the base font color, since
+            //$base-font-color is meaningless?)
+            strong { color: lighten(desaturate($teal, 35), 10); }
+            span.snippet { 
+                $_color: lighten(desaturate($teal, 35), 45);
+                color: $_color;
+                em { color: $_color; }
             }
         }
-        // Search
-        .search input {
-            border: none;
-            padding-bottom: $base-spacing/2;
-            padding-left: 0;
+    }
+}
+
+// Overall margins and padding for content
+.documentation { padding: $base-spacing*3 0; }
+
+// ---
+// Documentation styles
+// ---
+.docs .documentation, .api .documentation {
+    a { color: lighten(saturate($teal, 25), 25); }
+    @include media($mobile) { padding: $base-spacing; }
+
+    // Share typographic styles
+    .doc_navigation, .toc {
+        li {
+            @include font-size-rem(14);
+            font-weight: 500;
+            line-height: rem(16);
+            margin: $base-spacing/3 0;
+            width: 100%;
         }
-        // Left-side docs navigation
-        .doc_navigation {
-            @extend .quarter;
-
-            h1, .nav-header {
-                @include font-size-rem(16);
-                color: lighten(desaturate($teal, 30), 30);
-                cursor: pointer;
-                font-family: $sans-serif-medium;
-                font-weight: 600;
-                padding: $base-spacing/2 0 0;
-                width: 90%;
-            }
-            .nav-header {
-                border-bottom: none;
-                padding-bottom: 0;
-            }
-            // Hide initially for accordion
-            ul {
-                border-left: 1px solid $smoke-gray;
-                display: none;
-                padding-left: $base-spacing/2;
-            }
-            li.active a { color: $teal; }
-            ul.active { display: block; }
-
-            // Hide the menu on mobile devices
-            @include media($mobile) { display: none; }
-            @include media($medium-screen-up) { display: block; }
+        a {
+            font-family: $sans-serif-medium;
+            font-weight: 500;
         }
-        // Api header
-        #api-header {
-            overflow: auto;
-            &.stuck {
-                position: fixed;
-                top: 0;
-            }
+    }
+    // Search
+    .search input {
+        border: none;
+        padding-bottom: $base-spacing/2;
+        padding-left: 0;
+    }
+    // Left-side docs navigation
+    .doc_navigation {
+        @extend .quarter;
+
+        h1, .nav-header {
+            @include font-size-rem(16);
+            color: lighten(desaturate($teal, 30), 30);
+            cursor: pointer;
+            font-family: $sans-serif-medium;
+            font-weight: 600;
+            padding: $base-spacing/2 0 0;
+            width: 90%;
         }
-        // Right-side documentation content
-        .docs-article-container {
-            @extend .three-quarter;
-            padding: 0;
-            position: relative;
+        .nav-header {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        // Hide initially for accordion
+        ul {
+            border-left: 1px solid $smoke-gray;
+            display: none;
+            padding-left: $base-spacing/2;
+        }
+        li.active a { color: $teal; }
+        ul.active { display: block; }
 
-            // Docs index layout is 100% width
-            &.full-width {
-                @include fill-parent;
+        // Hide the menu on mobile devices
+        @include media($mobile) { display: none; }
+        @include media($medium-screen-up) { display: block; }
+    }
+    // Api header
+    #api-header {
+        overflow: auto;
+        &.stuck {
+            position: fixed;
+            top: 0;
+        }
+    }
+    // Right-side documentation content
+    .docs-article-container {
+        @extend .three-quarter;
+        padding: 0;
+        position: relative;
 
-                .search-results {
-                    height: 54%;
-                    top: 46%;
-                }
-            }
+        // Docs index layout is 100% width
+        &.full-width { @include fill-parent; }
 
-            h1, h2, h3 {
-                margin-top: $base-spacing*2;
-                margin-bottom: $base-spacing/2;
-            }
-            h1 {
-                @include font-size-rem(33);
-                font-weight: 400;
-                line-height: rem(38);
-            }
+        h1, h2, h3 {
+            margin-top: $base-spacing*2;
+            margin-bottom: $base-spacing/2;
+        }
+        h1 {
+            @include font-size-rem(33);
+            font-weight: 400;
+            line-height: rem(38);
+        }
 
-            h2 {
-                @include font-size-rem(22);
-                font-family: $sans-serif-semi-bold;
-                font-weight: 600;
-            }
+        h2 {
+            @include font-size-rem(22);
+            font-family: $sans-serif-semi-bold;
+            font-weight: 600;
+        }
 
-            h3 {
-                @include font-size-rem(18);
-                color: lighten(desaturate($teal, 30), 30);
-                font-family: $sans-serif-semi-bold;
-                font-weight: 600;
-                text-transform: uppercase;
-            }
-            .title { margin: 0 0 $base-spacing*2; }
-            p { margin: $base-spacing 0; }
-            ul {
-                padding: $base-spacing/3 0;
-                margin: $base-spacing/3 0;
-            }
-            li {
-                @include font-size-rem(16);
-                font-family: $sans-serif-medium;
-                font-weight: 500;
-                list-style-type: disc;
-                list-style-position: outside;
-                padding: 0 0 0 $base-spacing/2;
-                margin-bottom: $base-spacing/3;
-                margin-left: 2rem;
-            }
-            p img {
+        h3 {
+            @include font-size-rem(18);
+            color: lighten(desaturate($teal, 30), 30);
+            font-family: $sans-serif-semi-bold;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .title { margin: 0 0 $base-spacing*2; }
+        p { margin: $base-spacing 0; }
+        ul {
+            padding: $base-spacing/3 0;
+            margin: $base-spacing/3 0;
+        }
+        li {
+            @include font-size-rem(16);
+            font-family: $sans-serif-medium;
+            font-weight: 500;
+            list-style-type: disc;
+            list-style-position: outside;
+            padding: 0 0 0 $base-spacing/2;
+            margin-bottom: $base-spacing/3;
+            margin-left: 2rem;
+        }
+        p img {
+            display: block;
+            margin: 4% auto;
+            width: 40%;
+        }
+
+        // Mobile menu trigger
+        .docs-menu-trigger { display: none; }
+        @include media($mobile) {
+            .docs-menu-trigger { display: block; }
+        }
+
+        // Intro
+        .intro {
+            border-bottom: 1px solid $smoke-gray;
+            padding: $base-spacing 0 $base-spacing/2;
+
+            img {
                 display: block;
                 margin: 4% auto;
                 width: 40%;
             }
+        }
 
-            // Mobile menu trigger
-            .docs-menu-trigger { display: none; }
-            @include media($mobile) {
-                .docs-menu-trigger { display: block; }
-            }
+        // Api command blocks
+        .api-command {
+            padding-bottom: $base-spacing*2;
+            border-bottom: 1px solid $smoke-gray;
 
-            // Search results
-            .search-results {
+            h2 a { color: $teal; }
 
-                &.dropdown {
+            .command-body {
+                border-left: 1px solid darken($smoke-gray, 5);
+                padding-left: $base-spacing/2;
 
-                }
-                background: rgba(251, 251, 249, 0.95);
-                display: none;
-                position: absolute;
-                top: 0px;
-                right: 0px;
-                z-index: 6;
-                width: 100%;
-
-                h1 {
-                    @extend .three-quarter;
-                    margin-top: 0;
-                }
-                h2 { margin: 0; }
-                .close-results {
-                    @extend .quarter;
-                    color: lighten(desaturate($teal, 30), 30);
-                    float: right;
-                    text-align: right;
-                }
-
-                ul {
-                    clear: right;
-                    li {
-                        list-style-type: none;
-                        padding: 0;
-                        margin: 0;
-                    }
-                }
-            }
-
-            // Intro
-            .intro {
-                border-bottom: 1px solid $smoke-gray;
-                padding: $base-spacing 0 $base-spacing/2;
-
-                img {
-                    display: block;
-                    margin: 4% auto;
-                    width: 40%;
-                }
-            }
-
-            // Api command blocks
-            .api-command {
-                padding-bottom: $base-spacing*2;
-                border-bottom: 1px solid $smoke-gray;
-
-                h2 a { color: $teal; }
-
-                .command-body {
-                    border-left: 1px solid darken($smoke-gray, 5);
-                    padding-left: $base-spacing/2;
-
-                    p {
-                        @include font-size-rem(16);
-                        font-family: $monospaced;
-                        padding: 0;
-                        margin: $base-spacing/3 0;
-                    }
-                }
-            }
-
-            // Placeholder table of contents
-            .toc {
-                @extend .third;
-                background: desaturate(lighten($surf, 5), 10);
-                border-radius: $base-border-radius;
-                float: right;
-                padding: $base-spacing !important;
-                margin-left: $base-spacing*2;
-                margin-top: 0;
-
-                ul#markdown-toc {
-                    margin-top: 1.5rem;
-                    margin-bottom: 0;
-                    padding: 0;
-                }
-
-                h1 {
+                p {
                     @include font-size-rem(16);
-                    font-family: $sans-serif-semi-bold;
-                    font-weight: 600;
-                    text-transform: uppercase;
-                    margin-top: 0;
+                    font-family: $monospaced;
+                    padding: 0;
+                    margin: $base-spacing/3 0;
                 }
+            }
+        }
 
+        // Placeholder table of contents
+        .toc {
+            @extend .third;
+            background: desaturate(lighten($surf, 5), 10);
+            border-radius: $base-border-radius;
+            float: right;
+            padding: $base-spacing !important;
+            margin-left: $base-spacing*2;
+            margin-top: 0;
+
+            ul#markdown-toc {
+                margin-top: 1.5rem;
+                margin-bottom: 0;
+                padding: 0;
+            }
+
+            h1 {
+                @include font-size-rem(16);
+                font-family: $sans-serif-semi-bold;
+                font-weight: 600;
+                text-transform: uppercase;
+                margin-top: 0;
+            }
+
+            li {
+                list-style-type: none;
+                margin-bottom: $base-spacing/2;
+                margin-left: 0;
+                padding-left: 0;
+
+                a {
+                    @include font-size-rem(15);
+                    color: lighten(desaturate($teal, 30), 30);
+                }
+            }
+        }
+    }
+
+    // This is the list of large action items at the top of the docs landing page (image + link)
+    .docs-article .docs-index {
+        @include outer-container;
+        li {
+            @extend .third;
+            list-style: none;
+            margin-left: 0;
+            border-radius: $base-border-radius*2;
+            padding: $base-spacing*1.5;
+            position: relative;
+            min-height: rem(380);
+            background-repeat: no-repeat;
+            background-position: center top;
+            display: table;
+
+            h1 {
+                font-family: $sans-serif-semi-bold;
+                font-weight: 600;
+                @include font-size-rem(28);
+                margin-top: $base-spacing * 1.5;
+                text-align: center;
+                vertical-align: bottom;
+                display: table-cell;
+            }
+
+            &:hover {
+                h1 a { color: $teal; }
+            }
+            &:nth-child(1) {
+                background-image: url('/assets/images/docs/api_illustrations/quickstart.png');
+                background-position: center 4rem; // TODO -- remove, temporary for placeholders
+            }
+            &:nth-child(2) {
+                background-image: url('/assets/images/docs/api_illustrations/insert_ruby.png');
+            }
+            &:nth-child(3) {
+                background-image: url('/assets/images/docs/api_illustrations/faq.png');
+                background-position: center 2rem; // TODO -- remove, temporary for placeholders
+            }
+        }
+        p { margin: $base-spacing/2 0 0; }
+
+        li > a {
+            display: block;
+            height: 100%;
+            left: 0px;
+            position: absolute;
+            text-indent: -9999px;
+            top: 0px;
+            width: 100%;
+        }
+        img {
+            display: block;
+            margin: 0 auto;
+            width: 80%;
+        }
+        @include media($mobile) {
+            li {
+                min-height: none;
+                img { display: none; }
+            }
+        }
+    }
+    // This is the list of articles on the documentation landing page
+    .docs-article nav.docs-nav {
+        @include column-count(3);
+        @include column-gap(rem(10));
+        margin-left: 0;
+        margin-top: rem(50);
+
+        section {
+            -webkit-column-break-inside:avoid;
+            -moz-column-break-inside:avoid;
+            -o-column-break-inside:avoid;
+            -ms-column-break-inside:avoid;
+            column-break-inside:avoid;
+            margin-bottom: rem(40);
+
+            ul {
+                border-left: thin solid #eee;
                 li {
                     list-style-type: none;
-                    margin-bottom: $base-spacing/2;
-                    margin-left: 0;
-                    padding-left: 0;
-
-                    a {
-                        @include font-size-rem(15);
-                        color: lighten(desaturate($teal, 30), 30);
-                    }
+                    margin-left: rem(15);
                 }
+                margin-top: rem(15);
+                padding: 0;
+            }
+
+            h1 {
+                margin-top: 0;
+                @include font-size-rem(24);
             }
         }
+    }
 
-        // This is the list of large action items at the top of the docs landing page (image + link)
-        .docs-article .docs-index {
-            @include outer-container;
-            li {
-                @extend .third;
-                list-style: none;
-                margin-left: 0;
-                border-radius: $base-border-radius*2;
-                padding: $base-spacing*1.5;
-                position: relative;
-                min-height: rem(380);
-                background-repeat: no-repeat;
-                background-position: center top;
-                display: table;
+    // Language selector
+    .lang-selector {
+        background: none;
+        border: 1px solid $smoke-gray;
+        border-radius: $base-border-radius;
+        box-shadow: none;
+        color: $smoke-gray;
+        padding: 0 $base-spacing/4 $base-spacing/4;
+        position: absolute;
+        text-align: center;
+        top: rem(-15);
+        right: 0px;
+        width: auto;
 
-                h1 {
-                    font-family: $sans-serif-semi-bold;
-                    font-weight: 600;
-                    @include font-size-rem(28);
-                    margin-top: $base-spacing * 1.5;
-                    text-align: center;
-                    vertical-align: bottom;
-                    display: table-cell;
-                }
-
-                &:hover {
-                    h1 a { color: $teal; }
-                }
-                &:nth-child(1) {
-                    background-image: url('/assets/images/docs/api_illustrations/quickstart.png');
-                    background-position: center 4rem; // TODO -- remove, temporary for placeholders
-                }
-                &:nth-child(2) {
-                    background-image: url('/assets/images/docs/api_illustrations/insert_ruby.png');
-                }
-                &:nth-child(3) {
-                    background-image: url('/assets/images/docs/api_illustrations/faq.png');
-                    background-position: center 2rem; // TODO -- remove, temporary for placeholders
-                }
-            }
-            p { margin: $base-spacing/2 0 0; }
-
-            li > a {
-                display: block;
-                height: 100%;
-                left: 0px;
-                position: absolute;
-                text-indent: -9999px;
-                top: 0px;
-                width: 100%;
-            }
-            img {
-                display: block;
-                margin: 0 auto;
-                width: 80%;
-            }
-            @include media($mobile) {
-                li {
-                    min-height: none;
-                    img { display: none; }
-                }
-            }
-        }
-        // This is the list of articles on the documentation landing page
-        .docs-article nav.docs-nav {
-            @include column-count(3);
-            @include column-gap(rem(10));
-            margin-left: 0;
-            margin-top: rem(50);
-
-            section {
-                -webkit-column-break-inside:avoid;
-                -moz-column-break-inside:avoid;
-                -o-column-break-inside:avoid;
-                -ms-column-break-inside:avoid;
-                column-break-inside:avoid;
-                margin-bottom: rem(40);
-
-                ul {
-                    border-left: thin solid #eee;
-                    li {
-                        list-style-type: none;
-                        margin-left: rem(15);
-                    }
-                    margin-top: rem(15);
-                    padding: 0;
-                }
-
-                h1 {
-                    margin-top: 0;
-                    @include font-size-rem(24);
-                }
-            }
-        }
-        .docs-article-container .search-embed {
-            @include font-size-rem(24);
-            border: 6px solid darken($cream, 2);
-            border-radius: $base-border-radius*2;
-            background: white;
-            margin: $base-spacing 0;
-            padding: $base-spacing/2 $base-spacing;
-
-            input {
-                font-size: 2rem;
-                background: none;
-            }
-        }
-
-        // Language selector
-        .lang-selector {
-            background: none;
-            border: 1px solid $smoke-gray;
-            border-radius: $base-border-radius;
-            box-shadow: none;
-            color: $smoke-gray;
-            padding: 0 $base-spacing/4 $base-spacing/4;
-            position: absolute;
-            text-align: center;
-            top: rem(-15);
-            right: 0px;
-            width: auto;
-
-            a p {
-                @include font-size-rem(13);
-                display: inline;
-                font-family: $sans-serif-medium;
-                font-weight: 500;
-                margin-bottom: 0;
-                padding-top: 0;
-            }
-
-            a {
-                display: inline-block;
-                padding: 0 $base-spacing/4;
-            }
-        }
-
-        // Info boxes
-        .infobox {
-            margin-top: $base-spacing;
-            overflow: hidden;
-
-            p {
-                @include font-size-rem(16);
-                font-family: $sans-serif-medium;
-                font-weight: 500;
-                margin: 0;
-                padding-top: $base-spacing;
-            }
-            ul {
-                padding-bottom: 0;
-                margin-bottom: 0;
-            }
-        }
-
-        em {
+        a p {
+            @include font-size-rem(13);
+            display: inline;
             font-family: $sans-serif-medium;
             font-weight: 500;
-            color: $teal;
+            margin-bottom: 0;
+            padding-top: 0;
         }
 
-        blockquote:before { content: ''; }
+        a {
+            display: inline-block;
+            padding: 0 $base-spacing/4;
+        }
     }
+
+    // Info boxes
+    .infobox {
+        margin-top: $base-spacing;
+        overflow: hidden;
+
+        p {
+            @include font-size-rem(16);
+            font-family: $sans-serif-medium;
+            font-weight: 500;
+            margin: 0;
+            padding-top: $base-spacing;
+        }
+        ul {
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+    }
+
+    em {
+        font-family: $sans-serif-medium;
+        font-weight: 500;
+        color: $teal;
+    }
+
+    blockquote:before { content: ''; }
 }
 
 // API style overrides

@@ -7,23 +7,23 @@ body_class: docs
         {% if page.title_image %}
             <img class="title-image" src="{{page.title_image}}" />
         {% endif %}
+        {% comment %}<!-- Left side: search + nav (does not show up on the docs landing page)-->{% endcomment %}
         <!-- TODO: change conditional to something less fragile than page.title -->
         {% if page.title != 'Documentation' %}
             <div class="navigation doc_navigation">
+                <ul class="search-results"></ul>
                 <div class="search">
                     <input class="small" type="text" placeholder="Search commands...">
                 </div>
                 {% include docs-navigation.html %}
             </div>
         {% endif %}
+        {% comment %}<!-- Mobile search + nav on every documentation page, hidden on larger views -->{%endcomment%}
         <div class="docs-mobile-nav push-menu-left">
             <div class="mobile-search">
                 <input class="small" type="text" placeholder="Search docs...">
                 <a class="clear-search" href="#">&#x2715;</a>
-                <ul class="search-results">
-                    <li>Result</li>
-                    <li>Result</li>
-                </ul>
+                <ul class="search-results"></ul>
             </div>
             <div class="mobile-doc-links">
                {% include docs-navigation.html %}
@@ -31,13 +31,12 @@ body_class: docs
         </div>
         <!-- TODO: change conditional to something less fragile than page.title -->
         <div class="docs-article-container {% if page.cookbook %}cookbook{% endif %} {% if page.title == 'Documentation' %}full-width{% endif %} ">
-            <div class="search-results {% if page.title == 'Documentation' %}dropdown{% endif %}">
-                <ul></ul>
-            </div>
+            {% comment %}<!-- Mobile menu button to trigger the mobile search + nav-->{% endcomment %}
             <a class="docs-menu-trigger" href="#">Menu</a>
             {% if page.switcher %}
                 {% include docs-switcher.html %}
             {% endif %}
+            {% comment %}<!-- Documentation article / content -->{% endcomment %}
             <div class="docs-article">
                 {{ page.title | page_title }}
                 {{ content }}

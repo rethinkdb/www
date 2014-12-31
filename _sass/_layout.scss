@@ -12,6 +12,16 @@ body {
     @include outer-container;
     @include pad(0 $base-spacing);
     position: relative;
+
+    @include media($mobile) {
+        @include pad(0 $base-spacing);
+    }
+    @include media($medium-screen-up) {
+        @include pad(0 $base-spacing*1.5);
+    }
+    @include media($large-screen-up) {
+        @include pad(0 $base-spacing);
+    }
 }
 
 // Adjust font sizes globally

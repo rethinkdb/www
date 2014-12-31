@@ -19,9 +19,11 @@ window.rdb_search =
         desktop_result: (title, snippet, url) ->
             found_lang = false
             """
-            <li class="search-result" data-url="#{url}">
-                <p><strong>#{title}</strong> <span class="snippet">#{snippet}</span></p>
-            </li>
+            <a href="#{url}">
+                <li class="search-result" data-url="#{url}">
+                    <p><strong>#{title}</strong> <span class="snippet">#{snippet}</span></p>
+                </li>
+            </a>
             """
         # Template for when no results were found
         desktop_no_results: ->
@@ -72,16 +74,6 @@ search_algolia = (success, content) ->
             out = rdb_search.templates.desktop_no_results()
 
         rdb_search.$results.html(out)
-
-        # TODO -- this could be removed if we wrap all <li>
-        # tags in an <a> link in the search result template --
-        # but the _layout.scss vs _variables.scss + typography
-        # + colors confusion should be sorted out first.
-        $('li.search-result', rdb_search.$results).on 'click', (event) ->
-            window.location($(event.target).data('url'))
-
-
-
 
 $ ->
     rdb_search.$results = $('.search-results')

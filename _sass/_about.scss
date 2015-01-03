@@ -2,13 +2,7 @@ body.about {
     // Override
     .site-nav { margin-bottom: 0; }
     .about a { color: lighten(saturate($teal, 25), 25); }
-    // Same as landing, make a pattern yooo
-    .about h1 {
-        @include font-size-rem(33);
-        line-height: rem(60);
-        font-weight: 300;
-        margin-bottom: $base-spacing/4;
-    }
+    .about h1 { margin-bottom: $base-spacing/4; }
     .about h2 {
         @include font-size-rem(22);
         font-family: $sans-serif-semi-bold;
@@ -19,38 +13,11 @@ body.about {
     // Shared section styles
     .about section { padding: 6% 0 8%; }
     // Hero
+    // Extends the hero design pattern in _hero.scss
     .hero {
         @include background-image(url("https://pbs.twimg.com/profile_banners/52351557/1399070558/1500x500"));
         background-size: cover;
-        height: rem(460);
-        max-height: rem(380);
-        position: relative;
-
-        &:after {
-            @include background(linear-gradient(to top right, lighten($teal, 20), darken(#005662, 10)));
-            bottom: 0;
-            content: '';
-            left: 0;
-            position: absolute;
-            top: 0;
-            right: 0;
-            z-index: 2;
-            opacity: .80;
-        }
-
-        h1 {
-            @include font-size-rem(38);
-            color: $cream;
-            font-weight: 400;
-            line-height: rem(44);
-            padding-top: 10%;
-            position: relative;
-            text-align: center;
-            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-            margin: 0 auto;
-            width: 82%;
-            z-index: 3;
-        }
+        @extend .hero-bg;
     }
     // Intro
     #intro {

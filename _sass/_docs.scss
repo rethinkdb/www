@@ -140,9 +140,14 @@
     }
     // Search
     .search input {
+        background: white url('/assets/images/icons/icon-search.png') $base-spacing/2 center no-repeat;
+        background-size: rem(15);
         border: none;
-        padding-bottom: $base-spacing/2;
-        padding-left: 0;
+        // Left-side search
+        &.small {
+            margin-bottom: $base-spacing/2;
+            padding-left: $base-spacing*1.8;
+        }
     }
     // Left-side docs navigation
     .doc_navigation {
@@ -166,6 +171,7 @@
             border-left: 1px solid $smoke-gray;
             display: none;
             padding-left: $base-spacing/2;
+            &.expanded { display: block; }
         }
         li.active a { color: $teal; }
         ul.active { display: block; }
@@ -239,7 +245,12 @@
         // Mobile menu trigger
         .docs-menu-trigger { display: none; }
         @include media($mobile) {
-            .docs-menu-trigger { display: block; }
+            .docs-menu-trigger {
+                background: url('/assets/images/icons/icon-menu.png') 0 0 no-repeat;
+                display: block;
+                margin-bottom: $base-spacing;
+                text-indent: -9999px;
+            }
         }
 
         // Intro

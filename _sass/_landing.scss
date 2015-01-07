@@ -35,11 +35,31 @@ body.landing {
 
 // Hero
 .landing .hero-wrapper {
-    @include background-image(url('/assets/images/hero-desk.png'), 
-        linear-gradient(rgb(33, 71, 83) 0%, rgb(26, 81, 97) 50%,
+    @include background-image(linear-gradient(rgb(33, 71, 83) 0%, rgb(26, 81, 97) 50%,
         rgb(28, 80, 100) 81%, rgb(29, 79, 95) 100%));
-    background-size: cover;
+    position: relative;
 
+    &:before {
+        background: url('/assets/images/bg-hero.png') 0 bottom no-repeat;
+        content: '';
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        @include media($mobile) {
+            background-size: auto 55%;
+            background-position: center bottom;
+        }
+        @include media($medium-screen-up) {
+            background-size: auto 77%;
+            background-position: rem(-278) rem(175);
+        }
+        @include media($large-screen-up) {
+            background-size: auto 100%;
+            background-position: center bottom;
+        }
+    }
     .site-nav { background-color: transparent; }
 }
 
@@ -175,22 +195,27 @@ body.landing {
 
 // Intro
 .landing .intro {
-    background: white; 
+    background: white;
     padding-bottom: 0;
 
     .intro-content {
-        margin-bottom: $base-spacing*3;
+        margin-bottom: $base-spacing*5;
+        @include media($mobile) { margin-bottom: $base-spacing*2.5; }
         p {
             @include font-size-rem(23);
             margin-bottom: rem(25);
         }
-        a.button { margin-top: rem(40); }
+        a.button { margin-top: $base-spacing; }
     }
-    
+
     .offset-img {
         height: 100%;
         position: relative;
         float: left;
+
+        @include media($medium-screen-up) {
+            left: 50%;
+        }
     }
 }
 
@@ -213,7 +238,7 @@ body.landing {
     }
 
     .query-panel {
-        background: #dae6e5; 
+        background: #dae6e5;
         padding: $_padding $_padding*1.5;
         $title-width: rem(80);
         p.query {
@@ -235,7 +260,7 @@ body.landing {
             line-height: rem(37);
         }
     }
-    
+
     // Loading text + animation (pulsating dot)
     p.query-loading {
         $_size: rem(9);
@@ -270,7 +295,7 @@ body.landing {
             to {
                 background-color: $_color;
                 box-shadow: 0 0 $blur-size rgba(255,255,255,0.1);
-            } 
+            }
         }
     }
 
@@ -304,22 +329,36 @@ body.landing {
     .intro-content, .intro-illustration, .feature-content-two, img { @extend .half; }
 
     // Alternating padding for even and odd content
-    .intro-content, &:nth-child(even) .feature-content { padding-right: $base-spacing*3; }
-    &:nth-child(odd) .feature-content { padding-left: $base-spacing*3; }
+    @include media($medium-screen-up) {
+        .intro-content, .feature-content { padding-right: $base-spacing; }
+    }
+    @include media($large-screen-up) {
+        .intro-content, .feature-content { padding-right: $base-spacing*3; }
+    }
 
     // Mobile styles
     @include media($mobile) {
         .intro-content, &:nth-child(even) .feature-content,
         &:nth-child(odd) .feature-content { padding: $base-spacing/2 0; }
-        &:nth-child(even) img { display: none; }
         img { margin: $base-spacing 0; }
     }
 
     .offset-img {
+        display: block;
         left: 50%;
         max-width: rem(900);
         position: absolute;
-        width: rem(660);
+
+        @include media($medium-screen-up) {
+            width: rem(540);
+            left: 55%;
+        }
+        @include media($large-screen-up) {
+            width: rem(660);
+        }
+        @include media($mobile) {
+            display: none;
+        }
     }
 
     p a { border-bottom: 1px dotted $cranberry; }
@@ -338,30 +377,92 @@ body.landing {
 
 // Examples
 .landing .examples {
-    h2 {
-        @include font-size-rem(33);
-        font-weight: 300;
-        margin-bottom: $base-spacing*2;
+    background: rgb(240, 243, 243);
+    h1 {
         text-align: center;
 
         @include media($mobile) { line-height: rem(44); }
     }
 
+    ul {
+        @include outer-container;
+        padding: $base-spacing*2 0 $base-spacing;
+    }
+
     .example {
-        text-align: center;
-        // Set to a quarter on a tablet and up
-        @include media($medium-screen-up) {
-            @include omega-reset(2n);
-            @include span-columns(3 of 12);
-            @include omega(4n);
+        display: none;
+
+        &.active { display: block; }
+
+        h3 {
+            @include font-size-rem(22);
+            font-weight: 500;
+            margin-bottom: $base-spacing/2;
+        }
+        // Initially hide contents and add transition
+        @include media($large-screen-up) {
+            h3 { margin-top: $base-spacing; }
+            h3, p, img {
+                @include transition(all 0.2s linear);
+                opacity: 0;
+            }
         }
 
-        img { margin: $base-spacing/2 0; }
+        img {
+            @extend .third;
+        }
 
-        a { @include font-size-rem(16); }
+        .example-text {
+            @extend .two-third;
+            padding: $base-spacing*3 $base-spacing 0 $base-spacing*2;
+        }
+        p { @include font-size-rem(20); }
+
+        // Fade in contents when tab is active
+        h3.active, p.active, img.active {
+            margin-top: 0;
+            opacity: 1;
+        }
+
         // Mobile
         @include media($mobile) {
             img { margin: $base-spacing 0 }
+        }
+    }
+    // Tab navigation for examples
+    nav {
+        @include outer-container;
+        border-top: 1px solid white;
+        margin-top: $base-spacing;
+        padding: $base-spacing/1.5 0;
+        text-align: center;
+
+        @include media($mobile) {
+            border: none;
+        }
+
+        a {
+            @include transition(all 0.2s linear);
+            @include font-size-rem(16);
+            border-top: 2px solid transparent;
+            font-weight: 600;
+            padding: $base-spacing/1.2 0;
+
+            @include media($mobile) {
+                border-top: none;
+                border-bottom: 1px solid white;
+                display: block;
+            }
+            @include media($medium-screen-up) {
+                margin: 0 $base-spacing;
+            }
+            @include media($large-screen-up) {
+                margin: 0 $base-spacing*2;
+            }
+        }
+        a.active {
+            border-color: lighten($teal, 10);
+            color: $teal;
         }
     }
 }
@@ -372,29 +473,21 @@ body.landing {
         line-height: rem(28);
         margin: $base-spacing*1.5 0 0;
     }
+    .button { margin-top: $base-spacing/2; }
 
-    &:nth-child(odd) {
-        padding-bottom: 0;
-        @include media($medium-screen-up) {
-            .button { margin-top: $base-spacing*1.5; }
-        }
-        @include media($large-screen-up) {
-            .button { margin-top: $base-spacing*2; }
-        }
-    }
-    
     &.modern-stacks {
         padding-top: $base-spacing*4;
-        section.feature-content {
-            padding-left: 0;
-            padding-top: rem(30);
+        padding-bottom: 0;
+        .feature-content {
+            @include outer-container;
+            padding-right: 0;
+            padding-top: $base-spacing*3;
         }
         article {
             @include omega-reset(2n);
-            @include span-columns(6 of 12);
+            @include span-columns(5.5 of 12);
             @include omega(2n);
-            padding-top: rem(20);
-            margin-bottom: rem(100);
+            margin-bottom: $base-spacing*4;
 
             border-bottom: thin solid #dedede;
             height: rem(300);
@@ -412,8 +505,15 @@ body.landing {
                 width: auto;
                 margin-top: rem(30);
             }
-            &:nth-child(odd) { padding-right: rem(40); }
-            &:nth-child(even) { padding-left: rem(40); }
+            &:nth-child(even) { @include shift(1); }
+        }
+
+        @include media($mobile) {
+            article, article:nth-child(even) {
+                @include fill-parent;
+                @include shift(0);
+                margin-bottom: $base-spacing*2;
+            }
         }
     }
 }
@@ -519,39 +619,20 @@ body.landing {
 
 // Videos
 .landing .videos {
+    // Show grid columns only on tablets and larger
     @extend .half;
-    @include column-count(2);
-    @include column-gap(1rem);
-
-    @include media($mobile) {
-        @include column-count(1);
-        width: 100%;
-        margin-right: 0;
-        padding-right: 0;
-
-        .video { height: rem(100) !important; }
-    }
     @include media($medium-screen-up) {
-        padding-right: 0;
-        margin-right: 0;
-        width: 100%;
+        @include column-count(2);
+        @include column-gap(1rem);
     }
     @include media($large-screen-up) { width: 55%; }
 
-    .video {
-        border-radius: $base-border-radius;
-        color: $white;
-        cursor: pointer;
-        display: table;
-        margin: 0 0 $base-spacing/2;
-        padding: $base-spacing*2 $base-spacing*2 0;
-        position: relative;
-        -webkit-column-break-inside:avoid;
-        -moz-column-break-inside:avoid;
-        -o-column-break-inside:avoid;
-        -ms-column-break-inside:avoid;
-        column-break-inside:avoid;
+    // Extend the basic design pattern for video grids
+    @extend .video-grid;
 
+    // Set individual preview images
+    .video {
+        // Preview image
         &:nth-child(1) {
             background: url('/assets/images/events/ryan-geolocation.png') center center no-repeat;
             background-size: cover;
@@ -569,133 +650,16 @@ body.landing {
             background-size: cover;
         }
 
-        &:before {
-            @include transition(background 0.2s linear);
-            background: darken(saturate($teal, 5), 5);
-            content: '';
-            left: 0px;
-            height: 100%;
-            position: absolute;
-            opacity: 0.4;
-            top: 0px;
-            width: 100%;
-        }
-
-        &:after {
-            background: transparent url('/assets/images/icons/icon-right.png') center center no-repeat;
-            content: '';
-            right: $base-spacing;
-            height: rem(40);
-            position: absolute;
-            bottom: $base-spacing;
-            width: rem(40);
-        }
-
         // Adjust variable video height
         &:nth-child(2), &:nth-child(3) { height: rem(300); }
         &:nth-child(1), &:nth-child(4) { height: rem(350); }
-
-        // Mobile/device styles
-        @include media($mobile) {
-            min-height: rem(250);
-        }
-
-        p {
-            @include transition(opacity 0.1s linear);
-            @include transition(padding-top 0.1s linear);
-            @include font-size-rem(28);
-            font-family: $sans-serif-semi-bold;
-            font-weight: 400;
-            display: table-cell;
-            line-height: rem(38);
-            opacity: 0;
-            padding-top: $base-spacing;
-            position: relative;
-            vertical-align: middle;
-            width: 100%;
-        }
-
-        span {
-            @include font-size-rem(18);
-            display: block;
-            margin-top: $base-spacing;
-
-            small {
-                display: block;
-                text-transform: uppercase;
-                font-weight: 500;
-            }
-        }
-
-        &:hover {
-            background-image: none;
-            p {
-                opacity: 1;
-                padding-top: 0;
-                vertical-align: top;
-            }
-            &:before {
-                background: lighten($teal, 10);
-                opacity: 1;
-            }
-        }
     }
 }
 
-// Modal for videos
+// Modal for talks/videos
+// Extends design pattern _video-modal
 .landing .video-modal {
-    background: rgba(2, 29, 38, 0.8);
-    display: none;
-    left: 0px;
-    height: 100%;
-    position: fixed;
-    top: 0px;
-    width: 100%;
-    z-index: 7;
-
-    .close {
-        @include font-size-rem(30);
-        color: white;
-        display: block;
-        height: auto;
-        padding: $base-spacing;
-        position: absolute;
-        right: 0;
-        text-align: right;
-        top: 0;
-        width: 100%;
-    }
-
-    .iframe-container {
-        height: 0;
-        margin: 5% auto;
-        max-width: rem(975);
-        padding-top: $base-spacing*2;
-        position: relative;
-        width: 80%;
-
-        @include media($mobile) {
-            padding-bottom: 39.25%;
-            margin: 15% auto;
-        }
-        @include media($medium-screen-up) {
-            padding-bottom: 42.5%;
-            margin: 10% auto;
-        }
-        @include media($large-screen-up) {
-            padding-bottom: rem(530);
-            margin: 5% auto;
-        }
-    }
-
-    iframe {
-        border: 6px solid $teal;
-        height: 100%;
-        left: 0;
-        position: absolute;
-        top: 0;
-        width: 100%;
-    }
+    @extend .video-modal;
 }
 
 // Testimonials...hiding these until content is final

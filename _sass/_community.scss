@@ -1,217 +1,150 @@
 body.community {
     // Override
     .site-nav { margin-bottom: 0; }
-    .community a { color: lighten(saturate($teal, 25), 25); }
-    // Same as landing, make a pattern yooo
-    .community h1 {
-        @include font-size-rem(33);
-        line-height: rem(60);
-        font-weight: 300;
-        margin-bottom: $base-spacing/4;
-    }
-    .community h2 {
-        @include font-size-rem(22);
-        font-family: $sans-serif-semi-bold;
-        padding-top: $base-spacing/4;
-        padding-bottom: $base-spacing/4;
-        font-weight: 600;
-    }
-    // Shared section styles
-    .community section { padding: 4% 0 5%; }
-    // Hero
-    .hero {
-        @include background-image(url("https://pbs.twimg.com/media/B3aNGmgCUAAupk4.png:large"));
-        background-size: cover;
-        height: rem(460);
-        max-height: rem(380);
+}
+
+.community-wrapper a { color: lighten(saturate($teal, 25), 25); }
+.community-wrapper h1 { margin-bottom: $base-spacing/4; }
+.community-wrapper h2 {
+    @include font-size-rem(22);
+    font-family: $sans-serif-semi-bold;
+    padding-top: $base-spacing/4;
+    padding-bottom: $base-spacing/4;
+    font-weight: 600;
+}
+
+// Shared section styles
+.community-wrapper section { padding: 4% 0 5%; }
+
+// Hero
+// Extends the hero design pattern in _hero.scss
+.community-wrapper .hero {
+    @extend .hero-bg;
+    @include background-image(url("https://pbs.twimg.com/media/B3aNGmgCUAAupk4.png:large"));
+    background-size: cover;
+}
+
+// Community intro
+.community-wrapper .intro {
+    .site-container > div {
+        background: #fff;
+        border: 1px solid lighten($smoke-gray, 2);
+        border-radius: $base-border-radius*2;
+        padding: $base-spacing*1.5;
         position: relative;
 
-        &:after {
-            @include background(linear-gradient(to top right, lighten($teal, 20), darken(#005662, 10)));
-            bottom: 0;
-            content: '';
-            left: 0;
-            position: absolute;
-            top: 0;
-            right: 0;
-            z-index: 2;
-            opacity: .80;
+        &:hover {
+            background: lighten($cream, 1);
+            h1 a { color: $teal; }
         }
+    }
+    p { margin: $base-spacing/3 0 $base-spacing/3; }
 
+    img {
+        display: block;
+        margin: 0 auto;
+        width: 80%;
+    }
+    h1 { line-height: rem(34); }
+    h2 {
+        padding-top: $base-spacing;
+        padding-bottom: 0;
+    }
+}
+
+// Events
+.community-wrapper .events {
+    background: white;
+    ul {
         h1 {
-            @include font-size-rem(38);
-            color: $cream;
-            font-weight: 400;
-            line-height: rem(44);
-            padding-top: 10%;
-            position: relative;
-            text-align: center;
-            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
-            margin: 0 auto;
-            width: 82%;
-            z-index: 3;
-        }
-    }
-
-    // Intro
-    #intro {
-        .site-container > div {
-            background: #fff;
-            border: 1px solid lighten($smoke-gray, 2);
-            border-radius: $base-border-radius*2;
-            padding: $base-spacing*1.5;
-            position: relative;
-
-            &:hover {
-                background: lighten($cream, 1);
-                h1 a { color: $teal; }
-            }
-        }
-        p { margin: $base-spacing/3 0 $base-spacing/3; }
-
-        img {
-            display: block;
-            margin: 0 auto;
-            width: 80%;
-        }
-        h1 { line-height: rem(34); }
-        h2 {
-            padding-top: $base-spacing;
+            font-weight: 600;
+            line-height: rem(18);
             padding-bottom: 0;
-        }
-    }
+            margin-bottom: 0;
 
-    // Events
-    #events {
-        background: #fff;
-        ul {
-            h1 {
-                font-weight: 600;
-                line-height: rem(18);
-                padding-bottom: 0;
-                margin-bottom: 0;
-
-                a {
-                    @include font-size-rem(18);
-                    color: $teal;
-                }
-            }
-            li {
-                @include fill-parent;
-                border-bottom: 1px solid $smoke-gray;
-                padding-bottom: $base-spacing/1.3;
-                padding-left: 0;
-                padding-top: $base-spacing/1.3;
-                margin-top: 0;
-
-                @include media($mobile) { border-bottom: none; }
-            }
-            p {
-                @include font-size-rem(16);
-                font-weight: 500;
-                display: inline-block;
-                max-width: rem(600);
-                margin: 0;
-            }
-            span {
-                @include font-size-rem(14);
-                color: darken($surf, 25);
-                display: inline-block;
-                float: right;
-                font-family: $sans-serif-semi-bold;
-                font-weight: 600;
-                text-transform: uppercase;
+            a {
+                @include font-size-rem(18);
+                color: $teal;
             }
         }
-    }
+        li {
+            @include fill-parent;
+            border-bottom: 1px solid $smoke-gray;
+            padding-bottom: $base-spacing/1.3;
+            padding-left: 0;
+            padding-top: $base-spacing/1.3;
+            margin-top: 0;
 
-    // Recent talks/videos
-    #talks {
-        .videos {
+            @include media($mobile) { border-bottom: none; }
+        }
+        p {
+            @include font-size-rem(16);
+            font-weight: 500;
+            display: inline-block;
+            max-width: rem(600);
+            margin: 0;
+        }
+        span {
+            @include font-size-rem(14);
+            color: darken($surf, 25);
+            display: inline-block;
+            float: right;
+            font-family: $sans-serif-semi-bold;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+    }
+}
+
+// Recent talks/videos
+// Extends video-grid design pattern for base styles
+.talks {
+    h1 { text-align: center; }
+    .videos {
+        // Show grid columns only on tablets and larger
+        @include media($medium-screen-up) {
             @include column-count(3);
             @include column-gap(1rem);
-            padding-bottom: 0;
-
-            @include media($mobile) {
-                @include column-count(1);
-                width: 100%;
-                margin-right: 0;
-                padding-right: 0;
-
-                .video { height: rem(100) !important; }
-            }
-
-            @include media($medium-screen-up) {
-                padding-right: 0;
-                margin-right: 0;
-                width: 100%;
-            }
-
-            .video {
-                background: url('/assets/images/events/lucy.png') center center no-repeat;
-                background-size: cover;
-                border-radius: $base-border-radius;
-                color: $white;
-                display: table;
-                margin: 0 0 $base-spacing/2;
-                padding: $base-spacing*2;
-                position: relative;
-                -webkit-column-break-inside:avoid;
-                -moz-column-break-inside:avoid;
-                -o-column-break-inside:avoid;
-                -ms-column-break-inside:avoid;
-                column-break-inside:avoid;
-
-                &:before {
-                    background: lighten(saturate($teal, 5), 10);
-                    content: '';
-                    left: 0px;
-                    height: 100%;
-                    position: absolute;
-                    opacity: 0.7;
-                    top: 0px;
-                    width: 100%;
-                }
-
-                &:after {
-                    background: transparent url('/assets/images/icons/icon-right.png') center center no-repeat;
-                    content: '';
-                    right: $base-spacing;
-                    height: rem(40);
-                    position: absolute;
-                    bottom: $base-spacing;
-                    width: rem(40);
-                }
-
-                // Adjust variable height
-                &:nth-child(2), &:nth-child(3), &:nth-child(6) { height: rem(200); }
-                &:nth-child(1), &:nth-child(4), &:nth-child(5) { height: rem(300); }
-
-                p {
-                    @include font-size-rem(22);
-                    font-family: $sans-serif-semi-bold;
-                    font-weight: 500;
-                    display: table-cell;
-                    line-height: rem(32);
-                    position: relative;
-                    vertical-align: middle;
-                }
-
-                span {
-                    @include font-size-rem(16);
-                    display: block;
-                    font-family: $sans-serif-italic;
-                    margin-top: $base-spacing;
-                    visibility: hidden;
-                }
-
-                &:hover {
-                    background-image: none;
-                    span { visibility: visible; }
-
-                    &:before { background: lighten(saturate($teal, 15), 25); }
-                }
-            }
         }
+        // Extend the basic design pattern for video grids
+        @extend .video-grid;
+
+        // Set individual preview images
+        .video {
+            &:nth-child(1) {
+                background: url('/assets/images/events/ryan-geolocation.png') center center no-repeat;
+                background-size: cover;
+            }
+            &:nth-child(2) {
+                background: url('/assets/images/events/michael-realtime.png') center top no-repeat;
+                background-size: cover;
+            }
+            &:nth-child(3) {
+                background: url('/assets/images/events/josh-publish.png') center top no-repeat;
+                background-size: cover;
+            }
+            &:nth-child(4) {
+                background: url('/assets/images/events/annie-art.png') center center no-repeat;
+                background-size: cover;
+            }
+            &:nth-child(5) {
+                background: url('/assets/images/events/josh-publish.png') center top no-repeat;
+                background-size: cover;
+            }
+            &:nth-child(6) {
+                background: url('/assets/images/events/annie-art.png') center center no-repeat;
+                background-size: cover;
+            }
+
+            // Adjust variable video height
+            &:nth-child(1), &:nth-child(4), &:nth-child(5) { height: rem(300); }
+            &:nth-child(2), &:nth-child(3), &:nth-child(6) { height: rem(350); }
+        }
+    }
+
+    // Modal for talks/videos
+    // Extends design pattern _video-modal
+    .video-modal {
+        @extend .video-modal;
     }
 }

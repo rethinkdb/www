@@ -1,6 +1,6 @@
-// ---
-// Documentation search
-// ---
+/* ---
+   Documentation search
+   --- */
 // Search box
 .docs .search { 
     position: relative;
@@ -73,6 +73,47 @@
     }
 }
 
+/* ---
+   Docs landing page
+   --- */
+
+/* ---
+   Docs install page 
+   --- */
+// Install icon boxes (this should be rearchitected later) TODO
+.docs .icon-box, .docs .documentation .documentation-content .icon-box {
+    border: thin solid #ccc;
+    display: inline-block;
+    padding: 0 $base-spacing;
+    background: lighten($cream, 5);
+    border-radius: $base-border-radius;
+    margin-bottom: rem(20);
+    margin-right: rem(20);
+    width: rem(200);
+
+    img {
+        width: rem(24);
+        display: inline-block;
+        margin-top: rem(2); // TODO refactor / redo
+    }
+    p {
+        display: inline-block;
+        @include font-size-rem(24);
+        margin: 0;
+        line-height: rem(50);
+        margin-left: rem(10);
+    }
+}
+
+.icon-box-category {
+    h1 {
+        @include font-size-rem(28);
+    }
+}
+
+// End icon boxes TODO
+
+
 // Overall margins and padding for content
 .documentation { padding: $base-spacing*3 0; }
 
@@ -80,7 +121,7 @@
 // Documentation styles
 // ---
 .docs .documentation, .api .documentation {
-    a { color: lighten(saturate($teal, 25), 25); }
+    a { color: lighten(saturate($teal, 25), 25); }  // TODO - check color
     @include media($mobile) { padding: $base-spacing; }
 
     // Share typographic styles
@@ -364,6 +405,32 @@
                 @include font-size-rem(24);
             }
         }
+
+        // Language selector
+        .lang-selector {
+            background: none;
+            border: 1px solid $smoke-gray;
+            border-radius: $base-border-radius;
+            box-shadow: none;
+            color: $smoke-gray;
+            padding: 0 $base-spacing/4 $base-spacing/4;
+            position: absolute;
+            text-align: center;
+            top: rem(-70);
+            right: 0px;
+            width: auto;
+
+            @include media($mobile) { top: rem(-40); }
+
+            a p {
+                @include font-size-rem(13);
+                display: inline;
+                font-family: $sans-serif-medium;
+                font-weight: 500;
+                margin-bottom: 0;
+                padding-top: 0;
+            }
+        }
     }
 
     // Language selector
@@ -420,6 +487,11 @@
     }
 
     blockquote:before { content: ''; }
+}
+
+// Table styles
+.docs-grid-block {
+    margin-bottom: $base-spacing*2;
 }
 
 // API style overrides

@@ -77,8 +77,6 @@ search_algolia = (success, content) ->
 
 $ ->
     rdb_search.$results = $('.search-results')
-    $('.doc_navigation h1, .mobile-doc-links h1').click (event) ->
-        $(this).toggleClass('expand').next('ul').slideToggle()
 
     # ---
     # Desktop search behavior

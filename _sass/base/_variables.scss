@@ -28,13 +28,12 @@ $base-border-radius: 3px;
 $base-z-index: 0;
 
 // Colors
-$teal: #1a424c;
+$teal: #214753;
 $surf: #D9E6E4;
 $cranberry: #C5596D;
 $smoke-gray: #eee;
 $white: #fff;
 $cream: #FBFBF9;
-$night: $teal;
 $sunshine: #FAF2D8;
 $pale-red: #ff6868;
 $mint-green: #53daa8;
@@ -46,7 +45,7 @@ $base-spacing: rem(20);
 $base-background-color: $cream;
 
 // Font Colors
-$base-font-color: $night;
+$base-font-color: lighten(desaturate($teal, 35), 20);
 $base-accent-color: $teal;
 
 // Link Colors

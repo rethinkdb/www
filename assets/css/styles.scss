@@ -11,9 +11,13 @@
 @import "base/navigation";
 @import "base/footer";
 @import "base/icons";
+@import "base/modal";
+@import "base/video-grid";
+@import "base/hero";
 
 // View-specific styles
 @import "landing";
+@import "landing-animations";
 @import "blog";
 @import "about";
 @import "docs";

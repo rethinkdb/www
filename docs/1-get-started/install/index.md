@@ -7,7 +7,7 @@ permalink: docs/install/
 alias: install/
 ---
 <div class="icon-box-category">
-    <h1>Official packages &raquo;</h1>
+    <h2>Official packages &raquo;</h2>
     <a class="icon-box install-platform" href="ubuntu/">
         <img src="/assets/images/docs/install-platforms/ubuntu.png" />
         <p class="name">Ubuntu</p>
@@ -27,7 +27,7 @@ alias: install/
 </div>
 
 <div class="icon-box-category">
-    <h1>Community supported &raquo;</h1>
+    <h2>Community supported &raquo;</h2>
     <a class="mini icon-box install-platform" href="arch/">
         <img src="/assets/images/docs/install-platforms/arch.png" />
         <p class="name">Arch Linux</p>

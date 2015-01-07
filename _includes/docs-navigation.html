@@ -1,78 +1,15 @@
 <nav class="docs-nav">
-    <section>
-        <h1>About RethinkDB</h1>
-        <ul>
-            <li{% if page.docs_active == 'faq' %} class="active"{% endif %}>                    <a href="/faq/">Frequently asked questions</a>
-            <li{% if page.docs_active == 'architecture' %} class="active"{% endif %}>           <a href="/docs/architecture/">Architecture details</a>
-            <li{% if page.docs_active == 'rethinkdb-vs-mongodb' %} class="active"{% endif %}>   <a href="/docs/rethinkdb-vs-mongodb/">RethinkDB compared to MongoDB</a></li>
-            <li{% if page.docs_active == 'comparison-tables' %} class="active"{% endif %}>      <a href="/docs/comparison-tables/">Technical comparison tables</a></li>
-            <li{% if page.docs_active == 'stability' %} class="active"{% endif %}>              <a href="/stability/">Stability report</a></li>
-            <li{% if page.docs_active == 'limitations' %} class="active"{% endif %}>            <a href="/limitations/">Limitations in RethinkDB</a></li>
-        </ul>
-    </section>
-    <section>
-        <h1>Get started</h1>
-        <ul>
-            <li{% if page.docs_active == 'quickstart' %} class="active"{% endif %}>             <a href="/docs/quickstart/">Thirty-second quickstart</a></li>
-            <li{% if page.docs_active == 'guide' %} class="active"{% endif %}>                  <a href="/docs/guide/">Ten-minute guide</a></li>
-            <li{% if page.docs_active == 'install' %} class="active"{% endif %}>                <a href="/docs/install/">Install RethinkDB server </a></li>
-            <li{% if page.docs_active == 'install-drivers' %} class="active"{% endif %}>        <a href="/docs/install-drivers/">Install client drivers</a></li>
-            <li{% if page.docs_active == 'start-a-cluster' %} class="active"{% endif %}>        <a href="/docs/start-a-cluster/">Start a RethinkDB cluster</a></li>
-            <li{% if page.docs_active == 'importing' %} class="active"{% endif %}>              <a href="/docs/importing/">Importing your data</a></li>
-            <li{% if page.docs_active == 'reql-data-exploration' %} class="active"{% endif %}>  <a href="/docs/reql-data-exploration/">ReQL data exploration</a></li>
-        </ul>
-    </section>
-    <section>
-        <h1>Query language</h1>
-        <ul>
-            <li class="external"><a target="_blank" href="/api/">API reference</a></li>
-            <li{% if page.docs_active == 'introduction-to-reql' %} class="active"{% endif %}>       <a href="/docs/introduction-to-reql/">Introduction to ReQL</a></li>
-            <li{% if page.docs_active == 'data-types' %} class="active"{% endif %}>                 <a href="/docs/data-types/">ReQL data types</a></li>
-            <li{% if page.docs_active == 'map-reduce' %} class="active"{% endif %}>                 <a href="/docs/map-reduce/">Map-reduce in RethinkDB</a></li>
-            <li{% if page.docs_active == 'table-joins' %} class="active"{% endif %}>                <a href="/docs/table-joins/">Table joins in RethinkDB</a></li>
-            <li{% if page.docs_active == 'secondary-indexes' %} class="active"{% endif %}>          <a href="/docs/secondary-indexes/">Using secondary indexes</a></li>
-            <li{% if page.docs_active == 'nested-fields' %} class="active"{% endif %}>              <a href="/docs/nested-fields/">Accessing nested fields</a></li>
-            <li{% if page.docs_active == 'dates-and-times' %} class="active"{% endif %}>            <a href="/docs/dates-and-times/">Dates and times in RethinkDB</a></li>
-            <li{% if page.docs_active == 'storing-binary' %} class="active"{% endif %}>             <a href="/docs/storing-binary/">Binary objects</a></li>
-            <li{% if page.docs_active == 'geo-support' %} class="active"{% endif %}>                <a href="/docs/geo-support/">Geospatial queries</a></li>
-            <li{% if page.docs_active == 'changefeeds' %} class="active"{% endif %}>                <a href="/docs/changefeeds/">Changefeeds in RethinkDB</a></li>
-            <li{% if page.docs_active == 'external-api-access' %} class="active"{% endif %}>        <a href="/docs/external-api-access/">External API access</a></li>
-            <li{% if page.docs_active == 'sql-to-rql' %} class="active"{% endif %}>                 <a href="/docs/sql-to-reql/">SQL to ReQL cheat sheet</a></li>
-        </ul>
-    </section>
-    <section>
-        <h1>Learn the tools</h1>
-        <ul>
-            <li{% if page.docs_active == 'administration-tools' %} class="active"{% endif %}>       <a href="/docs/administration-tools/">Administration tools</a></li>
-            <li{% if page.docs_active == 'sharding-and-replication' %} class="active"{% endif %}>   <a href="/docs/sharding-and-replication/">Sharding and replication</a></li>
-            <li{% if page.docs_active == 'failover' %} class="active"{% endif %}>                   <a href="/docs/failover/">Failover</a></li>
-            <li{% if page.docs_active == 'migration' %} class="active"{% endif %}>                  <a href="/docs/migration/">Version migration</a></li>
-        </ul>
-    </section>
-    <section>
-        <h1>RethinkDB in practice</h1>
-        <ul>
-            <li{% if page.docs_active == 'cookbook' %} class="active"{% endif %}>                   <a href="/docs/cookbook/">Cookbook</a></li>
-            <li{% if page.docs_active == 'troubleshooting' %} class="active"{% endif %}>            <a href="/docs/troubleshooting/">Troubleshooting</a></li>
-            <li{% if page.docs_active == 'examples' %} class="active"{% endif %}>                   <a href="/docs/examples/">Example projects</a></li>
-            <li{% if page.docs_active == 'frameworks-and-libraries' %} class="active"{% endif %}>   <a href="/docs/frameworks-and-libraries/">Integrations</a></li>
-            <li class="nested{% if page.docs_active == 'full-text-search' %} active{% endif %}">              <a href="/docs/elasticsearch/">Full-text search</a></li>
-            <li class="nested{% if page.docs_active == 'nodejs' %} active{% endif %}">              <a href="/docs/nodejs/">Node.js</a></li>
-            <li class="nested{% if page.docs_active == 'rails' %} active{% endif %}">               <a href="/docs/rails/">Ruby on Rails</a></li>
-            <li class="nested{% if page.docs_active == 'rabbitmq' %} active{% endif %}">            <a href="/docs/rabbitmq/">RabbitMQ</a></li>
-            <li class="nested{% if page.docs_active == 'publish-subscribe' %} active{% endif %}">   <a href="/docs/publish-subscribe/">Publish-Subscribe</a></li>
-            <li{% if page.docs_active == 'data-modeling' %} class="active"{% endif %}>              <a href="/docs/data-modeling/">Data modeling in RethinkDB</a></li>
-            <li{% if page.docs_active == 'reql-data-exploration' %} class="active"{% endif %}>      <a href="/docs/reql-data-exploration/">Data exploration</a></li>
-            <li{% if page.docs_active == 'crashes' %} class="active"{% endif %}>                    <a href="/docs/crashes/">Crash recovery</a></li>
-        </ul>
-    </section>
-    <section>
-        <h1>Deploying RethinkDB</h1>
-        <ul>
-            <li{% if page.docs_active == 'cluster-on-startup' %} class="active"{% endif %}> <a href="/docs/cluster-on-startup/">Create a cluster on startup</a></li>
-            <li{% if page.docs_active == 'backup' %} class="active"{% endif %}>             <a href="/docs/backup/">Back up your data</a></li>
-            <li{% if page.docs_active == 'security' %} class="active"{% endif %}>           <a href="/docs/security/">Secure your cluster</a></li>
-            <li{% if page.docs_active == 'paas' %} class="active"{% endif %}>               <a href="/docs/paas/">Deploying with PaaS</a></li>
-        </ul>
-    </section>
+    {% for each in site.data.docs_nav %}
+        <section>
+            <h1>{{ each.section.name }}</h1>
+            {% capture section_docs %}{{ each.section.docs | map: 'permalink' }}{% endcapture %}
+            <ul{% if section_docs contains page.docs_active %} class="expanded"{% endif %}>
+                {% for doc in each.section.docs %}
+                    <li{% if doc.permalink == page.docs_active %}class='active'{% endif %}>
+                        <a href="{{ doc.url }}">{{ doc.name }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+    {% endfor %}
 </nav>

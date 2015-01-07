@@ -1,3 +1,36 @@
+// Icon boxes (this should be rearchitected later) TODO
+.docs .icon-box, .docs .documentation .documentation-content .icon-box {
+    border: thin solid #ccc;
+    display: inline-block;
+    padding: 0 $base-spacing;
+    background: lighten($cream, 5);
+    border-radius: $base-border-radius;
+    margin-bottom: rem(20);
+    margin-right: rem(20);
+    width: rem(200);
+
+    img {
+        width: rem(24);
+        display: inline-block;
+        margin-top: rem(2); // TODO refactor / redo
+    }
+    p {
+        display: inline-block;
+        @include font-size-rem(24);
+        margin: 0;
+        line-height: rem(50);
+        margin-left: rem(10);
+    }
+}
+
+.icon-box-category {
+    h1 {
+        @include font-size-rem(28);
+    }
+}
+
+// End icon boxes TODO
+
 .docs, .api {
     .documentation {
         padding: $base-spacing*3 0;
@@ -54,6 +87,7 @@
                 border-left: 1px solid $smoke-gray;
                 display: none;
                 padding-left: $base-spacing/2;
+                &.expanded { display: block; }
             }
             li.active a { color: $teal; }
             ul.active { display: block; }

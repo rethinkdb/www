@@ -5,7 +5,7 @@ html, body {
 
 body {
     @include font-size-rem(18);
-    color: lighten(desaturate($teal, 35), 20);
+    color: $base-font-color;
 }
 
 .site-container {

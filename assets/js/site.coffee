@@ -3,8 +3,7 @@
 
 $ ->
     # Blog right panel should be set to a fixed position on scroll
-    # TODO -- change the selector to be more specific to .blog
-    $('.social-integration').waypoint (direction) ->
+    $('.blog .blog-sidebar-wrapper').waypoint (direction) ->
         $(this).toggleClass 'sticky'
 
     # Global mobile menu: right side

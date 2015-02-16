@@ -12,7 +12,7 @@ desc 'Clean up generated site'
 task :clean do
     rm_rf '_site'
     rm_rf '_deploy'
-    rm_rf algolia_root
+    #rm_rf algolia_root
 end
 
 desc 'Build site with Jekyll'

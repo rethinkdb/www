@@ -67,7 +67,7 @@ body.landing {
     color: $cream;
     text-align: center;
     overflow: hidden;
-    padding: $base-spacing*6 0 $base-spacing*7;
+    padding: $base-spacing*2 0 $base-spacing*3;
 
     @include media($mobile) { padding: $base-spacing*2 0; }
 
@@ -145,6 +145,7 @@ body.landing {
         text-align: right;
         margin-bottom: 0;
         padding-top: $base-spacing/5;
+        .headline-latest-release { font-weight: bold; }
     }
 
     input {
@@ -181,7 +182,7 @@ body.landing {
 
 // Padding for multiple sections
 .landing {
-    .intro, .feature, .examples, .community, .get-started.callout {
+    .feature, .community, .get-started.callout {
         padding-bottom: $base-spacing*5;
         padding-top: $base-spacing*5;
 
@@ -196,11 +197,19 @@ body.landing {
 // Intro
 .landing .intro {
     background: white;
-    padding-bottom: 0;
+
+    // Intro section padding
+    padding-top: $base-spacing*4;
+    .headline-latest-release { font-weight: bold; }
+    @include media($mobile) { padding-top: $base-spacing*2; }
 
     .intro-content {
         margin-bottom: $base-spacing*5;
         @include media($mobile) { margin-bottom: $base-spacing*2.5; }
+        h1 {
+            @include font-size-rem(30);
+            margin-bottom: rem(25);
+        }
         p {
             @include font-size-rem(23);
             margin-bottom: rem(25);
@@ -265,7 +274,6 @@ body.landing {
     p.query-loading {
         $_size: rem(9);
         $_color: #91bd09;
-        display: inline-block;
         text-transform: uppercase;
         @include font-size-rem(14);
         font-weight: 500;
@@ -300,22 +308,51 @@ body.landing {
     }
 
     .query-results {
+        $_results_height: rem(330);
         padding: $_padding $_padding*1.2;
         ul {
+            height: $_results_height;
+            overflow: hidden;
+            position: relative;
+        }
+
+        ul.messages {
+            width: 65%;
             background: rgba(255,255,255,0.8);
             padding: $_padding;
             margin-top: $_padding;
             margin-bottom: $_padding;
             border: thin solid rgba(91, 171, 180, 0.5);
             border-radius: $base-border-radius*2;
-            height: rem(250);
+
+            li {
+                $_height: rem(24);
+                position: absolute;
+                height: $_height;
+                vertical-align: center;
+                top: -$_height;
+                @include font-size-rem(16);
+                font-family: $monospaced;
+                border-bottom: thin solid rgba(255,255,255,0.2);
+                &:last-child { border-bottom: 0; }
+                @include transition(top 0.3s cubic-bezier(0.17, 0.04, 0.03, 0.94));
+            }
         }
 
-        li {
-            @include font-size-rem(16);
-            font-family: $monospaced;
-            border-bottom: thin solid rgba(255,255,255,0.2);
-            &:last-child { border-bottom: 0; }
+        ul.leaderboard {
+            float: right;
+            width: 30%;
+            li {
+                $_height: rem(24);
+                height: $_height;
+                position: absolute;
+                top: -$_results_height;
+                vertical-align: center;
+                @include transition(height 0.3s cubic-bezier(0.17, 0.04, 0.03, 0.94));
+                &.collapsed {
+                    height: 0;
+                }
+            }
         }
     }
 }
@@ -377,7 +414,11 @@ body.landing {
 
 // Examples
 .landing .examples {
-    background: rgb(240, 243, 243);
+    background: rgb(241, 245, 245);
+
+    // Padding for examples
+    padding: $base-spacing*4 0;
+
     h1 {
         text-align: center;
 
@@ -401,9 +442,9 @@ body.landing {
         }
         // Initially hide contents and add transition
         @include media($large-screen-up) {
-            h3 { margin-top: $base-spacing; }
+            h3 { margin-top: $base-spacing/2; }
             h3, p, img {
-                @include transition(all 0.2s linear);
+                @include transition(margin-top 0.2s linear, opacity 0.2s linear);
                 opacity: 0;
             }
         }
@@ -427,12 +468,14 @@ body.landing {
         // Mobile
         @include media($mobile) {
             img { margin: $base-spacing 0 }
+            // Mobile padding
+            padding: $base-spacing*2 0;
         }
     }
     // Tab navigation for examples
     nav {
         @include outer-container;
-        border-top: 1px solid white;
+        border-top: thin solid rgb(202, 221, 221);
         margin-top: $base-spacing;
         padding: $base-spacing/1.5 0;
         text-align: center;
@@ -442,11 +485,13 @@ body.landing {
         }
 
         a {
-            @include transition(all 0.2s linear);
+            @include transition(all 0.1s linear);
             @include font-size-rem(16);
             border-top: 2px solid transparent;
             font-weight: 600;
             padding: $base-spacing/1.2 0;
+
+            &:hover { border-top-color: rgb(202, 221, 221); }
 
             @include media($mobile) {
                 border-top: none;
@@ -518,7 +563,21 @@ body.landing {
     }
 }
 
-// Get started & Install
+.landing .ui-graph {
+    position: absolute;
+    right: rem(-108);
+    top: rem(220);
+    width: rem(350);
+    height: rem(100);
+    z-index: 1;
+    path {
+        stroke: rgb(188, 75, 84);
+        stroke-width: 1;
+        fill: none;
+    }
+}
+
+// Get started & install
 .landing .get-started.callout {
     @include background-image(url(/assets/images/code-pattern-v2.png), linear-gradient(darken($cream, 2)  0%, lighten($cream, 2)  50%,
         lighten($cream, 2)  81%, darken($cream, 2)  100%));

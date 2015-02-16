@@ -19,7 +19,7 @@ body_class: landing
         <!-- mailing list -->
         <section class="mailing-list">
             <div class="site-container">
-                <p class="headline">Latest release: RethinkDB 1.15.2 (Lawrence of Arabia)</p>
+                <p class="headline"><span class="headline-latest-release">Latest release:</span> RethinkDB 1.15.2 (Lawrence of Arabia)</p>
                 <div class="list-signup">
                     <input class="medium" type="text" placeholder="Join the mailing list for updates" type="text">
                     <button class="button subscribe outlined" type="submit">Subscribe</button>
@@ -32,26 +32,28 @@ body_class: landing
     <section class="intro">
         <div class="site-container">
             <div class="intro-content">
-                <p>Traditional databases limit what you can build on the web. When your app polls for data, it becomes slow, unscalable, and cumbersome to maintain.</p>
-                <p>RethinkDB is an open-source, scalable database that <em>pushes</em> JSON to your app <strong>in realtime</strong>:</p>
-                 <a class="button outlined dark" href="/streaming">Build your first app<i class="right-arrow">go</i></a>
+                <h1>RethinkDB <em>pushes</em> JSON to your app <strong>in realtime</strong></h1>
+                <p>
+                    When your app polls for data, it becomes slow, unscalable,
+                    and cumbersome to maintain.
+                </p>
+                <p>
+                    RethinkDB is an open-source, scalable database built for a
+                    world of realtime apps that push rather than pull.
+                </p>
+                <a class="button outlined dark" href="/streaming">What is RethinkDB?<i class="right-arrow">go</i></a>
             </div>
             <div class="offset-img">
                 <div class="realtime-queries">
                     <header></header>
                     <div class="query-panel">
                         <p class="query-label">Query:</p>
-                        <p class="query">r.table('scores').filter({'score' &lt; 10).changes()</p>
+                        <p class="query">r.table('game').orderBy('score').limit(10).changes()</p>
                     </div>
                     <div class="query-results">
                         <p class="query-loading">Streaming RethinkDB results...</p>
-                        <ul>
-                            <li>{
-        'mary': 43,
-        'scott': 56
-    }
-                            </li>
-                        </ul>
+                        <ul class="leaderboard"></ul>
+                        <ul class="messages"></ul>
                     </div>
                 </div>
             </div>
@@ -104,10 +106,10 @@ body_class: landing
     <!-- features -->
     <div class="feature modern-stacks">
         <div class="site-container">
-            <h1>Works with modern stacks</h1>
+            <h1>What's in the box?</h1>
             <section class="feature-content">
                 <article>
-                    <h2>JSON data model</h2>
+                    <h2>Works with modern stacks</h2>
                     <p>
                         Get started by querying JSON documents with Python, Ruby,
                         Node.js or <a href="/">dozens of other languages</a>. Build
@@ -118,18 +120,15 @@ body_class: landing
                     <img src="/assets/images/modern-features/1.png">
                 </article>
                 <article>
-                    <h2>Immediate consistency</h2>
+                    <h2>Robust architecture</h2>
                     <p>
-                        Get started by querying JSON documents with Python, Ruby,
-                        Node.js or <a href="/">dozens of other languages</a>. Build
-                        a modern app using <a href="/">your favorite</a> framework,
-                        paired with realtime technologies like Socket.io or
-                        SignalR.
+                        Immediate consistency, distributed  joins and
+                        subqueries, aggregation and atomic updates.
                     </p>
                     <img src="/assets/images/modern-features/2.png">
                 </article>
                 <article>
-                    <h2>Distributed joins and subqueries</h2>
+                    <h2>Packed with features</h2>
                     <p>
                         Get started by querying JSON documents with Python, Ruby,
                         Node.js or <a href="/">dozens of other languages</a>. Build
@@ -140,13 +139,10 @@ body_class: landing
                     <img src="/assets/images/modern-features/3.png">
                 </article>
                 <article>
-                    <h2>Aggregation and atomic updates</h2>
+                    <h2>Fully open source</h2>
                     <p>
-                        Get started by querying JSON documents with Python, Ruby,
-                        Node.js or <a href="/">dozens of other languages</a>. Build
-                        a modern app using <a href="/">your favorite</a> framework,
-                        paired with realtime technologies like Socket.io or
-                        SignalR.
+                        RethinkDB is open source and built by a team around the world.
+                        Read the documentation, the getting started guide, etc.
                     </p>
                     <img src="/assets/images/modern-features/4.png">
                 </article>
@@ -156,7 +152,7 @@ body_class: landing
     <div class="feature">
         <div class="site-container">
             <section class="feature-content feature-content-two">
-                <h1>Hassle-free operation at scale</h1>
+                <h1>Scale your cluster with ease</h1>
                 <p>
                     When you're ready to scale your app, shard and replicate in a few clicks using an intuitive web UI.
                 </p>
@@ -166,6 +162,7 @@ body_class: landing
                 <pre><code>r.<span class="term">db</span>(<span class="str">'system'</span>).<span class="term">table</span>(<span class="str">'jobs'</span>).<span class="term">changes</span>()</code></pre>
                  <a class="button outlined dark" href="/ops.html">Learn more <i class="right-arrow">go</i></a>
             </section>
+            <div class="ui-graph"></div>
             <img class="offset-img" src="/assets/images/landing-offerings-3_@2x.png">
         </div>
     </div>
@@ -309,31 +306,6 @@ body_class: landing
         </div>
     </section>
 </div>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="/assets/js/landing.js" /></script>
 
-<script type="text/javascript">
-    $(document).ready(function() {
-        // Landing animation & functionality
-        $('.examples nav a').on('click', showExample);
-
-        function showExample(event) {
-            event.preventDefault();
-            // Add active border styling to the link and remove previous active states
-            $(this).siblings().removeClass('active');
-            $(this).addClass('active');
-            $tab_index = $(this).index();
-            // Remove the current active example
-            $('.examples .example, .example h3, .example p, .example img').removeClass('active');
-            // Show the correct example using the index
-            $('.examples .example').eq($tab_index).addClass('active');
-
-            // Target active (visible) elements
-            $img_el = $('.example.active').children();
-            $txt_el = $('.example.active .example-text').children();
-            // Wait half a second and then animate the content in
-            setTimeout(function() {
-                $('.example.active').children().addClass('active');
-                $('.example.active .example-text').children().addClass('active');
-            }, 500);
-        }
-    });
-</script>

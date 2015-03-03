@@ -24,7 +24,6 @@
         cursor: pointer;
         display: table;
         margin: 0 0 $base-spacing/2;
-        padding: $base-spacing*2 $base-spacing*2 0;
         position: relative;
         -webkit-column-break-inside:avoid;
         -moz-column-break-inside:avoid;
@@ -40,7 +39,7 @@
             left: 0px;
             height: 100%;
             position: absolute;
-            opacity: 0.4;
+            opacity: 0.3;
             top: 0px;
             width: 100%;
         }
@@ -66,7 +65,8 @@
             display: table-cell;
             line-height: rem(38);
             opacity: 0;
-            padding-top: $base-spacing;
+            padding: $base-spacing $base-spacing*1.5;
+            padding-top: $base-spacing*2.5;
             position: relative;
             vertical-align: middle;
             width: 100%;
@@ -96,7 +96,7 @@
             background-image: none;
             p {
                 opacity: 1;
-                padding-top: 0;
+                padding-top: $base-spacing*1.5;
                 vertical-align: top;
             }
             &:before {

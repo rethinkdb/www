@@ -6,18 +6,6 @@
     font-weight: 500;
     padding-bottom: $base-spacing*5;
 
-    .get-started, .contact-info {
-        h1 {
-            @include font-size-rem(20);
-            font-weight: 500;
-        }
-
-        address, p {
-            @include font-size-rem(16);
-            color : $surf;
-        }
-    }
-
     a, h1 { color: $cream }
 
     // Get started, install
@@ -25,9 +13,21 @@
         @extend .quarter;
         padding-top: $base-spacing*2;
 
+        h1 {
+            @include font-size-rem(20);
+            font-weight: 500;
+        }
+        p { 
+            @include font-size-rem(16);
+            color : $surf;
+        }
+
         .button {
-            margin-right: $base-spacing/2;
+            margin-top: $base-spacing/2;
             margin-bottom: $base-spacing/3;
+            margin-right: $base-spacing/2;
+            min-width: rem(100);
+            text-align: center;
         }
     }
 
@@ -71,5 +71,44 @@
         @include font-size-rem(14);
         font-weight: 400;
         margin-top: $base-spacing;
+
+        address, p {
+            @include font-size-rem(16);
+            color : $surf;
+            margin-bottom: rem(10);
+
+            // Icons for contact info
+            &:before {
+                $_size: rem(22);
+                content: '';
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: $_size;
+                height: $_size;
+                background-size: $_size;
+                background-position: left top;
+                background-repeat: no-repeat;
+                opacity: 0.3;
+            }
+        }
+
+        address {
+            position: relative;
+            padding-left: rem(30);
+            // Location icon
+            &:before { background-image: url('/assets/images/icons/icon-location.png'); }
+        }
+
+        p.irc {
+            position: relative;
+            padding-left: rem(30);
+            // IRC icon
+            &:before {
+                background-image: url('/assets/images/icons/icon-irc.png');
+
+            }
+        }
     }
 }

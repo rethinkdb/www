@@ -35,25 +35,28 @@ body.landing {
 
 // Hero
 .landing .hero-wrapper {
-    @include background-image(linear-gradient(rgb(33, 71, 83) 0%, rgb(26, 81, 97) 50%,
+    @include background-image(linear-gradient(top, rgb(33, 71, 83) 0%, rgb(26, 81, 97) 50%,
         rgb(28, 80, 100) 81%, rgb(29, 79, 95) 100%));
     position: relative;
+    z-index: 0;
 
     &:before {
-        background: url('/assets/images/bg-hero.png') 0 bottom no-repeat;
+        background: url('/assets/images/hero2.png') 0 bottom no-repeat;
         content: '';
         height: 100%;
         left: 0;
         position: absolute;
         top: 0;
         width: 100%;
+        z-index: -1;
+        opacity: 0.35;
         @include media($mobile) {
-            background-size: auto 55%;
-            background-position: center bottom;
+            background-size: auto 75%;
+            background-position: rem(-230) rem(70);
         }
         @include media($medium-screen-up) {
-            background-size: auto 77%;
-            background-position: rem(-278) rem(175);
+            background-size: auto 90%;
+            background-position: rem(-160) rem(45);
         }
         @include media($large-screen-up) {
             background-size: auto 100%;
@@ -67,18 +70,19 @@ body.landing {
     color: $cream;
     text-align: center;
     overflow: hidden;
-    padding: $base-spacing*2 0 $base-spacing*3;
+    padding: $base-spacing*2.25 0 $base-spacing*3;
 
     @include media($mobile) { padding: $base-spacing*2 0; }
 
     .hero-install {
-        padding: $base-spacing*3.5 0 $base-spacing;
+        padding: $base-spacing*3 0 $base-spacing*1.5;
 
         a {
             @include font-size-rem(18);
             margin: 0 $base-spacing;
             padding: $base-spacing/1.5 inherit;
             width: rem(220);
+            display: -moz-inline-box; // Fix for Mozilla -- display inline-block
 
             span {
                 @include font-size-rem(15);
@@ -89,7 +93,7 @@ body.landing {
 
             @include media($mobile) {
                 margin: 0 $base-spacing/4;
-                width: rem(160);
+                width: rem(200);
             }
         }
     }
@@ -109,11 +113,8 @@ body.landing {
         }
 
         @include media($mobile) {
-            @include font-size-rem(31);
-            max-width: none;
+            @include font-size-rem(40);
         }
-        @include media($medium-screen-up) { max-width: 70%; }
-        @include media($large-screen-up) { max-width: 50%; }
     }
 
     .hero-release {
@@ -129,7 +130,7 @@ body.landing {
 
 // Mailing list
 .landing .mailing-list {
-    background: rgba(24, 75, 90, 0.8);
+    background: rgba(24, 75, 90, 0.85);
     padding-bottom: $base-spacing/2;
     padding-top: $base-spacing/2;
 
@@ -199,7 +200,7 @@ body.landing {
     background: white;
 
     // Intro section padding
-    padding-top: $base-spacing*4;
+    padding-top: $base-spacing*3.5;
     .headline-latest-release { font-weight: bold; }
     @include media($mobile) { padding-top: $base-spacing*2; }
 
@@ -216,141 +217,131 @@ body.landing {
         }
         a.button { margin-top: $base-spacing; }
     }
-
-    .offset-img {
-        height: 100%;
-        position: relative;
-        float: left;
-
-        @include media($medium-screen-up) {
-            left: 50%;
-        }
-    }
 }
 
-// TODO -- move animations into loading-animations, change _padding to use $base-spacing if that makes sense
+// TODO -- move animations into loading-animations
 .intro .realtime-queries {
+    $_border-color: rgb(209, 225, 229);
+    $_padding: rem(10);
     background: #E5EEED;
     position: absolute;
-    bottom: 0;
+    top: rem(-4);
+    left: 50%;
     margin-left: rem(75);
     overflow: auto;
-    $_padding: rem(10);
+    border: 2px solid $_border-color;
+    border-radius: 4px;
+    
+    @include media($mobile) { display: none; }
 
     p { margin: 0; }
 
-    header {
-        background: #214753;
-        border-radius: $base-border-radius*2 $base-border-radius*2 0 0;
-        height: rem(20);
-        width: 100%;
+    p.query {
+        padding: $_padding $_padding * 1.7;
+        background: #fff;
+        font-family: $monospaced;
+        @include font-size-rem(18);
     }
 
-    .query-panel {
-        background: #dae6e5;
-        padding: $_padding $_padding*1.5;
-        $title-width: rem(80);
-        p.query {
-            background: #fff;
-            border: thin solid #5babb4;
-            border-radius: 3px;
-            padding: rem(5) rem(10);
-            margin-left: $title-width;
-            font-family: $monospaced;
-            @include font-size-rem(18);
-        }
-
-        p.query-label {
-            text-transform: uppercase;
-            color: #214753;
-            font-weight: 600;
-            float: left;
-            @include font-size-rem(17);
-            line-height: rem(37);
-        }
-    }
-
-    // Loading text + animation (pulsating dot)
-    p.query-loading {
-        $_size: rem(9);
-        $_color: #91bd09;
+    p.title {
         text-transform: uppercase;
         @include font-size-rem(14);
         font-weight: 500;
+        margin-bottom: $_padding;
 
-        &:before {
-            content: '';
-            display: inline-block;
-            margin-right: $_size*1.5;
-            height: $_size;
-            width: $_size;
-            border-radius: $_size/2;
-            background-color: $_color;
-            @include animation(pulse 2s infinite);
-        }
+        // Loading text + animation (pulsating dot)
+        &.messages-title {
+            $_size: rem(9);
+            $_color: #91bd09;
 
-        // Pulse and fade in / out animations for the loading indicator
-        @include keyframes(pulse) {
-            $blur-size: 4px;
-            from {
+            &:before {
+                content: '';
+                display: inline-block;
+                margin-right: $_size*1.5;
+                height: $_size;
+                width: $_size;
+                border-radius: $_size/2;
                 background-color: $_color;
-                box-shadow: 0 0 $blur-size rgba(255,255,255,0.4);
+                @include animation(pulse 2s infinite);
             }
-            50% {
-                background-color: lighten($_color, 8);;
-                box-shadow: 0 0 $blur-size*8 lighten($_color, 8);
-            }
-            to {
-                background-color: $_color;
-                box-shadow: 0 0 $blur-size rgba(255,255,255,0.1);
+
+            // Pulse and fade in / out animations for the loading indicator
+            @include keyframes(pulse) {
+                $blur-size: 4px;
+                from {
+                    background-color: $_color;
+                    box-shadow: 0 0 $blur-size rgba(255,255,255,0.4);
+                }
+                50% {
+                    background-color: lighten($_color, 8);;
+                    box-shadow: 0 0 $blur-size*8 lighten($_color, 8);
+                }
+                to {
+                    background-color: $_color;
+                    box-shadow: 0 0 $blur-size rgba(255,255,255,0.1);
+                }
             }
         }
     }
 
     .query-results {
-        $_results_height: rem(330);
-        padding: $_padding $_padding*1.2;
-        ul {
-            height: $_results_height;
-            overflow: hidden;
-            position: relative;
+        padding: $_padding $_padding*1.2 $_padding*1.2 $_padding*1.2;
+        border-top: thin solid $_border-color;
+
+        .messages-panel {
+            width: 55%;
         }
 
+        .leaderboard-panel {
+            float: right;
+            width: 38%;
+        }
+
+    $_padding: rem(10);
         ul.messages {
-            width: 65%;
+            padding: $_padding*0.75 $_padding;
             background: rgba(255,255,255,0.8);
-            padding: $_padding;
-            margin-top: $_padding;
-            margin-bottom: $_padding;
-            border: thin solid rgba(91, 171, 180, 0.5);
+            border: thin solid $_border-color;
             border-radius: $base-border-radius*2;
 
+            height: rem(322);
+            overflow: hidden;
+            position: relative;
+
             li {
-                $_height: rem(24);
-                position: absolute;
-                height: $_height;
-                vertical-align: center;
-                top: -$_height;
-                @include font-size-rem(16);
+                @include font-size-rem(15);
                 font-family: $monospaced;
-                border-bottom: thin solid rgba(255,255,255,0.2);
-                &:last-child { border-bottom: 0; }
-                @include transition(top 0.3s cubic-bezier(0.17, 0.04, 0.03, 0.94));
+
+                height: rem(22);
+                vertical-align: center;
+                overflow: hidden;
+
+                @include transition(height 0.3s ease-in-out);
+                &.collapsed { height: 0; }
             }
         }
 
-        ul.leaderboard {
-            float: right;
-            width: 30%;
+        ul.leaderboard-nums {
+            float: left;
+            margin-right: rem(5);
+        }
+        ul.leaderboard, ul.leaderboard-nums {
+            $_height: rem(24);
+            height: $_height*3;
+            overflow: hidden;
             li {
-                $_height: rem(24);
                 height: $_height;
-                position: absolute;
-                top: -$_results_height;
                 vertical-align: center;
-                @include transition(height 0.3s cubic-bezier(0.17, 0.04, 0.03, 0.94));
-                &.collapsed {
-                    height: 0;
+                overflow: hidden;
+                @include transition(height 0.3s ease-in-out);
+                &.collapsed { height: 0; }
+                @include font-size-rem(16);
+                left: rem(20);
+                &:before {
+                    @include font-size-rem(18);                    
+                    color: #222;
+                    display: inline-block;
+                    margin-right: rem(10);
                 }
             }
         }
@@ -380,24 +371,6 @@ body.landing {
         img { margin: $base-spacing 0; }
     }
 
-    .offset-img {
-        display: block;
-        left: 50%;
-        max-width: rem(900);
-        position: absolute;
-
-        @include media($medium-screen-up) {
-            width: rem(540);
-            left: 55%;
-        }
-        @include media($large-screen-up) {
-            width: rem(660);
-        }
-        @include media($mobile) {
-            display: none;
-        }
-    }
-
     p a { border-bottom: 1px dotted $cranberry; }
 
     pre {
@@ -417,7 +390,7 @@ body.landing {
     background: rgb(241, 245, 245);
 
     // Padding for examples
-    padding: $base-spacing*4 0;
+    padding: $base-spacing*3.5 0;
 
     h1 {
         text-align: center;
@@ -561,25 +534,47 @@ body.landing {
             }
         }
     }
-}
 
-.landing .ui-graph {
-    position: absolute;
-    right: rem(-108);
-    top: rem(220);
-    width: rem(350);
-    height: rem(100);
-    z-index: 1;
-    path {
-        stroke: rgb(188, 75, 84);
-        stroke-width: 1;
-        fill: none;
+    // RethinkDB UI screenshot and graph
+    .rethinkdb-ui {
+        display: block;
+        left: 50%;
+        position: absolute;
+        img { max-width: rem(900); }
+        
+        .ui-graph-wrapper { position: relative; }
+
+        @include media($medium-screen-up) {
+            img { width: rem(540); }
+            left: 55%;
+        }
+        @include media($large-screen-up) {
+            img { width: rem(660); }
+        }
+        @include media($mobile) { display: none; }
+        .ui-graph {
+            position: absolute;
+            left: 38%;
+            width: rem(380);
+            height: rem(100);
+            z-index: 1;
+            @include media($mobile) { display: none; }
+            @include media($medium-screen-up) { top: rem(180); }
+            @include media($large-screen-up) { top: rem(225); }
+            path {
+                stroke-width: 1;
+                fill: none;
+                &.writes { stroke: rgb(188, 75, 84); }
+                &.reads { stroke: rgb(147, 203, 114)}
+            }
+        }
     }
 }
 
+
 // Get started & install
 .landing .get-started.callout {
-    @include background-image(url(/assets/images/code-pattern-v2.png), linear-gradient(darken($cream, 2)  0%, lighten($cream, 2)  50%,
+    @include background-image(url(/assets/images/code-pattern-v2.png), linear-gradient(top, darken($cream, 2)  0%, lighten($cream, 2)  50%,
         lighten($cream, 2)  81%, darken($cream, 2)  100%));
     background-repeat: repeat;
     position: relative;
@@ -593,6 +588,7 @@ body.landing {
         margin-bottom: $base-spacing*2.5;
     }
     a { width: rem(200); }
+    a.install { width: rem(220); }
     a.light { margin-right: $base-spacing; }
     // Mobile
     @include media($mobile) {

@@ -10,8 +10,7 @@ body_class: landing
             <div class="site-container">
                 <h1>The open source database <span>for the realtime web.</span></h1>
                 <div class="hero-install">
-                    <a class="button install light" href="/">Install <span>Release v1.15.1</span></a>
-                    <a class="button learn-more outlined" href="/">Learn more <span>What is RethinkDB?</span></a>
+                    <a class="button install light" href="/install">Install RethinkDB <i class="right-arrow white">go</i></a>
                 </div>
             </div>
         </section>
@@ -32,7 +31,7 @@ body_class: landing
     <section class="intro">
         <div class="site-container">
             <div class="intro-content">
-                <h1>RethinkDB <em>pushes</em> JSON to your app <strong>in realtime</strong></h1>
+                <h1>RethinkDB pushes JSON to your app <strong>in realtime</strong></h1>
                 <p>
                     When your app polls for data, it becomes slow, unscalable,
                     and cumbersome to maintain.
@@ -43,16 +42,20 @@ body_class: landing
                 </p>
                 <a class="button outlined dark" href="/streaming">What is RethinkDB?<i class="right-arrow">go</i></a>
             </div>
-            <div class="offset-img">
-                <div class="realtime-queries">
-                    <header></header>
-                    <div class="query-panel">
-                        <p class="query-label">Query:</p>
-                        <p class="query">r.table('game').orderBy('score').limit(10).changes()</p>
-                    </div>
-                    <div class="query-results">
-                        <p class="query-loading">Streaming RethinkDB results...</p>
+            <div class="realtime-queries">
+                <p class="query">r.table('game').orderBy('score').limit(3).changes()</p>
+                <div class="query-results">
+                    <div class="leaderboard-panel">
+                        <p class="title">Top player scores</p>
+                        <ul class="leaderboard-nums">
+                            <li>1.</li>
+                            <li>2.</li>
+                            <li>3.</li>
+                        </ul>
                         <ul class="leaderboard"></ul>
+                    </div>
+                    <div class="messages-panel">
+                        <p class="title messages-title">Streaming RethinkDB results...</p>
                         <ul class="messages"></ul>
                     </div>
                 </div>
@@ -162,8 +165,10 @@ body_class: landing
                 <pre><code>r.<span class="term">db</span>(<span class="str">'system'</span>).<span class="term">table</span>(<span class="str">'jobs'</span>).<span class="term">changes</span>()</code></pre>
                  <a class="button outlined dark" href="/ops.html">Learn more <i class="right-arrow">go</i></a>
             </section>
-            <div class="ui-graph"></div>
-            <img class="offset-img" src="/assets/images/landing-offerings-3_@2x.png">
+            <div class="rethinkdb-ui">
+                <img src="/assets/images/rethinkdb-ui_@2x.png">
+                <div class="ui-graph-wrapper"><div class="ui-graph"></div></div>
+            </div>
         </div>
     </div>
 
@@ -171,7 +176,7 @@ body_class: landing
     <section class="get-started callout">
         <div class="site-container">
             <h1>Install in seconds on Linux or OS X.</h1>
-            <a class="button install light" href="/">Install</a>
+            <a class="button install light" href="/install">Install RethinkDB <i class="right-arrow white">go</i></a>
             <a class="button learn-more outlined dark" href="/">Learn more <i class="right-arrow">go</i></a>
         </div>
     </section>
@@ -306,6 +311,6 @@ body_class: landing
         </div>
     </section>
 </div>
-<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script src="/assets/js/d3.min.js" charset="utf-8"></script>
 <script src="/assets/js/landing.js" /></script>
 

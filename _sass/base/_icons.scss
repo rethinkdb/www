@@ -11,6 +11,22 @@
     text-indent: -9999px;
     vertical-align: top;
     width: 7px;
+    &.white {
+        background-image: url("/assets/images/icons/right-arrow.png");
+        background-size: contain;
+        left: rem(7);
+    }
+}
+
+.icon-location {
+    background-image: url("/assets/images/icons/icon-location.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 25px;
+    position: relative;
+    text-indent: -9999px;
+    vertical-align: top;
 }
 
 // API language selector

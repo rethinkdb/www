@@ -1,10 +1,19 @@
 /* ---
    Documentation search
    --- */
-// Search box
 .docs .search { 
     position: relative;
-
+    // Search box
+    input {
+        background: white url('/assets/images/icons/icon-search.png') $base-spacing/2 center no-repeat;
+        background-size: rem(15);
+        border: none;
+        // Left-side search
+        &.small {
+            margin-bottom: $base-spacing/2;
+            padding-left: $base-spacing*1.8;
+        }
+    }
     &.search-xl {
         @include font-size-rem(24);
         border: 6px solid darken($cream, 2);
@@ -60,10 +69,6 @@
             margin: 0;
             line-height: $_height;
             text-overflow: ellipsis;
-            // TODO -- this should be revisted after the
-            //_layout.scss vs _variables.scss mess is sorted
-            //out (which is the base font color, since
-            //$base-font-color is meaningless?)
             strong { color: lighten(desaturate($teal, 35), 10); }
             span.snippet { 
                 $_color: lighten(desaturate($teal, 35), 45);
@@ -75,53 +80,91 @@
 }
 
 /* ---
-   Docs landing page
-   --- */
-
-/* ---
    Docs install page 
    --- */
-// Install icon boxes (this should be rearchitected later) TODO
-.docs .icon-box, .docs .documentation .documentation-content .icon-box {
-    border: thin solid #ccc;
-    display: inline-block;
-    padding: 0 $base-spacing;
-    background: lighten($cream, 5);
+
+
+.docs .install-illustration, .docs .documentation .docs-article-container p img.install-illustration {
+    float: right;
+    width: rem(280);
+    margin-left: rem(40);
+}
+.docs .supported-platforms {
+    background: rgb(241, 245, 245);
+    padding: $base-spacing $base-spacing*1.5;
     border-radius: $base-border-radius;
+}
+
+.docs .platform-category, .docs .documentation .docs-article-container .platform-category {
     margin-bottom: rem(20);
-    margin-right: rem(20);
-    width: rem(200);
-
-    img {
-        width: rem(24);
-        display: inline-block;
-        margin-top: rem(2); // TODO refactor / redo
+    &:last-child { margin-bottom: 0; }
+    h1 { @include font-size-rem(28); }
+    h2 {
+        margin-top: 0;
+        margin-bottom: rem(11);
+        color: darken($base-font-color, 7);
     }
-    p {
-        display: inline-block;
-        @include font-size-rem(24);
-        margin: 0;
-        line-height: rem(50);
-        margin-left: rem(10);
+
+    // Set of platform buttons
+    .platform-buttons {
+        @include display(flex);
+        @include flex-direction(row);
+        @include flex-wrap(wrap);
+        @include align-items(flex-start);
+        @include align-content(flex-start);
+        @include justify-content(flex-start);
+
+        // Each platform button
+        li {
+            position: relative;
+            width: rem(190);
+            margin-left: 0;
+            margin-bottom: rem(10);
+            margin-right: rem(15);
+            padding: 0 $base-spacing;
+
+            border-radius: $base-border-radius;
+            border: thin solid desaturate(lighten($teal, 63), 15);
+            background: rgb(254, 254, 255);
+            font-weight: 400;
+            box-shadow: 0 2px 1px rgba(0, 0, 0, 0.02), inset 0px 1px 0px 0px rgba(255,255,255,1);
+            list-style-type: none;
+
+            img {
+                width: rem(22);
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+            }
+            p {
+                $_line-height: rem(41); // the height of the button
+                @include font-size-rem(22);
+                margin: 0;
+                line-height: $_line-height;
+                margin-left: rem(40);
+                color: $teal;
+                &.smaller-font {
+                    @include font-size-rem(19);
+                    line-height: $_line-height;
+                }
+                span.driver-author {
+                    @include font-size-rem(14);
+                    color: desaturate(lighten($teal, 10), 15);
+                }
+            }
+        }
     }
 }
 
-.icon-box-category {
-    h1 {
-        @include font-size-rem(28);
-    }
-}
-
-// End icon boxes TODO
 
 
-// Overall margins and padding for content
-.documentation { padding: $base-spacing*3 0; }
 
 // ---
 // Documentation styles
 // ---
 .docs .documentation, .api .documentation {
+    padding: $base-spacing*2 0;
     a { color: lighten(saturate($teal, 25), 25); }  // TODO - check color
     @include media($mobile) { padding: $base-spacing; }
 
@@ -137,17 +180,6 @@
         a {
             font-family: $sans-serif-medium;
             font-weight: 500;
-        }
-    }
-    // Search
-    .search input {
-        background: white url('/assets/images/icons/icon-search.png') $base-spacing/2 center no-repeat;
-        background-size: rem(15);
-        border: none;
-        // Left-side search
-        &.small {
-            margin-bottom: $base-spacing/2;
-            padding-left: $base-spacing*1.8;
         }
     }
     // Left-side docs navigation
@@ -206,6 +238,7 @@
             @include font-size-rem(33);
             font-weight: 400;
             line-height: rem(38);
+            &.title { margin: 0 0 $base-spacing*1.5; }
         }
 
         h2 {
@@ -221,7 +254,6 @@
             font-weight: 600;
             text-transform: uppercase;
         }
-        .title { margin: 0 0 $base-spacing*2; }
         p { margin: $base-spacing 0; }
         ul {
             padding: $base-spacing/3 0;
@@ -241,6 +273,16 @@
             display: block;
             margin: 4% auto;
             width: 40%;
+        }
+
+        // TODO -- consider rearchitecting
+        // Repeating some infobox rules here to overcome CSS precedence order
+        .infobox {
+            p {
+                margin: 0;
+                &:first-child { padding-top: 0; }
+                &:last-child { padding-bottom: 0; }
+            }
         }
 
         // Mobile menu trigger
@@ -471,24 +513,6 @@
         a {
             display: inline-block;
             padding: 0 $base-spacing/4;
-        }
-    }
-
-    // Info boxes
-    .infobox {
-        margin-top: $base-spacing;
-        overflow: hidden;
-
-        p {
-            @include font-size-rem(16);
-            font-family: $sans-serif-medium;
-            font-weight: 500;
-            margin: 0;
-            padding-top: $base-spacing;
-        }
-        ul {
-            padding-bottom: 0;
-            margin-bottom: 0;
         }
     }
 

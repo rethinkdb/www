@@ -129,6 +129,9 @@
             font-weight: 400;
             box-shadow: 0 2px 1px rgba(0, 0, 0, 0.02), inset 0px 1px 0px 0px rgba(255,255,255,1);
             list-style-type: none;
+            @include transition(border-color 0.1s linear);
+
+            &:hover { border-color: desaturate(lighten($teal, 45), 15); }
 
             img {
                 width: rem(22);
@@ -238,7 +241,21 @@
             @include font-size-rem(33);
             font-weight: 400;
             line-height: rem(38);
-            &.title { margin: 0 0 $base-spacing*1.5; }
+            &.title {
+                margin: 0 0 $base-spacing*1.5;
+                // Used in conjunction with the optional `title_image`
+                // (img.title-image), which may be deprecated in the future
+                display: inline-block;
+            }
+        }
+
+        // Title image, relies on the optional `title_image`, may be deprecated
+        // in the future. Used in conjuction with h1.title.
+        img.title-image {
+            height: rem(32);
+            margin-right: rem(17);
+            display: inline-block;
+            margin-bottom: rem(-6);
         }
 
         h2 {

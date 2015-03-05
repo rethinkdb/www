@@ -4,9 +4,6 @@ body_class: docs
 ---
 <section class="documentation">
     <div class="site-container">
-        {% if page.title_image %}
-            <img class="title-image" src="{{page.title_image}}" />
-        {% endif %}
         {% comment %}<!-- Left side: search + nav (does not show up on the docs landing page)-->{% endcomment %}
         <!-- TODO: change conditional to something less fragile than page.title -->
         {% if page.title != 'Documentation' %}
@@ -38,6 +35,9 @@ body_class: docs
             {% endif %}
             {% comment %}<!-- Documentation article / content -->{% endcomment %}
             <div class="docs-article">
+                {% if page.title_image %}
+                    <img class="title-image" src="{{page.title_image}}" />
+                {% endif %}
                 {{ page.title | page_title }}
                 {{ content }}
             </div>

@@ -136,3 +136,48 @@ $ ->
         $('.mobile-doc-links').show()
         $(this).hide()
 
+    # -> TODO deprecated, review  when new search is in
+    ###
+    $('.mobile-search input').keyup(function(event) {
+        if((!$(this).val()) && (event.keyCode == 8)) {
+            // When the user deletes the full string from the input
+            $('.search-results').hide();
+            $('.mobile-doc-links').show();
+        }
+        else {
+            // User typing, show results panel and hide nav links
+            $('.search-results').show();
+            $('.mobile-doc-links').hide();
+            $('.clear-search').show();
+        }
+    });
+    $('.clear-search').click(function(event) {
+        event.preventDefault();
+        // Close btn input, clear text and restore nav links
+        $('body').removeClass('pml-open-wide');
+        $('.mobile-search input').val('');
+        $('.search-results').hide();
+        $('.mobile-doc-links').show();
+        $(this).hide();
+    });
+    ###
+    
+    # Desktop search
+    # TODO deprecated, review when new search is in
+    ###
+    // Desktop search behaviors
+    $('.search input').keyup(function(event) {
+        if((!$(this).val()) && (event.keyCode == 8)) {
+            $('.documentation-content .search-results').hide();
+        }
+        else {
+            $('.documentation-content .search-results').show();
+        }
+    });
+    // Search results close btn
+    $('.close-results').click(function(event) {
+        event.preventDefault();
+        $('.documentation-content .search-results').hide();
+        $('.search input').val('');
+    });
+    ###

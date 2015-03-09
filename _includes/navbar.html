@@ -9,6 +9,12 @@
         <li><a href="#">Support</a></li>
         <li><a href="/about">About</a></li>
     </ul>
+    {% case page.include_nav %}
+        {% when 'docs' %}
+            {% include docs-navigation.html %}
+        {% when 'api' %}
+            {% include api-navigation.html %}
+    {% endcase %}
 </nav>
 <nav class="site-nav">
     <div class="site-container">

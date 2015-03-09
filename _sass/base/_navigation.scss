@@ -1,4 +1,7 @@
-// Shared navigation styles
+/* ---
+   Navigation bar: general styles and typography
+     --> applies to both the global nav and sub-nav
+   --- */
 .site-nav, .sub-nav {
     background: $teal;
     margin-bottom: $base-spacing;
@@ -38,11 +41,48 @@
     }
     // Hide the menu trigger
     .menu-trigger { display: none; }
+
 }
 
-// Slider navigation
-body { overflow-x: hidden; }
+/* ---
+   Navigation bar: global nav
+   --- */
+.site-nav {
+    // Show a mobile navbar
+    @include media($mobile) {
+        // Hide other links until user taps 'Menu'
+        li { display: none; }
+        // Only show the 'menu' link at first
+        .menu-trigger {
+            background: url('/assets/images/icons/icon-menu.png') 0 0 no-repeat;
+            display: block;
+            text-indent: -9999px;
+        }
+    }
+}
 
+/* ---
+   Sub-navigation bar: used on inner pages, below the header image (e.g.
+   'about' and 'community')
+   --- */
+.sub-nav {
+    background: $surf;
+    margin-bottom: 0;
+    a { color: $teal; }
+    ul {
+        @include fill-parent;
+        text-align: center;
+    }
+    li {
+        @include font-size-rem(16);
+        line-height: rem(20);
+        padding: $base-spacing/4 $base-spacing;
+    }
+}
+
+/* ---
+   Site wrapper: allows the entire page to shift when the mobile menu is shown
+   --- */
 #wrapper {
     @include transition(all 0.1s linear);
     position: relative;
@@ -51,20 +91,31 @@ body { overflow-x: hidden; }
     z-index: 5;
 }
 
-.mobile-menu, .docs-mobile-nav {
+// Slider navigation
+body { overflow-x: hidden; }
+
+// Set right global nav sliding position when open
+body.pmr-open .push-menu-right { right: 0; }
+body.pmr-open #wrapper { left: -50%; }
+
+
+/* ---
+   Mobile menu: pops out from the right
+   --- */
+.mobile-menu {
     @include transition(all 0.1s linear);
     background-color: darken($teal, 10);
     position: fixed;
     z-index: 6;
-    overflow: hidden;
+    overflow-x: hidden;
 
     a {
         color: $cream;
         text-transform: lowercase;
     }
 
-    // Sliding menu is initial hidden
-    &.push-menu-right, &.push-menu-left {
+    // Mobile menu is initially hidden -- when opened, pushes from the right side
+    &.push-menu-right {
         height: 100%;
         right: -50%;
         top: 0;
@@ -87,17 +138,12 @@ body { overflow-x: hidden; }
             }
         }
 
-        // Add 'x' to close btn
+        // Add 'x' to the close button
         .menu-trigger a:before {
             content: '\2715';
             display: inline-block;
             padding-right: $base-spacing/2;
         }
-    }
-    &.push-menu-left {
-        background-color: darken($teal, 6);
-        left: -80%;
-        width: 80%;
     }
     .mobile-search {
         left: 0px;
@@ -140,70 +186,43 @@ body { overflow-x: hidden; }
             }
         }
     }
-    // Allow doc menu links to scroll
-    .mobile-doc-links {
-        height: 92%;
-        overflow-y: scroll;
-        margin-top: $base-spacing*4;
-        width: 106%;
-
-        h1, .nav-header {
-            @include font-size-rem(14);
-            color: lighten($teal, 15);
-            cursor: pointer;
-            font-family: $sans-serif-semi-bold;
-            font-weight: 600;
-            padding: $base-spacing $base-spacing 0;
-            text-transform: uppercase;
-
-            &:hover { background: none; }
-        }
-        ul { display: none; }
-        // API nav list needs to show
-        ul.nav-list { display: block; }
-        ul li a {
-            @include font-size-rem(16);
-            color: $surf;
-        }
-    }
 }
 
-// Set right global nav sliding position when open
-body.pmr-open .push-menu-right { right: 0; }
-body.pmr-open #wrapper { left: -50%; }
+/*** DEPRECATED
 
-// Set left docs/api nav sliding position when open
-body.pml-open .push-menu-left { left: 0; }
-body.pml-open #wrapper { left: 80%; }
+// DEPRECATED REMOVE TODO
 // Open wider on mobile search (like FB)
 body.pml-open-wide {
     #wrapper { left: 100%; }
     .push-menu-left { width: 100%; }
     .mobile-search input { text-align: left; }
 }
+// DEPRECATED TODO REMOVE
+// review and include relevant styles for the API and docs navbars
+.mobile-doc-links {
+    height: 92%;
+    overflow-y: scroll;
+    margin-top: $base-spacing*4;
+    width: 106%;
 
-// Global desktop nav styles
-@include media($mobile) {
-    .site-nav {
-        // Hide other links until user taps 'Menu'
-        li { display: none; }
-        // Only show the 'menu' link at first
-        .menu-trigger { display: block; }
-    }
-}
+    h1, .nav-header {
+        @include font-size-rem(14);
+        color: lighten($teal, 15);
+        cursor: pointer;
+        font-family: $sans-serif-semi-bold;
+        font-weight: 600;
+        padding: $base-spacing $base-spacing 0;
+        text-transform: uppercase;
 
-// Sub navigation (about page)
-.sub-nav {
-    background: $surf;
-    margin-bottom: 0;
-    a { color: $teal; }
-    ul {
-        @include fill-parent;
-        text-align: center;
+        &:hover { background: none; }
     }
-    li {
+    ul { display: none; }
+    // API nav list needs to show
+    ul.nav-list { display: block; }
+    ul li a {
         @include font-size-rem(16);
-        line-height: rem(20);
-        padding: $base-spacing/4 $base-spacing;
+        color: $surf;
     }
 }
+
+***/

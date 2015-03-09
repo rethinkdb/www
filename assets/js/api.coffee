@@ -1,6 +1,40 @@
 ---
 ---
 
+$ ->
+    $api = $('.api-sections')
+
+    # Wrap each command with a div (used for styling)
+    $('h2', $api).each (i, command_header) ->
+        $header = $(command_header)
+        $wrapper = $("<article class='api-command'></article>")
+        # All the content between this command header and the next command
+        # header should be wrapped
+        $header.nextUntil("h2").andSelf().wrapAll($wrapper)
+        # Get the unique ID for this command from the link to the command article
+        console.log($header.text())
+        command = $('a', $header).attr('href').split('/').filter((el) -> el.length > 0 ).slice(-1)[0]
+        # Inject an anchor before the header
+        $("<a class='api-anchor' name='#{command}'></a>").insertBefore($(command_header))
+
+    $('.commands a').click (event) ->
+        event.preventDefault()
+        $('.commands a').removeClass 'active'
+        $(event.currentTarget).addClass 'active'
+
+        # Find the element we're supposed to scroll to and start scrolling
+        hash = $(event.currentTarget).attr('href').slice(1)
+        scrolltop_offset = $("a.api-anchor[name='#{hash}']").offset().top
+        $('html, body').animate
+            scrollTop: scrolltop_offset
+        , 250, 'swing', ->
+            window.location.hash = hash
+
+    $('p.back-to-top').waypoint -> $(this).toggleClass 'sticky'
+
+    #init_api_page()
+###
+# DEPRECATED REMOVE TODO
 machinize_text = (text) ->
     text.toLowerCase().replace(/[ ]/g, '-').replace(/\?/g, '').replace(/,/g, '').replace(/'/g, '').slice(0, 45).replace(/-$/, '')
 
@@ -11,7 +45,7 @@ init_api_page = ->
     $('.sticky-wrapper:has(.navbar)').waypoint 'destroy'
     $('.navbar').removeClass 'stuck'
 
-    # Stick API header
+    # Sticky API header
     $('#api-header .sticky-wrapper').height($('#api-command-bar').outerHeight())
 
 
@@ -19,9 +53,9 @@ init_api_page = ->
     timeout_scrolling = null
     past_header = false # Is the header stuck?
     header_padding = 10
-    api_width = $('#api-app').width()
-    $api_nav = $('#api-nav')
-    $api_sections = $('#api-sections')
+    api_width = $('.api-docs').width()
+    $api_nav = $('.api-nav')
+    $api_sections = $('.api-sections')
     $bar = $('#api-command-bar')
 
     # nav_margin_left is the absolute margin left of $api_nav when we are not past the header
@@ -107,7 +141,7 @@ init_api_page = ->
                                 scrollTop: scrolltop_offset
                             , 250
 
-    $('#api-nav').on 'scroll', ->
+    $api_nav.on 'scroll', ->
         is_scrolling = true
         if timeout_scrolling?
             clearTimeout timeout_scrolling
@@ -148,53 +182,4 @@ init_api_page = ->
 # We have two versions of count. In case the h2 tag has a property name, we use it as an anchor
 get_anchor = (question) ->
     anchor = $(question).attr('href').slice(0, -1)
-
-$ ->
-    # First, create the table of contents
-    section_list = $("<ul class='nav nav-list'></ul>")
-
-    # Build desktop api nav
-    $('#api-nav').append(section_list)
-
-    # Go through each section to add it to the table of contents
-    $('.apisection').each (idx, section) ->
-        # Add the section header to table of contents
-        section_header = $('h1', section).data('alt')
-        section_item = $("<li class='nav'></li>")
-        section_item.append($("<li class='nav-header'>" + section_header + "</li>"))
-
-        # Add the list of groups
-        question_list = $("<ul class='nav nav-list'></ul>")
-        $('h2 a', section).each (idx, question) ->
-            question_item = $("<li class='command'></li>")
-
-            anchor = get_anchor question
-
-            question_item.append($("<a href='#" + machinize_text(anchor) + "'>" + $(question).text() + "</a>"))
-            question_list.append(question_item)
-
-        section_item.append(question_list)
-
-        # Add the section to table of contents
-        section_list.append(section_item)
-
-        # Build mobile api nav
-        $(section_list).clone().appendTo('.api .doc-mobile-nav .mobile-doc-links');
-
-    # Wrap each question in a div (for styling)
-    $('h2').each (idx, question_header) ->
-        wrapper = $("<div class='api-command'></div>")
-        $(question_header).nextUntil("h2").each (idx, question_paragraph) ->
-            $(question_paragraph).appendTo(wrapper)
-
-        question_header = $(question_header).replaceWith(wrapper)
-        question_header.prependTo(wrapper)
-
-    # Finally, inject anchors into groups
-    $('h2 a').each (idx, question) ->
-        $(question).addClass('slim')
-        anchor = get_anchor question
-        $("<a class='api-anchor' name='" + machinize_text(anchor) + "'></a>").insertBefore(question)
-
-    # Handle click on links + scrolling
-    init_api_page()
+###

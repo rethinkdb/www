@@ -125,6 +125,14 @@
 
     // Blog sidebar
     .blog-sidebar {
+        // The blog sidebar sticks when you scroll past it
+        ul { 
+            width: rem(300);
+            &.sticky {
+                position: fixed;
+                top: 0;
+            }
+        }
         li, p {
             @include font-size-rem(16);
             font-family: $sans-serif-medium;
@@ -140,5 +148,6 @@
         }
 
         button { margin-top: $base-spacing/2; }
+
     }
 }

@@ -1,11 +1,12 @@
+{% assign this_doc = page.docs_active %}
 <nav class="docs-nav">
     {% for each in site.data.docs_nav %}
         <section>
             <h1>{{ each.section.name }}</h1>
-            {% capture section_docs %}{{ each.section.docs | map: 'permalink' }}{% endcapture %}
-            <ul{% if section_docs contains page.docs_active %} class="expanded"{% endif %}>
+            {% assign docs_in_section = each.section.docs | map: 'permalink' %}
+            <ul{% if docs_in_section contains this_doc %} class="expanded"{% endif %}>
                 {% for doc in each.section.docs %}
-                    <li{% if doc.permalink == page.docs_active %} class='active'{% endif %}>
+                    <li{% if doc.permalink == this_doc %} class='active'{% endif %}>
                         <a href="{{ doc.url }}">{{ doc.name }}</a>
                     </li>
                 {% endfor %}

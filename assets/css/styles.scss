@@ -14,11 +14,17 @@
 @import "base/modal";
 @import "base/video-grid";
 @import "base/hero";
+@import "base/infobox";
 
 // View-specific styles
 @import "landing";
 @import "landing-animations";
 @import "blog";
 @import "about";
-@import "docs";
 @import "community";
+@import "docs/base";
+@import "docs/api";
+@import "docs/article";
+@import "docs/install";
+@import "docs/landing";
+@import "docs/search";

@@ -15,10 +15,11 @@ module Jekyll
             site = context.registers[:site]
             converter = site.getConverterImpl(Jekyll::Converters::Markdown)
             content = converter.convert(super.strip)
-          "<div class='apisection'><h1 data-alt='#{@name}'>#{@alt_name}</h1>#{content}</div>".strip
+            "<section class='api-section'><h1 data-alt='#{@name}'>#{@alt_name}</h1>#{content}</section>".strip
         end
     end
 
+    # Should be renamed so it's clear what it's actually used for (command syntax headers) TODO
     class APIBodyTag < Liquid::Block
         def initialize(tag_name, names, tokens)
             super
@@ -28,11 +29,11 @@ module Jekyll
             site = context.registers[:site]
             converter = site.getConverterImpl(Jekyll::Converters::Markdown)
             content = "<p>#{super.gsub('<', '&lt;').gsub('>', '&gt;').strip.gsub(/\n([^\s])/, '</p><p>\1')}</p>"  #.gsub(/\n$/, '').gsub(/(?:\n\r?|\r\n?)/, '<br/>')
-          "<div class='command-body'>#{content}</div>".strip
-
+           "<section class='command-syntax'>#{content}</section>".strip
         end
     end
 
+    # Shold be renamed so it's clear what this is used for (only the language switcher) TODO
     class APIUrlTag < Liquid::Block
         def initialize(tag_name, params, tokens)
             super

@@ -29,8 +29,8 @@ label {
 textarea,
 #{$all-text-inputs},
 select[multiple=multiple] {
-  @include box-sizing(border-box);
   @include transition(border-color);
+  box-sizing: border-box;
   background-color: rgba(255,255,255, 0.5);
   border-radius: $form-border-radius;
   border: 1px solid $form-border-color;

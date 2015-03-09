@@ -12,7 +12,8 @@ desc 'Clean up generated site'
 task :clean do
     rm_rf '_site'
     rm_rf '_deploy'
-    #rm_rf algolia_root
+    rm '.jekyll-metadata', :force => true
+    rm_rf $algolia_root
 end
 
 desc 'Build site with Jekyll'
@@ -45,6 +46,7 @@ task :benchmark do
     puts "Time elapsed #{time*1000} milliseconds"
 end
 
+# TODO -- nokogiri portion needs to be rewritten, since the DOM has been rearchitected for docs
 desc 'Build Algolia search data'
 task :algolia do
     require 'yaml'

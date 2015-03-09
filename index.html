@@ -8,7 +8,7 @@ body_class: landing
         <!-- hero -->
         <section class="hero">
             <div class="site-container">
-                <h1>The open source database <span>for the realtime web.</span></h1>
+                <h1>The open source database <span>for the realtime web</span></h1>
                 <div class="hero-install">
                     <a class="button install light" href="/install">Install RethinkDB <i class="right-arrow white">go</i></a>
                 </div>
@@ -31,16 +31,17 @@ body_class: landing
     <section class="intro">
         <div class="site-container">
             <div class="intro-content">
-                <h1>RethinkDB pushes JSON to your app <strong>in realtime</strong></h1>
+                <h1>RethinkDB pushes JSON to your apps <strong>in realtime</strong></h1>
                 <p>
                     When your app polls for data, it becomes slow, unscalable,
                     and cumbersome to maintain.
                 </p>
                 <p>
-                    RethinkDB is an open-source, scalable database built for a
-                    world of realtime apps that push rather than pull.
+                    RethinkDB is the open-source, scalable database
+                    that makes building realtime apps dramatically
+                    easier.
                 </p>
-                <a class="button outlined dark" href="/streaming">What is RethinkDB?<i class="right-arrow">go</i></a>
+                <a class="button outlined dark" href="/streaming">Learn how it works<i class="right-arrow">go</i></a>
             </div>
             <div class="realtime-queries">
                 <p class="query">r.table('game').orderBy('score').limit(3).changes()</p>
@@ -66,42 +67,50 @@ body_class: landing
     <!-- examples -->
     <section class="examples">
         <div class="site-container">
-            <h1>A fundamental building block for modern, <strong>realtime</strong> apps.</h1>
+            <h1>Building <strong>realtime</strong> apps just got easy</h1>
             <ul>
                 <li class="example active">
-                    <img class="active" src="/assets/images/examples/marketplaces_@2x.png">
+                    <img class="active" src="/assets/images/examples/mobile-desktop_@2x.png">
                     <div class="example-text">
-                        <h3 class="active">Realtime marketplaces</h3>
-                        <p class="active">Build a modern app using your favorite framework, paired with realtime technologies like Socket.io or SignalR.</p>
-                    </div>
-                </li>
-                <li class="example">
-                    <img src="/assets/images/examples/analytics_@2x.png">
-                    <div class="example-text">
-                        <h3>Streaming analytics</h3>
-                        <p>Build a modern app using your favorite framework, paired with realtime technologies like Socket.io or SignalR.</p>
+                        <h3 class="active">Reactive web + mobile apps</h3>
+                        <p class="active">Web apps like <a href="www.google.com/docs">Google Docs</a>, <a href="https://trello.com/">Trello</a>, and <a href="https://www.quora.com/">Quora</a> pioneered the realtime experience on the web. With RethinkDB you can build amazing realtime apps in a fraction of the time and engineering effort.</p>
                     </div>
                 </li>
                 <li class="example">
                     <img src="/assets/images/examples/games_@2x.png">
                     <div class="example-text">
                         <h3>Multiplayer games</h3>
-                        <p>Build a modern app using your favorite framework, paired with realtime technologies like Socket.io or SignalR.</p>
+                        <p>When a player takes an action in a multiplayer game, every other player in the game needs to see the change in realtime. RethinkDB dramatically simplies the data infrastructure for low latency, high throughput realtime interactions.</p>
                     </div>
                 </li>
                 <li class="example">
-                    <img src="/assets/images/examples/mobile-desktop_@2x.png">
+                    <img src="/assets/images/examples/marketplaces_@2x.png">
                     <div class="example-text">
-                        <h3>Reactive web + mobile apps</h3>
-                        <p>Build a modern app using your favorite framework, paired with realtime technologies like Socket.io or SignalR.</p>
+                        <h3>Realtime marketplaces</h3>
+                        <p>RethinkDB dramatically reduces the complexity of building realtime trading and dynamic creative optimization engines. Publish realtime updates to thousands of clients, and provide pricing and creative updates to users in milliseconds.</p>
+                    </div>
+                </li>
+                <li class="example">
+                    <img src="/assets/images/examples/analytics_@2x.png">
+                    <div class="example-text">
+                        <h3>Streaming analytics</h3>
+                        <p>Build realtime leaderboards with RethinkDB data push notifications, and make instantenious business decisions. We've also layed the groundwork for the <a href="https://github.com/rethinkdb/rethinkdb/issues/1118">realtime, incremental computation engine</a>, that will allow you to analyze terrabytes of data in milliseconds.</p>
+                    </div>
+                </li>
+                <li class="example">
+                    <img src="/assets/images/examples/analytics_@2x.png">
+                    <div class="example-text">
+                        <h3>Connected devices</h3>
+                        <p>RethinkDB dramatically simplifies modern IoT infrastructures. Stream data between connected devices, enable messaging and signaling, and trigger actions in millions of devices in milliseconds.</p>
                     </div>
                 </li>
             </ul>
             <nav>
-                <a href="#" class="active">Realtime marketplaces</a>
-                <a href="#">Streaming analytics</a>
+                <a href="#" class="active">Reactive web + mobile apps</a>
                 <a href="#">Multiplayer games</a>
-                <a href="#">Reactive web + mobile apps</a>
+                <a href="#">Realtime marketplaces</a>
+                <a href="#">Streaming analytics</a>
+                <a href="#">Connected devices</a>
             </nav>
         </div>
     </section>
@@ -112,40 +121,50 @@ body_class: landing
             <h1>What's in the box?</h1>
             <section class="feature-content">
                 <article>
-                    <h2>Works with modern stacks</h2>
+                    <h2>Work with your favorite stack</h2>
                     <p>
-                        Get started by querying JSON documents with Python, Ruby,
-                        Node.js or <a href="/">dozens of other languages</a>. Build
-                        a modern app using <a href="/">your favorite</a> framework,
-                        paired with realtime technologies like Socket.io or
-                        SignalR.
+                        Query JSON documents with Python, Ruby, Node.js
+                        or <a href="/docs/install-drivers/">dozens of
+                        other languages</a>. Build modern apps using
+                        your favorite web framework, paired with
+                        realtime technologies like <a href="http://socket.io/">Socket.io</a>
+                        or <a href="http://signalr.net/">SignalR</a>.
                     </p>
                     <img src="/assets/images/modern-features/1.png">
                 </article>
                 <article>
                     <h2>Robust architecture</h2>
                     <p>
-                        Immediate consistency, distributed  joins and
-                        subqueries, aggregation and atomic updates.
+                        Five years in development, RethinkDB
+                        integrates <a href="/docs/architecture">the latest advances in database
+                        technology</a>. The modern distributed system,
+                        optimized buffer cache, multiversion
+                        concurrency control, and state of the art
+                        log-structured storage engine work seamlessly
+                        together in a robust, scalable,
+                        high-performance database system.
                     </p>
                     <img src="/assets/images/modern-features/2.png">
                 </article>
                 <article>
-                    <h2>Packed with features</h2>
+                    <h2>Everything you need to build modern apps</h2>
                     <p>
-                        Get started by querying JSON documents with Python, Ruby,
-                        Node.js or <a href="/">dozens of other languages</a>. Build
-                        a modern app using <a href="/">your favorite</a> framework,
-                        paired with realtime technologies like Socket.io or
-                        SignalR.
+                        Express relationships using
+			<a href="/docs/table-joins/">joins</a>, build <a href="/docs/geo-support">location-aware apps</a>, or
+			store <a href="/docs/storing-binary">multimedia</a> and <a href="/docs/dates-and-times">time-series</a> data. Do
+			analytics with <a href="/docs/map-reduce/">aggregation and map/reduce</a>,
+			and speed up your apps using flexible <a href="/docs/secondary-indexes">indexing</a>.
                     </p>
                     <img src="/assets/images/modern-features/3.png">
                 </article>
                 <article>
-                    <h2>Fully open source</h2>
+                    <h2>Built with love by the open source community</h2>
                     <p>
-                        RethinkDB is open source and built by a team around the world.
-                        Read the documentation, the getting started guide, etc.
+                        Developed by a core team of database experts
+                        and over 100 contributors from around the
+                        world, RethinkDB is shaped by developers like
+                        you participating in <a href="/community">an
+                        open development process</a>.
                     </p>
                     <img src="/assets/images/modern-features/4.png">
                 </article>
@@ -155,14 +174,14 @@ body_class: landing
     <div class="feature">
         <div class="site-container">
             <section class="feature-content feature-content-two">
-                <h1>Scale your cluster with ease</h1>
+                <h1>Scale your cluster in seconds</h1>
                 <p>
                     When you're ready to scale your app, shard and replicate in a few clicks using an intuitive web UI.
                 </p>
                 <p>If you need it, a simple API provides precise control over the cluster:</p>
-                <pre><code>r.<span class="term">table</span>(<span class="str">'games'</span>).<span class="term">configure</span>(shards=5, replicas=3)</code></pre>
-                <p>Monitor your production cluster with live statistics and visibility into running jobs:</p>
-                <pre><code>r.<span class="term">db</span>(<span class="str">'system'</span>).<span class="term">table</span>(<span class="str">'jobs'</span>).<span class="term">changes</span>()</code></pre>
+                <pre><code>r.<span class="term">table</span>(<span class="str">'games'</span>).<span class="term">reconfigure</span>(shards=5, replicas=3)</code></pre>
+                <p>Monitor your production cluster with live statistics and complete visibility into running jobs:</p>
+                <pre><code>r.<span class="term">db</span>(<span class="str">'rethinkdb'</span>).<span class="term">table</span>(<span class="str">'jobs'</span>).<span class="term">changes</span>()</code></pre>
                  <a class="button outlined dark" href="/ops.html">Learn more <i class="right-arrow">go</i></a>
             </section>
             <div class="rethinkdb-ui">
@@ -175,7 +194,7 @@ body_class: landing
     <!-- getting started -->
     <section class="get-started callout">
         <div class="site-container">
-            <h1>Install in seconds on Linux or OS X.</h1>
+            <h1>Install in seconds on Linux or OS X</h1>
             <a class="button install light" href="/install">Install RethinkDB <i class="right-arrow white">go</i></a>
             <a class="button learn-more outlined dark" href="/">Learn more <i class="right-arrow">go</i></a>
         </div>
@@ -183,7 +202,7 @@ body_class: landing
 
     <!-- community -->
     <section class="community">
-        <h1>Join 23,000 developers</h1>
+        <h1>Join over 100,000 developers</h1>
         <div class="site-container">
             <section class="videos">
                 <div class="video">
@@ -238,7 +257,7 @@ body_class: landing
             <section class="events">
                 <ul>
                     <li>
-                        <h1>Upcoming events</h1>
+                        <h1>Latest news</h1>
                     </li>
                     <li>
                         <span>Nov 12</span>
@@ -272,7 +291,7 @@ body_class: landing
                         </p>
                     </li>
                     <li>
-                        <a href="/events" class="button minimal">All events <i class="right-arrow">go</i></a>
+                        <a href="/events" class="button minimal">All news <i class="right-arrow">go</i></a>
                     </li>
             </section>
             <section class="testimonials site-container">

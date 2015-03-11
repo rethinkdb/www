@@ -1,0 +1,100 @@
+/* ---
+   Documentation: general styles
+   --- */
+.documentation {
+    padding: $base-spacing*2 0;
+    a { color: lighten(saturate($teal, 25), 25); }  // TODO - check color
+    @include media($mobile) { padding: $base-spacing; }
+
+    // Documentation grid
+    .docs-grid-block {
+        margin-bottom: $base-spacing*2;
+    }
+
+    // TODO -- consider rearchitecting
+    // Repeating some infobox rules here to overcome CSS precedence order
+    .infobox {
+        p {
+            margin: 0;
+            &:first-child { padding-top: 0; }
+            &:last-child { padding-bottom: 0; }
+        }
+    }
+}
+
+/* ---
+   Documentation: left-side nav
+   --- */
+.docs-sidebar-left {
+    @extend .quarter;
+
+    // Hide the menu on mobile devices
+    @include media($mobile) { display: none; }
+    @include media($medium-screen-up) { display: block; }
+}
+
+.docs-nav {
+    h1, .nav-header {
+        @include font-size-rem(16);
+        color: lighten(desaturate($teal, 28), 28);
+        cursor: pointer;
+        font-family: $sans-serif-medium;
+        font-weight: 600;
+        padding: $base-spacing/2 0 0;
+        width: 90%;
+    }
+    .nav-header {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+    
+    // Styles for each section
+    ul {
+        // Hide each section initially for the accordion
+        display: none;
+        margin-top: rem(6);
+        padding-left: rem(11);
+        border-left: 1px solid $smoke-gray;
+        &.expanded, &.active { display: block; }
+    }
+    li {
+        @include font-size-rem(15);
+        line-height: rem(22);
+        &.active a { color: $teal; }
+    }
+}
+
+/* ---
+   Documentation: language switcher
+   --- */
+// Language selector REMOVE TODO
+.lang-selector {
+    background: none;
+    border: 1px solid $smoke-gray;
+    border-radius: $base-border-radius;
+    box-shadow: none;
+    color: $smoke-gray;
+    padding: 0 $base-spacing/4 $base-spacing/4;
+    position: absolute;
+    text-align: center;
+    top: rem(-70);
+    right: 0px;
+    width: auto;
+
+    @include media($mobile) { top: rem(-40); }
+
+    a p {
+        @include font-size-rem(13);
+        display: inline;
+        font-family: $sans-serif-medium;
+        font-weight: 500;
+        margin-bottom: 0;
+        padding-top: 0;
+    }
+
+    // TODO this is likely for the API language switcher
+    //a {
+    //   display: inline-block;
+    //    padding: 0 $base-spacing/4;
+    //}
+}

@@ -1,0 +1,131 @@
+/* ---
+   Documentation: article styles
+   --- */
+.documentation .docs-article {
+    @extend .three-quarter;
+    padding: 0;
+    position: relative;
+
+    // Articles without the left-side docs navigation should use 100% width
+    &.full-width { @include fill-parent; }
+
+    h1, h2, h3 {
+        margin-top: $base-spacing*2;
+        margin-bottom: $base-spacing/2;
+    }
+    h1 {
+        @include font-size-rem(33);
+        font-weight: 400;
+        line-height: rem(38);
+        &.title {
+            margin: 0 0 $base-spacing*1.5;
+            // Used in conjunction with the optional `title_image`
+            // (img.title-image), which may be deprecated in the future
+            display: inline-block;
+        }
+    }
+
+    h2 {
+        @include font-size-rem(22);
+        font-family: $sans-serif-semi-bold;
+        font-weight: 600;
+    }
+
+    h3 {
+        @include font-size-rem(18);
+        color: lighten(desaturate($teal, 30), 30);
+        font-family: $sans-serif-semi-bold;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+    p { margin: $base-spacing 0; }
+    ul {
+        padding: $base-spacing/3 0;
+        margin: $base-spacing/3 0;
+    }
+    li {
+        @include font-size-rem(16);
+        font-family: $sans-serif-medium;
+        font-weight: 500;
+        list-style-type: disc;
+        list-style-position: outside;
+        padding: 0 0 0 $base-spacing/2;
+        margin-bottom: $base-spacing/3;
+        margin-left: 2rem;
+    }
+    p img {
+        display: block;
+        margin: 4% auto;
+        width: 40%;
+    }
+
+    em {
+        font-family: $sans-serif-medium;
+        font-weight: 500;
+        color: $teal;
+    }
+
+    blockquote:before { content: ''; }
+
+    // Title images, relies on the optional `title_image`, may be deprecated
+    // in the future. Used in conjuction with h1.title.
+    img.title-image {
+        height: rem(32);
+        margin-right: rem(17);
+        display: inline-block;
+        margin-bottom: rem(-6);
+    }
+
+    // Article introduction
+    .intro {
+        border-bottom: 1px solid $smoke-gray;
+        padding: $base-spacing 0 $base-spacing/2;
+
+        img {
+            display: block;
+            margin: 4% auto;
+            width: 40%;
+        }
+    }
+    // Article table of contents
+    .toc {
+        @extend .third;
+        background: desaturate(lighten($surf, 5), 10);
+        border-radius: $base-border-radius;
+        float: right;
+        padding: $base-spacing !important;
+        margin-left: $base-spacing*2;
+        margin-top: 0;
+
+        ul#markdown-toc {
+            margin-top: 1.5rem;
+            margin-bottom: 0;
+            padding: 0;
+        }
+
+        h1 {
+            @include font-size-rem(16);
+            font-family: $sans-serif-semi-bold;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-top: 0;
+        }
+
+        li {
+            @include font-size-rem(14);
+            font-weight: 500;
+            line-height: rem(16);
+            margin: $base-spacing/3 0;
+            width: 100%;
+            list-style-type: none;
+            margin-bottom: $base-spacing/2;
+            margin-left: 0;
+            padding-left: 0;
+
+            a {
+                @include font-size-rem(15);
+                color: lighten(desaturate($teal, 30), 30);
+            }
+        }
+    }
+}

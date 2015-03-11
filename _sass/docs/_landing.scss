@@ -1,0 +1,102 @@
+/* ---
+   Documentation: landing page
+   --- */
+.documentation .docs-landing {
+    // Large action items at the top of page
+    .primary-docs {
+        @include outer-container;
+        li {
+            @extend .third;
+            list-style: none;
+            margin-left: 0;
+            border-radius: $base-border-radius*2;
+            padding: $base-spacing*1.5;
+            position: relative;
+            min-height: rem(380);
+            background-repeat: no-repeat;
+            background-position: center top;
+            display: table;
+
+            h1 {
+                font-family: $sans-serif-semi-bold;
+                font-weight: 600;
+                @include font-size-rem(28);
+                margin-top: $base-spacing * 1.5;
+                text-align: center;
+                vertical-align: bottom;
+                display: table-cell;
+            }
+
+            &:hover {
+                h1 a { color: $teal; }
+            }
+            &:nth-child(1) {
+                background-image: url('/assets/images/docs/api_illustrations/quickstart.png');
+                background-position: center 4rem; // TODO -- remove, temporary for placeholders
+            }
+            &:nth-child(2) {
+                background-image: url('/assets/images/docs/api_illustrations/insert_ruby.png');
+            }
+            &:nth-child(3) {
+                background-image: url('/assets/images/docs/api_illustrations/faq.png');
+                background-position: center 2rem; // TODO -- remove, temporary for placeholders
+            }
+        }
+        p { margin: $base-spacing/2 0 0; }
+
+        li > a {
+            display: block;
+            height: 100%;
+            left: 0px;
+            position: absolute;
+            text-indent: -9999px;
+            top: 0px;
+            width: 100%;
+        }
+        img {
+            display: block;
+            margin: 0 auto;
+            width: 80%;
+        }
+        @include media($mobile) {
+            li {
+                min-height: none;
+                img { display: none; }
+            }
+        }
+    }
+
+    // Complete list of documentation articles
+    .docs-nav {
+        @include column-count(3);
+        @include column-gap(rem(10));
+        margin-left: 0;
+        margin-top: rem(50);
+
+        section {
+            -webkit-column-break-inside:avoid;
+            -moz-column-break-inside:avoid;
+            -o-column-break-inside:avoid;
+            -ms-column-break-inside:avoid;
+            column-break-inside:avoid;
+            margin-bottom: rem(40);
+
+            ul {
+                display: block;
+                border-left: thin solid #eee;
+                margin-top: rem(15);
+                padding: 0;
+                li {
+                    list-style-type: none;
+                    margin-left: rem(15);
+                }
+            }
+
+            h1 {
+                margin-top: 0;
+                @include font-size-rem(24);
+            }
+        }
+    }
+}
+

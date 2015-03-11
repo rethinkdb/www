@@ -1,10 +1,22 @@
 {% assign this_doc = page.docs_active %}
 <nav class="docs-nav">
     {% for each in site.data.docs_nav %}
+        {% assign docs_in_section = each.section.docs | map: 'permalink' %}
+
+        {% comment %}
+        <!-- Expand the nav section for this documentation article, 
+            or expand it if the YAML flag `doc_index` is `true` (used on the
+            documentation index page).  
+        --!>
+        {% endcomment %}
+        {% assign expanded = false %}
+        {% if docs_in_section contains this_doc or page.doc_index %}
+            {% assign expanded = true %}
+        {% endif %}
+
         <section>
             <h1>{{ each.section.name }}</h1>
-            {% assign docs_in_section = each.section.docs | map: 'permalink' %}
-            <ul{% if docs_in_section contains this_doc %} class="expanded"{% endif %}>
+            <ul{% if expanded %} class="expanded"{% endif %}>
                 {% for doc in each.section.docs %}
                     <li{% if doc.permalink == this_doc %} class='active'{% endif %}>
                         <a href="{{ doc.url }}">{{ doc.name }}</a>

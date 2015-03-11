@@ -12,12 +12,13 @@ $ ->
         # header should be wrapped
         $header.nextUntil("h2").andSelf().wrapAll($wrapper)
         # Get the unique ID for this command from the link to the command article
-        console.log($header.text())
         command = $('a', $header).attr('href').split('/').filter((el) -> el.length > 0 ).slice(-1)[0]
         # Inject an anchor before the header
         $("<a class='api-anchor' name='#{command}'></a>").insertBefore($(command_header))
 
-    $('.commands a').click (event) ->
+    # Scroll animation when you click on an anchor link (currenly used on API
+    # index pages)
+    $('.api-nav.anchor-links .commands a').click (event) ->
         event.preventDefault()
         $('.commands a').removeClass 'active'
         $(event.currentTarget).addClass 'active'
@@ -25,12 +26,18 @@ $ ->
         # Find the element we're supposed to scroll to and start scrolling
         hash = $(event.currentTarget).attr('href').slice(1)
         scrolltop_offset = $("a.api-anchor[name='#{hash}']").offset().top
-        $('html, body').animate
-            scrollTop: scrolltop_offset
-        , 250, 'swing', ->
-            window.location.hash = hash
+        scroll_to(scrolltop_offset, -> window.location.hash = hash)
 
-    $('p.back-to-top').waypoint -> $(this).toggleClass 'sticky'
+    $back_to_top = $('p.back-to-top')
+    $back_to_top.waypoint -> $(this).toggleClass 'sticky'
+    $back_to_top.on 'click', (e) ->
+        e.preventDefault()
+        scroll_to(0)
+
+
+# Scrolls to the specified offset, and calls the specified callback (optional)
+scroll_to = (offset, callback) ->
+    $('html, body').animate({scrollTop: offset}, 250, 'swing', callback)
 
     #init_api_page()
 ###

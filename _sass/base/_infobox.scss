@@ -1,0 +1,28 @@
+// Infobox styles
+.infobox {
+    background: lighten($sunshine, 10);
+    box-shadow: 1px 1px 1px darken($cream, 5), inset 3px 0px 0px darken($sunshine, 20);
+    margin: $base-spacing 0;
+    padding: $base-spacing/1.6 $base-spacing;
+    overflow: hidden;
+
+    p {
+        @include font-size-rem(16);
+        font-family: $sans-serif-medium;
+        font-weight: 500;
+        margin: 0;
+        padding-top: $base-spacing;
+        &:first-child {
+            margin-top: 0;
+            padding-top: 0;
+        }
+        &:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+    }
+    ul {
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+}

@@ -1,9 +1,9 @@
 // Typography
-$sans-serif: "freight-sans-pro";
-$sans-serif-medium: "freight-sans-pro-n5", "freight-sans-pro";
-$sans-serif-semi-bold: "freight-sans-pro-n6", "freight-sans-pro";
-$sans-serif-bold: "freight-sans-pro-n7", "freight-sans-pro";
-$sans-serif-italic: "freight-sans-pro-i4", "freight-sans-pro";
+$sans-serif: 'freight-sans-pro', 'FreightSans';
+$sans-serif-medium: 'freight-sans-pro-n5', 'freight-sans-pro', 'FreightSansMedium';
+$sans-serif-semi-bold: 'freight-sans-pro-n6', 'freight-sans-pro', 'FreightSansBold';
+$sans-serif-bold: 'freight-sans-pro-n7', 'freight-sans-pro', 'FreightSansBold';
+$sans-serif-italic: 'freight-sans-pro-i4', 'freight-sans-pro';
 $serif: 'Copse';
 $monospaced: 'Inconsolata';
 $base-font-family: $sans-serif;

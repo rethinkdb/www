@@ -10,6 +10,9 @@ include_nav: docs
             {% include docs-navigation.html %}
         </section>
         <section class="docs-article">
+            {% if page.switcher %}
+                {% include docs-switcher.html %}
+            {% endif %}
             {% if page.title_image %}
                 <img class="title-image" src="{{page.title_image}}" />
             {% endif %}

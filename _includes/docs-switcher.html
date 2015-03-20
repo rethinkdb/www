@@ -1,35 +1,52 @@
-<div id="docs-switcher" class="infobox infobox-slim page-nav-selector lang-selector">
-    {% if page.js != false %}
-    <a class="lang-link javascript {% if page.language == 'JavaScript' %}active{% endif %}"
-        href="{% apiurltag javascript %}{{page.permalink}}{% endapiurltag %}">
-            <i class="sprite javascript"></i><p class="category">JavaScript</p>
-        </a> |
-    {% endif %}
-    {% if page.js == false %}
-        <a class="lang-link javascript {% if page.language == 'JavaScript' %}active{% endif %}">
-            <i class="sprite javascript"></i><p class="category disabled">JavaScript</p>
-        </a> |
-    {% endif %}
-    {% if page.py != false %}
-        <a class="lang-link python {% if page.language == 'Python' %}active{% endif %}"
-            href="{% apiurltag python %}{{page.permalink}}{% endapiurltag %}">
-            <i class="sprite python"></i><p class="category">Python</p>
-        </a> |
-    {% endif %}
-    {% if page.py == false %}
-        <a class="lang-link python {% if page.language == 'Python' %}active{% endif %}">
-            <i class="sprite python"></i><p class="category disabled">Python</p>
-        </a> |
-    {% endif %}
-    {% if page.rb != false %}
-        <a class="lang-link ruby {% if page.language == 'Ruby' %}active{% endif %}"
-            href="{% apiurltag ruby %}{{page.permalink}}{% endapiurltag %}">
-            <i class="sprite ruby"></i><p class="category">Ruby</p>
-        </a>
-    {% endif %}
-    {% if page.rb == false %}
-        <a class="lang-link ruby {% if page.language == 'Ruby' %}active{% endif %}">
-            <i class="sprite ruby"></i><p class="category disabled">Ruby</p>
-        </a>
-    {% endif %}
-</div>
+{% comment %}
+<!--
+    Notes:
+    - `lang` is the current language of the documentation / API page.
+    - Documentation pages don't necessarily apply to all languages. They
+      can exclude languages by setting these YAML variables to `false`:
+        * page.js
+        * page.rb
+        * page.py
+      The language switcher will then disable those languages on that page.
+    - The `apiurltag` block tag generates correct links for the language
+      variants of the current page (using `page.permalink`)
+-->
+{% endcomment %}
+
+{% case page.language %}
+    {% when 'JavaScript' %}
+        {% assign lang = 'js' %}
+    {% when 'Python' %}
+        {% assign lang = 'py' %}
+    {% when 'Ruby' %}
+        {% assign lang = 'rb' %}
+{% endcase %}
+
+{% comment %}<!-- Generate links for this page in other languages -->{% endcomment %}
+{% capture js_link %}
+    {% apiurltag javascript %}{{ page.permalink }}{% endapiurltag %}
+{% endcapture %}
+{% capture py_link %}
+    {% apiurltag python %}{{ page.permalink }}{% endapiurltag %}
+{% endcapture %}
+{% capture rb_link %}
+    {% apiurltag ruby %}{{ page.permalink }}{% endapiurltag %}
+{% endcapture %}
+
+<nav class="lang-selector">
+    <a class="lang javascript{% if lang == 'js' %} active{% endif %}"
+        {% unless page.js == false %}href="{{ js_link }}"{% endunless %}>
+        <i class="javascript"></i>
+        <p {% if page.js == false %}class="disabled"{% endif %}>JavaScript</p>
+    </a>
+    <a class="lang python{% if lang == 'py' %} active{% endif %}"
+        {% unless page.py == false %}href="{{ py_link }}"{% endunless %}>
+        <i class="python"></i>
+        <p {% if page.py == false %}class="disabled"{% endif %}>Python</p>
+    </a>
+    <a class="lang ruby {% if lang == 'rb' %} active{% endif %}"
+        {% unless page.rb == false %}href="{{ rb_link }}"{% endunless %}>
+        <i class="ruby"></i>
+        <p {% if page.rb == false %}class="disabled"{% endif %}>Ruby</p>
+    </a>
+</nav>

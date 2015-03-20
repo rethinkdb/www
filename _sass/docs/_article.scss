@@ -18,7 +18,7 @@
         font-weight: 400;
         line-height: rem(38);
         &.title {
-            margin: 0 0 $base-spacing*1.5;
+            margin: 0 0 $base-spacing/8*7;
             // Used in conjunction with the optional `title_image`
             // (img.title-image), which may be deprecated in the future
             display: inline-block;

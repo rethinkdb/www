@@ -30,12 +30,8 @@ api_index: true
                 </ul>
             </div>
             -->
+            {% include docs-switcher.html %}
             <h1 class="title">{{page.language}} ReQL command reference</h1>
-            <div id="docs-switcher" class="infobox infobox-slim page-nav-selector lang-selector">
-                <a class="lang-link javascript {% if page.language == 'JavaScript' %}active{% endif %}" href="../javascript/" id="_js"><i class="sprite javascript"></i><p class="category">JavaScript</p></a> |
-                <a class="lang-link python {% if page.language == 'Python' %}active{% endif %}" href="../python/" id="_py"><i class="sprite python"></i><p class="category">Python</p></a> |
-                <a class="lang-link ruby {% if page.language == 'Ruby' %}active{% endif %}" href="../ruby/" id="_rb"><i class="sprite ruby"></i><p class="category">Ruby</p></a>
-            </div>
             <div class="infobox infobox-info">
                 <p>
                     <strong>Looking for documentation for a community driver?</strong><br/>

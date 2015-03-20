@@ -29,22 +29,20 @@
                 margin: $base-spacing/3 0;
             }
         }
-    }
 
+        > p:last-child {
+            margin: 0;
 
-    // Style overrides
-    .api-command p:last-child {
-        margin: 0;
-
-        a {
-            @extend .button;
-            @extend .outlined;
-            color: lighten(saturate($teal, 25), 25);
-            border-color: lighten(saturate($teal, 25), 25);
-            margin-top: $base-spacing/2;
+            a {
+                @extend .button;
+                @extend .outlined;
+                color: lighten(saturate($teal, 25), 25);
+                border-color: lighten(saturate($teal, 25), 25);
+                margin-top: $base-spacing/2;
+            }
         }
     }
-    
+
     // Back to top link
     p.back-to-top {
         border-top: thin solid #ccc;

@@ -2,62 +2,43 @@
    Documentation: landing page
    --- */
 .documentation .docs-landing {
-    // Large action items at the top of page
+
+    // Intro section that welcomes users to the documentation
+    .docs-intro {
+        background: rgb(241, 245, 245);
+        padding: $base-spacing $base-spacing*1.5;
+        border-radius: $base-border-radius;
+        margin-bottom: $base-spacing * 2;
+        
+        h2 {
+            margin-top: 0;
+            color: darken($base-font-color, 7);
+        }
+
+        > p {
+            @include font-size-rem(18);
+        }
+    }
+
+    // Large action items at the top of page, each is a simple button
     .primary-docs {
         @include outer-container;
         li {
             @extend .third;
+            @extend .simple-button;
             list-style: none;
             margin-left: 0;
-            border-radius: $base-border-radius*2;
-            padding: $base-spacing*1.5;
+            padding: $base-spacing/2;
             position: relative;
-            min-height: rem(380);
-            background-repeat: no-repeat;
-            background-position: center top;
-            display: table;
 
-            h1 {
-                font-family: $sans-serif-semi-bold;
-                font-weight: 600;
-                @include font-size-rem(28);
-                margin-top: $base-spacing * 1.5;
+            p {
+                margin: 0;
+                color: $teal;
                 text-align: center;
-                vertical-align: bottom;
-                display: table-cell;
+                @include font-size-rem(22);
             }
+        }
 
-            &:hover {
-                h1 a { color: $teal; }
-            }
-            &:nth-child(1) {
-                background-image: url('/assets/images/docs/api_illustrations/quickstart.png');
-                background-position: center 4rem; // TODO -- remove, temporary for placeholders
-            }
-            &:nth-child(2) {
-                background-image: url('/assets/images/docs/api_illustrations/insert_ruby.png');
-            }
-            &:nth-child(3) {
-                background-image: url('/assets/images/docs/api_illustrations/faq.png');
-                background-position: center 2rem; // TODO -- remove, temporary for placeholders
-            }
-        }
-        p { margin: $base-spacing/2 0 0; }
-
-        li > a {
-            display: block;
-            height: 100%;
-            left: 0px;
-            position: absolute;
-            text-indent: -9999px;
-            top: 0px;
-            width: 100%;
-        }
-        img {
-            display: block;
-            margin: 0 auto;
-            width: 80%;
-        }
         @include media($mobile) {
             li {
                 min-height: none;
@@ -66,7 +47,12 @@
         }
     }
 
-    // Complete list of documentation articles
+    // List of featured articles
+    .article-list {
+        @extend .article-list;
+    }
+
+    // Complete list of documentation articles -- TODO REMOVE
     .docs-nav {
         @include column-count(3);
         @include column-gap(rem(10));

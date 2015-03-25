@@ -55,45 +55,6 @@ body.community {
 // Events
 .community-wrapper .events {
     background: white;
-    ul {
-        h1 {
-            font-weight: 600;
-            line-height: rem(18);
-            padding-bottom: 0;
-            margin-bottom: 0;
-
-            a {
-                @include font-size-rem(18);
-                color: $teal;
-            }
-        }
-        li {
-            @include fill-parent;
-            border-bottom: 1px solid $smoke-gray;
-            padding-bottom: $base-spacing/1.3;
-            padding-left: 0;
-            padding-top: $base-spacing/1.3;
-            margin-top: 0;
-
-            @include media($mobile) { border-bottom: none; }
-        }
-        p {
-            @include font-size-rem(16);
-            font-weight: 500;
-            display: inline-block;
-            max-width: rem(600);
-            margin: 0;
-        }
-        span {
-            @include font-size-rem(14);
-            color: darken($surf, 25);
-            display: inline-block;
-            float: right;
-            font-family: $sans-serif-semi-bold;
-            font-weight: 600;
-            text-transform: uppercase;
-        }
-    }
 }
 
 // Recent talks/videos

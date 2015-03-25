@@ -136,7 +136,11 @@ body.landing {
 
     p, .list-signup, input, .button { @extend .half; }
 
-    .button { width: auto; }
+    .button {
+        width: auto;
+        height: rem(28);
+        line-height: rem(19);
+    }
 
     p {
         @include font-size-rem(16);
@@ -241,6 +245,7 @@ body.landing {
         background: #fff;
         font-family: $monospaced;
         @include font-size-rem(18);
+        span.term { color: $cranberry; }
     }
 
     p.title {
@@ -747,7 +752,10 @@ body.landing {
         margin-right: $base-spacing;
     }
 
-    a { color: $cream; }
+    a {
+        padding: rem(7) rem(22);
+        color: $cream;
+    }
 
     // Mobile styles
     @include media($mobile) {

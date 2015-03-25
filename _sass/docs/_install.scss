@@ -31,24 +31,16 @@
         @include align-content(flex-start);
         @include justify-content(flex-start);
 
-        // Each platform button
+        // Each platform button is a simple button
         li {
+            @extend .simple-button;
             position: relative;
             width: rem(190);
             margin-left: 0;
             margin-bottom: rem(10);
             margin-right: rem(15);
             padding: 0 $base-spacing;
-
-            border-radius: $base-border-radius;
-            border: thin solid desaturate(lighten($teal, 63), 15);
-            background: rgb(254, 254, 255);
-            font-weight: 400;
-            box-shadow: 0 2px 1px rgba(0, 0, 0, 0.02), inset 0px 1px 0px 0px rgba(255,255,255,1);
             list-style-type: none;
-            @include transition(border-color 0.1s linear);
-
-            &:hover { border-color: desaturate(lighten($teal, 45), 15); }
 
             img {
                 width: rem(22);

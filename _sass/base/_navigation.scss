@@ -6,11 +6,7 @@
     background: $teal;
     margin-bottom: $base-spacing;
 
-    // Mandatory spacing under the global nav
-    .site-container {
-        padding: $base-spacing;
-        position: relative;
-    }
+    .site-container { position: relative; }
 
     a {
         color: $cream;
@@ -31,7 +27,7 @@
     }
 
     li {
-        @include pad($base-spacing/4 0 0 $base-spacing*2.5);
+        margin: $base-spacing/4 0 0 $base-spacing*2.5;
         @include font-size-rem(18);
         display: inline-block;
         font-family: $sans-serif-semi-bold;
@@ -41,13 +37,20 @@
     }
     // Hide the menu trigger
     .menu-trigger { display: none; }
-
+    .menu-trigger-icon { opacity: 0.6; }
 }
 
 /* ---
    Navigation bar: global nav
    --- */
 .site-nav {
+    // Spacing within the global nav (i.e. height)
+    .site-container { padding: $base-spacing; }
+
+    li {
+        padding: rem(1) rem(3);
+        &.active { border-bottom: 2px solid rgb(59, 101, 115); }
+    }
     // Show a mobile navbar
     @include media($mobile) {
         // Hide other links until user taps 'Menu'
@@ -66,6 +69,8 @@
    'about' and 'community')
    --- */
 .sub-nav {
+    // Spacing within the sub nav (i.e. height)
+    .site-container { padding: $base-spacing/8*7; }
     background: $surf;
     margin-bottom: 0;
     a { color: $teal; }
@@ -77,6 +82,7 @@
         @include font-size-rem(16);
         line-height: rem(20);
         padding: $base-spacing/4 $base-spacing;
+        margin: 0;
     }
 }
 
@@ -122,7 +128,7 @@ body.pmr-open #wrapper { left: -50%; }
         width: 50%;
 
         li {
-            border-bottom: solid 1px darken($teal, 5);
+            border-bottom: 1px solid darken($teal, 5);
             display: block;
         }
 
@@ -145,6 +151,33 @@ body.pmr-open #wrapper { left: -50%; }
             padding-right: $base-spacing/2;
         }
     }
+
+    // Page-specific navigation with sub-menus appear below the main navigation
+    // on moble. The only place this is currently used is the documentation
+    // navigation.
+    .docs-nav {
+        border-top: 3px solid rgb(56,83,92);
+
+        h1 {
+            border-bottom: 1px solid darken($teal, 5);
+            a { color: $cream; }
+        }
+        // Submenus should appear visually distinct (different font weight, left border)
+        ul {
+            margin: 0;
+            padding: 0;
+            border-left: 5px solid rgb(110, 139, 148);
+
+            li { 
+                a {
+                    font-family: $sans-serif;
+                    color: rgb(110, 139, 148);
+                } 
+                &.active a { color: $cream; }
+            }
+        }
+    }
+
     .mobile-search {
         left: 0px;
         padding: $base-spacing;

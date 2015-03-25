@@ -37,7 +37,7 @@
         {% endif %}
 
         <section>
-            <h1>{{ each.section.name }}</h1>
+            <h1><a href="#">{{ each.section.name }}</a></h1>
             <ul class="commands {% if expanded %} expanded{% endif %}">
                 {% for command in each.section.commands %}
                 <li{% if command.permalink == this_cmd %} class='active'{% endif %}>

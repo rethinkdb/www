@@ -23,7 +23,9 @@ $ ->
         $(this).next('.video-modal').fadeIn()
     #   -> hide the video modal
     $('.video-modal').on('click', dismiss_video)
-    dismiss_video = -> $('.video-modal').fadeOut()
+    dismiss_video = (event) ->
+        event.preventDefault()
+        $('.video-modal').fadeOut('fast')
     $(document).keyup (event) ->
         if (event.keyCode == 27)
             dismiss_video()

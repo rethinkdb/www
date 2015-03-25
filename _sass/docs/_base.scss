@@ -26,12 +26,11 @@
 .docs-nav {
     h1, .nav-header {
         @include font-size-rem(16);
-        color: lighten(desaturate($teal, 28), 28);
-        cursor: pointer;
         font-family: $sans-serif-medium;
         font-weight: 600;
         padding: $base-spacing/2 0 0;
         width: 90%;
+        a { color: lighten(desaturate($teal, 28), 28); }
     }
     .nav-header {
         border-bottom: none;
@@ -62,7 +61,7 @@ nav.lang-selector {
     top: rem(5);
     right: 0;
     width: auto;
-    padding: 0 rem(8) rem(5);
+    padding: rem(2) rem(8);
 
     background: none;
     border: 1px solid rgb(229,229,229);

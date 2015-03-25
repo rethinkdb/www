@@ -1,5 +1,6 @@
 ---
 layout: default
+active: community
 body_class: community
 ---
 
@@ -100,62 +101,20 @@ body_class: community
     <section class="events">
         <div class="site-container">
             <h1>Events</h1>
-            <ul>
-                <li>
-                    <h1>
-                        <a href="#">Article header title</a>
-                    </h1>
-                    <p>Sed accumsan mi ut sapien porta auctor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                    <span>Section meta tag</span>
-                </li>
-                <li>
-                    <h1>
-                        <a href="#">Article header title</a>
-                    </h1>
-                    <p>Sed accumsan mi ut sapien porta auctor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                    <span>Section meta tag</span>
-                </li>
-                <li>
-                    <h1>
-                        <a href="#">Article header title</a>
-                    </h1>
-                    <p>Sed accumsan mi ut sapien porta auctor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                    <span>Section meta tag</span>
-                </li>
-                <li>
-                    <h1>
-                        <a href="#">Article header title</a>
-                    </h1>
-                    <p>Sed accumsan mi ut sapien porta auctor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                    <span>Section meta tag</span>
-                </li>
-                <li>
-                    <h1>
-                        <a href="#">Article header title</a>
-                    </h1>
-                    <p>Sed accumsan mi ut sapien porta auctor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                    <span>Section meta tag</span>
-                </li>
-                <li>
-                    <h1>
-                        <a href="#">Article header title</a>
-                    </h1>
-                    <p>Sed accumsan mi ut sapien porta auctor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                    <span>Section meta tag</span>
-                </li>
-                <li>
-                    <h1>
-                        <a href="#">Article header title</a>
-                    </h1>
-                    <p>Sed accumsan mi ut sapien porta auctor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                    <span>Section meta tag</span>
-                </li>
+            <ul class="article-list">
+                {% for event in site.data['upcoming-events'] %}
+                    <li>
+                        <h1><a href="{{ event.permalink }}">{{ event.title }}</a></h1>
+                        <p>{{ event.description }}</p>
+                        <span>{{ event.tag }}</span>
+                    </li>
+                {% endfor %}
             </ul>
         </div>
     </section>
     <!-- videos/talks -->
     <section class="talks">
-        <h1>Recent talks</h1>
+        <h1>Recent talks from the community</h1>
         <div class="site-container">
             <section class="videos">
                 <div class="video">

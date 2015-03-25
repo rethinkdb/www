@@ -1,3 +1,4 @@
 --ignore-dir=_site
 --type-set=meta:is:.jekyll-metadata
+--type-set=liquid:ext:html,html,markdown,md
 --nometa

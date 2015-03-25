@@ -1,13 +1,12 @@
 /* ---
    Documentation search
    --- */
-.docs .search { 
+.docs .search, .api-docs .search { 
     position: relative;
     // Search box
     input {
         background: white url('/assets/images/icons/icon-search.png') $base-spacing/2 center no-repeat;
         background-size: rem(15);
-        border: none;
         // Left-side search
         &.small {
             margin-bottom: $base-spacing/2;

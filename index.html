@@ -10,7 +10,7 @@ body_class: landing
             <div class="site-container">
                 <h1>The open source database <span>for the realtime web.</span></h1>
                 <div class="hero-install">
-                    <a class="button install light" href="/install">Install RethinkDB <i class="right-arrow white">go</i></a>
+                    <a class="button install light" href="/install">Install RethinkDB <i class="right-arrow white">&rarr;</i></a>
                 </div>
             </div>
         </section>
@@ -43,7 +43,7 @@ body_class: landing
                 <a class="button outlined dark" href="/streaming">What is RethinkDB?<i class="right-arrow">go</i></a>
             </div>
             <div class="realtime-queries">
-                <p class="query">r.table('game').orderBy('score').limit(3).changes()</p>
+                <p class="query">r.table(<span class="term">'game'</span>).orderBy(<span class="term">'score'</span>).limit(<span class="term">3</span>).changes()</p>
                 <div class="query-results">
                     <div class="leaderboard-panel">
                         <p class="title">Top player scores</p>
@@ -307,7 +307,7 @@ body_class: landing
     <section class="support">
         <div class="site-container">
             <h1>Need 24 hour support, architectural consulting, or training?</h1>
-            <a class="button light" href="/">Buy support</a>
+            <a class="button light" href="/">Buy support <i class="right-arrow white">&rarr;</i></a>
         </div>
     </section>
 </div>

@@ -31,7 +31,7 @@ body_class: landing
     <section class="intro">
         <div class="site-container">
             <div class="intro-content">
-                <h1>RethinkDB pushes JSON to your apps <strong>in realtime</strong></h1>
+                <h1>RethinkDB pushes JSON to your apps <strong>in realtime</strong>.</h1>
                 <p>
                     When your app polls for data, it becomes slow, unscalable,
                     and cumbersome to maintain.
@@ -72,41 +72,74 @@ body_class: landing
                 <li class="example active">
                     <img class="active" src="/assets/images/examples/mobile-desktop_@2x.png">
                     <div class="example-text">
-                        <h3 class="active">Reactive web + mobile apps</h3>
-                        <p class="active">Web apps like <a href="www.google.com/docs">Google Docs</a>, <a href="https://trello.com/">Trello</a>, and <a href="https://www.quora.com/">Quora</a> pioneered the realtime experience on the web. With RethinkDB you can build amazing realtime apps in a fraction of the time and engineering effort.</p>
+                        <h3 class="active">Reactive web and mobile apps</h3>
+                        <p class="active">
+                            Web apps like <a href="http://www.google.com/docs">Google Docs</a>,
+                            <a href="https://trello.com/">Trello</a>, and <a
+                            href="https://www.quora.com/">Quora</a> pioneered
+                            the realtime experience on the web. With RethinkDB, you
+                            can build amazing realtime apps with dramatically
+                            less engineering effort.
+                        </p>
                     </div>
                 </li>
                 <li class="example">
                     <img src="/assets/images/examples/games_@2x.png">
                     <div class="example-text">
                         <h3>Multiplayer games</h3>
-                        <p>When a player takes an action in a multiplayer game, every other player in the game needs to see the change in realtime. RethinkDB dramatically simplies the data infrastructure for low latency, high throughput realtime interactions.</p>
+                        <p>
+                            When a player takes an action in a multiplayer
+                            game, every other player in the game needs to see
+                            the change in realtime. RethinkDB dramatically
+                            simplies the data infrastructure for low latency,
+                            high throughput realtime interactions.
+                        </p>
                     </div>
                 </li>
                 <li class="example">
                     <img src="/assets/images/examples/marketplaces_@2x.png">
                     <div class="example-text">
                         <h3>Realtime marketplaces</h3>
-                        <p>RethinkDB dramatically reduces the complexity of building realtime trading and dynamic creative optimization engines. Publish realtime updates to thousands of clients, and provide pricing and creative updates to users in milliseconds.</p>
+                        <p>
+                            RethinkDB dramatically reduces the complexity of
+                            building realtime trading and dynamic creative
+                            optimization engines. Publish realtime updates to
+                            thousands of clients, and provide pricing and
+                            creative updates to users in milliseconds.
+                        </p>
                     </div>
                 </li>
                 <li class="example">
                     <img src="/assets/images/examples/analytics_@2x.png">
                     <div class="example-text">
                         <h3>Streaming analytics</h3>
-                        <p>Build realtime leaderboards with RethinkDB data push notifications, and make instantenious business decisions. We've also layed the groundwork for the <a href="https://github.com/rethinkdb/rethinkdb/issues/1118">realtime, incremental computation engine</a>, that will allow you to analyze terrabytes of data in milliseconds.</p>
+                        <p>
+                            Build realtime leaderboards with RethinkDB data
+                            push notifications, and make instantenious business
+                            decisions. We've also layed the groundwork for the
+                            <a
+                         href="https://github.com/rethinkdb/rethinkdb/issues/1118">realtime,
+                         incremental computation engine</a>, that will allow
+                     you to analyze terrabytes of data in milliseconds.
+                        </p>
                     </div>
                 </li>
                 <li class="example">
                     <img src="/assets/images/examples/analytics_@2x.png">
                     <div class="example-text">
                         <h3>Connected devices</h3>
-                        <p>RethinkDB dramatically simplifies modern IoT infrastructures. Stream data between connected devices, enable messaging and signaling, and trigger actions in millions of devices in milliseconds.</p>
+                        <p>
+                            RethinkDB dramatically simplifies modern IoT
+                            infrastructures. Stream data between connected
+                            devices, enable messaging and signaling, and
+                            trigger actions in millions of devices in
+                            milliseconds.
+                        </p>
                     </div>
                 </li>
             </ul>
             <nav>
-                <a href="#" class="active">Reactive web + mobile apps</a>
+                <a href="#" class="active">Web + mobile apps</a>
                 <a href="#">Multiplayer games</a>
                 <a href="#">Realtime marketplaces</a>
                 <a href="#">Streaming analytics</a>
@@ -149,11 +182,13 @@ body_class: landing
                 <article>
                     <h2>Everything you need to build modern apps</h2>
                     <p>
-                        Express relationships using
-			<a href="/docs/table-joins/">joins</a>, build <a href="/docs/geo-support">location-aware apps</a>, or
-			store <a href="/docs/storing-binary">multimedia</a> and <a href="/docs/dates-and-times">time-series</a> data. Do
-			analytics with <a href="/docs/map-reduce/">aggregation and map/reduce</a>,
-			and speed up your apps using flexible <a href="/docs/secondary-indexes">indexing</a>.
+                        Express relationships using <a href="/docs/table-joins/">joins</a>,
+                        build <a href="/docs/geo-support">location-aware apps</a>,
+                        or store <a href="/docs/storing-binary">multimedia</a>
+                        and <a href="/docs/dates-and-times">time-series</a>
+                        data. Do analytics with <a href="/docs/map-reduce/">aggregation and
+                        map/reduce</a>, and speed up your apps using
+                        flexible <a href="/docs/secondary-indexes">indexing</a>.
                     </p>
                     <img src="/assets/images/modern-features/3.png">
                 </article>
@@ -176,11 +211,18 @@ body_class: landing
             <section class="feature-content feature-content-two">
                 <h1>Scale your cluster in seconds</h1>
                 <p>
-                    When you're ready to scale your app, shard and replicate in a few clicks using an intuitive web UI.
+                    When you're ready to scale your app, shard and replicate in
+                    a few clicks using an intuitive web UI.
                 </p>
-                <p>If you need it, a simple API provides precise control over the cluster:</p>
+                <p>
+                    If you need it, a simple API provides precise control over
+                    the cluster:
+                </p>
                 <pre><code>r.<span class="term">table</span>(<span class="str">'games'</span>).<span class="term">reconfigure</span>(shards=5, replicas=3)</code></pre>
-                <p>Monitor your production cluster with live statistics and complete visibility into running jobs:</p>
+                <p>
+                    Monitor your production cluster with live statistics and
+                    complete visibility into running jobs:
+                </p>
                 <pre><code>r.<span class="term">db</span>(<span class="str">'rethinkdb'</span>).<span class="term">table</span>(<span class="str">'jobs'</span>).<span class="term">changes</span>()</code></pre>
                  <a class="button outlined dark" href="/ops.html">Learn more <i class="right-arrow">go</i></a>
             </section>

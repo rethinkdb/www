@@ -480,7 +480,7 @@ body.landing {
                 margin: 0 $base-spacing;
             }
             @include media($large-screen-up) {
-                margin: 0 $base-spacing*2;
+                margin: 0 $base-spacing*1.5;
             }
         }
         a.active {

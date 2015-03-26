@@ -7,12 +7,12 @@ include_nav: docs
 <section class="documentation">
     <div class="site-container">
         <section class="docs-sidebar-left">
-            {% include docs-search.html %}
-            {% include docs-navigation.html %}
+            {% include docs/docs-search.html %}
+            {% include docs/docs-navigation.html %}
         </section>
         <section class="docs-article">
             {% if page.switcher %}
-                {% include docs-switcher.html %}
+                {% include docs/docs-switcher.html %}
             {% endif %}
             {% if page.title_image %}
                 <img class="title-image" src="{{page.title_image}}" />

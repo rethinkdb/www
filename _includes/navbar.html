@@ -12,9 +12,9 @@
     </ul>
     {% case page.include_nav %}
         {% when 'docs' %}
-            {% include docs-navigation.html %}
+            {% include docs/docs-navigation.html %}
         {% when 'api' %}
-            {% include api-navigation.html %}
+            {% include docs/api-navigation.html %}
     {% endcase %}
 </nav>
 <nav class="site-nav">

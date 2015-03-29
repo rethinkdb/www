@@ -19,14 +19,15 @@
     }
 
     // Shared layout styles
+    $_padding-top: $base-spacing*2;
     .posts, .post-container {
         @extend .three-quarter;
         padding-right: $base-spacing*3;
-        padding-top: $base-spacing*2.5;
+        padding-top: $_padding-top;
     }
     .blog-sidebar {
         @extend .quarter;
-        padding-top: $base-spacing*2.5;
+        padding-top: $_padding-top;
     }
 
     // Individual element styles
@@ -117,10 +118,10 @@
         }
     }
 
-    .post-link {
-        @include font-size-rem(22);
-        color: lighten(saturate($teal, 25), 25);
-        font-weight: 400;
+    // 'Read more' link for each post
+    a.post-link {
+        margin-top: rem(15);
+        padding: rem(8) rem(30);
     }
 
     // Blog sidebar

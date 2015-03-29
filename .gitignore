@@ -8,3 +8,9 @@ node_modules/
 .jekyll-metadata
 _deploy-config.yml
 _algolia-build
+
+# Ignored during the transition
+docs/
+_posts/
+assets/images/docs/
+assets/images/posts/

@@ -3,13 +3,18 @@ RethinkDB website
 
 ## NOTE: please do the following to build
 
-To build the site while we're in transition, check out this repo and rethinkdb/docs (using the branch 2.0-revised).
+To build the site while we're in transition, check out these repos:
+    - rethinkdb/www-thoughtbot (this repo)
+    - rethinkdb/rethinkdb-www, using the `2.0-revised` branch
+    - rethinkdb/docs, using the `2.0-revised` branch
 
 Symlink the following directories (assuming you've checked out both repos to `~/git`:
 
 ```
-ln -s ~/git/www-thoughtbot/docs ~/git/docs
-ln -s ~/git/www-thoughtbot/assets/images/docs ~/git/docs/_images
+ln -s ~/git/docs ~/git/www-thoughtbot/docs
+ln -s ~/git/docs/_images ~/git/www-thoughtbot/assets/images/docs
+ln -s ~/git/rethinkdb-www/_posts ~/git/www-thoughtbot/_posts
+ln -s ~/git/rethinkdb-www/assets/images/posts ~/git/www-thoughtbot/assets/images/posts
 ```
 
 This is a temporary measure while files are being moved around, and may change abruptly. This notice will be removed from the README when it no longer applies.

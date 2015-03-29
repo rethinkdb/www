@@ -129,7 +129,7 @@
         // The blog sidebar sticks when you scroll past it
         ul { 
             width: rem(300);
-            &.sticky {
+            &.stuck {
                 position: fixed;
                 top: 0;
             }

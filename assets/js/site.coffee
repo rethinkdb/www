@@ -9,8 +9,8 @@ $ ->
         $('body').toggleClass 'pmr-open'
 
     # Blog right panel should be set to a fixed position on scroll
-    $('.blog-sidebar ul').waypoint (direction) ->
-        $(this).toggleClass 'sticky'
+    blog_sidebar_sticky = new Waypoint.Sticky
+        element: $('.blog-sidebar ul')
 
     # Docs navigation: collapse / expand sections
     $('.docs-nav h1, .mobile-doc-links h1').click (event) ->

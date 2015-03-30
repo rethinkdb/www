@@ -1,3 +1,6 @@
+/* ---
+   Blog: layout and general styles
+   --- */
 .blog {
     // Shared typographic styles
     .posts, .post-container {
@@ -29,18 +32,70 @@
         @extend .quarter;
         padding-top: $_padding-top;
     }
+}
 
-    // Individual element styles
-    .post {
-        border-bottom: 1px solid darken($smoke-gray, 5);
-        padding-bottom: $base-spacing*1.6;
-
-        a { color: lighten(saturate($teal, 25), 25); }
+/* ---
+   Blog: post styles
+   --- */
+.blog .post {
+    // General post styles
+    border-bottom: 1px solid darken($smoke-gray, 5);
+    padding-bottom: $base-spacing*1.6;
+    a { color: lighten(saturate($teal, 25), 25); }
+    
+    // Hero image
+    .post-hero {
+        $_padding: $base-spacing*1.5;
+        padding-top: $_padding;
+        width: 100%;
+        &.above {
+            padding-top: 0;
+            padding-bottom: $_padding;
+        }
     }
 
-    .post-byline {
+    // Content styles
+    .post-body {
         color: lighten(desaturate($teal, 35), 20);
+        padding-top: $base-spacing;
+
+        li, p {
+            @include font-size-rem(18);
+            line-height: rem(30);
+        }
+
+        ul { margin: $base-spacing 0; }
+        ul li:last-child { margin-bottom: $base-spacing; }
+
+        li {
+            list-style-type: disc;
+            list-style-position: outside;
+            padding: 0 0 0 $base-spacing/2;
+            margin-bottom: $base-spacing/3;
+            margin-left: 2rem;
+        }
+
+        p { margin-bottom: $base-spacing; }
+        .infobox p {
+            @include font-size-rem(16);
+            font-family: $sans-serif-medium;
+            font-weight: 500;
+            margin-bottom: 0;
+        }
     }
+
+    // 'Read more' link for each post
+    a.post-link {
+        margin-top: rem(15);
+        padding: rem(8) rem(30);
+    }
+}
+
+/* ---
+   Blog: post bylines (author, tags, date)
+   --- */
+.blog .post-byline {
+    color: lighten(desaturate($teal, 35), 20);
 
     .avatar, .post-timestamp, .post-tags {
         display: inline-block;
@@ -80,75 +135,56 @@
             font-weight: 500;
         }
     }
+}
 
-    .post-hero {
-        padding-top: $base-spacing*1.5;
-        width: 100%;
-    }
-
-    .post-body {
-        color: lighten(desaturate($teal, 35), 20);
-        padding-top: $base-spacing;
-
-        li, p {
-            @include font-size-rem(20);
-            line-height: rem(30);
-        }
-
-        ul { margin: $base-spacing 0; }
-        ul li:last-child { margin-bottom: $base-spacing; }
-
-        li {
-            @include font-size-rem(16);
-            font-family: $sans-serif-medium;
-            font-weight: 500;
-            list-style-type: disc;
-            list-style-position: outside;
-            padding: 0 0 0 $base-spacing/2;
-            margin-bottom: $base-spacing/3;
-            margin-left: 2rem;
-        }
-
-        p { margin-bottom: $base-spacing; }
-        .infobox p {
-            @include font-size-rem(16);
-            font-family: $sans-serif-medium;
-            font-weight: 500;
-            margin-bottom: 0;
-        }
-    }
-
-    // 'Read more' link for each post
-    a.post-link {
-        margin-top: rem(15);
-        padding: rem(8) rem(30);
-    }
-
-    // Blog sidebar
-    .blog-sidebar {
+/* ---
+   Blog sidebar
+   --- */
+.blog-sidebar {
+    ul { 
+        width: rem(300);
         // The blog sidebar sticks when you scroll past it
-        ul { 
-            width: rem(300);
-            &.stuck {
-                position: fixed;
-                top: 0;
-            }
+        &.stuck {
+            position: fixed;
+            top: 0;
+            z-index: -1; // The sidebar should slide under the footer on short displays
         }
-        li, p {
-            @include font-size-rem(16);
-            font-family: $sans-serif-medium;
-            font-weight: 500;
-            margin-bottom: $base-spacing*2;
+    }
+
+    p {
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        @include font-size-rem(16);
+        font-family: $sans-serif-medium;
+        font-weight: 600;
+        margin-bottom: $base-spacing/3;
+    }
+
+    li {
+        $_margin-bottom: $base-spacing*1.5;
+        @include font-size-rem(16);
+        font-family: $sans-serif-medium;
+        font-weight: 500;
+        margin-bottom: $_margin-bottom;
+        &.read-more {
+            margin-top: 0;
+            margin-bottom: $_margin-bottom;
         }
-
-        span {
-            display: block;
-            font-family: $sans-serif-medium;
-            font-weight: 600;
-            margin-bottom: $base-spacing/3;
+    }
+    
+    .subscribe-mailing-list {
+        input {
+            display: inline-block;
+            width: rem(195);
+            margin-right: rem(5);
+            padding: rem(8) rem(13);
         }
-
-        button { margin-top: $base-spacing/2; }
-
+        button {
+            display: inline-block;
+            margin-top: rem(-2);
+        }
     }
 }

@@ -1,23 +1,27 @@
-<div class="blog-sidebar-wrap">
     <aside class="blog-sidebar">
         <ul>
+            {% if blog_sidebar != 'post' %}
+                <li class="infobox read-more">
+                    <h1>Interested in reading more?</h1>
+                    <p>
+                        Read more guides, articles, and announcements from the
+                        team </a> on the <a href="/blog">RethinkDB blog</a>.
+                    </p>
+                </li>
+            {% endif %}
             <li>
-                <p>
-                    <span>What is RethinkDB?</span>
-                     RethinkDB is an open-source, document database that makes it easy to build and scale realtime apps. 
-                </p>
-                <p>Read <a href="/blog">more posts</a> on our blog.</p>
+                <h1>What is RethinkDB?</h1>
+                RethinkDB is an open-source, document database that makes it easy to build and scale realtime apps. 
             </li>
-            <li>
-                <span>Want the latest updates?</span>
+            <li class="subscribe-mailing-list">
+                <h1>Want the latest updates?</h1>
                 <input class="medium" type="text" placeholder="Your email address" type="text">
                 <button class="button subscribe small" type="submit">Subscribe</button>
             </li>
             <li>
-                <span>Share</span>
+                <h1>Share this post</h1>
                 <a href="icon twitter">Twitter</a>
                 <a href="icon facebook">Facebook</a>
             </li>
         </ul>
     </aside>
-</div>

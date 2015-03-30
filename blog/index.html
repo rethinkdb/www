@@ -37,25 +37,5 @@ body_class: blog
             </article>
         {% endfor %}
     </section>
-    <aside class="blog-sidebar">
-        <ul>
-            <li>
-                <p>
-                    <span>What is RethinkDB?</span>
-                    RethinkDB is the open source distributed database for the
-                    realtime web.
-                </p>
-            </li>
-            <li>
-                <span>Want the latest updates?</span>
-                <input class="medium" type="text" placeholder="Your email address" type="text">
-                <button class="button subscribe small" type="submit">Subscribe</button>
-            </li>
-            <li>
-                <span>Share</span>
-                <a href="icon twitter">Twitter</a>
-                <a href="icon facebook">Facebook</a>
-            </li>
-        </ul>
-    </aside>
+    {% include blog-sidebar.html %}
 </div>

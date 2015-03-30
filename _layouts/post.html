@@ -2,6 +2,7 @@
 layout: default
 active: blog
 body_class: blog
+blog_sidebar: 'post'
 ---
 {% if post.author_github %}
 {% capture post_avatar %}/assets/images/blog/authors/{{post.author_github}}.png{% endcapture %}
@@ -11,8 +12,7 @@ body_class: blog
 <div class="site-container">
     <section class="post-container">
         <article class="post">
-            <a class="post-link" href="/blog">Read all posts</a>
-            <div class="post-hero">
+            <div class="post-hero above">
                 {% if page.hero_image %}
                     <img src="/assets/images/posts/{{ page.hero_image }}">
                 {% endif %}
@@ -35,24 +35,5 @@ body_class: blog
             </div>
         </article>
     </section>
-    <div class="social-integration">
-        <ul>
-            <li>
-                <p>
-                    <span>What is RethinkDB?</span>
-                    Vestibulum id turpis ornare, malesuada augue in, iaculis libero.
-                </p>
-            </li>
-            <li>
-                <span>Want the latest updates?</span>
-                <input class="medium" type="text" placeholder="Your email address" type="text">
-                <button class="button subscribe small" type="submit">Subscribe</button>
-            </li>
-            <li>
-                <span>Share</span>
-                <a href="icon twitter">Twitter</a>
-                <a href="icon facebook">Facebook</a>
-            </li>
-        </ul>
-    </div>
+    {% include blog-sidebar.html %}
 </div>

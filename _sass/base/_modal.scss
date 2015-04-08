@@ -8,8 +8,9 @@
     top: 0px;
     width: 100%;
     z-index: 7;
-
-    .close {
+    
+    &:before {
+        content: '\2715';
         @include font-size-rem(30);
         color: white;
         display: block;
@@ -46,6 +47,7 @@
 
     iframe {
         border: 6px solid $teal;
+        background: black;
         height: 100%;
         left: 0;
         position: absolute;

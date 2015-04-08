@@ -1,6 +1,6 @@
 // Infobox styles
 
-.infobox, .documentation .infobox {
+.infobox, .documentation .infobox, .blog .post .post-body .infobox {
     background: rgb(230, 241, 244);
     border-radius: $base-border-radius;
     margin: $base-spacing 0;
@@ -8,11 +8,16 @@
     overflow: hidden;
 
     &.infobox-alert { background: rgb(249, 243, 219); }
-
-    p {
+    
+    // Typographic styles
+    p, li {
         @include font-size-rem(16);
         font-family: $sans-serif-medium;
         font-weight: 500;
+    }
+
+    // Layout and spacing
+    p {
         margin: 0;
         padding-top: $base-spacing;
         &:first-child {
@@ -25,7 +30,14 @@
         }
     }
     ul {
-        padding-bottom: 0;
+        margin-top: rem(15);
         margin-bottom: 0;
+        padding-bottom: 0;
+        li:last-child { margin-bottom: 0; }
+
+        > ul { 
+            margin: 0;
+            li:last-child { margin-bottom: 0; }
+        }
     }
 }

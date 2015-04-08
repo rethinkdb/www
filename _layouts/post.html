@@ -4,10 +4,10 @@ active: blog
 body_class: blog
 blog_sidebar: 'post'
 ---
-{% if post.author_github %}
-{% capture post_avatar %}/assets/images/blog/authors/{{post.author_github}}.png{% endcapture %}
+{% if page.author_github %}
+    {% capture avatar %}/assets/images/blog/authors/{{page.author_github}}.png{% endcapture %}
 {% else %}
-    {% assign post_avatar = '/assets/images/blog/authors/rethinkdb.png' %}
+    {% assign avatar = '/assets/images/blog/authors/rethinkdb.png' %}
 {% endif %}
 <div class="site-container">
     <section class="post-container">
@@ -17,11 +17,16 @@ blog_sidebar: 'post'
                     <img src="/assets/images/posts/{{ page.hero_image }}">
                 {% endif %}
             </div>
-            <a href="{{page.url}}"><h1 class="title">{{page.title }}</h1></a>
+            <a href="{{ page.url }}"><h1 class="title">{{page.title }}</h1></a>
             <div class="post-byline">
-                <a class="avatar" href="#">
-                    <img src="{{ post_avatar }}">
-                    {{ page.author | default 'RethinkDB Team' }}
+                <a class="avatar" href="{{ author_link }}">
+                    <img src="{{ avatar }}">
+                    <!--default-->
+                    {% if page.author %}
+                        {{ page.author }}
+                    {% else %}
+                        RethinkDB Team
+                    {% endif %}
                 </a>
                 <span class="post-timestamp">{{ page.date | date: "%B %d, %Y" }}</span>
                 <ul class="post-tags">

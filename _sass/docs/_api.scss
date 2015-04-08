@@ -18,18 +18,6 @@
 
         h2 a { color: $teal; }
 
-        .command-syntax {
-            border-left: 1px solid darken($smoke-gray, 5);
-            padding-left: $base-spacing/2;
-
-            p {
-                @include font-size-rem(16);
-                font-family: $monospaced;
-                padding: 0;
-                margin: $base-spacing/3 0;
-            }
-        }
-
         > p:last-child {
             margin: 0;
 
@@ -44,13 +32,54 @@
     }
 
     // Back to top link
+    .api-nav {
+        border-bottom: thin solid lighten(desaturate($teal, 25), 65);
+        padding-bottom: rem(20);
+    }
     p.back-to-top {
-        border-top: thin solid #ccc;
-        margin-top: rem(10);
         padding-top: rem(10);
-        &.sticky {
+        &.stuck {
             position:fixed;
             top: 0;
+        }
+
+        a {
+            @include font-size-rem(16);
+            font-family: $sans-serif-semi-bold;
+            font-weight: 600;
+            color: lighten($teal, 15);
+            i { 
+                font-style: normal;
+                position: relative;
+                top: rem(-3);
+                font-size: rem(7);
+                margin-right: rem(4);
+            }
+            &:hover {
+              color: $teal;
+            }
+        }
+    }
+}
+
+
+/* ---
+   Documentation: API docs -- individual command styles
+   --- */
+.documentation .api-command {
+    .command-syntax {
+        border-left: 3px solid darken($smoke-gray, 3);
+        padding-left: $base-spacing/2;
+        margin-top: 2rem;
+
+        p {
+            @include font-size-rem(16);
+            font-family: $monospaced;
+            padding: 0;
+            margin: $base-spacing/3 0;
+
+            &:first-child { margin-top: 0; }
+            &:last-child { margin-bottom: 0; }
         }
     }
 }

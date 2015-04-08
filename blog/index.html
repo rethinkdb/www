@@ -3,20 +3,29 @@ layout: default
 active: blog
 body_class: blog
 ---
-{% if post.author_github %}
-{% capture post_avatar %}/assets/images/blog/authors/{{post.author_github}}.png{% endcapture %}
-{% else %}
-    {% assign post_avatar = '/assets/images/blog/authors/rethinkdb.png' %}
-{% endif %}
 <div class="site-container">
     <section class="posts">
         {% for post in paginator.posts %}
+            {% comment %}<!-- Get the avatar for the author -->{% endcomment %}
+            {% if post.author_github %}
+                {% capture avatar %}/assets/images/blog/authors/{{ post.author_github }}.png{% endcapture %}
+                {% capture author_link %}https://github.com/{{ post.author_github }}{% endcapture%}
+            {% else %}
+                {% assign avatar = '/assets/images/blog/authors/rethinkdb.png' %}
+                {% assign author_link = 'https://github.com/rethinkdb' %}
+            {% endif %}
+
             <article class="post">
-                <a href="{{post.url}}"><h1 class="title">{{ post.title }}</h1></a>
+                <a href="{{ post.url }}"><h1 class="title">{{ post.title }}</h1></a>
                 <div class="post-byline">
-                    <a class="avatar" href="#">
-                        <img src="{{ post_avatar }}">
-                        {{ post.author | default 'RethinkDB Team' }}
+                    <a class="avatar" href="{{ author_link }}">
+                        <img src="{{ avatar }}">
+                        <!--default-->
+                        {% if post.author %}
+                            {{ post.author }}
+                        {% else %}
+                            RethinkDB Team
+                        {% endif %}
                     </a>
                     <span class="post-timestamp">{{ post.date | date: "%B %d, %Y" }}</span>
                     <ul class="post-tags">
@@ -33,9 +42,17 @@ body_class: blog
                 <div class="post-body">
                     {{ post.excerpt | markdownify }}
                 </div>
-                <a class="post-link button outlined dark" href="{{post.url}}">Continue reading<i class="right-arrow"></i></a>
+                <a class="post-link button outlined dark" href="{{post.url}}">Read the full post<i class="right-arrow"></i></a>
             </article>
         {% endfor %}
+        <section class="pagination">
+            {% if paginator.next_page %}
+                <a href="{{ paginator.next_page_path }}" class="button minimal older-posts"><i class="left-arrow">prev</i> Older posts</a>
+            {% endif %}
+            {% if paginator.previous_page %}
+                <a href="{{ paginator.previous_page_path }}" class="button minimal newer-posts">Newer posts <i class="right-arrow">next</i></a>
+            {% endif %}
+        </section>
     </section>
     {% include blog-sidebar.html %}
 </div>

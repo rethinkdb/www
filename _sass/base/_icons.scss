@@ -1,16 +1,28 @@
-// General icons
-.right-arrow {
+/* ---
+   Icons: left and right arrows
+   --- */
+.right-arrow, .left-arrow {
     @include transition(all 0.1s linear);
-    background-image: url("/assets/images/icons/icon-sm-right-arrow.png");
     background-position: center center;
     background-repeat: no-repeat;
     display: inline-block;
     height: 25px;
-    left: rem(4);
+    width: 7px;
     position: relative;
+    text-align: left;
     text-indent: -9999px;
     vertical-align: top;
-    width: 7px;
+}
+
+.left-arrow {
+    background-image: url("/assets/images/icons/icon-sm-left-arrow.png");
+    left: 0;
+    margin-right: rem(5);
+}
+
+.right-arrow {
+    background-image: url("/assets/images/icons/icon-sm-right-arrow.png");
+    left: rem(4);
     &.white {
         background-image: url("/assets/images/icons/right-arrow.png");
         background-size: contain;
@@ -18,6 +30,9 @@
     }
 }
 
+/* ---
+   Icons: location
+   --- */
 .icon-location {
     background-image: url("/assets/images/icons/icon-location.png");
     background-position: center center;

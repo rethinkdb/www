@@ -66,14 +66,15 @@
     background: none;
     border: none;
     color: lighten($teal, 15);
-    display: block;
+    display: inline-block;
     font-family: $sans-serif-semi-bold;
     font-weight: 600;
     padding: 0;
     text-transform: uppercase;
     &:hover {
       color: $teal;
-      i { left: rem(10); }
+      i.left-arrow { left: rem(-6); }
+      i.right-arrow { left: rem(10); }
     }
   }
 }

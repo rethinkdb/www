@@ -22,15 +22,16 @@
     }
 
     // Shared layout styles
-    $_padding-top: $base-spacing*2;
+    $_padding: $base-spacing*2;
     .posts, .post-container {
         @extend .three-quarter;
         padding-right: $base-spacing*3;
-        padding-top: $_padding-top;
+        padding-top: $_padding;
+        padding-bottom: $_padding;
     }
     .blog-sidebar {
         @extend .quarter;
-        padding-top: $_padding-top;
+        padding-top: $_padding;
     }
 }
 
@@ -46,9 +47,9 @@
     // Hero image
     .post-hero {
         $_padding: $base-spacing*1.5;
-        padding-top: $_padding;
         width: 100%;
-        &.above {
+        img { padding-top: $_padding; }
+        &.above img {
             padding-top: 0;
             padding-bottom: $_padding;
         }
@@ -82,6 +83,17 @@
             font-weight: 500;
             margin-bottom: 0;
         }
+
+        // iframes are used for embeds from YouTube and Vimeo
+        iframe {
+            margin: rem(15) 0;
+        }
+
+        // Infoboxes at the top of posts should have a smaller margin
+        .infobox:first-child {
+            margin-top: rem(10);
+        }
+
     }
 
     // 'Read more' link for each post
@@ -131,6 +143,8 @@
             @include font-size-rem(14);
             border-radius: $base-border-radius/2;
             border-bottom: 2px solid $smoke-gray;
+            display: inline-block;
+            margin-right: rem(10);
             font-family: $sans-serif-medium;
             font-weight: 500;
         }
@@ -138,7 +152,16 @@
 }
 
 /* ---
-   Blog sidebar
+   Blog: pagination
+   --- */
+.blog .pagination {
+    padding-top: $base-spacing*1.5;
+    text-align: right;
+    a.older-posts { float: left; }
+}
+
+/* ---
+   Blog: sidebar
    --- */
 .blog-sidebar {
     ul { 

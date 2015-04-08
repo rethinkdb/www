@@ -41,7 +41,7 @@ body.landing {
     z-index: 0;
 
     &:before {
-        background: url('/assets/images/hero2.png') 0 bottom no-repeat;
+        background: url('/assets/images/landing/hero.png') 0 bottom no-repeat;
         content: '';
         height: 100%;
         left: 0;
@@ -130,17 +130,12 @@ body.landing {
 
 // Mailing list
 .landing .mailing-list {
+    $_height: rem(32);
     background: rgba(24, 75, 90, 0.85);
     padding-bottom: $base-spacing/2;
     padding-top: $base-spacing/2;
 
     p, .list-signup, input, .button { @extend .half; }
-
-    .button {
-        width: auto;
-        height: rem(28);
-        line-height: rem(19);
-    }
 
     p {
         @include font-size-rem(16);
@@ -161,6 +156,7 @@ body.landing {
         color: white;
         padding: $base-spacing/4 $base-spacing;
         margin-right: 0;
+        height: $_height;
     }
 
     button {
@@ -169,6 +165,8 @@ body.landing {
         border-color: rgba(112, 155, 168, 0.3);
         border-radius: 0px $base-border-radius $base-border-radius 0px;
         padding: $base-spacing/4 $base-spacing;
+        height: $_height;
+        &.button { width: auto; } // Correct width for the button (specificied exactly using the class)
     }
 
     @include media($mobile) {
@@ -579,7 +577,7 @@ body.landing {
 
 // Get started & install
 .landing .get-started.callout {
-    @include background-image(url(/assets/images/code-pattern-v2.png), linear-gradient(top, darken($cream, 2)  0%, lighten($cream, 2)  50%,
+    @include background-image(url(/assets/images/landing/code-pattern.png), linear-gradient(top, darken($cream, 2)  0%, lighten($cream, 2)  50%,
         lighten($cream, 2)  81%, darken($cream, 2)  100%));
     background-repeat: repeat;
     position: relative;
@@ -651,6 +649,8 @@ body.landing {
             margin-bottom: 0;
         }
     }
+
+    a.button { display: block; }
 
     // Device styles
     @include media($mobile) {

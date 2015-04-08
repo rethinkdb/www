@@ -29,7 +29,9 @@ $ ->
         scroll_to(scrolltop_offset, -> window.location.hash = hash)
 
     $back_to_top = $('p.back-to-top')
-    $back_to_top.waypoint -> $(this).toggleClass 'sticky'
+    $back_to_top_sticky = new Waypoint.Sticky
+        element: $back_to_top
+    #$back_to_top.waypoint -> $(this).toggleClass 'sticky'
     $back_to_top.on 'click', (e) ->
         e.preventDefault()
         scroll_to(0)

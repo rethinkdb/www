@@ -2,24 +2,37 @@
 ---
 
 $ ->
+    # ------------
     # Global mobile menu: right side
+    # ------------
     #   -> open / close the right-side menu
     $('.menu-trigger a').click (event) ->
         event.preventDefault()
         $('body').toggleClass 'pmr-open'
 
+    # ------------
     # Blog right panel should be set to a fixed position on scroll
+    # ------------
     $_sidebar = $('.blog-sidebar ul')
     if $_sidebar.length
         blog_sidebar_sticky = new Waypoint.Sticky
             element: $('.blog-sidebar ul')
 
+    # ------------
     # Docs navigation: collapse / expand sections
+    # ------------
     $('.docs-nav h1, .mobile-doc-links h1').click (event) ->
         $(this).toggleClass('expand').next('ul').slideToggle('fast')
 
-    # Landing page: videos
-    #   -> show a video modal on click
+    rewrite_links()
+    video_modals()
+
+
+# ------------
+# Landing page: video modals
+# ------------
+video_modals = ->
+    # -> show a video modal on click
     $('.video p').click (event) ->
         event.preventDefault()
         $modal = $(this).next('.video-modal')
@@ -36,7 +49,8 @@ $ ->
 
         # Fade in the modal
         $modal.fadeIn('fast')
-    #   -> hide the video modal
+
+    # -> hide the video modal
     dismiss_video = ->
         $modal = $('.video-modal:visible')
         $modal.fadeOut 'fast', ->
@@ -51,5 +65,45 @@ $ ->
         if (event.keyCode == 27)
             dismiss_video()
 
-
     
+# ------------
+# Rewrite links that point to multi-language
+# documents, based on the language switcher + a cookie
+# ------------
+rewrite_links = ->
+    # List of multi-language documents
+    routes = {
+        '/docs/guide/': true
+        '/docs/cookbook/': true
+        '/docs/rabbitmq/': true
+        '/api/': true
+        '/docs/publish-subscribe/': true
+        '/docs/storing-binary/': true
+    }
+
+    # Get the current language from a cookie, if it exists
+    lang = Cookies.get('lang')
+
+    # Set the cookie with the current language in either case
+    if lang is null
+        lang = 'javascript'
+        Cookies.set('lang', lang, { path: '/' })
+    else if /javascript/.test(document.location.pathname)
+        if lang isnt 'javascript'
+            lang = 'javascript'
+            Cookies.set('lang', lang, { path: '/' })
+    else if /python/.test(document.location.pathname)
+        if lang isnt 'python'
+            lang = 'python'
+            Cookies.set('lang', lang, { path: '/' })
+    else if /ruby/.test(document.location.pathname)
+        if lang isnt 'ruby'
+            lang = 'ruby'
+            Cookies.set('lang', lang, { path: '/' })
+
+    # Rewrite the links on the page
+    links_on_page = $('a')
+    for link in links_on_page
+        href = $(link).attr('href')
+        if routes[href]?
+            $(link).attr('href', href+lang+'/')

@@ -11,12 +11,12 @@
         <link rel="stylesheet" media="screen" href="/assets/css/jekyll-github.css"/>
 
         <!-- typekit -->
-        <link href='http://fonts.googleapis.com/css?family=Copse' rel="stylesheet" type="text/css">
-        <link href='http://fonts.googleapis.com/css?family=Inconsolata' rel="stylesheet" type="text/css">
         <script type="text/javascript" src="//use.typekit.net/lmb6cah.js"></script>
         <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
         <!-- jquery -->
         <script type="text/javascript" src="/assets/js/jquery-2.1.3.min.js"></script>
+        <!-- js-cookie -->
+        <script type="text/javascript" src="/assets/js/js.cookie.js"></script>
         <!-- waypoints -->
         <script type="text/javascript" src="/assets/js/waypoints/jquery.waypoints.min.js"></script>
         <script type="text/javascript" src="/assets/js/waypoints/shortcuts/sticky.min.js"></script>
@@ -40,14 +40,21 @@
             {% endunless %}
             {{ content }}
 
+            <!-- support -->
+            <footer class="support-footer">
+                <div class="site-container">
+                    <h1>Need 24 hour support, architectural consulting, or training?</h1>
+                    <a class="button light" href="/support">Buy support <i class="right-arrow white">&rarr;</i></a>
+                </div>
+            </footer>
             <!-- site footer -->
             <footer class="site-footer">
                 <div class="site-container">
                     <section class="get-started">
                         <h1>Join 23,000 developers</h1>
                         <p>Install in seconds on Linux or OS X.</p>
-                        <a class="button small install" href="/">Install</a>
-                        <a class="button small outlined learn-more" href="/">Learn more</a>
+                        <a class="button small install" href="/install">Install</a>
+                        <a class="button small outlined learn-more" href="/faq">Learn more</a>
 
                         <hr>
                         <section class="contact-info">

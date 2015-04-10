@@ -7,8 +7,8 @@ names = ["natalie", "brandon", "marshall", "tomas", "grant", "joe", "alex",
     "johnny", "zachary", "levi", "ryan", "jonathon", "eileen", "cindy",
     "kylee", "connor", "michele", "joseph", "mike", "slava", "daphne",
     "anthony", "juliana", "ben", "ken", "zoe", "eva", "samantha", "matt",
-    "christina", "etienne", "watts", "daniel", "marc", "jeroen", "graham",
-    "karl", "annie", "tim", "josh", "jessie"]
+    "christina", "etienne", "watts", "daniel", "marc", "jeroen", "karl",
+    "annie", "tim", "josh"]
 score_cap = 30
 
 $ ->
@@ -17,7 +17,7 @@ $ ->
     # Realtime query animations
     for n in [0..3]
         add_realtime_message()
-    setInterval(add_realtime_message, 4000)
+    setInterval(add_realtime_message, 3000)
 
     # Switching between examples & use cases
     $('.examples nav a').on 'click', (event) ->

@@ -18,15 +18,15 @@
 
         h2 a { color: $teal; }
 
+        // Button to read expanded docs of a single command
         > p:last-child {
             margin: 0;
 
             a {
                 @extend .button;
                 @extend .outlined;
-                color: lighten(saturate($teal, 25), 25);
-                border-color: lighten(saturate($teal, 25), 25);
-                margin-top: $base-spacing/2;
+                @extend .dark;
+                margin-top: $base-spacing;
             }
         }
     }

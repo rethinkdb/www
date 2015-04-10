@@ -2,11 +2,11 @@ body.landing {
     // Override
     .site-nav { margin-bottom: 0; }
 
-    // Typography
     h1 {
         @include font-size-rem(32);
         font-weight: 400;
     }
+    .landing a { color: $teal; }
 
     // Stylized horizontal rule for sections
     hr.section-divider {
@@ -34,7 +34,7 @@ body.landing {
 }
 
 // Hero
-.landing .hero-wrapper {
+.landing .hero-wrapper, body.landing .landing .hero-wrapper {
     @include background-image(linear-gradient(top, rgb(33, 71, 83) 0%, rgb(26, 81, 97) 50%,
         rgb(28, 80, 100) 81%, rgb(29, 79, 95) 100%));
     position: relative;
@@ -78,6 +78,9 @@ body.landing {
         padding: $base-spacing*3 0 $base-spacing*1.5;
 
         a {
+            // Extends the button (included to overcome css specificity)
+            @extend .button;
+
             @include font-size-rem(18);
             margin: 0 $base-spacing;
             padding: $base-spacing/1.5 inherit;
@@ -590,9 +593,14 @@ body.landing {
         font-weight: 400;
         margin-bottom: $base-spacing*2.5;
     }
-    a { width: rem(200); }
-    a.install { width: rem(220); }
-    a.light { margin-right: $base-spacing; }
+    a {
+        // Extends the button (included to overcome css specificity)
+        @extend .button;
+
+        width: rem(200);
+        &.install { width: rem(220); }
+        &.light { margin-right: $base-spacing; }
+    }
     // Mobile
     @include media($mobile) {
         a { width: auto; }
@@ -722,43 +730,40 @@ body.landing {
     @extend .video-modal;
 }
 
-// Testimonials...hiding these until content is final
+// Testimonials
 .landing .testimonials {
     clear: both;
     display: none;
     padding: $base-spacing*5 0 0;
 
-    blockquote { padding: 0 $base-spacing; }
     .testimonial { @extend .third; }
+
+    // Blockquote styles for each testimonial
+    blockquote { 
+        margin: $base-spacing 0;
+        padding: 0 $base-spacing;
+        padding-left: $base-spacing / 2;
+
+        @include font-size-rem(22);
+        color: lighten($base-font-color, 15);
+
+        &:before {
+            @include font-size-rem(80);
+            font-family: $serif;
+            color: lighten($base-font-color, 40);
+            content: '“';
+            position: absolute;
+            top: rem(-40);
+            left: rem(-20);
+        }
+
+        cite { @include font-size-rem(18); }
+    }
 
     @include media($mobile) {
         padding-top: $base-spacing;
 
         blockquote { padding: 0; }
         blockquote:before { display: none; }
-    }
-}
-
-// Support
-.landing .support {
-    background: $teal;
-    padding: $base-spacing 0;
-    text-align: center;
-
-    h1 {
-        @include font-size-rem(24);
-        display: inline-block;
-        color: $cream;
-        margin-right: $base-spacing;
-    }
-
-    a {
-        padding: rem(7) rem(22);
-        color: $cream;
-    }
-
-    // Mobile styles
-    @include media($mobile) {
-        a { margin: $base-spacing auto 0; }
     }
 }

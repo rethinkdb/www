@@ -5,7 +5,7 @@ $sans-serif-semi-bold: 'freight-sans-pro-n6', 'freight-sans-pro', 'FreightSansBo
 $sans-serif-bold: 'freight-sans-pro-n7', 'freight-sans-pro', 'FreightSansBold';
 $sans-serif-italic: 'freight-sans-pro-i4', 'freight-sans-pro';
 $serif: 'Copse';
-$monospaced: 'Inconsolata', monospace;
+$monospaced: 'inconsolata', 'Inconsolata', monospace;
 $base-font-family: $sans-serif;
 $header-font-family: $base-font-family;
 
@@ -50,7 +50,7 @@ $base-accent-color: $teal;
 
 // Link Colors
 $base-link-color: $base-accent-color;
-$hover-link-color: darken($base-accent-color, 5);
+$hover-link-color: rgb(7, 57, 74);
 $base-button-color: $base-link-color;
 $hover-button-color: $hover-link-color;
 

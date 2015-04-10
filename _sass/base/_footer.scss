@@ -1,4 +1,34 @@
-// Site footer
+/* ---
+   Footer: support footer
+   --- */
+.support-footer {
+    background: $teal;
+    padding: $base-spacing 0;
+    text-align: center;
+
+    .site-container {
+        h1 {
+            @include font-size-rem(24);
+            display: inline-block;
+            color: $cream;
+            margin-right: $base-spacing;
+        }
+
+        a {
+            padding: rem(7) rem(22);
+            color: $cream;
+        }
+
+        // Mobile styles
+        @include media($mobile) {
+            a { margin: $base-spacing auto 0; }
+        }
+    }
+}
+
+/* ---
+   Footer: site footer
+   --- */
 .site-footer {
     background: darken($teal, 10);
     color: $cream;

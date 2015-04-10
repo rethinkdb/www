@@ -1,25 +1,25 @@
 body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: $base-background-color;
-  color: $base-font-color;
-  font-family: $base-font-family;
-  line-height: $base-line-height;
-  font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: $base-background-color;
+    color: $base-font-color;
+    font-family: $base-font-family;
+    line-height: $base-line-height;
+    font-weight: 400;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  color: $base-font-color;
-  font-family: $header-font-family;
-  line-height: $header-line-height;
-  margin: 0;
-  text-rendering: optimizeLegibility; // Fix the character spacing for headings
+    color: $base-font-color;
+    font-family: $header-font-family;
+    line-height: $header-line-height;
+    margin: 0;
+    text-rendering: optimizeLegibility; // Fix the character spacing for headings
 }
 
 h1 {
-  @include font-size-rem(33);
-  line-height: rem(60);
-  font-weight: 400;
+    @include font-size-rem(33);
+    line-height: rem(60);
+    font-weight: 400;
 }
 h2 { font-size: $h2-font-size; }
 h3 { font-size: $h3-font-size; }
@@ -30,76 +30,64 @@ h6 { font-size: $h6-font-size; }
 p { margin: 0 0 ($base-spacing / 2); }
 
 a {
-  @include transition(color 0.1s linear);
-  color: $base-link-color;
-  text-decoration: none;
+    @include transition(color 0.1s linear);
+    color: lighten(saturate($teal, 25), 25);
+    text-decoration: none;
 
-  &:hover {
-    color: $hover-link-color;
-  }
+    &:hover { color: $hover-link-color; }
 
-  &:active, &:focus {
-    color: $hover-link-color;
-    outline: none;
-  }
+    &:active, &:focus {
+        color: $hover-link-color;
+        outline: none;
+    }
 }
 
 hr {
-  border-bottom: $base-border;
-  border-left: none;
-  border-right: none;
-  border-top: none;
-  margin: $base-spacing 0;
+    border-bottom: $base-border;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    margin: $base-spacing 0;
 }
 
 strong {
-  font-family: $sans-serif-semi-bold;
-  font-weight: 600;
+    font-family: $sans-serif-semi-bold;
+    font-weight: 600;
 }
 
 img,
 picture {
-  margin: 0;
-  max-width: 100%;
+    margin: 0;
+    max-width: 100%;
 }
 
 blockquote {
-  @include font-size-rem(22);
-  font-family: $sans-serif;
-  font-weight: 400;
-  color: lighten($base-font-color, 15);
-  margin: $base-spacing 0;
-  padding-left: $base-spacing / 2;
-  position: relative;
-
-  &:before {
-    @include font-size-rem(80);
-    font-family: $serif;
-    color: lighten($base-font-color, 40);
-    content: '“';
-    position: absolute;
-    top: rem(-40);
-    left: rem(-20);
-  }
-
-  cite { @include font-size-rem(18); }
+    $_color: rgb(131, 131, 131);
+    margin: 0;
+    padding-left: rem(16);
+    position: relative;
+    font-family: $sans-serif;
+    font-weight: 400;
+    color: $_color; 
+    border-left: 4px solid rgb(221, 221, 221);
+    p { color: $_color; }
 }
 
 cite {
-  color: lighten($base-font-color, 25);
-  display: block;
-  font-family: $sans-serif-italic;
-  font-weight: 400;
-  padding-top: $base-spacing / 2;
+    color: lighten($base-font-color, 25);
+    display: block;
+    font-family: $sans-serif-italic;
+    font-weight: 400;
+    padding-top: $base-spacing / 2;
 
-  &:before {
-    content: "\2014 \00A0";
-  }
+    &:before {
+        content: "\2014 \00A0";
+    }
 }
 
 address {
-  font-family: $sans-serif-italic;
-  font-weight: 500;
+    font-family: $sans-serif-italic;
+    font-weight: 500;
 }
 
 // Code blocks

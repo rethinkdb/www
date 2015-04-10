@@ -11,13 +11,15 @@ include_nav: docs
             {% include docs/docs-navigation.html %}
         </section>
         <section class="docs-article">
-            {% if page.switcher %}
-                {% include docs/docs-switcher.html %}
-            {% endif %}
             {% if page.title_image %}
                 <img class="title-image" src="{{page.title_image}}" />
             {% endif %}
             {{ page.title | page_title }}
+            {% if page.switcher %}
+                <section class="byline">
+                    {% include docs/docs-switcher.html %}
+                </section>
+            {% endif %}
             {{ content }}
         </section>
     </div>

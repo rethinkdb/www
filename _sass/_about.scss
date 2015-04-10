@@ -1,7 +1,6 @@
 body.about {
     // Override
     .site-nav { margin-bottom: 0; }
-    .about a { color: lighten(saturate($teal, 25), 25); }
     .about h1 { margin-bottom: $base-spacing/4; }
     .about h2 {
         @include font-size-rem(22);

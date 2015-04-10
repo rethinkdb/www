@@ -1,6 +1,9 @@
 // Infobox styles
 
-.infobox, .documentation .infobox, .blog .post .post-body .infobox {
+.infobox, 
+.documentation .infobox, // overcoming CSS speficity
+.documentation .docs-article .infobox,
+.blog .post .post-body .infobox {
     background: rgb(230, 241, 244);
     border-radius: $base-border-radius;
     margin: $base-spacing 0;
@@ -15,6 +18,9 @@
         font-family: $sans-serif-medium;
         font-weight: 500;
     }
+
+    // Code styles
+    code { background: rgba(139, 139, 139, 0.1); }
 
     // Layout and spacing
     p {

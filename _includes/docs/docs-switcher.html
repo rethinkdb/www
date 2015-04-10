@@ -32,8 +32,8 @@
 {% capture rb_link %}
     {% apiurltag ruby %}{{ page.permalink }}{% endapiurltag %}
 {% endcapture %}
-
 <nav class="lang-selector">
+    <p class="caption">See this article in:</p>
     <a class="lang javascript{% if lang == 'js' %} active{% endif %}"
         {% unless page.js == false %}href="{{ js_link }}"{% endunless %}>
         <i class="javascript"></i>

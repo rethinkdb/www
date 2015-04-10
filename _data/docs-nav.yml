@@ -17,7 +17,7 @@
           permalink: stability
           url: /stability/
         - name: Limitations in RethinkDB
-          permalink: limitation
+          permalink: limitations
           url: /limitations/
 - section:
     name: Get started
@@ -40,9 +40,6 @@
         - name: Importing your data
           permalink: importing
           url: /docs/importing/
-        - name: ReQL data exploration
-          permalink: reql-data-exploration
-          url: /docs/reql-data-exploration
 - section:
     name: Query language
     docs:
@@ -83,7 +80,7 @@
           permalink: external-api-access
           url: /docs/external-api-access/
         - name: SQL to ReQL cheat sheet
-          permalink: sql-to-rql
+          permalink: sql-to-reql
           url: /docs/sql-to-reql
 - section:
     name: Learn the tools
@@ -97,6 +94,21 @@
         - name: Failover
           permalink: failover
           url: /docs/failover/
+        - name: System tables
+          permalink: system-tables
+          url: /docs/system-tables
+        - name: Current issues
+          permalink: system-issues
+          url: /docs/system-issues/
+          nested: true
+        - name: Statistics
+          permalink: system-stats
+          url: /docs/system-stats/
+          nested: true
+        - name: Jobs
+          permalink: system-jobs
+          url: /docs/system-jobs/
+          nested: true
         - name: Version migration
           permalink: migration
           url: /docs/migration/
@@ -112,21 +124,25 @@
         - name: Example projects
           permalink: examples
           url: /docs/examples/
-        - name: Full-text search
+        - name: Integrations
           permalink: frameworks-and-libraries
           url: /docs/frameworks-and-libraries/
-        - name: 
+        - name: Full-text search
           permalink: full-text-search
           url: /docs/elasticsearch/
+          nested: true
         - name: Node.js
           permalink: nodejs
           url: /docs/nodejs/
+          nested: true
         - name: Ruby on Rails
           permalink: rails
           url: /docs/rails/
+          nested: true
         - name: RabbitMQ
           permalink: rabbitmq
           url: /docs/rabbitmq/
+          nested: true
         - name: Publish-Subscribe
           permalink: publish-subscribe
           url: /docs/publish-subscribe/
@@ -142,9 +158,9 @@
 - section:
     name: Deploying RethinkDB
     docs:
-        - name: Create a cluster on startup
-          permalink: cluster-on-startup
-          url: /docs/cluster-on-startup/
+        - name: Start on system startup
+          permalink: start-on-startup
+          url: /docs/start-on-startup/
         - name: Back up your data
           permalink: backup
           url: /docs/backup/
@@ -154,3 +170,6 @@
         - name: Deploying with PaaS
           permalink: paas
           url: /docs/paas/
+        - name: Command line options
+          permalink: cli-options
+          url: /docs/cli-options

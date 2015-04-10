@@ -2,7 +2,7 @@
    Navigation bar: general styles and typography
      --> applies to both the global nav and sub-nav
    --- */
-.site-nav, .sub-nav {
+.site-nav, .sub-nav, body.landing .landing .site-nav {
     background: $teal;
     margin-bottom: $base-spacing;
 
@@ -13,12 +13,18 @@
         &:hover { color: darken($cream, 8); }
     }
 
-    .logo {
+    // RethinkDB logo
+    a.logo {
+        display: block;
         @include span-columns(2);
         @include font-size-rem(26);
         font-weight: 400;
-        font-family: $serif;
+        text-indent: -9999px;
         line-height: rem(40);
+        background-image: url('/assets/images/logo.png');
+        background-repeat: no-repeat;
+        background-size: 85%;
+        background-position: 0 rem(9);
     }
 
     ul {

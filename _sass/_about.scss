@@ -14,7 +14,6 @@ body.about {
     // Hero
     // Extends the hero design pattern in _hero.scss
     .hero {
-        @include background-image(url("https://pbs.twimg.com/profile_banners/52351557/1399070558/1500x500"));
         background-size: cover;
         @extend .hero-bg;
     }
@@ -26,8 +25,7 @@ body.about {
             line-height: rem(32);
             padding-right: $base-spacing*6;
         }
-        .intro-img { @extend .third;
-        }
+        .intro-img { @extend .third; }
         .intro-callout { margin-top: rem(20); }
         .infobox {
             @include font-size-rem(20);

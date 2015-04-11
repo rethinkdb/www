@@ -27,7 +27,11 @@ h4 { font-size: $h4-font-size; }
 h5 { font-size: $h5-font-size; }
 h6 { font-size: $h6-font-size; }
 
-p { margin: 0 0 ($base-spacing / 2); }
+p {
+    margin: 0 0 ($base-spacing / 2);
+    @include font-size-rem(18);
+    line-height: rem(30);
+}
 
 a {
     @include transition(color 0.1s linear);

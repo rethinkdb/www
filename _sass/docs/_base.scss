@@ -54,70 +54,76 @@
 }
 
 /* ---
+   Documentation: byline
+   --- */
+
+.docs-article .byline {
+    background: rgba(244, 244, 244, 1);
+    border-radius: $base-border-radius;
+    padding: 0.4rem 1.7rem;
+}
+
+/* ---
    Documentation: language switcher
    --- */
 nav.lang-selector {
-    background: none;
-    border-radius: $base-border-radius;
-    box-shadow: none;
     color: $smoke-gray;
-
-    @include media($mobile) { top: rem(-40); }
-
     p.caption { 
         display: inline-block; 
         margin: 0 rem(10) 0 0;
+        @include font-size-rem(17);
+        font-weight: 600;
         color: $base-font-color;
     }
-
-    a {
+    .languages {
         display: inline-block;
-        padding: 0 rem(12);
-        border-right: 1px solid rgb(229,229,229);
-
-        &:first-child { padding-left: 0; }
-        &:last-child {
-            padding-right: 0;
-            border-right: none;
-        }
-        p {
-            @include font-size-rem(14);
-            display: inline;
-            font-family: $sans-serif-medium;
-            font-weight: 500;
-            margin-bottom: 0;
-            padding-top: 0;
-            color: lighten($base-font-color, 20);
-            border-bottom: thin dotted lighten($base-font-color, 15);
-        }
-
-        i {
-            background-repeat: no-repeat;
-            background-size: 100% 100%;
+        span.divider { color: rgb(179,179,179); }
+        a {
             display: inline-block;
-            width: rem(15);
-            height: rem(15);
-            margin-right: rem(4);
-            vertical-align: middle;
-            
+            padding: 0 rem(12);
+
+            &:first-child { padding-left: 0; }
+            &:last-child { padding-right: 0; }
+
+            p {
+                @include font-size-rem(14);
+                display: inline;
+                font-family: $sans-serif-medium;
+                font-weight: 500;
+                margin-bottom: 0;
+                padding-top: 0;
+                color: lighten($base-font-color, 20);
+                border-bottom: thin dotted lighten($base-font-color, 15);
+            }
+
+            i {
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+                display: inline-block;
+                width: rem(15);
+                height: rem(15);
+                margin-right: rem(4);
+                vertical-align: middle;
+                
+                $_root: '/assets/images/docs/driver-languages/minicons/';
+                &.javascript { background-image: url($_root + 'javascript-bw.png'); }
+                &.python { background-image: url($_root + 'python-bw.png'); }
+                &.ruby { background-image: url($_root + 'ruby-bw.png'); }
+            }
+        }
+
+        // The active language should have a bright icon and bold text
+        a.active {
+            p {
+                color: $base-font-color;
+                font-weight: 600;
+                border-bottom: 0;
+            }
+
             $_root: '/assets/images/docs/driver-languages/minicons/';
-            &.javascript { background-image: url($_root + 'javascript-bw.png'); }
-            &.python { background-image: url($_root + 'python-bw.png'); }
-            &.ruby { background-image: url($_root + 'ruby-bw.png'); }
+            i.javascript { background-image: url($_root + 'javascript.png'); }
+            i.python { background-image: url($_root + 'python.png'); }
+            i.ruby { background-image: url($_root + 'ruby.png'); }
         }
-    }
-
-    // The active language should have a bright icon and bold text
-    a.active {
-        p {
-            color: $base-font-color;
-            font-weight: 600;
-            border-bottom: 0;
-        }
-
-        $_root: '/assets/images/docs/driver-languages/minicons/';
-        i.javascript { background-image: url($_root + 'javascript.png'); }
-        i.python { background-image: url($_root + 'python.png'); }
-        i.ruby { background-image: url($_root + 'ruby.png'); }
     }
 }

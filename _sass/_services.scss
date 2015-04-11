@@ -1,0 +1,57 @@
+body.services {
+    // Override
+    .site-nav { margin-bottom: 0; }
+
+    /* ---
+       Services: hero
+       --- */
+    .hero {
+        //@extend .hero-bg;
+        //background-size: cover;
+        background: $teal;
+        padding: 0;
+        height: rem(300);
+        h1 {
+            color: $cream;
+            text-align: center;
+        }
+    }
+
+    // Shared section styles
+    .services > section { padding: 2% 0 2%; }
+
+    .services-description, .offerings { background: rgb(255,255,255); }
+
+    .services-description {
+        padding-top: $base-spacing*2;
+        p {
+            @include font-size-rem(23);
+            margin-top: $base-spacing;
+        }
+    }
+    .offerings   {
+        padding: $base-spacing 0;
+        article {
+            border-right: thin solid #ccc;
+            padding: 0 $base-spacing*1.25 0 $base-spacing*0.75;
+            padding-bottom: $base-spacing*2;
+
+            &:first-child { padding-left: 0; }
+            &:last-child { border-right: none; }
+
+            h1 {
+                @include font-size-rem(27);
+                line-height: rem(27);
+                margin-bottom: rem(20);
+                font-weight: 600;
+            }
+        }
+    }
+
+    .contact {
+        background: $cream;
+        
+        iframe { margin-top: $base-spacing; }
+    }
+
+}

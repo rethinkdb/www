@@ -33,20 +33,22 @@
     {% apiurltag ruby %}{{ page.permalink }}{% endapiurltag %}
 {% endcapture %}
 <nav class="lang-selector">
-    <p class="caption">See this article in:</p>
-    <a class="lang javascript{% if lang == 'js' %} active{% endif %}"
-        {% unless page.js == false %}href="{{ js_link }}"{% endunless %}>
-        <i class="javascript"></i>
-        <p {% if page.js == false %}class="disabled"{% endif %}>JavaScript</p>
-    </a>
-    <a class="lang python{% if lang == 'py' %} active{% endif %}"
-        {% unless page.py == false %}href="{{ py_link }}"{% endunless %}>
-        <i class="python"></i>
-        <p {% if page.py == false %}class="disabled"{% endif %}>Python</p>
-    </a>
-    <a class="lang ruby {% if lang == 'rb' %} active{% endif %}"
-        {% unless page.rb == false %}href="{{ rb_link }}"{% endunless %}>
-        <i class="ruby"></i>
-        <p {% if page.rb == false %}class="disabled"{% endif %}>Ruby</p>
-    </a>
+    <p class="caption">Language: </p>
+    <section class="languages">
+        <a class="lang javascript{% if lang == 'js' %} active{% endif %}"
+            {% unless page.js == false %}href="{{ js_link }}"{% endunless %}>
+            <i class="javascript"></i>
+            <p {% if page.js == false %}class="disabled"{% endif %}>JavaScript</p>
+        </a><span class="divider">|</span>
+        <a class="lang python{% if lang == 'py' %} active{% endif %}"
+            {% unless page.py == false %}href="{{ py_link }}"{% endunless %}>
+            <i class="python"></i>
+            <p {% if page.py == false %}class="disabled"{% endif %}>Python</p>
+        </a><span class="divider">|</span>
+        <a class="lang ruby {% if lang == 'rb' %} active{% endif %}"
+            {% unless page.rb == false %}href="{{ rb_link }}"{% endunless %}>
+            <i class="ruby"></i>
+            <p {% if page.rb == false %}class="disabled"{% endif %}>Ruby</p>
+        </a>
+    </section>
 </nav>

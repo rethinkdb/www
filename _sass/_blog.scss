@@ -60,21 +60,8 @@
         color: lighten(desaturate($teal, 35), 20);
         padding-top: $base-spacing;
 
-        li, p {
-            @include font-size-rem(18);
-            line-height: rem(30);
-        }
-
-        ul { margin: $base-spacing 0; }
+        ul { @extend ul%default-ul; }
         ul li:last-child { margin-bottom: $base-spacing; }
-
-        li {
-            list-style-type: disc;
-            list-style-position: outside;
-            padding: 0 0 0 $base-spacing/2;
-            margin-bottom: $base-spacing/3;
-            margin-left: 2rem;
-        }
 
         p { margin-bottom: $base-spacing; }
         .infobox p {

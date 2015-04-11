@@ -38,20 +38,9 @@
         font-weight: 600;
         text-transform: uppercase;
     }
+
     p { margin: $base-spacing 0; }
-    ul {
-        // TODO -- comment this out, abstract to general
-        //@extend ul.default-ul
-        padding: $base-spacing/3 0;
-        margin: $base-spacing/3 0;
-    }
-    li {
-        list-style-type: disc;
-        list-style-position: outside;
-        padding: 0 0 0 $base-spacing/2;
-        margin-bottom: $base-spacing/3;
-        margin-left: 2rem;
-    }
+    ul { @extend ul%default-ul; }
     p img.illustration,  p img.api_command_illustration {
         display: block;
         margin: 4% auto;

@@ -1,0 +1,41 @@
+section.used-by {
+    $_bg: $cream;
+    $_color: desaturate(lighten($teal, 50), 70);
+    padding: $base-spacing 0;
+    margin: $base-spacing 0;
+
+    .site-container {
+        $_border: 1px solid $_color;
+        border-top: $_border;
+        border-bottom: $_border;
+        padding: $base-spacing 0;
+    }
+
+    h1 {
+        $_font: rem(20);
+        font-size: $_font;
+        line-height: $_font;
+        font-weight: 600;
+        color: $_color;
+        text-transform: lowercase;
+        text-align: center;
+        position: relative;
+        top: rem(-38);
+        margin-bottom: rem(-30);
+        span {
+            padding: $base-spacing/4 $base-spacing;
+            display: inline-block;
+            background: $_bg;
+        }
+    }
+
+    .logos {
+        @include outer-container;
+        img {
+            @include span-columns(3);
+            @include omega(4n);
+            padding: rem(15) rem(29);
+            opacity: 0.7;
+        }
+    }
+}

@@ -1,3 +1,6 @@
+/* ---
+   Landing: layout and general styles
+   --- */
 body.landing {
     // Override
     .site-nav { margin-bottom: 0; }
@@ -33,7 +36,9 @@ body.landing {
     }
 }
 
-// Hero
+/* ---
+   Landing: hero wrapper
+   --- */
 .landing .hero-wrapper, body.landing .landing .hero-wrapper {
     @include background-image(linear-gradient(top, rgb(33, 71, 83) 0%, rgb(26, 81, 97) 50%,
         rgb(28, 80, 100) 81%, rgb(29, 79, 95) 100%));
@@ -428,9 +433,7 @@ body.landing {
             }
         }
 
-        img {
-            @extend .third;
-        }
+        img { @extend .third; }
 
         .example-text {
             @extend .two-third;
@@ -530,6 +533,25 @@ body.landing {
                 margin-top: rem(30);
             }
             &:nth-child(even) { @include shift(1); }
+
+            // Properly sizing the illustrations
+            &:nth-child(1) img {
+                width: 82%;
+                margin-top: rem(28);
+            }
+            &:nth-child(2) img {
+                width: 80%;
+                margin-top: rem(5);
+            }
+            &:nth-child(3) img {
+                width: 65%;
+                margin-top: rem(27);
+            }
+            &:nth-child(4) img {
+                width: 56%;
+                margin: 0;
+                margin-left: 15%;
+            }
         }
 
         @include media($mobile) {

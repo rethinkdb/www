@@ -34,9 +34,9 @@
         - name: Install client drivers
           permalink: install-drivers
           url: /docs/install-drivers/
-        - name: Start a RethinkDB cluster
-          permalink: start-a-cluster
-          url: /docs/start-a-cluster/
+        - name: Start a RethinkDB server 
+          permalink: start-a-server
+          url: /docs/start-a-server/
         - name: Importing your data
           permalink: importing
           url: /docs/importing/

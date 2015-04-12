@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Check out the RethinkDB screencast
+title: RethinkDB in under two minutes
 tags:
 - announcements
 alias: /videos/what-is-rethinkdb

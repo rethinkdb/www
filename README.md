@@ -5,7 +5,6 @@ RethinkDB website
 
 To build the site while we're in transition, check out these repos:
     - rethinkdb/www-thoughtbot (this repo)
-    - rethinkdb/rethinkdb-www, using the `2.0-revised` branch
     - rethinkdb/docs, using the `2.0-revised` branch
 
 Symlink the following directories (assuming you've checked out both repos to `~/git`:
@@ -13,8 +12,6 @@ Symlink the following directories (assuming you've checked out both repos to `~/
 ```
 ln -s ~/git/docs ~/git/www-thoughtbot/docs
 ln -s ~/git/docs/_images ~/git/www-thoughtbot/assets/images/docs
-ln -s ~/git/rethinkdb-www/_posts ~/git/www-thoughtbot/_posts
-ln -s ~/git/rethinkdb-www/assets/images/posts ~/git/www-thoughtbot/assets/images/posts
 ```
 
 This is a temporary measure while files are being moved around, and may change abruptly. This notice will be removed from the README when it no longer applies.

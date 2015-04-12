@@ -361,6 +361,10 @@ body.landing {
    Landing: RethinkDB features
    --- */
 .landing .feature {
+    padding-top: $base-spacing*1.5;
+    padding-bottom: $base-spacing*5;
+    @include media($mobile) { padding: $base-spacing*2 0; }
+
     p {
         line-height: rem(28);
         margin: $base-spacing*1.5 0 0;

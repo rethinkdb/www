@@ -8,7 +8,7 @@ body_class: landing
         <!-- hero -->
         <section class="hero">
             <div class="site-container">
-                <h1>The open source database <span>for the realtime web</span></h1>
+                <h1>The open-source database <span>for the realtime web</span></h1>
                 <div class="hero-install">
                     <a class="button install light" href="/install">Install RethinkDB <i class="right-arrow white">&rarr;</i></a>
                 </div>
@@ -18,7 +18,7 @@ body_class: landing
         <!-- mailing list -->
         <section class="mailing-list">
             <div class="site-container">
-                <p class="headline"><span class="headline-latest-release">Latest release:</span> RethinkDB 1.15.2 (Lawrence of Arabia)</p>
+                <p class="headline"><span class="headline-latest-release">Latest release:</span> RethinkDB {{ site.version.human }} ({{ site.version.codename }})</p>
                 <div class="list-signup">
                     <input class="medium" type="text" placeholder="Join the mailing list for updates" type="text">
                     <button class="button subscribe outlined" type="submit">Subscribe</button>
@@ -41,7 +41,7 @@ body_class: landing
                     that makes building realtime apps dramatically
                     easier.
                 </p>
-                <a class="button outlined dark" href="/faq">Learn how it works<i class="right-arrow">go</i></a>
+                <a class="button outlined dark" href="/faq">What is RethinkDB?<i class="right-arrow">go</i></a>
             </div>
             <div class="realtime-queries">
                 <p class="query">r.table(<span class="term">'game'</span>).orderBy(<span class="term">'score'</span>).limit(<span class="term">3</span>).changes()</p>
@@ -321,7 +321,7 @@ body_class: landing
                         </p>
                     </li>
                     <li>
-                        <a href="/events" class="button minimal">All news <i class="right-arrow">go</i></a>
+                        <a href="/community" class="button minimal">All news <i class="right-arrow">go</i></a>
                     </li>
             </section>
         </div>

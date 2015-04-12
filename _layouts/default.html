@@ -1,7 +1,13 @@
 <!doctype html>
 <html>
     <head>
-        <title>{{ page.title }} - RethinkDB</title>
+        <title>
+            {% if page.body_class == 'landing' %}
+                RethinkDB: the open-source database for the realtime web
+            {% else %}
+                {{ page.title }} - RethinkDB
+            {% endif %}
+        </title>
         <meta charset="utf-8">
         <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -41,12 +47,15 @@
             {{ content }}
 
             <!-- support -->
+            {% unless page.body_class == 'services' %}
             <footer class="support-footer">
                 <div class="site-container">
                     <h1>Need 24 hour support, architectural consulting, or training?</h1>
-                    <a class="button light" href="/support">Buy support <i class="right-arrow white">&rarr;</i></a>
+                    <a class="button light" href="/services">Buy support <i class="right-arrow white">&rarr;</i></a>
                 </div>
             </footer>
+            {% endunless %}
+
             <!-- site footer -->
             <footer class="site-footer">
                 <div class="site-container">

@@ -16,7 +16,11 @@
         }
 
         > p {
-            @include font-size-rem(18);
+            @include font-size-rem(20);
+        }
+
+        .video {
+            padding: 0 6%; // TODO try to center align the image
         }
     }
 

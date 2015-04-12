@@ -63,10 +63,21 @@
         li { display: none; }
         // Only show the 'menu' link at first
         .menu-trigger {
-            background: url('/assets/images/icons/icon-menu.png') 0 0 no-repeat;
             display: block;
             text-indent: -9999px;
         }
+    }
+
+
+    // Move the nav to an absolute position, so it overlaps the hero
+    //   -> used on the community + about pages
+    &.translucent {
+        margin-bottom: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 4;
+        background: rgba(22, 44, 50, 0.65);
     }
 }
 

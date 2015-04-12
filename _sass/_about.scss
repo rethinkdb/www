@@ -1,6 +1,9 @@
 body.about {
     // Override
-    .site-nav { margin-bottom: 0; }
+    .site-nav {
+        margin-bottom: 0;
+        @extend .site-nav.translucent;
+    }
     .about h1 { margin-bottom: $base-spacing/4; }
     .about h2 {
         @include font-size-rem(22);
@@ -14,11 +17,15 @@ body.about {
     // Hero
     // Extends the hero design pattern in _hero.scss
     .hero {
-        background-size: cover;
         @extend .hero-bg;
+        @include background-image(url("/assets/images/company/2.jpg"));
+        background-position: center rem(-40);
+        background-size: cover;
+        height: rem(600);
+        -webkit-filter: grayscale(0.35);
     }
     // Intro
-    #intro {
+    .intro {
         .intro-text {
             @include font-size-rem(24);
             @extend .two-third;
@@ -36,84 +43,10 @@ body.about {
             .intro-text { padding-right: 0; }
         }
     }
-    // Team
-    #team {
-        background: #fff;
 
-        .team-list > div {
-            @extend .half;
-            padding-top: $base-spacing;
-
-            &:first-child { padding-right: $base-spacing/2; }
-            &:last-child { padding-left: $base-spacing/2; }
-
-            @include media($mobile) {
-                &:first-child, &:last-child {
-                    @include outer-container;
-                    padding: $base-spacing 0;
-                }
-            }
-
-            h1 {
-                @include font-size-rem(17);
-                letter-spacing: 0px;
-                font-family: $sans-serif-medium;
-                font-weight: 500;
-            }
-            p { @include font-size-rem(15); }
-        }
-
-        .team-list li {
-            border: 1px solid $smoke-gray;
-            border-radius: $base-border-radius;
-            height: rem(210);
-            margin-top: $base-spacing/2;
-            padding: $base-spacing;
-            position: relative;
-
-            a {
-                @include font-size-rem(15);
-                font-family: $sans-serif-medium;
-                font-weight: 500;
-                position: absolute;
-                bottom: $base-spacing;
-                left: $base-spacing;
-            }
-
-            @include media($mobile) {
-                @include span-columns(6 of 12);
-                @include omega(2n);
-                height: rem(120);
-                p { display: none; }
-                .infobox p { display: block; }
-            }
-            @include media($medium-screen-up) {
-                @include span-columns(6 of 12);
-                @include omega(2n);
-            }
-            @include media($large-screen-up) {
-                @include omega-reset(2n);
-                @include span-columns(4 of 12);
-                @include omega(3n);
-            }
-        }
-
-        .contributors {
-            li:last-child {
-                @include fill-parent;
-                @include outer-container;
-                border: none;
-                padding: 0;
-                a { position: inherit; }
-                p, a { @include font-size-rem(20); }
-            }
-        }
-
-        .infobox { background: lighten($sunshine, 4); }
-    }
     // Benefits
-    #benefits {
-        background: $surf;
+    .benefits {
+        background: rgb(241, 245, 245);
         .benefit-hero {
             @extend .two-third;
             margin-top: $base-spacing;
@@ -141,7 +74,7 @@ body.about {
         }
     }
     // Jobs
-    #jobs {
+    .jobs {
         li {
             @extend .half;
             border: 1px solid $smoke-gray;

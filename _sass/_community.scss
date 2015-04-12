@@ -1,15 +1,17 @@
-body.community {
-    // Override
-    .site-nav { margin-bottom: 0; }
+body.community .site-nav {
+    @extend .site-nav.translucent;
 }
 
 .community-wrapper a { color: lighten(saturate($teal, 25), 25); }
-.community-wrapper h1 { margin-bottom: $base-spacing/4; }
+.community-wrapper h1 {
+    margin-bottom: $base-spacing;
+    line-height: rem(50);
+}
 .community-wrapper h2 {
     @include font-size-rem(22);
     font-family: $sans-serif-semi-bold;
     padding-top: $base-spacing/4;
-    padding-bottom: $base-spacing/4;
+    padding-bottom: $base-spacing/2;
     font-weight: 600;
 }
 
@@ -20,41 +22,87 @@ body.community {
 // Extends the hero design pattern in _hero.scss
 .community-wrapper .hero {
     @extend .hero-bg;
-    @include background-image(url("https://pbs.twimg.com/media/B3aNGmgCUAAupk4.png:large"));
+    @include background-image(url("/assets/images/community/hero.jpg"));
+    background-position: center rem(-50);
     background-size: cover;
+    height: rem(400);
+    -webkit-filter: grayscale(0.35);
+
+    // Top padding should at least the height of the navbar, proper offset
+    padding-top: rem(50);
 }
 
 // Community intro
 .community-wrapper .intro {
-    .site-container > div {
-        background: #fff;
-        border: 1px solid lighten($smoke-gray, 2);
-        border-radius: $base-border-radius*2;
-        padding: $base-spacing*1.5;
-        position: relative;
+    // Shirts for stories
+    .infobox.s4s {
+        p { @include font-size-rem(18); }
+        margin: 0;
+        padding: rem(20) rem(25);
+        float: right;
+        width: 33%;
 
-        &:hover {
-            background: lighten($cream, 1);
-            h1 a { color: $teal; }
+        @include media($mobile) {
+            float: none;
+            width: 100%;
+            margin: rem(15) rem(25);
         }
-    }
-    p { margin: $base-spacing/3 0 $base-spacing/3; }
-
-    img {
-        display: block;
-        margin: 0 auto;
-        width: 80%;
-    }
-    h1 { line-height: rem(34); }
-    h2 {
-        padding-top: $base-spacing;
-        padding-bottom: 0;
     }
 }
 
 // Events
 .community-wrapper .events {
-    background: white;
+    $_fg-color: rgb(218, 229, 229);
+    background: rgb(241, 245, 245);
+    overflow: hidden;
+
+    .community-illustration {
+        position: absolute;
+        left: rem(700);
+        bottom: rem(-440);
+        margin-left: rem(-40);
+        width: rem(540);
+    }
+
+    ul {
+        max-width: rem(600);
+        border-left: 3px solid $_fg-color;
+        margin-left: rem(10);
+        padding-left: rem(60);
+    }
+
+    li.event {
+        position: relative;
+        margin-bottom: $base-spacing*3;
+        h1 {
+            margin-bottom: 0;
+            line-height: rem(28);
+            font-size: rem(28);
+            margin-bottom: rem(8);
+            a { color: $base-font-color; }
+        }
+
+        h2 {
+            font-size: rem(20);
+            font-weight: 400;
+            font-style: italic;
+            margin-bottom: rem(10);
+        }
+        &:before {
+            $_size: rem(15);
+            content: '';
+            display: block;
+            position: absolute;
+            top: rem(23);
+            left: rem(-69);
+            width: $_size;
+            height: $_size;
+            margin-top: -$_size;
+            border-radius: $_size;
+            background: $_fg-color;
+        }
+        &:last-child { margin-bottom: 0; }
+    }
 }
 
 // Recent talks/videos

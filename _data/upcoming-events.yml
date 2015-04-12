@@ -1,24 +1,22 @@
-- title: Meetup title
-  description: Sed accumsan mi ut sapien porta auctor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-  permalink: google.com
-  tag: Section meta tag
-- title: Meetup title
-  description: Sed accumsan mi ut sapien porta auctor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-  permalink: google.com
-  tag: Section meta tag
-- title: Meetup title
-  description: Sed accumsan mi ut sapien porta auctor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-  permalink: google.com
-  tag: Section meta tag
-- title: Meetup title
-  description: Sed accumsan mi ut sapien porta auctor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-  permalink: google.com
-  tag: Section meta tag
-- title: Meetup title
-  description: Sed accumsan mi ut sapien porta auctor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-  permalink: google.com
-  tag: Section meta tag
-- title: Meetup title
-  description: Sed accumsan mi ut sapien porta auctor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
-  permalink: google.com
-  tag: Section meta tag
+- title: RethinkDB 2.0 webcast
+  byline: April 21, 2015 via livestream
+  description: Join RethinkDB co-founders Slava Akhmechet and Michael
+      Glukhovsky as they share new features and updates in RethinkDB 2.0. 
+  permalink: http://www.meetup.com/RethinkDB-Bay-Area-Meetup-Group/events/220785393/
+  cta: "RSVP here <i class='right-arrow'></i>"
+  tag: Webcast
+- title: RethinkDB 2.0 release happy hour at HQ
+  byline: April 21, 2015 in Mountain View, CA
+  description: Hang out with the RethinkDB team and other developers over food
+      and drinks. Enjoy some games, video games, and happy hour refreshments.
+      Get architectural advice, improve your code, share your RethinkDB
+      projects, and give the RethinkDB team product feedback on 2.0!
+  permalink: http://www.meetup.com/RethinkDB-Bay-Area-Meetup-Group/events/221248618/
+  tag: Meetup
+  cta: "RSVP here  <i class='right-arrow'></i>"
+- title: RethinkDB & Platzi at Heavybit
+  byline: April 21, 2015 in San Francisco, CA
+  description: Details TBA
+  permalink: http://www.meetup.com/RethinkDB-SF-Meetup-Group/events/221662951/
+  tag: Meetup
+  cta: "RSVP here <i class='right-arrow'></i>"

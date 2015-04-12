@@ -3,12 +3,12 @@
 .hero-bg {
     background-repeat: no-repeat;
     height: rem(460);
-    max-height: rem(380);
     position: relative;
 
     // Background overlay color
     &:after {
-        @include background(linear-gradient(to top right, lighten($teal, 20), darken(#005662, 10)));
+        //@include background(linear-gradient(to top right, lighten($teal, 20), darken(#005662, 10)));
+        background: rgba(28, 42, 52, 0.85);
         bottom: 0;
         content: '';
         left: 0;
@@ -36,7 +36,7 @@
         line-height: rem(44);
         position: relative;
         text-align: center;
-        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
         margin: 0 auto;
         width: 100%;
         vertical-align: middle;

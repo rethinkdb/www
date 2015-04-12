@@ -33,9 +33,9 @@ $ ->
 # ------------
 video_modals = ->
     # -> show a video modal on click
-    $('.video p').click (event) ->
+    $('.video').click (event) ->
         event.preventDefault()
-        $modal = $(this).next('.video-modal')
+        $modal = $('.video-modal', this)
 
         # Buid the iframe for the YouTube embed
         yt = $modal.data('youtube-id')                                     # Get the YouTube id
@@ -60,6 +60,7 @@ video_modals = ->
     # Two ways to dismiss videos: clicking outside the video or pressing ESC
     $('.video-modal').on 'click', (event) ->
         event.preventDefault()
+        event.stopPropagation()
         dismiss_video()
     $(document).keyup (event) ->
         if (event.keyCode == 27)

@@ -1,6 +1,6 @@
 ---
 layout: document
-title: Thanks for becoming a RethinkDB Contributor
+title: Thanks for becoming a RethinkDB contributor
 active: community
 permalink: community/cla/thanks/
 ---

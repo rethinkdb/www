@@ -1,5 +1,6 @@
 ---
 layout: default
+title: Community
 active: community
 body_class: community
 ---
@@ -8,108 +9,53 @@ body_class: community
     <!-- hero -->
     <section class="hero">
         <div class="site-container">
-            <h1>Building great things together.</h1>
+            <h1>Building great things together</h1>
         </div>
     </section>
-    <!-- inline page navigation -->
-    <nav class="sub-nav">
-        <div class="site-container">
-            <ul>
-                <li>
-                    <a href="#intro">Get involved</a>
-                </li>
-                <li>
-                    <a href="#events">Events</a>
-                </li>
-                <li>
-                    <a href="#talks">Talks</a>
-                </li>
-            </ul>
-        </div>
-    </nav>
     <!-- intro -->
     <section class="intro">
         <div class="site-container">
-            <div class="third">
-                <h1>Get help</h1>
-                <ul>
-                    <li>
-                        <h2>Mailing list</h2>
-                        <p>
-                            <a href="http://groups.google.com/group/rethinkdb" target="_blank">ask questions</a>
-                        </p>
-                    </li>
-                    <li>
-                        <h2>IRC</h2>
-                        <p>Drop in and get answers in realtime.</p>
-
-                        <p>
-                            <a href="http://webchat.freenode.net/?channels=#rethinkdb" target="_blank">#rethinkdb on freenode</a>
-                            <a href="http://irclogger.com/.rethinkdb/" target="_blank">IRC logs</a>
-                        </p>
-                    </li>
-                    <li>
-                        <h2>Issue tracker</h2>
-                        <p>Submit bug reports, suggest features, and track progress.</p>
-                        <p>
-                            <a href="https://github.com/rethinkdb/rethinkdb/issues?state=open" target="_blank">Issues</a>
-                        </p>
-                    </li>
-                </ul>
+            <div class="infobox infobox-alert s4s">
+                <p><strong>Get a free RethinkDB T-shirt</strong></p>
+                <p>
+                    Tell us how you're using RethinkDB. We're trading <a
+                    href="/community/shirts-for-stories">shirts for
+                    stories</a>.
+                </p>
             </div>
-            <div class="third">
-                <h1>Join a meetup</h1>
-                <ul>
-                    <li>
-                        <h2>Meetup title</h2>
-                        <p>Vivamus nisl massa, fringilla nec ipsum at, placerat dignissim enim.</p>
-                        <a href="#">Link to meetup(s)?</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="third">
-                <h1>Hack on the database</h1>
-                <ul>
-                    <li>
-                        <h2>Write a new driver</h2>
-                        <p>No ReQL driver for your favorite language? Help write one!</p>
-                        <p>Hop on the <a href="http://groups.google.com/group/rethinkdb" target="_blank">mailing list</a> or <a href="irc://chat.freenode%0A.net/#rethinkdb" target="_blank">#rethinkdb</a> on freenode, and we'll walk you through the <a href="https://github.com/rethinkdb/rethinkdb/blob/next/src/rdb_protocol/ql2.proto" target="_blank">driver protocol API</a>.</p>
-                    </li>
-                    <li>
-                        <h2>Work on the engine</h2>
-                        <p>
-                            Drop in and get answers in realtime.
-                            <a href="http://webchat.freenode.net/?channels=#rethinkdb" target="_blank">#rethinkdb on freenode</a>
-                        </p>
-                        <p>
-                            You can also browse
-                            <a href="http://irclogger.com/.rethinkdb/" target="_blank">IRC logs</a>.
-                        </p>
-                    </li>
-                    <li>
-                        <h2>Issue tracker</h2>
-                        <p>Submit bug reports, suggest features, and track progress.</p>
-                        <p>
-                            <a href="https://github.com/rethinkdb/rethinkdb/issues?state=open" target="_blank">Issues</a>
-                        </p>
-                    </li>
-                </ul>
-            </div>
+            <h1>Get help from the RethinkDB community</h1>
+            <ul>
+                <li>
+                    <h2>Ask a question</h2>
+                    <p>Post your RethinkDB questions on <a href="#">Google Groups</a> or <a href="#">Stack Overflow</a>.</p>
+                </li>
+                <li>
+                    <h2>Talk with the RethinkDB team</h2>
+                    <p>Join us on IRC (<a href="#">#rethinkdb</a> on Freenode), or reach us on <a href="#">Twitter</a>.</p>
+                </li>
+                <li>
+                    <h2>Report an issue</h2>
+                    <p>Submit bug reports, suggest new features, or follow development on our <a href="#">GitHub repo</a>.</p>
+                </li>
+            </ul>
         </div>
     </section>
     <!-- intro -->
     <section class="events">
         <div class="site-container">
-            <h1>Events</h1>
-            <ul class="article-list">
+            <ul>
                 {% for event in site.data['upcoming-events'] %}
-                    <li>
+                    <li class="event">
                         <h1><a href="{{ event.permalink }}">{{ event.title }}</a></h1>
+                        <h2>{{ event.byline }}</h2>
                         <p>{{ event.description }}</p>
-                        <span>{{ event.tag }}</span>
+                        <p><a class="button minimal" href="{{ event.permalink }}">{{ event.cta }}</a></p>
                     </li>
                 {% endfor %}
             </ul>
+            <div class="community-illustration">
+                <img src="/assets/images/landing/features/4.png">
+            </div>
         </div>
     </section>
     <!-- videos/talks -->

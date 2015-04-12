@@ -1,0 +1,234 @@
+---
+layout: post
+title: "RethinkDB 1.6: regex matching, new array operations, random sampling"
+tags:
+- release
+author: Slava Akhmechet
+author_github: coffeemug
+---
+
+We are happy to announce __RethinkDB 1.6__ (Fargo). Go [download it
+now][install])!
+
+[yt]: http://www.youtube.com/watch?v=x-XEHwUBubk
+[install]: /docs/install/
+
+This release includes regex string matching, fourteen new array operations,
+support for random sampling, error handling improvements, support for
+authentication keys, and [over 65][1] bug fixes, features, and enhancements.
+
+[1]: https://github.com/rethinkdb/rethinkdb/issues?milestone=31&state=closed
+
+<a href="https://twitter.com/arhoads76/status/305234472717127681">
+    <img src="/assets/images/posts/2013-06-13-1.6-release-1.png" />
+</a>
+<!--more-->
+
+{% infobox %}
+__Upgrading to RethinkDB 1.6?__ Make sure to [migrate your data][] before
+upgrading to RethinkDB 1.6.
+
+[migrate your data]: /docs/migration
+{% endinfobox %}
+
+# Regex string matching
+
+RethinkDB 1.6 introduces __regular expressions__ into the query language
+(ReQL).  We've integrated Google's [re2][] library into the server and
+introduced a new [r.match][] command. 
+
+[re2]: https://code.google.com/p/re2/
+[r.match]: /api/#js:string_manipulation-match
+
+The `match` command returns the matched string, the starting and ending
+location, and capture groups in a json object. It returns `null` if there is no
+match. 
+
+You can use it to match regular expressions in strings as follows:
+
+```javascript
+r.expr('My name is Slava').match('name is (.*)')
+// returns {"str":"name is Slava","start":3,"groups":[{"str":"Slava","start":11,"end":16}],"end":16} 
+```
+
+Here's an example of using regular expressions to find every user whose first
+name begins with the letter S:
+
+```javascript
+r.table('users').filter(r.row('first_name').match('S.*'))
+// returns all JSON documents where `first_name` begins with `S`:
+```
+
+You can even use `match` in a secondary index for efficient access:
+
+```javascript
+// Create a secondary index for all users whose first names begin with `S`
+r.table('users').indexCreate('starts_with_S', r.row('first_name').match('S.*').ne(null))
+
+// Efficiently get all the users where `first_name` begins with `S`
+r.table('users').getAll(true, {index: 'starts_with_S'})
+```
+
+# New array operations
+
+Over the past few months we've discovered that many of our users are using
+arrays in ways we didn't anticipate -- as sets, or as containers for deeply
+nested elements. In the 1.6 release we've added __fourteen new array
+operations__ to make these use cases easier:
+
+* [prepend][]: prepends an element to an array
+* [append][]: appends an element to an array
+* [insertAt][]: inserts an element at the specified index
+* [spliceAt][]: splices a list into another list at the specified index
+* [deleteAt][]: deletes the element at the specified index
+* [changeAt][]: changes the element at the specified index to the specified
+  value
+* [add][]: adds two arrays -- returns the ordered union
+* [mul][]: repeats an array _n_ times
+* [difference][]: removes all instances of specified elements from an array
+* [count][]: returns the number of elements in an array
+* [indexesOf][]: returns positions of elements that match the specified value
+  in an array
+* [isEmpty][]: check if an array or table is empty
+* [setInsert][]: adds an element to a set    
+* [setUnion][]: returns the union of two sets
+* [setDifference][]: returns the difference of two sets
+* [setIntersection][]: finds the intersection of two sets
+
+[prepend]: /api/#js:document_manipulation-prepend
+[append]: /api/#js:document_manipulation-append
+[insertAt]: /api/#js:document_manipulation-insert_at
+[spliceAt]: /api/#js:document_manipulation-splice_at
+[deleteAt]: /api/#js:document_manipulation-delete_at
+[changeAt]: /api/#js:document_manipulation-change_at
+[add]: /api/#js:math_and_logic-add
+[mul]: /api/#js:math_and_logic-mul
+[difference]: /api/#js:document_manipulation-difference
+[count]: /api/#js:aggregation-count
+[indexesOf]: /api/#js:transformations-indexes_of
+[isEmpty]: /api/#js:transformations-is_empty
+[setInsert]: /api/#js:document_manipulation-set_insert
+[setUnion]: /api/#js:document_manipulation-set_union
+[setDifference]: /api/#js:document_manipulation-set_difference
+[setIntersection]: /api/#js:document_manipulation-set_intersection
+
+These new commands should make working with arrays in RethinkDB delightful. 
+
+# Random sampling
+
+Many people use RethinkDB for analytics and data crunching, and [have been
+asking][#182] us to add support for __random sampling__. We've now added a new
+[r.sample][] command that returns a random sample of a table:
+
+[#182]: https://github.com/rethinkdb/rethinkdb/issues/182
+[r.sample]: /api/#js:transformations-sample
+
+```javascript
+// Get a random sample of five users
+r.table('users').sample(5)
+```
+
+You can also use the `sample` command on arrays:
+
+```javascript
+// Get three random elements from the array
+r.expr([1, 2, 3, 4, 5]).sample(3)
+```
+
+# Error handling improvements
+
+When we initially designed the error handling system in RethinkDB, we made a
+design decision: errors should be as strict as possible. Prior to the 1.6
+release, filtering documents by non-existent attributes would throw an error.
+
+The following command:
+
+```javascript
+r.expr([{name: 'Slava', age: 30}, {name: 'Mickey'}]).filter(r.row('age').gt(20))
+```
+
+would return this error:
+
+```
+RqlRuntimeError: No attribute `age` in object:
+{ "Mickey" } in:
+r([{name: "Slava", age: 30}, {name: "Mickey"}]).filter(function(var_5) { return r.row("age").gt(30); })
+                                                                                ^^^^^^^^^^^^
+```
+
+In order to avoid this issue, users had to explicitly check for existence of
+the attributes as part of the query. We found that everyone unilaterally
+disliked this behavior.
+
+In RethinkDB 1.6, rows that have missing attributes will automatically be
+skipped by operations like `pluck` and `filter`:
+
+```javascript
+r.expr([{name: 'Slava', age: 30}, {name: 'Mickey'}]).filter(r.row('age').gt(30))
+
+// now returns [{name: 'Slava', age: 30}]
+```
+
+If you need strict error handling in `filter`, you can enable the old behavior:
+
+```javascript
+r.expr([{name: 'Slava', age: 30}, {name: 'Mickey'}]).filter(r.row('age').gt(30),
+                                                            {default: r.error()})
+// throws the `No attribute age` error.
+```
+
+# Basic authentication support
+
+This version also introduces __basic authentication__ via shared keys. Many of
+our users run RethinkDB in public clouds and environments like EC2; while it's
+easy enough to secure RethinkDB with a reverse proxy and Amazon security
+groups, we had a lot of demand for basic shared-key authentication.
+
+Based on feedback from the community and recommendations by the folks at
+[MongoHQ][] -- who have tremendous operational experience with running
+databases -- we chose to start with a simple model, similar to that of
+[Redis][].
+
+[MongoHQ]: https://github.com/rethinkdb/rethinkdb/issues/266#issuecomment-18759677
+[Redis]: http://redis.io/topics/security
+
+You can now set a simple authentication key, and the cluster will reject any
+client driver that doesn't provide the key. Set the key as follows:
+
+```
+$ rethinkdb admin -j host:port
+> set auth foobar
+```
+
+Once the authentication key is set, you have to provide it to the client
+drivers in order to connect to the server:
+
+```javascript
+r.connect({host: host, post: port, authKey: 'foobar'}, ...)
+```
+
+You can unset the key as follows:
+
+```
+$ rethinkdb admin -j host:port
+> unset auth
+```
+
+## Looking forward to 1.7 ##
+
+Our team is now working on the [1.7 release][]. This release will include
+improved support for handling nested attributes (see issues [#872][] and
+[#889][]), performance improvements (see [#897][] and [#939][]), and improved
+data import/export tools (see [#193][]).
+
+[1.7 release]: https://github.com/rethinkdb/rethinkdb/issues?milestone=35&page=1&state=open
+[#872]: https://github.com/rethinkdb/rethinkdb/issues/872
+[#889]: https://github.com/rethinkdb/rethinkdb/issues/889
+[#897]: https://github.com/rethinkdb/rethinkdb/issues/897
+[#939]: https://github.com/rethinkdb/rethinkdb/issues/939
+[#193]: https://github.com/rethinkdb/rethinkdb/issues/193
+
+We'd love to hear what you think about the roadmap --
+[let us know][contact]!
+
+[contact]: /community/

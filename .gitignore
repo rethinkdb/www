@@ -11,6 +11,4 @@ _algolia-build
 
 # Ignored during the transition
 /docs
-/_posts
 /assets/images/docs
-/assets/images/posts

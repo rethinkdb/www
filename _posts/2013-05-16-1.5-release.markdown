@@ -1,0 +1,197 @@
+---
+layout: post
+title: "RethinkDB 1.5: secondary indexes, batched inserts performance improvements, soft durability mode"
+tags:
+- release
+author: Slava Akhmechet
+author_github: coffeemug
+alias: /videos/secondary-indexes-in-1-5/
+---
+
+We are pleased to announce __RethinkDB 1.5__ ( The Graduate), so go [download
+it now][install]!
+
+[yt]: http://www.youtube.com/watch?v=yRBNA27N0ts
+[install]: /docs/install/
+
+This release includes the long-awaited support for secondary indexes, a new
+algorithm for batched inserts that results in an ~18x performance improvement,
+support for soft durability (don't worry -- off by default), and [over 180][1]
+bug fixes, features, and enhancements.
+<!--more-->
+
+[1]: https://github.com/rethinkdb/rethinkdb/issues?milestone=8&page=1&state=closed
+
+{% infobox %}
+__Upgrading to RethinkDB 1.5?__ Make sure to [migrate your data][] before
+upgrading to RethinkDB 1.5.
+
+[migrate your data]: /docs/migration
+{% endinfobox %}
+
+# Secondary indexes
+
+<a href="https://twitter.com/karl_grz/statuses/322420083093819392">
+    <img src="/assets/images/posts/2013-05-16-1.5-release-1.png" />
+</a>
+
+Support for secondary indexes has been the most requested feature since we
+launched RethinkDB, and has been in development for over [six months][#88]. It
+required a massive amount of server work and involved modifying almost every
+part of the codebase: the BTree code, the concurrency subsystem, the
+distribution layer, the query language, the client drivers, and even the web
+UI.
+
+[#88]: https://github.com/rethinkdb/rethinkdb/issues/88
+
+We worked hard to make sure secondary indexes are extremely easy to use. Here's
+how you'd create a secondary index on the `last_name` attribute:
+
+```javascript
+r.table('users').indexCreate('last_name')
+```
+
+Then getting all users with the last name Smith would be:
+
+```javascript
+r.table('users').getAll('Smith', { index: 'last_name' })
+```
+
+Or you could retrieve arbitrary ranges of the index. For example, all users
+whose last names are between Smith and Wade:
+
+```javascript
+r.table('users').between('Smith', 'Wade', { index: 'last_name' })
+```
+
+Listing and dropping indexes is also [a part of the API][index-list]:
+
+[index-list]: /api/#js:manipulating_tables-index_list
+
+```javascript
+r.table('users').indexList()             // list indexes on table 'users'
+r.table('users').indexDrop('last_name')  // drop index 'last_name' on table 'users'
+```
+
+In addition to manipulating secondary indexes via ReQL, you can perform these
+from the admin UI:
+
+<a href="https://www.youtube.com/watch?v=-B7Mugh9Cb0">
+    <img src="/assets/images/videos/releases/rethinkdb-1.5.png">
+</a>
+
+You can define compound indexes, and even indexes based on arbitrary ReQL
+expressions. Secondary indexes can be used to do efficient table joins, and are
+sharded and replicated along with the rest of the database. Learn more about
+[how to use secondary indexes][indexes] in the documentation.
+
+[indexes]: /docs/secondary-indexes
+
+# Batched inserts performance improvements
+
+Since the initial release, RethinkDB has supported inserting batches of
+documents. Instead of inserting multiple documents one at a time:
+
+```javascript
+r.table('users').insert({ name: 'Michael' })
+r.table('users').insert({ name: 'Bill' })
+```
+
+It was always possible to insert a batch of documents in one command with a
+single network roundtrip:
+
+```javascript
+r.table('users').insert([{ name: 'Michael' },
+                         { name: 'Bill' }])
+```
+
+However, the server had always executed batched inserts by translating them to
+a series of single insert commands. While sending the data in a single network
+roundtrip reduced the network latency, it still had very poor performance
+because the server would have to flush each document to disk before moving on
+to the next document.
+
+The 1.5 release includes a [new insert algorithm][#457] that flushes changes to
+disk in batches while maintaining the guarantee of consistency in case of power
+failure. This algorithm drastically improves performance of batched inserts.
+While not something we'd call a benchmark, inserting 100 medium-sized documents
+went from 2.8 seconds to 160 milliseconds on a development system, and the ~18x
+performance improvement is consistently reproducible on different batched
+insert workloads and types of hardware.
+
+[#457]: https://github.com/rethinkdb/rethinkdb/issues/457
+
+# Soft durability mode
+
+Early in the development of RethinkDB, we made the design decision to be
+extremely conservative about durability and safety of users's data. In this
+respect RethinkDB is like any other traditional database system -- the server
+does not acknowledge the write until it's safely committed to disk. While this
+is a sensible default for a database system, many of our users pointed out that
+they're using RethinkDB for storing access logs or clickstream data, or as a
+persistent, replicated cache of JSON documents. These scenarios might require
+trading off some durability guarantees for higher performance.
+
+The 1.5 release includes support for relaxed durability (off by default, of
+course). For tables in this mode, the server acknowledges writes as soon as it
+receives them, and flushes data to disk in the background. Flushes normally
+occur every few seconds, or if there are too many dirty blocks cached in
+memory.
+
+Hard durability can be turned off when creating a table via the advanced
+settings in the web UI or in ReQL:
+
+```javascript
+db.tableCreate('http_logs', { hard_durability: false })
+```
+
+You'll notice that write performance on tables with hard durability turned off
+is about ~30x faster than normal tables. Note that the data still gets flushed
+to disk in the background and is consistent in case of failures. For those
+familiar with MySQL's InnoDB engine, RethinkDB's soft durability is similar to
+setting InnoDB's `innodb_flush_log_at_trx_commit` to `0` ([more info on this
+setting in InnoDB][innodb]).
+
+[innodb]: http://dev.mysql.com/doc/refman/4.1/en/innodb-parameters.html#sysvar_innodb_flush_log_at_trx_commit
+
+You can change the durability mode for an existing table via the admin CLI:
+
+```
+$ rethinkdb admin -j localhost:29015
+localhost:29015> set durability http_logs --hard
+```
+
+# Many more enhancements
+
+The 1.5 release includes many more enhancements -- check out the [changelog][]
+for a complete list. Here are a few more notable changes:
+
+[changelog]: https://github.com/rethinkdb/rethinkdb/blob/v1.5.0/NOTES
+
+* For super-fast insert performance, RethinkDB now supports [noreply writes][]
+  that allow writing data over the network without waiting for a server
+  acknowledgment. This mode allows for an apples-to-apples benchmark comparison
+  with MongoDB.
+* The Data Explorer in the web UI now supports [electric punctuation][#569], as
+  well as a toggle to turn it off. This can make typing queries in the data
+  explorer much more pleasant.
+* The web UI will now check if there is a new version of RethinkDB and inform
+  you if you need to upgrade (the check is done as a simple AJAX request from
+  the browser, and can be turned off).
+
+[noreply writes]: /api/#js:accessing_rql-run
+[#569]: https://github.com/rethinkdb/rethinkdb/issues/569
+
+# Looking forward to 1.6
+
+We are already hard at work on the [1.6 release][]. This release should be
+quick and easy, and will include [many][#570] [ReQL][#341]
+[enhancements][#186]. We will also focus on continuously improving performance
+with each version. However, the next release isn't set in stone. If a feature
+is important to you, [let us know][contact].
+
+[1.6 release]: https://github.com/rethinkdb/rethinkdb/issues?milestone=31&state=open
+[#570]: https://github.com/rethinkdb/rethinkdb/issues/570
+[#341]: https://github.com/rethinkdb/rethinkdb/issues/341
+[#186]: https://github.com/rethinkdb/rethinkdb/issues/186
+[contact]: /community

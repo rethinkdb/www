@@ -1,0 +1,251 @@
+---
+layout: post
+title: "RethinkDB 1.14: binary data, seamless migration, and Python 3 support"
+tags:
+- release
+author: Josh Kuhn
+author_github: deontologician
+alias: /videos/new-features-in-1-14
+---
+
+Today, we're happy to announce __RethinkDB 1.14__ ([Brazil][]). [Download it
+now!][install]
+
+[Brazil]: http://www.youtube.com/watch?v=EvBF3Lxla98
+[install]: /docs/install/
+
+<a href="http://xkcd.com/303/"><img src="/assets/images/posts/2014-08-26-1.14-release-poster.png"/></a>
+
+The 1.14 release includes over [50 enhancements][github-issues] including:
+
+[github-issues]: https://github.com/rethinkdb/rethinkdb/issues?q=is%3Aissue+milestone%3A1.14+is%3Aclosed
+
+- **Seamless migration** (read more below)
+- Simple [binary data] support
+- Python 3 support
+- Support for returning changes from multiple writes
+- Better [documentation][]
+- New options for handling conflicts on inserts
+- Dozens of stability and performance improvements
+
+[binary data]: /api/javascript/binary/
+[documentation]: https://github.com/rethinkdb/docs/issues?q=is%3Aclosed+is%3Aissue+assignee%3Achipotle
+<!--more-->
+
+<a href="https://www.youtube.com/watch?v=wVhzSb9p8zc">
+    <img src="/assets/images/videos/releases/rethinkdb-1.14.png">
+</a>
+
+{% infobox %}
+__Upgrading to RethinkDB 1.14?__
+
+  - You no longer need to migrate your data between point releases! Read below
+    for more information.
+  - If you're upgrading from version 1.12 or earlier, you will need to [migrate
+    your data][] one last time.
+
+[migrate your data]: /docs/migration/
+{% endinfobox %}
+{% infobox alert %}
+__Upgrading on Ubuntu?__ If you're upgrading from 1.12 or earlier, first [set
+up the new RethinkDB PPA][ubuntu].
+
+[ubuntu]: /docs/install/ubuntu
+{% endinfobox %}
+
+# Upgrading from 1.13 with seamless migration
+
+1.14 is the first RethinkDB release that doesn't require you to migrate your
+data.  Just upgrade the package and restart your RethinkDB processes.  Your
+1.14 cluster will be ready to go immediately after restarting! This is
+something people have been asking for since our first release, and we're happy
+to finally be able to provide it. Making upgrades easier is a big step towards
+production readiness.
+
+If you have secondary indexes on your data, the web UI may show an issue for
+those indexes after upgrading.  This means that there was a bug fix affecting
+those indexes, and they need to be recreated to get the new behavior.  You can
+learn how to do that on the [troubleshooting][] page.
+
+[troubleshooting]: /docs/troubleshooting#my-secondary-index-is-outdated
+
+# Binary data support
+
+Support for storing small chunks of binary data has been one of our
+most-requested features.  Starting with 1.14, you can insert binary data
+directly with [r.binary][], and retrieve it like any other part of a row.
+
+[r.binary]: /api/javascript/binary
+
+Binary data works with everything: it can be stored anywhere in your document
+structure, and you can index on it like any other data type.  (That means you
+can use binary data as the primary key of a row, or as the value of a secondary
+index.)
+
+```python
+> r.table('users').insert({
+    'name': 'Sam Lowry',
+    'avatar': r.binary(open('sam_lowry.png', 'rb').read()),
+    }).run(conn)
+{'replaced': 0, 'inserted': 1, 'skipped': 0, 'deleted': 0, 'unchanged': 0, 'errors': 0}
+# In python > 3.0, the 'bytes' type will be used to represent binary data
+> r.table('users').filter({'name': 'Sam Lowry'}).run()
+{'avatar': b'...', 'name': 'Sam Lowry'}
+```
+
+The [r.http][] command has also gained the ability to return binary data.
+`r.http` will try to detect whether it is downloading binary data and return
+the appropriate type. You can also request that it return binary data with the
+`result_format` argument:
+
+[r.http]: /api/javascript/http
+
+```python
+> r.table('users').insert({
+    'name': 'Jill Layton',
+    'avatar': r.http('http://example.com/jill_layton.jpg', result_format='binary')
+    }).run(conn)
+```
+
+Binary data is stored inline in your rows, so it's well-suited to storing small
+images and files, but aren't a good fit for 10GB movies.
+
+# Python 3 driver
+
+Thanks to contributions from [@grandquista][] and [@barosl][], the RethinkDB
+[Python driver][] has added support for Python 3.0 through 3.4.
+
+[@grandquista]: https://github.com/grandquista
+[@barosl]: https://github.com/barosl
+[Python driver]: /docs/install-drivers/python/
+
+Now you can use awesome Python 3 features like [yield from][] with RethinkDB:
+
+[yield_from]: https://docs.python.org/3/whatsnew/3.3.html#pep-380
+
+```python
+def query_twice(reql_query, conn):
+    yield from reql_query.run(conn)
+    yield from reql_query.run(conn)
+```
+
+Previously, Python 3 support was incomplete because there was no official
+Protocol Buffers implementation for Python 3. The previous release of RethinkDB
+added a JSON driver protocol, and Python 3 support was made possible by that
+work.
+
+# Returning changes from queries with multiple writes
+
+This was another much-requested feature.  In 1.13 and earlier, we allowed users
+to return the old and new values of a row when updating a single document.
+We've changed this interface to be consisted with the [changes][] API and added
+support for returning changes on any query that does a write.
+
+[changes]: /api/javascript/changes
+
+For example, if you have a table of users where every user has a score:
+
+```python
+> r.table('users').run(conn)
+[{'id': 'Buttle', 'score': 20},
+ {'id': 'Tuttle', 'score': 7},
+ ...]
+```
+
+Then you can atomically increment-and-return Buttle and Tuttle's scores like
+so:
+
+```python
+> r.table('users') \
+   .get_all('Buttle', 'Tuttle') \
+   .update(lambda row: {'score': row['score'] + 1}) \
+   .run(conn, return_changes=True)
+{'changes':
+  [{'new_val': {'id': 'Buttle', 'score': 21},
+    'old_val': {'id': 'Buttle', 'score': 20}},
+   {'new_val': {'id': 'Tuttle', 'score': 8},
+    'old_val': {'id': 'Tuttle', 'score': 7}}],
+ 'deleted': 0,
+ 'errors': 0,
+ 'inserted': 0,
+ 'replaced': 2,
+ 'skipped': 0,
+ 'unchanged': 0}
+```
+
+# Improved documentation
+
+[@chipotle][] has been improving our documentation for the last three months.
+You can see his work in the greatly expanded [map-reduce][] docs, as well as
+new pages on [importing your data][], [using nested fields][], and [database
+limitations][].
+
+[@chipotle]: https://github.com/chipotle
+[map-reduce]: /docs/map-reduce/
+[importing your data]: /docs/importing/
+[using nested fields]: /docs/nested-fields
+[database limitations]: /docs/limitations
+
+Overall, there have been hundreds of improvements to the docs since the last
+release. Excellent docs have always been something we've strived for, and
+having someone working on them full-time ensures they'll always be high quality
+and up to date.
+
+# Handling conflicts on insert
+
+Previously, the [insert][] command supported the `upsert` optional argument.
+This allowed you to insert or replace a document. In 1.14 we replaced the
+`upsert` argument with the `conflict` argument, and added the ability to update
+an existing document, rather than overwrite it completely.
+
+[insert]: /api/javascript/insert
+
+As an example, let's assume you have two web crawlers that get ratings for
+movies from both IMDB and Rotten Tomatoes. In general, we don't know which
+crawler will get to a particular movie first. In this case, the IMDB crawler
+already inserted its document for the movie Brazil:
+
+```python
+> r.table('movies').get('Brazil (1985)').run(conn)
+{'id': 'Brazil (1985)',
+ 'imdb_rating': 8.0 }
+```
+
+By default, if the Rotten Tomatoes crawler tries to do an insert with the key
+`"Brazil (1985)"`, we'll get an error, since the document already exists. But
+if instead it uses `conflict='update'`, the document will simply be updated:
+
+```python
+> r.table('movies').insert({
+    'id': 'Brazil (1985)',
+    'rt_rating': 98,
+    },
+    conflict='update').run(conn)
+> r.table('movies').get('Brazil (1985)').run(conn)
+{'id': 'Brazil (1985)',
+ 'imdb_rating': 8.0,
+ 'rt_rating': 98}
+```
+
+You can get the previous upsert behavior with `conflict='replace'`.
+
+# Next steps #
+
+See the [full list][] of enhancements, and take the new release [for a spin][]!
+
+[full list]: https://github.com/rethinkdb/rethinkdb/issues?q=is%3Aissue+milestone%3A1.14+is%3Aclosed
+[for a spin]: /docs/install/
+
+The team is already hard at work on the upcoming [1.15 release][] that will
+likely include geospatial query support. As always, if there is something you'd
+like us to prioritize or have any feedback on the release, please [let us
+know][]!
+
+[1.15 release]: https://github.com/rethinkdb/rethinkdb/issues?q=milestone%3A1.15+is%3Aopen
+[let us know]: https://github.com/rethinkdb/rethinkdb/issues
+
+{% infobox %}
+__Help work on the 1.15 release:__ RethinkDB is [hiring][].
+
+[hiring]: /jobs
+{% endinfobox %}

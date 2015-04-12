@@ -1,33 +1,11 @@
+/* ---
+   Used by: general styles
+   --- */
 section.used-by {
-    $_bg: $cream;
+    $_bg: rgb(241, 245, 245);
     $_color: desaturate(lighten($teal, 50), 70);
-    padding: $base-spacing 0;
-    margin: $base-spacing 0;
-
-    .site-container {
-        $_border: 1px solid $_color;
-        border-top: $_border;
-        border-bottom: $_border;
-        padding: $base-spacing 0;
-    }
-
-    h1 {
-        $_font: rem(20);
-        font-size: $_font;
-        line-height: $_font;
-        font-weight: 600;
-        color: $_color;
-        text-transform: lowercase;
-        text-align: center;
-        position: relative;
-        top: rem(-38);
-        margin-bottom: rem(-30);
-        span {
-            padding: $base-spacing/4 $base-spacing;
-            display: inline-block;
-            background: $_bg;
-        }
-    }
+    padding: $base-spacing*2 0;
+    background: $_bg;
 
     .logos {
         @include outer-container;
@@ -35,7 +13,71 @@ section.used-by {
             @include span-columns(3);
             @include omega(4n);
             padding: rem(15) rem(29);
+            // Convert images themselves
             opacity: 0.7;
+            filter: grayscale(0.8);
+
+            @include media($mobile) {
+                @include span-columns(2);
+                @include omega(2n);
+                padding: $base-spacing $base-spacing*2;
+            }
         }
+    }
+
+    // Horizontal divider
+    hr {
+        width: 94%;
+        margin: 3rem auto;
+        border-color: rgb(220, 224, 224);
+    }
+}
+
+/* ---
+   Used by: testimonials
+   --- */
+section.used-by .testimonials {
+    clear: both;
+    padding-top: $base-spacing/2;
+
+    .site-container { padding: 0 rem(29); }
+    .testimonial {
+        @extend .half;
+        // No margin on the last testimonial
+        &:last-child blockquote { margin-right: 0; }
+    }
+
+    // Blockquote styles for each testimonial
+    blockquote { 
+        $_quote-width: rem(25);
+        margin: $base-spacing;
+        margin-left: $_quote-width;
+        margin-right: rem(30);
+        padding: 0 $base-spacing;
+        padding-left: $base-spacing / 2;
+        border-left: none;
+
+        @include font-size-rem(22);
+        color: lighten($base-font-color, 15);
+
+        &:before {
+            @include font-size-rem(60);
+            font-family: $serif;
+            color: lighten($base-font-color, 40);
+            content: '“';
+            position: absolute;
+            top: rem(-35);
+            left: -$_quote-width;
+        }
+
+        cite { @include font-size-rem(18); }
+    }
+
+
+    @include media($mobile) {
+        padding-top: $base-spacing;
+
+        blockquote { padding: 0; }
+        blockquote:before { display: none; }
     }
 }

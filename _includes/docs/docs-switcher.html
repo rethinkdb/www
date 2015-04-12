@@ -38,17 +38,17 @@
         <a class="lang javascript{% if lang == 'js' %} active{% endif %}"
             {% unless page.js == false %}href="{{ js_link }}"{% endunless %}>
             <i class="javascript"></i>
-            <p {% if page.js == false %}class="disabled"{% endif %}>JavaScript</p>
-        </a><span class="divider">|</span>
-        <a class="lang python{% if lang == 'py' %} active{% endif %}"
+            <span {% if page.js == false %}class="disabled"{% endif %}>JavaScript</span>
+        </a><span class="divider">|</span><!--
+        --><a class="lang python{% if lang == 'py' %} active{% endif %}"
             {% unless page.py == false %}href="{{ py_link }}"{% endunless %}>
             <i class="python"></i>
-            <p {% if page.py == false %}class="disabled"{% endif %}>Python</p>
-        </a><span class="divider">|</span>
-        <a class="lang ruby {% if lang == 'rb' %} active{% endif %}"
+            <span {% if page.py == false %}class="disabled"{% endif %}>Python</span>
+        </a><span class="divider">|</span><!--
+        --><a class="lang ruby {% if lang == 'rb' %} active{% endif %}"
             {% unless page.rb == false %}href="{{ rb_link }}"{% endunless %}>
             <i class="ruby"></i>
-            <p {% if page.rb == false %}class="disabled"{% endif %}>Ruby</p>
+            <span {% if page.rb == false %}class="disabled"{% endif %}>Ruby</span>
         </a>
     </section>
 </nav>

@@ -12,15 +12,11 @@ body_class: api
         </section>
         <section class="api-command docs-article">
             <header>
-                {% include docs/docs-switcher.html %}
                 <h1 class="title">ReQL command: {{page.command}}</h1>
             </header>
-            <div class="linksbox-container">
-                <div class="linksbox">
-                    <p><strong>Contribute:</strong> <a href="https://github.com/rethinkdb/docs/blob/master{{page.path | remove_first: 'docs' }}">edit this page</a>
-                    or <a href="https://github.com/rethinkdb/docs/issues">open an issue</a> </p>
-                </div>
-            </div>
+            <section class="byline">
+                {% include docs/docs-switcher.html %}
+            </section>
             {{content}}
             {% if page.related_commands %}
                 <section class="related-commands">
@@ -42,6 +38,12 @@ body_class: api
                     <li class="github"><strong>Post an issue</strong> on the <a href="https://github.com/rethinkdb/docs/issues">documentation issue tracker</a> on GitHub</li>
                 </ul>
             </section>
+{% infobox info %}
+__Contribute:__ [edit this page][] or [open an issue][]
+
+[edit this page]: https://github.com/rethinkdb/docs/blob/master{{page.path | remove_first: 'docs' }}
+[open an issue]: https://github.com/rethinkdb/docs/issues
+{% endinfobox %}
         </div>
     </div>
 </section>

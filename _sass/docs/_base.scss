@@ -57,10 +57,10 @@
    Documentation: byline
    --- */
 
-.docs-article .byline {
+.docs-article .byline, .api-docs .byline {
     background: rgba(244, 244, 244, 1);
     border-radius: $base-border-radius;
-    padding: 0.4rem 1.7rem;
+    padding: rem(5) rem(17);
 }
 
 /* ---
@@ -71,7 +71,7 @@ nav.lang-selector {
     p.caption { 
         display: inline-block; 
         margin: 0 rem(10) 0 0;
-        @include font-size-rem(17);
+        @include font-size-rem(16);
         font-weight: 600;
         color: $base-font-color;
     }
@@ -85,15 +85,15 @@ nav.lang-selector {
             &:first-child { padding-left: 0; }
             &:last-child { padding-right: 0; }
 
-            p {
-                @include font-size-rem(14);
+            span {
+                @include font-size-rem(16);
                 display: inline;
                 font-family: $sans-serif-medium;
                 font-weight: 500;
                 margin-bottom: 0;
                 padding-top: 0;
                 color: lighten($base-font-color, 20);
-                border-bottom: thin dotted lighten($base-font-color, 15);
+                border-bottom: thin dotted desaturate(lighten($base-font-color, 40), 5);
             }
 
             i {
@@ -102,7 +102,8 @@ nav.lang-selector {
                 display: inline-block;
                 width: rem(15);
                 height: rem(15);
-                margin-right: rem(4);
+                margin-right: rem(5);
+                margin-top: rem(-1);
                 vertical-align: middle;
                 
                 $_root: '/assets/images/docs/driver-languages/minicons/';
@@ -114,7 +115,7 @@ nav.lang-selector {
 
         // The active language should have a bright icon and bold text
         a.active {
-            p {
+            span {
                 color: $base-font-color;
                 font-weight: 600;
                 border-bottom: 0;

@@ -17,8 +17,8 @@
 @import "base/infobox";
 
 // View-specific styles
-@import "landing";
-@import "landing-animations";
+@import "landing/base";
+@import "landing/realtime-queries";
 @import "blog";
 @import "about";
 @import "services";

@@ -14,6 +14,7 @@ api_index: true
             <p class="back-to-top"><a href="#"><i class="up-arrow">&#9650;</i> Back to top</a></p>
         </section>
         <section class="api-content docs-article">
+            {% comment %}
             <!-- REVIEW for removal TODO: used by search for results, check search.coffee as well
             <div class="search-results">
                 <div class="results-header">
@@ -29,8 +30,11 @@ api_index: true
                 </ul>
             </div>
             -->
-            {% include docs/docs-switcher.html %}
+            {% endcomment %}
             <h1 class="title">{{page.language}} ReQL command reference</h1>
+            <section class="byline">
+                {% include docs/docs-switcher.html %}
+            </section>
             <div class="infobox infobox-info">
                 <p>
                     <strong>Looking for documentation for a community driver?</strong><br/>

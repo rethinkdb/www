@@ -3,15 +3,15 @@ RethinkDB website
 
 ## NOTE: please do the following to build
 
-To build the site while we're in transition, check out these repos:
+To build the site while we're in transition, check out these repos into the same folder:
     - rethinkdb/www-thoughtbot (this repo)
     - rethinkdb/docs, using the `2.0-revised` branch
 
-Symlink the following directories (assuming you've checked out both repos to `~/git`:
+In the www-thoughtbot folder, symlink the following directories:
 
 ```
-ln -s ~/git/docs ~/git/www-thoughtbot/docs
-ln -s ~/git/docs/_images ~/git/www-thoughtbot/assets/images/docs
+ln -s ../docs docs
+ln -s ../../../git/docs/_images assets/images/docs
 ```
 
 This is a temporary measure while files are being moved around, and may change abruptly. This notice will be removed from the README when it no longer applies.
@@ -30,6 +30,22 @@ Install the necessary gems:
 ```
 bundle install
 ```
+
+## Building the website using docker
+
+The first time you build with docker, and whenever the dependencies change, build a docker image:
+
+```
+rake build_docker
+```
+
+Afterwards, prefix `docker:` to a rake task to perform it using the docker image:
+
+```
+rake docker:build
+rake docker:serve
+```
+
 
 ## Getting your system ready to build the website
 

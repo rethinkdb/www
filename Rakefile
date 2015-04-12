@@ -23,7 +23,7 @@ end
 
 desc 'Start server and regenerate files on change'
 task :serve do
-    jekyll('serve') 
+    jekyll('serve --host 0.0.0.0')
 end
 
 desc 'Start the server quickly, using an existing build, and regenerate files on change'
@@ -178,4 +178,28 @@ def jekyll(opts = '')
         dev = ''
     end
     sh "bundle exec jekyll #{opts}#{dev} --trace"
+end
+
+def docker_wrap(cmd, interactive=false)
+    i = "-i " if interactive else ""
+    sh "docker run #{i}-t -P -v #{__dir__}:/website -v #{__dir__}/../docs:/docs -v /etc/passwd:/etc/passwd:ro rethinkdb-www-build sudo -u #{Etc.getlogin} #{cmd}"
+end
+
+desc "Build a docker build image"
+task :build_docker do
+    sh "docker build -t rethinkdb-www-build ."
+end
+
+namespace :docker do
+    [:build, :default, :algolia, :serve, :clean, :up, :benchmark].each do |name|
+        desc "Run the #{name} task inside the docker build image"
+        task name do
+            docker_wrap "rake #{name}"
+        end
+    end
+end
+
+desc "Run an interactive shell in the docker build image"
+task :docker do
+    docker_wrap "bash", true
 end

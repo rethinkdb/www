@@ -86,7 +86,7 @@ rewrite_links = ->
     lang = Cookies.get('lang')
 
     # Set the cookie with the current language in either case
-    if lang is null
+    if not lang?
         lang = 'javascript'
         Cookies.set('lang', lang, { path: '/' })
     else if /javascript/.test(document.location.pathname)

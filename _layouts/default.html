@@ -41,9 +41,7 @@
     </head>
     <body class="{{ page.body_class}}">
         <div id="wrapper">
-            {% unless page.body_class == 'landing' %}
-                {% include navbar.html %}
-            {% endunless %}
+            {% include navbar.html %}
             {{ content }}
 
             <!-- support -->

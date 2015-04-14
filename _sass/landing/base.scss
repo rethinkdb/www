@@ -3,7 +3,11 @@
    --- */
 body.landing {
     // Override
-    .site-nav { margin-bottom: 0; }
+    .site-nav {
+        @extend .site-nav.translucent;
+        margin-bottom: 0;
+        background: transparent;
+    }
 
     h1 {
         @include font-size-rem(32);
@@ -45,6 +49,9 @@ body.landing {
     position: relative;
     z-index: 0;
 
+    // Top padding should at least the height of the navbar, proper offset
+    padding-top: rem(100);
+
     &:before {
         background: url('/assets/images/landing/hero.png') 0 bottom no-repeat;
         content: '';
@@ -68,7 +75,6 @@ body.landing {
             background-position: center bottom;
         }
     }
-    .site-nav { background-color: transparent; }
 }
 
 .landing .hero {

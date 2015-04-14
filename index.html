@@ -4,7 +4,6 @@ body_class: landing
 ---
 <div class="landing">
     <div class="hero-wrapper">
-        {% include navbar.html %}
         <!-- hero -->
         <section class="hero">
             <div class="site-container">
@@ -224,7 +223,7 @@ body_class: landing
                     complete visibility into running jobs:
                 </p>
                 <pre><code>r.<span class="term">db</span>(<span class="str">'rethinkdb'</span>).<span class="term">table</span>(<span class="str">'jobs'</span>).<span class="term">changes</span>()</code></pre>
-                 <a class="button outlined dark" href="/ops.html">Learn more <i class="right-arrow">go</i></a>
+                 <a class="button outlined dark" href="/docs/sharding-and-replication/">Learn more <i class="right-arrow">go</i></a>
             </section>
             <div class="rethinkdb-ui">
                 <img src="/assets/images/landing/rethinkdb-ui_@2x.png">
@@ -244,7 +243,7 @@ body_class: landing
 
     <!-- community -->
     <section class="community">
-        <h1>Join over 100,000 developers</h1>
+        <h1>Join over {{ site.rethinkdb_users }} developers</h1>
         <div class="site-container">
             <section class="videos">
                 {% video BWGL1eAmscE %}

@@ -3,6 +3,8 @@ table {
   margin: ($base-spacing / 2) 0;
   table-layout: fixed;
   width: 100%;
+
+  &.table-top-aligned td { vertical-align: top; }
 }
 
 th {
@@ -18,7 +20,7 @@ td {
 
   pre, .highlight {
     @include font-size-rem(15);
-    background: none;
+    margin-right: rem(10);
   }
 }
 

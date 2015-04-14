@@ -44,37 +44,9 @@ body.about {
         }
     }
 
-    // Benefits
-    .benefits {
-        background: rgb(241, 245, 245);
-        .benefit-hero {
-            @extend .two-third;
-            margin-top: $base-spacing;
-        }
-        ul {
-            @extend .third;
-        }
-        li {
-            @include fill-parent;
-            text-align: center;
-            padding: $base-spacing 0 $base-spacing 12%;
-
-            img {
-                border-radius: 50%;
-                display: block;
-                height: rem(100);
-                margin: 0 auto $base-spacing/2;
-                overflow: hidden;
-                width: rem(100);
-            }
-        }
-
-        @include media($mobile) {
-            li { padding: $base-spacing/2 10%; }
-        }
-    }
     // Jobs
     .jobs {
+        background: rgb(241, 245, 245);
         li {
             @extend .half;
             border: 1px solid $smoke-gray;

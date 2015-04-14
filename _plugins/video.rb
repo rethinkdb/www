@@ -12,12 +12,12 @@ module Jekyll
             #content = converter.convert(super.strip)
             content = super.strip 
             out = <<-eos
-                <a class="video" href="https://www.youtube.com/watch?v=#{@youtube_id}">
-                    #{content}
-                    <div class="video-modal" data-youtube-id="#{@youtube_id}">
-                        <div class="iframe-container"></div>
-                    </div>
-                </a>
+<a class="video" href="https://www.youtube.com/watch?v=#{@youtube_id}">
+    #{content}
+    <div class="video-modal" data-youtube-id="#{@youtube_id}">
+        <div class="iframe-container"></div>
+    </div>
+</a>
             eos
         end
     end

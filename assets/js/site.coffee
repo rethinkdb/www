@@ -74,12 +74,17 @@ video_modals = ->
 rewrite_links = ->
     # List of multi-language documents
     routes = {
-        '/docs/guide/': true
-        '/docs/cookbook/': true
-        '/docs/rabbitmq/': true
-        '/api/': true
-        '/docs/publish-subscribe/': true
-        '/docs/storing-binary/': true
+      'docs/changefeeds/': true
+      'docs/cookbook/': true
+      'docs/dates-and-times/': true
+      'docs/geo-support/': true
+      'docs/guide/': true
+      'docs/nested-fields/': true
+      'docs/publish-subscribe/': true
+      'docs/rabbitmq/': true
+      'docs/secondary-indexes/': true
+      'docs/sql-to-reql/': true
+      'docs/storing-binary/': true
     }
 
     # Get the current language from a cookie, if it exists

@@ -3,4 +3,43 @@
    --- */
 section.document {
     padding: $base-spacing*2 0;
+
+
+    // header styles (taken from blog posts, abstract away later)
+    h1 {
+        @include font-size-rem(33);
+        font-weight: 400;
+        line-height: rem(38);
+    }
+
+    h2 {
+        @include font-size-rem(22);
+        font-family: $sans-serif-semi-bold;
+        font-weight: 600;
+    }
+
+    h1, h2 { margin: $base-spacing*1.5 0 $base-spacing;}
+
+    .site-container:first-child h1 { margin-top: 0; }
+
+
+    // TODO -- taken from blog post styles (.post-body) -- should be abstracted (documentation + blog posts + documents should be identical)
+    color: lighten(desaturate($teal, 35), 20);
+    padding-top: $base-spacing;
+
+    ul { @extend ul%default-ul; }
+    ul li:last-child { margin-bottom: $base-spacing; }
+
+    p { margin-bottom: $base-spacing; }
+    .infobox p {
+        @include font-size-rem(16);
+        font-family: $sans-serif-medium;
+        font-weight: 500;
+        margin-bottom: 0;
+    }
+
+    // Infoboxes at the top of posts should have a smaller margin
+    .infobox:first-child {
+        margin-top: rem(10);
+    }
 }

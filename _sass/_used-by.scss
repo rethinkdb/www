@@ -15,7 +15,6 @@ section.used-by {
             padding: rem(15) rem(29);
             // Convert images themselves
             opacity: 0.7;
-            filter: grayscale(0.8);
 
             @include media($mobile) {
                 @include span-columns(2);

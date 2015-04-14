@@ -94,9 +94,7 @@
                 @include font-size-rem(15);
                 font-family: $monospaced;
 
-                height: rem(22);
                 vertical-align: center;
-                overflow: hidden;
 
                 @include transition(height 0.3s ease-in-out);
                 &.collapsed { height: 0; }

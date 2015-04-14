@@ -68,16 +68,24 @@
         @extend .three-quarter;
         margin-top: $base-spacing*2;
 
+        header {
+            margin-bottom: rem(10);
+            span {
+                border-bottom: thin solid rgb(26, 55, 65);
+                padding-bottom: rem(4);
+            }
+        }
+
         ul { @include outer-container; }
 
         li {
-            @extend .sixth;
+            @extend .quarter;
             @include font-size-rem(16);
             font-family: $sans-serif-semi-bold;
             font-weight: 600;
             text-transform: lowercase;
             margin-bottom: $base-spacing;
-            padding: 0 0 0 $base-spacing*2.5;
+            padding: 0 0 0 $base-spacing*3.5;
 
             ul li {
                 @include fill-parent;

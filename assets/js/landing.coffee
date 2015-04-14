@@ -52,7 +52,7 @@ add_realtime_message = ->
     msg =
         name: names[Math.floor(Math.random() * names.length)]
         score: Math.floor(Math.random() * score_cap)
-    $msg = $("<li class='collapsed'>{'player': '#{msg.name}', 'score': #{msg.score}}</li>")
+    $msg = $("<li class='collapsed'>{'player':&nbsp;'#{msg.name}',&#8203;&nbsp;'score':&nbsp;#{msg.score}}</li>")
 
     # Prepend it to the message list, and slide the messages down
     $messages = $('.realtime-queries .messages')

@@ -109,8 +109,8 @@
           permalink: slice
         - name: nth
           permalink: nth
-        - name: indexes_of
-          permalink: indexes_of
+        - name: offsets_of
+          permalink: offsets_of
         - name: is_empty
           permalink: is_empty
         - name: union

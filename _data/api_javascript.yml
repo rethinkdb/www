@@ -120,8 +120,8 @@
           permalink: slice
         - name: nth
           permalink: nth
-        - name: indexesOf
-          permalink: indexes_of
+        - name: offsetsOf
+          permalink: offsets_of
         - name: isEmpty
           permalink: is_empty
         - name: union

@@ -23,10 +23,8 @@
             margin: 0;
 
             a {
-                @extend .button;
-                @extend .outlined;
-                @extend .dark;
-                margin-top: $base-spacing;
+                color: rgb(45,129,148);
+                border-bottom: thin solid rgb(207,207,207);
             }
         }
     }

@@ -58,6 +58,7 @@ body.about {
             border-radius: $base-border-radius;
             padding: $base-spacing;
             margin-top: $base-spacing;
+            background: $cream;
 
             // Color those borders
             &:nth-child(1n) { border-top: 3px solid lighten($teal, 20); }

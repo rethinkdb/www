@@ -1,12 +1,18 @@
 - title: RethinkDB 2.0 webcast
+  short_date: Apr 21
   byline: April 21, 2015 via livestream
+  short_description: Learn about new feaures in RethinkDB 2.0 with
+      co-founders Slava Akhmechet and Michael Glukhovsky.
   description: Join RethinkDB co-founders Slava Akhmechet and Michael
       Glukhovsky as they share new features and updates in RethinkDB 2.0. 
   permalink: http://www.meetup.com/RethinkDB-Bay-Area-Meetup-Group/events/220785393/
   cta: "RSVP here <i class='right-arrow'></i>"
   tag: Webcast
 - title: RethinkDB 2.0 release happy hour at HQ
+  short_date: Apr 21
   byline: April 21, 2015 in Mountain View, CA
+  short_description: Join the RethinkDB team at their HQ in Mountain View, CA for
+      happy hour.
   description: Hang out with the RethinkDB team and other developers over food
       and drinks. Enjoy some games, video games, and happy hour refreshments.
       Get architectural advice, improve your code, share your RethinkDB
@@ -15,8 +21,26 @@
   tag: Meetup
   cta: "RSVP here  <i class='right-arrow'></i>"
 - title: RethinkDB & Platzi at Heavybit
-  byline: April 21, 2015 in San Francisco, CA
-  description: Details TBA
+  short_date: Apr 27
+  short_description: RethinkDB and Platzi are hosting an evening of interactive tech talks in San Francsico, CA.
+  byline: April 27, 2015 in San Francisco, CA
+  description: Join the RethinkDB and Platzi teams at Heavybit Industries in
+      San Francisco for an evening of interactive demos, live coding, and great
+      company. Learn how Platzi hosts live streaming classes on design,
+      marketing and code, and how RethinkDB is making it dramatically easier to
+      built realtime apps.
   permalink: http://www.meetup.com/RethinkDB-SF-Meetup-Group/events/221662951/
   tag: Meetup
   cta: "RSVP here <i class='right-arrow'></i>"
+- title: RethinkDB at OpenWest Conference
+  short_date: May 7 - 9
+  byline: May 7 - 9 in Orem, UT
+  short_description: RethinkDB is running workshops and presentations on
+      realtime data at OpenWest this May.
+  description: OpenWest is the largest regional tech conference devoted to all
+      things open source. Join RethinkDB, Compose, and many others at
+      workshops, presentations, and 100+ sessions about open source hardware,
+      data, standards and software.
+  permalink: http://www.openwest.org/
+  tag: Conference
+  cta: "Register here <i class='right-arrow'></i>"

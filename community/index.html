@@ -43,13 +43,14 @@ body_class: community
     <!-- intro -->
     <section class="events">
         <div class="site-container">
+            <h1>Upcoming events and meetups</h1>
             <ul>
                 {% for event in site.data['upcoming-events'] %}
                     <li class="event">
-                        <h1><a href="{{ event.permalink }}">{{ event.title }}</a></h1>
+                        <h1><a target="_blank" href="{{ event.permalink }}">{{ event.title }}</a></h1>
                         <h2>{{ event.byline }}</h2>
                         <p>{{ event.description }}</p>
-                        <p><a class="button minimal" href="{{ event.permalink }}">{{ event.cta }}</a></p>
+                        <p><a class="button minimal" target="_blank" href="{{ event.permalink }}">{{ event.cta }}</a></p>
                     </li>
                 {% endfor %}
             </ul>

@@ -276,37 +276,13 @@ body_class: landing
                     <li>
                         <h1>Latest news</h1>
                     </li>
-                    <li>
-                        <span>Nov 12</span>
-                        <h2><a href="#">RethinkDB at Heavybit in SF</a></h2>
-                        <p>
-                            Beginners workshop, great talks &amp; demos!
-                        </p>
-                    </li>
-                    <li>
-                        <span>Nov 18</span>
-                        <h2><a href="#">RethinkDB office hours</a></h2>
-                        <p>
-                            Join our engineers at Workshop Cafe in SF for help with
-                            your apps.
-                        </p>
-                    </li>
-                    <li>
-                        <span>Dec 9</span>
-                        <h2><a href="#">The 2.1 release webcast</a></h2>
-                        <p>
-                            Hear our founders talk about new and exciting
-                            features in the upcoming 2.1 release.
-                        </p>
-                    </li>
-                    <li>
-                        <span>Dec 9</span>
-                        <h2><a href="#">The 2.1 release webcast</a></h2>
-                        <p>
-                            Hear our founders talk about new and exciting
-                            features in the upcoming 2.1 release.
-                        </p>
-                    </li>
+                    {% for event in site.data['upcoming-events'] %}
+                        <li>
+                            <span>{{ event.short_date }}</span>
+                            <h2><a target="_blank" href="{{ event.permalink }}">{{ event.title }}</h2>
+                            <p>{{ event.short_description }}</p>
+                        </li>
+                    {% endfor %}
                     <li>
                         <a href="/community" class="button minimal">All news <i class="right-arrow">go</i></a>
                     </li>

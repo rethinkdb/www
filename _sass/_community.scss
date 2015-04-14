@@ -60,6 +60,10 @@ body.community .site-nav {
     background: rgb(241, 245, 245);
     overflow: hidden;
 
+    > h1 {
+        margin-bottom: $base-spacing*2;
+    }
+
     .community-illustration {
         position: absolute;
         left: rem(700);

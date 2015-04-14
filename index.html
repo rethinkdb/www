@@ -14,13 +14,13 @@ body_class: landing
             </div>
         </section>
 
-        <!-- mailing list -->
-        <section class="mailing-list">
+        <!-- hero-notes -->
+        <section class="hero-notes">
             <div class="site-container">
-                <p class="headline"><span class="headline-latest-release">Latest release:</span> RethinkDB {{ site.version.human }} ({{ site.version.codename }})</p>
-                <div class="list-signup">
-                    <input class="medium" type="text" placeholder="Join the mailing list for updates" type="text">
-                    <button class="button subscribe outlined" type="submit">Subscribe</button>
+                <div class="social-wrapper">
+                    <p class="headline"><span class="headline-latest-release">Latest release:</span> <a href="{{ site.version.release_post }}">RethinkDB {{ site.version.human }} ({{ site.version.codename }})</a></p>
+                    <p class="github"><a href="https://github.com/rethinkdb/rethinkdb"><i class="icon-github-landing"></i>8.1k stars on GitHub</a></p>
+                    <p class="twitter"><a href="https://twitter.com/rethinkdb"><i class="icon-twitter-landing"></i>@rethinkdb on Twitter</a></p>
                 </div>
             </div>
         </section>

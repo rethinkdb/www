@@ -2,14 +2,16 @@
    Documentation: landing page
    --- */
 .documentation .docs-landing {
+    h1 { margin-bottom: rem(25); }
 
     // Intro section that welcomes users to the documentation
     .docs-intro {
         background: rgb(241, 245, 245);
         padding: $base-spacing $base-spacing*1.5;
         border-radius: $base-border-radius;
+        margin-top: $base-spacing/2;
         margin-bottom: $base-spacing * 2;
-        
+
         h2 {
             margin-top: 0;
             color: darken($base-font-color, 7);
@@ -52,8 +54,11 @@
     }
 
     // List of featured articles
-    .article-list {
-        @extend .article-list;
+    .featured-articles {
+        h1 { margin-bottom: rem(10); }
+        .article-list {
+            @extend .article-list;
+        }
     }
 
     // Complete list of documentation articles -- TODO REMOVE

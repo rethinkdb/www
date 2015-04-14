@@ -9,10 +9,12 @@ $max-width: rem(1088);
 // Neat Breakpoints
 $medium-screen: rem(440);
 $large-screen: rem(660);
+$x-large-screen: rem(1100);
 
 $mobile: new-breakpoint(max-width $medium-screen 4);
 $medium-screen-up: new-breakpoint(min-width $medium-screen 4);
 $large-screen-up: new-breakpoint(min-width $large-screen 8);
+$x-large-screen-up: new-breakpoint(min-width $x-large-screen 8);
 
 // ------------------------------------------------------------
 // Omega Reset

@@ -41,9 +41,7 @@
     </head>
     <body class="{{ page.body_class}}">
         <div id="wrapper">
-            {% unless page.body_class == 'landing' %}
-                {% include navbar.html %}
-            {% endunless %}
+            {% include navbar.html %}
             {{ content }}
 
             <!-- support -->
@@ -75,7 +73,7 @@
                         </section>
                     </section>
                     <ul class="footer-links">
-                        <li><a href="/faq">FAQ</a></li>
+                        <li><a href="/faq">Getting started</a></li>
                         <li><a href="/docs">Docs</a></li>
                         <li><a href="/blog">Blog</a></li>
                         <li>

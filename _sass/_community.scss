@@ -26,10 +26,14 @@ body.community .site-nav {
     background-position: center rem(-50);
     background-size: cover;
     height: rem(400);
-    -webkit-filter: grayscale(0.35);
 
     // Top padding should at least the height of the navbar, proper offset
     padding-top: rem(50);
+
+    @include media($mobile) { background-position: center rem(0); }
+    @include media($medium-screen-up) { background-position: center rem(0); }
+    @include media($large-screen-up) { background-position: center rem(-50); }
+    @include media($x-large-screen-up) { background-position: center rem(-70); }
 }
 
 // Community intro

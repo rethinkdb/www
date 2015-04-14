@@ -6,7 +6,7 @@
   description: RethinkDB has powerful Hadoop-style map-reduce tools, that integrate cleanly into the query language. Learn how they work, and play with a few examples.
 - title: Geospatial queries
   permalink: /docs/geo-support/
-  description: GeoJSON support is built into RethinkDB.
+  description: Learn how to use GeoJSON features to build location-aware apps in RethinkDB.
 - title: Deploying with a PaaS
   permalink: /docs/paas/
   description: Learn how to deploy RethinkDB on cloud services like Compose.io, AWS, and others.

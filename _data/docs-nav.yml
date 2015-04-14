@@ -28,6 +28,9 @@
         - name: Install client drivers
           permalink: install-drivers
           url: /docs/install-drivers/
+        - name: Writing RethinkDB drivers
+          permalink: writing-drivers
+          url: /docs/writing-drivers/
         - name: Start a RethinkDB server 
           permalink: start-a-server
           url: /docs/start-a-server/

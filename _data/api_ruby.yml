@@ -19,6 +19,8 @@
           permalink: noreply_wait
         - name: close (cursor)
           permalink: close-cursor
+        - name: em_run
+          permalink: em_run
 - section:
     name: Manipulating databases
     commands:

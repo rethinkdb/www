@@ -19,6 +19,8 @@
           permalink: noreply_wait
         - name: close (cursor)
           permalink: close-cursor
+        - name: set_loop_type
+          permalink: set_loop_type
 - section:
     name: Manipulating databases
     commands:

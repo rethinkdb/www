@@ -73,6 +73,9 @@
         - name: External API access
           permalink: external-api-access
           url: /docs/external-api-access/
+        - name: Asynchronous connections
+          permalink: async-connections
+          url: /docs/async-connections/
         - name: SQL to ReQL cheat sheet
           permalink: sql-to-reql
           url: /docs/sql-to-reql

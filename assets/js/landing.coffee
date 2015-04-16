@@ -45,7 +45,7 @@ $ ->
 
 # Realtime messages stream of player scores
 add_realtime_message = ->
-    max_messages = 20
+    max_messages = 12
     msg_height = 22 # height of each message in pixels
     
     # Create a new message
@@ -147,9 +147,9 @@ draw_ui_graph = ->
                 .attr('transform', "translate(#{x(1)})")
                 .attr('d', line)
                 .interrupt()
-                .transition()
-                .ease('linear')
-                .duration(update_freq)
+#                 .transition()
+#                 .ease('linear')
+#                 .duration(update_freq)
                 .attr('transform', "translate(#{x(0)})")
 
     setInterval () ->

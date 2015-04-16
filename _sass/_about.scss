@@ -25,8 +25,8 @@ body.about {
 
         @include media($mobile) { background-position: center rem(0); }
         @include media($medium-screen-up) { background-position: center rem(0); }
-        @include media($large-screen-up) { background-position: center rem(-40); }
-        @include media($x-large-screen-up) { background-position: center rem(-390); }
+        @include media($large-screen-up) { background-position: center rem(0); }
+        @include media($x-large-screen-up) { background-position: center rem(-50); }
     }
     // Intro
     .intro {

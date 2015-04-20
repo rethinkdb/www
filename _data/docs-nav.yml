@@ -170,3 +170,6 @@
         - name: Command line options
           permalink: cli-options
           url: /docs/cli-options
+        - name: Configuration file settings
+          permalink: config-file
+          url: /docs/config-file

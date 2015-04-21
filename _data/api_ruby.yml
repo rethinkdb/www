@@ -17,10 +17,19 @@
           permalink: run
         - name: noreply_wait
           permalink: noreply_wait
-        - name: close (cursor)
-          permalink: close-cursor
         - name: em_run
           permalink: em_run
+- section:
+    name: Cursors
+    commands:
+        - name: next
+          permalink: next
+        - name: each
+          permalink: each
+        - name: to_a
+          permalink: to_array
+        - name: close
+          permalink: close-cursor
 - section:
     name: Manipulating databases
     commands:

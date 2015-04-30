@@ -93,7 +93,7 @@ app.post("/api/checkin", function(req,res) {
 });
 ```
 
-In the URL route handler, the code responsible for extracting the token does a little bit of parsing: it strips out spaces and and angle brackets. The actual token is a simple hex value, but the mobile API that provides access to the token emits it with space-delimited character pairs enclosed in angle brackets. You have to strip those extraneous symbols before using the hex string with Apple's push notification service.
+In the URL route handler, the code responsible for extracting the token does a little bit of parsing: it strips out spaces and angle brackets. The actual token is a simple hex value, but the mobile API that provides access to the token emits it with space-delimited character pairs enclosed in angle brackets. You have to strip those extraneous symbols before using the hex string with Apple's push notification service.
 
 The handler uses a simple ReQL query to add the location checkin to the database. If the operation completes successfully, it returns a little JSON message so that the mobile app knows that everything worked as expected.
 
@@ -107,6 +107,7 @@ class ViewController: UIViewController, UINavigationBarDelegate, CLLocationManag
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Start tracking the user's location
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -117,21 +118,27 @@ class ViewController: UIViewController, UINavigationBarDelegate, CLLocationManag
     ...
 
     @IBAction func sendMessage(sender: AnyObject) {
+        // Get the user's current position from the location manager
         var position = locationManager.location.coordinate
         var appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
-
+        
+        // Build the data payload to send to the checkin API
         var params = Dictionary<String, AnyObject>()
         params["place"] = [position.latitude, position.longitude]
         params["token"] = appDelegate.deviceToken
-
-        var req = NSMutableURLRequest(URL: NSURL(string: "http://yourapp.whatever.com/api/checkin")!)
+        
+        // Build the HTTP POST request that performs the checkin
+        var req = NSMutableURLRequest(URL: NSURL(string: "http://youraddress.ngrok.com/api/checkin")!)
+        // Convert the payload to JSON and set it as the request body
         req.HTTPBody = NSJSONSerialization.dataWithJSONObject(params, options: nil, error: nil)
         req.HTTPMethod = "POST"
-
+        
         req.addValue("application/json", forHTTPHeaderField: "Content-Type")
         req.addValue("application/json", forHTTPHeaderField: "Accept")
-
+        
+        // Perform the HTTP POST request
         NSURLConnection.sendAsynchronousRequest(req, queue: NSOperationQueue.mainQueue()) {(resp, data, err) in
+            // Parse the JSON response and determine if the checkin was successful
             if let output = NSJSONSerialization.JSONObjectWithData(data, options: nil, error: nil) as? NSDictionary {
                 println(output["success"] as? Bool)
             }
@@ -159,6 +166,7 @@ var apn = require("apn");
 var fs = require("fs");
 var r = require("rethinkdb");
 
+// Set up the APNS connection
 var apnConnection = new apn.Connection({
   key: fs.readFileSync("key.pem"),
   cert: fs.readFileSync("cert.pem"),
@@ -167,21 +175,28 @@ var apnConnection = new apn.Connection({
 });
 
 r.connect().then(function(conn) {
+  // Attach a changefeed to the `users` table
   return r.table("users").changes().run(conn);
 }).then(function(change) {
+  // Iterate over each change to the table
   change.each(function(err, item) {
+    // Ignore deleted items
     if (!item.new_val) return;
+    // Find all of the users within 100 miles of the checkin
     r.table("users").getIntersecting(
       r.circle(item.new_val.place, 100, {unit: "mi"}),
         {index: "place"}).run(conn).then(function(users) {
       users.each(function(err, user) {
+        // Don't notify a user of their own checkin
         if (user.id === item.new_val.id) return;
 
+        // Create the notification
         var note = new apn.Notification();
         note.sound = "ping.aiff";
         note.alert = "A user checked in nearby";
         note.payload = item.new_val.place;
 
+        // Transmit the push notification
         apnConnection.pushNotification(note, new apn.Device(user.id));
       });
     });
@@ -199,7 +214,7 @@ After establishing the APNS connection, the next block of code attaches a change
 
 If a user receives a push notification while the application has focus, the platform doesn't display it on the screen. The developer has the opportunity to implement a custom behavior that occurs instead. In my demo application, I want to simply plot the location of newly-received checkins on the map view.
 
-<img width="250px" src="/assets/images/posts/2015-04-28-ios-push.png">
+<img src="/assets/images/posts/2015-04-28-ios-push-wide.png">
 
 To handle foreground push notifications, I added the following function to my `AppDelegate`:
 
@@ -267,4 +282,3 @@ Want to use RethinkDB to build the backend for your next mobile application? Ins
 * [Full source code](https://github.com/rethinkdb/rethinkdb-mobile-push) of the push notification demo app
 * [Tutorial that describes how to setup iOS push notification certificates][apns]
 * [Official RethinkDB changefeed documentation](http://rethinkdb.com/docs/changefeeds/)
-

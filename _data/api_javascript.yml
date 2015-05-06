@@ -15,8 +15,6 @@
           permalink: run
         - name: noreplyWait
           permalink: noreply_wait
-        - name: EventEmitter methods
-          permalink: event_emitter
 - section:
     name: Cursors
     commands:
@@ -28,7 +26,7 @@
           permalink: to_array
         - name: close
           permalink: close-cursor
-        - name: EventEmitter methods
+        - name: EventEmitter
           permalink: event_emitter-cursor
 - section:
     name: Manipulating databases

@@ -127,8 +127,6 @@ realtime Ruby app with [Faye][] and RethinkDB. Faye is an open source
 publish/subscribe framework that includes a backend server component and a
 frontend JavaScript library that runs in the web browser.
 
-[Faye][]: http://faye.jcoglan.com/
-
 Faye makes it easy to do realtime messaging between client and server. It uses
 WebSockets where available, but can also fall back on long polling.  My simple
 demo app is a realtime todo list. When any user adds a new item to the list or

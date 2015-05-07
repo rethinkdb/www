@@ -351,7 +351,8 @@ exhibit odd behavior if you have too many.
 The Handlebars template that the application applies to the cat data is
 embedded in the HTML page itself, using a `script` tag with a custom type:
 
-```html
+{% raw %}
+```
 <script id="cat-template" type="text/x-handlebars-template">
   <div class="cat">
     <div class="user">{{user.full_name}}</div>
@@ -363,6 +364,7 @@ embedded in the HTML page itself, using a `script` tag with a custom type:
   </div>
 </script>
 ```
+{% endraw %}
 
 The last piece of the puzzle is implementing Socket.io on the client side. The
 application needs to establish a Socket.io connection with the server and then

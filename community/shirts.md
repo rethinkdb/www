@@ -3,6 +3,7 @@ layout: document
 title: Shirts for stories
 active: community
 permalink: community/shirts-for-stories/
+alias: /shirts
 ---
 
 <img src="/assets/images/community/shirts.jpg" />

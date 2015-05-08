@@ -78,6 +78,7 @@ user:
 
 [Polymer]: https://www.polymer-project.org/
 
+{% raw %}
 ```html
 <template id="cluster" is="auto-binding">
   <ul class="stats">
@@ -100,6 +101,7 @@ user:
   });
 </script>
 ```
+{% endraw %}
 
 Polymer's data bindings operate on plain JavaScript objects, so all I have to
 do is take the latest data from Socket.io and assign it to a property on the
@@ -236,6 +238,7 @@ I added the following markup to my HTML template to display the list of
 servers. Notice the use of conditional expressions to hide empty records and
 highlight disconnected servers:
 
+{% raw %}
 ```html
 <table>
   <template repeat="{{server in servers}}">
@@ -249,6 +252,7 @@ highlight disconnected servers:
   </template>
 </table>
 ```
+{% endraw %}
 
 As you can see, it doesn't take much code to stream realtime RethinkDB table
 updates to a frontend web client. It's worth noting that the techniques used in

@@ -290,6 +290,8 @@
           permalink: branch
         - name: for_each
           permalink: for_each
+        - name: range
+          permalink: range
         - name: error
           permalink: error
         - name: default
@@ -306,6 +308,8 @@
           permalink: info
         - name: json
           permalink: json
+        - name: to_json_string, to_json
+          permalink: to_json_string
         - name: http
           permalink: http
         - name: uuid
@@ -339,3 +343,16 @@
           permalink: polygon
         - name: polygon_sub
           permalink: polygon_sub
+- section:
+    name: Administration
+    commands:
+      - name: config
+        permalink: config
+      - name: rebalance
+        permalink: rebalance
+      - name: reconfigure
+        permalink: reconfigure
+      - name: status
+        permalink: status
+      - name: wait
+        permalink: wait

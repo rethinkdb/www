@@ -188,7 +188,7 @@ but you can refer to the [complete source code][code] to see how I
 implemented that part of the application. User information is obviously
 stored in RethinkDB, with [bcrypt][bcrypt] for password encryption.
 
-[code]: http://github.com/rethinkdb/#
+[code]: https://github.com/rethinkdb/rethinkdb-pubnub-liveblog
 [bcrypt]: https://www.npmjs.com/package/bcrypt
 
 When the PubNub client library receives a new message on the frontend, it

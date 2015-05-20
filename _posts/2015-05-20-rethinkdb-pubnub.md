@@ -1,8 +1,9 @@
 ---
 layout: post
-title: "Build a liveblog app with RethinkDB and PubNub"
+title: "Build a realtime liveblog with RethinkDB and PubNub"
 author: Ryan Paul
 author_github: segphault
+hero_image: 2015-05-20-realtime-blog-pubnub.png
 ---
 
 RethinkDB provides a persistence layer for realtime web applications, but
@@ -291,8 +292,8 @@ var app = new Vue({
 You can send that POST request to the `/api/send` URL endpoint however you
 want, but you'll notice that I chose to use the [W3C Fetch method][fetch].
 I like using Fetch because its Promise-based output is easy to consume.
-Fetch isn't supported in very many browsers yet, however, so I [use a
-polyfill][polyfill] to get it today.
+Fetch isn't supported in very many browsers yet, however, so I [use a polyfill][polyfill]
+to get it today.
 
 [fetch]: https://fetch.spec.whatwg.org/ [polyfill]:
 https://cdn.polyfill.io/

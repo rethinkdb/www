@@ -119,13 +119,9 @@ r.connect().then(function(conn) {
 In the example above, the application passes an object with three
 properties to the PubNub library's `publish` method:
 
-* The `channel` property tells PubNub to publish the message on a channel
-* called `updates`. The channel name is arbitrary, but you will need it on
-* the other side in order to subscribe to the messages.  The `message`
-* property is the JSON object that we wish to send through the channel--in
-* this case, it's the updated object from the RethinkDB table.  The
-* `error` property lets us define a callback function that the library
-* executes when it cannot properly send the message.
+* The `channel` property tells PubNub to publish the message on a channel called `updates`. The channel name is arbitrary, but you will need it on the other side in order to subscribe to the messages.
+* The `message` property is the JSON object that we wish to send through the channel--in this case, it's the updated object from the RethinkDB table.
+* The `error` property lets us define a callback function that the library executes when it cannot properly send the message.
 
 Now that we have our backend application configured to broadcast table
 updates, we need to set up the frontend and make it subscribe to receive

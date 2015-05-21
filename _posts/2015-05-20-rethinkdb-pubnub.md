@@ -193,6 +193,7 @@ of the array to the end user:
 
 **Frontend markup:**
 
+{% raw %}
 ```html
 <ul id="messages">
   <li class="message" v-repeat="messages">
@@ -202,6 +203,7 @@ of the array to the end user:
   </li>
 </ul>
 ```
+{% endraw %}
 
 **Frontend JavaScript:**
 
@@ -288,11 +290,11 @@ var app = new Vue({
 You can send that POST request to the `/api/send` URL endpoint however you
 want, but you'll notice that I chose to use the [W3C Fetch method][fetch].
 I like using Fetch because its Promise-based output is easy to consume.
-Fetch isn't supported in very many browsers yet, however, so I [use a polyfill][polyfill]
-to get it today.
+Fetch isn't supported in very many browsers yet, however, so I
+[use a polyfill][polyfill] to get it today.
 
-[fetch]: https://fetch.spec.whatwg.org/ [polyfill]:
-https://cdn.polyfill.io/
+[fetch]: https://fetch.spec.whatwg.org/
+[polyfill]: https://cdn.polyfill.io/
 
 My backend code checks to make sure that the user who sent the message is
 an admin and then adds the message to the database. We already have a

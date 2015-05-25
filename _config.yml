@@ -16,11 +16,11 @@ version:
     major: 2.0 
     # full version number, include point releases and build tags
     #   -> e.g. 1.2.1-3, 1.3.0
-    full: 2.0.1
+    full: 2.0.2
     # ---
     # human-readable version number (no build tags), used for marketing copy
     #   -> e.g. 1.2.1, 1.3
-    human: 2.0.1
+    human: 2.0.2
     codename: Yojimbo
     release_post: /blog/2.0-release
 rethinkdb_users: "100,000"

@@ -8,10 +8,10 @@ author_github: jkarneges
 the [Fanout blog][].*
 
 [Fanout]: https://fanout.io
-[Fabout blog]: http://blog.fanout.io/2015/05/20/building-a-realtime-api-with-rethinkdb/
+[Fanout blog]: http://blog.fanout.io/2015/05/20/building-a-realtime-api-with-rethinkdb/
 
-[RethinkDB]() is a modern NoSQL database that makes it easy to build realtime
-web services. One of its standout features is called [Changefeeds]().
+[RethinkDB][] is a modern NoSQL database that makes it easy to build realtime
+web services. One of its standout features is called [Changefeeds][].
 Applications can query tables for ongoing changes, and RethinkDB will push any
 changes to applications as they happen. The Changefeeds feature is interesting
 for many reasons:
@@ -425,7 +425,7 @@ query (which will cause a reconnect).
 
 # Front end
 
-Check out the [leaderboard in action][5] here! [leaderboardapp.org][]
+Check out the leaderboard in action here! [leaderboardapp.org][]
 
 [leaderboardapp.org]: http://leaderboardapp.org/
 

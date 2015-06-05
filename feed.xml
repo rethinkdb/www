@@ -1,0 +1,35 @@
+---
+---
+{% for post in paginator.posts %}
+    {{ post.excerpt }}
+{% endfor %}
+{% comment %}
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel>
+        <title>{{ site.rss.name | xml_escape }}</title>
+        <description>{% if site.rss.description %}{{ site.rss.description | xml_escape }}{% endif %}</description>		
+        <link>{{ site.rss.url }}</link>
+        <atom:link href="{{ site.rss.url }}/feed.xml" rel="self" type="application/rss+xml" />
+        {% for post in site.posts %}
+        <item>
+            <title>{{ post.title | xml_escape }}</title>
+            {% if post.author.name %}
+            <dc:creator>{{ post.author.name | xml_escape }}</dc:creator>
+            {% endif %}        
+            <description>
+                <![CDATA[
+                {% if post.hero_image %}
+                    <img src="{{ site.rss.url }}/assets/images/posts/{{ post.hero_image }}" />
+                {% endif %}
+                ]]>
+                <div>{{ post.excerpt | markdownify }}</div>
+            </description>
+            <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
+            <link>{{ site.rss.url }}{{ post.url }}</link>
+            <guid isPermaLink="true">{{ site.rss.url }}{{ post.url }}</guid>
+        </item>
+        {% endfor %}
+    </channel>
+</rss>
+{% endcomment %}

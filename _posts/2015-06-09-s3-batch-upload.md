@@ -3,13 +3,14 @@ layout: post
 title: "Batch image uploading with Amazon S3 and RethinkDB"
 author: Ryan Paul
 author_github: segphault
+hero_image: 2015-06-09-s3-batch-upload.png
 ---
 
 Many applications provide a way to upload images, offering users a
 convenient way to share photos and other rich content. Driven in part by
 the ubiquity of built-in cameras on smartphones, image uploading is
 practically expected in any application with social or messaging
-dimensions. Fortunately, cloud-based hosting services like Amazon's S3 can
+features. Fortunately, cloud-based hosting services like Amazon's S3 can
 shoulder the burden of storing large amounts of user-generated content.
 
 Of course, you can also use RethinkDB to store thumbnails, important image
@@ -20,6 +21,8 @@ S3 bucket while using RethinkDB to store image metadata and small
 thumbnails. I'm also going to show you some useful techniques for building
 a good frontend image uploading experience on the web, featuring
 drag-and-drop support and a live progress bar.
+
+<!--more-->
 
 # Process multipart form data
 
@@ -225,7 +228,7 @@ app.post("/upload", function(req, res) {
 
 ```
 
-I used Bluebird's `promisify` feature to create Promised-based wrappers
+I used Bluebird's `promisify` feature to create Promise-based wrappers
 around the desired `gm` and S3 library functions. Next, I used a `map`
 operation to iterate over all of the uploaded files, returning an array of
 Promises that perform concurrent image uploading and resizing for each
@@ -395,6 +398,6 @@ RethinkDB.
 [binary]: http://rethinkdb.com/api/javascript/binary/
 [bluebird]: https://github.com/petkaantonov/bluebird
 [install]: http://rethinkdb.com/docs/install/
-[ghlink]: http://github.com/rethinkdb
+[ghlink]: https://github.com/rethinkdb/s3-batch-upload
 [10min]: http://rethinkdb.com/docs/guide
 

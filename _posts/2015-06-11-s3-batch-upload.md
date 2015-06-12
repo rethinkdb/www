@@ -173,7 +173,7 @@ app.post("/upload", function(req, res) {
   // Parse multipart form data included with the request
   new multiparty.Form().parse(req, function(err, fields, files) {
 
-    // Iterate over files and return an array of Promises 
+    // Iterate over files and return an array of Promises
     // that will concurrently resize and upload the images
     var operations = files.images.map(function(file) {
       // Generate a short unique ID for each file
@@ -256,7 +256,7 @@ Accessing the image in the database, however, requires a little bit more
 work. I created an Express URL route that dynamically fetches an image
 from the database and serves it to the user:
 
-```
+```javascript
 app.get("/thumb/:id", function(req, res) {
   r.connect(config.db).then(function(conn) {
     return r.table("graphics").get(req.params.id).run(conn)
@@ -400,4 +400,3 @@ RethinkDB.
 [install]: http://rethinkdb.com/docs/install/
 [ghlink]: https://github.com/rethinkdb/s3-batch-upload
 [10min]: http://rethinkdb.com/docs/guide
-

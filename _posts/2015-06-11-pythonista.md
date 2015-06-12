@@ -1,8 +1,9 @@
 ---
 layout: post
-title: "Mobile data processing with RethinkDB and Pythonista"
+title: "Data science on the iPad with RethinkDB and Pythonista"
 author: Ryan Paul
 author_github: segphault
+hero_image: 2015-06-11-pythonista-banner.png
 ---
 
 [Pythonista][] is an iOS application that brings Python development to

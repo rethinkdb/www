@@ -42,6 +42,8 @@ At this point I'll assume you have your Vagrant based RethinkDB server
 running and Python 3 project set up. Let's start with a real simple
 example to create a new database and a table to test with.
 
+<!--more-->
+
 Create a file called app.py and add the following to it:
 
 ```py
@@ -71,7 +73,7 @@ table.
 
 [8]: http://localhost:8080/#tables
 
-<img src="http://www.giantflyingsaucer.com/blog/wp-content/uploads/2015/05/Screen-Shot-2015-05-26-at-8.39.02-PM.png" alt="RethinkDB Web Admin UI" />
+![RethinkDB Web Admin UI](/assets/images/blog/chad-lung-web-ui.png)
 
 Adding new records is very simple and is done in a simple JSON format.
 Below I'll add two records:

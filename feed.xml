@@ -19,7 +19,7 @@
                     <img src="{{ site.rss.url }}/assets/images/posts/{{ post.hero_image }}" />
                 {% endif %}
                 ]]>
-                <div>{{ post.excerpt | markdownify }}</div>
+                <div>{{ post.excerpt | markdownify | relative_urls_to_absolute }}</div>
             </description>
             <pubDate>{{ post.date | date: "%a, %d %b %Y %H:%M:%S %z" }}</pubDate>
             <link>{{ site.rss.url }}{{ post.url }}</link>

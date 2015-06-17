@@ -83,12 +83,22 @@ task :deploy do
     if changes.to_i == 1
         $stderr.puts "Commit your changes before deploying the site."
         exit 1
-    else $stderr.puts "Hello"
     end
     out_dir = '_deploy'
 
     rm_rf out_dir
     mkdir out_dir
+
+    # Build a clean deployment site
+    jekyll('build -d ' + out_dir)
+
+    # Copy the files over with rsync
+    src = File.join(Dir.pwd, out_dir)
+    dest = "#{deploy['web']['host']}:#{deploy['web']['directory']}"
+    puts "Source: #{src} | Destination: #{dest}"
+    command = "rsync -Prvzh --delete -e 'ssh -p #{deploy['web']['ssh_port']}' #{src}/ #{dest}"
+    sh command
+    puts 'Site published to Linode.'
 end 
 
 # TODO -- nokogiri portion needs to be rewritten, since the DOM has been rearchitected for docs

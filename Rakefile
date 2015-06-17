@@ -77,6 +77,20 @@ task :benchmark do
     puts "Time elapsed #{time*1000} milliseconds"
 end
 
+desc 'Build and deploy to a remote server'
+task :deploy do
+    changes = `git diff --exit-code > /dev/null; echo $?`
+    if changes.to_i == 1
+        $stderr.puts "Commit your changes before deploying the site."
+        exit 1
+    else $stderr.puts "Hello"
+    end
+    out_dir = '_deploy'
+
+    rm_rf out_dir
+    mkdir out_dir
+end 
+
 # TODO -- nokogiri portion needs to be rewritten, since the DOM has been rearchitected for docs
 desc 'Build Algolia search data'
 task :algolia do

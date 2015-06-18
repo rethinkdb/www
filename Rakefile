@@ -10,22 +10,57 @@ $generated_files = [
     'assets/images/docs'
 ]
 
+# Configuration details for external repos (e.g. docs)
+$external_repos = [
+    {
+        "repo" => "docs",
+        "destination" => "docs",
+        "branch" => "master"
+    },
+]
+
+# ---- Rake tasks
+
 task :default => :serve
 
-desc 'Set up the build environment.'
+desc 'Set up the build environment'
 task :init do
+    # Install packages
     sh 'bundle install'
+
+    # Clone the external repos
+    root = pwd
+    $external_repos.map{ |repo|
+        clone_repo(root, repo)
+    }
 end
 
-desc 'Clean up generated site'
+desc 'Clean up the generated site'
 task :clean do
     rm_rf '_site'
     rm_rf '_deploy'
     rm '.jekyll-metadata', :force => true
     rm_rf $algolia_root
-    $generated_files.each do |d|
+    $generated_files.each{ |d|
         rm_rf d
-    end
+    }
+end
+
+desc 'Pull the latest commits for the external repos'
+task :pull do
+    # Make sure we've checked out the right branch
+    root = pwd
+    external_repos.map{ |repo|
+        begin
+            cd "#{root}/#{repo["destination"]}"
+            pull_branch("#{repo["branch"]}") 
+        rescue
+            $stderr.puts "Error when trying to pull #{repo["repo"]}. Did you forget to run `rake init_subs`?"
+            exit 1
+        end
+    }
+
+    cd root
 end
 
 # Merges assets from the www repo and the docs repo
@@ -33,18 +68,18 @@ desc 'Copy assets and includes from the docs repository'
 task :copy_assets do
     # Create each destination directory, if it doesn't already exist
     #,'assets/images/docs'
-    ['_includes'].each do |dir_name|
+    ['_includes'].each{ |dir_name|
         Dir.mkdir(dir_name) unless Dir.exists?(dir_name)
-    end
+    }
 
     assets_to_copy = [
         {:source => '_jekyll/_includes/.', :target => '_includes/'},
         {:source => 'docs/_jekyll/_includes/.', :target => '_includes/'},
         {:source => 'docs/_jekyll/_images/.', :target => 'assets/images/docs/'}
     ]
-    assets_to_copy.each do |asset|
+    assets_to_copy.each{ |asset|
         FileUtils.cp_r(asset[:source], asset[:target], :verbose => true)
-    end
+    }
 end
 
 desc 'Build site with Jekyll'
@@ -100,6 +135,16 @@ task :deploy do
     sh command
     puts 'Site published to Linode.'
 end 
+
+desc 'Update the nginx configuration'
+task :update_nginx do
+    host = deploy['web']['host']
+    dest = "#{host}:#{deploy['web']['directory']}"
+    port = deploy['web']['port']
+    nginx_conf = "_nginx/nginx.conf"
+    sh "scp -P #{port} #{nginx_conf} #{dest}"
+    sh "ssh #{host} -t -p #{port} 'sudo service nginx restart'"
+end
 
 # TODO -- nokogiri portion needs to be rewritten, since the DOM has been rearchitected for docs
 desc 'Build Algolia search data'
@@ -226,6 +271,10 @@ task :algolia do
     puts "Done."
 end
 
+
+# ---- Rake functions
+
+# Run Jekyll
 def jekyll(opts = '')
     if ENV['dev']=='on'
         dev = ' --plugins=_plugins,_plugins-dev'
@@ -233,4 +282,33 @@ def jekyll(opts = '')
         dev = ''
     end
     sh "bundle exec jekyll #{opts}#{dev} --trace"
+end
+
+# Git: checkout a branch
+def checkout_branch(branch_name)
+    sh "git checkout #{branch_name}"
+end
+
+def pull_branch(branch_name)
+    sh "git checkout #{branch_name}"
+    sh "git pull"
+end
+
+# Git: clone a RethinkDB GitHub repository
+def clone_repo(root, repo)
+    begin 
+        destination = "#{root}/#{repo["destination"]}"
+        rm_rf destination
+        sh "git clone git@github.com:rethinkdb/#{repo["repo"]} #{destination}"
+        cd destination
+        sh "git checkout #{repo["branch"]}"
+    rescue Exception
+        $stderr.puts "Error while cloning #{repo["repo"]}"
+        exit 1
+    end
+end
+
+# Git: hard reset to HEAD
+def reset_repo(root, repo)
+    sh "git reset HEAD --hard"
 end

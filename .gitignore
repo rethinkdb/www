@@ -13,3 +13,4 @@ _algolia-build
 #    -> these are generated while merging in the docs repo
 /_includes
 /assets/images/docs
+/docs

@@ -15,7 +15,7 @@ $external_repos = [
     {
         "repo" => "docs",
         "destination" => "docs",
-        "branch" => "master"
+        "branch" => "mg_deploy-www"
     },
 ]
 
@@ -50,7 +50,7 @@ desc 'Pull the latest commits for the external repos'
 task :pull do
     # Make sure we've checked out the right branch
     root = pwd
-    external_repos.map{ |repo|
+    $external_repos.map{ |repo|
         begin
             cd "#{root}/#{repo["destination"]}"
             pull_branch("#{repo["branch"]}") 
@@ -89,6 +89,7 @@ end
 
 desc 'Start server and regenerate files on change'
 task :serve => ['copy_assets'] do
+    check_for_required_files(:warning => true)
     jekyll('serve') 
 end
 
@@ -120,6 +121,7 @@ task :deploy do
         exit 1
     end
     out_dir = '_deploy'
+    check_for_required_files
 
     rm_rf out_dir
     mkdir out_dir
@@ -282,6 +284,21 @@ def jekyll(opts = '')
         dev = ''
     end
     sh "bundle exec jekyll #{opts}#{dev} --trace"
+end
+
+# Check if all generated files are present: by default abort if files aren't present, otherwise show a warning
+def check_for_required_files(opts={})
+    missing_files = 0
+    $generated_files.each do |f|
+        if !File.exists?(f)
+            puts "Required file missing: #{f}"
+            missing_files +=1
+        end
+    end
+    if missing_files > 0
+        error = "#{missing_files} required files not found. Run `rake build` before deploying."
+        if opts[:warning] then puts error else fail error end
+    end
 end
 
 # Git: checkout a branch

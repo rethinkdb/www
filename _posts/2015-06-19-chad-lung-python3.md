@@ -36,7 +36,9 @@ above works with Python 3):
 
 [7]: /docs/install-drivers/python/
 
-``` $ pip install rethinkdb ```
+```bash
+$ pip install rethinkdb
+```
 
 At this point I'll assume you have your Vagrant based RethinkDB server
 running and Python 3 project set up. Let's start with a real simple
@@ -73,7 +75,7 @@ table.
 
 [8]: http://localhost:8080/#tables
 
-![RethinkDB Web Admin UI](/assets/images/blog/chad-lung-web-ui.png)
+![RethinkDB Web Admin UI](/assets/images/posts/2015-06-19-chad-lung-webui.png)
 
 Adding new records is very simple and is done in a simple JSON format.
 Below I'll add two records:

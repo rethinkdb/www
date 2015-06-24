@@ -67,14 +67,13 @@ end
 desc 'Copy assets and includes from the docs repository'
 task :copy_assets do
     # Create each destination directory, if it doesn't already exist
-    #,'assets/images/docs'
     ['_includes'].each{ |dir_name|
         Dir.mkdir(dir_name) unless Dir.exists?(dir_name)
     }
 
     assets_to_copy = [
         {:source => '_jekyll/_includes/.', :target => '_includes/'},
-        {:source => 'docs/_jekyll/_includes/.', :target => '_includes/'},
+        {:source => 'docs/_jekyll/_includes/.', :target => '_includes/docs/'},
         {:source => 'docs/_jekyll/_images/.', :target => 'assets/images/docs/'}
     ]
     assets_to_copy.each{ |asset|

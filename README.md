@@ -1,35 +1,57 @@
 RethinkDB website
 ===
 
-## NOTE: please do the following to build
-
-To build the site while we're in transition, check out these repos:
-    - rethinkdb/www-thoughtbot (this repo)
-    - rethinkdb/docs, using the `2.0-revised` branch
-
-Symlink the following directories (assuming you've checked out both repos to `~/git`:
-
-```
-ln -s ~/git/docs ~/git/www-thoughtbot/docs
-ln -s ~/git/docs/_images ~/git/www-thoughtbot/assets/images/docs
-```
-
-This is a temporary measure while files are being moved around, and may change abruptly. This notice will be removed from the README when it no longer applies.
-
-(below are the normal build instructions)
-
 ## Building the website
 
-You must have the following tools available on your system:
+__Note:__ Before you can build the website, make sure your system is ready;
+read the "Getting your system ready to build the website" section.
 
-- Ruby
-- Bundler
-- Node.js
+We use [Jekyll][] to build the website. To setup, build,
+and deploy the website, you will use a series of `rake` tasks.
 
-Install the necessary gems:
+The website relies on an external repository ([rethinkdb/docs][]), which is
+managed by the `rake` tasks.
+
+[rethinkdb/docs]: https://github.com/rethinkdb/docs
+[Jekyll]: http://jekyllrb.com/
+
+### First-time setup
+
+Start by cloning this repository:
+
 ```
-bundle install
+git clone git@github.com:rethinkdb/www-thoughtbot.git
 ```
+
+Before you can build the site, you need to install required dependencies with
+Bundler, and initialize external repositories:
+
+```
+rake init
+```
+
+### Build and serve the website
+
+To build and serve the site:
+
+```
+rake
+```
+
+### Other operations
+
+See the complete list of `rake` tasks: `rake -T`
+
+Quickly serve the site: `rake up` (this skips the initial build and serves the site)
+
+Update external `git` repos: `rake pull`
+
+Build the website: `rake build` (outputs to `_site`)
+
+Clean up a generated site: `rake clean`
+
+Deploy the site: `rake deploy` (this requires `_deploy-config.yml`)
+
 
 ## Getting your system ready to build the website
 
@@ -38,7 +60,6 @@ This guide steps through how to build the website, assuming you have no tools in
 - Setting up Homebrew
 - Installing Node.js / `nvm`
 - Installing Ruby / `rbenv` / Bundler
-
 
 Remember: if you update your path at any point in this guide, start a new Bash
 sesion or run (on OS X):

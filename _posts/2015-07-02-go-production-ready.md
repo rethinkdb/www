@@ -38,7 +38,7 @@ complex JSON documents without giving up type safety. GoRethink makes good
 use of the language's strengths, which can help to boost developer
 productivity.
 
-Want to try it yourself? Install RethinkDB and check out the
+Want to try it yourself? [Install RethinkDB][install] and check out the
 [official GoRethink documentation][gorethinkdocs].
 
 [dan]: https://twitter.com/_dancannon
@@ -48,4 +48,4 @@ Want to try it yourself? Install RethinkDB and check out the
 [structs]: https://talks.golang.org/2012/10things.slide#4
 [monitordemo]: https://github.com/rethinkdb/rethink-status/tree/go-backend
 [gorethinkdocs]: https://github.com/dancannon/gorethink/wiki
-
+[install]: http://rethinkdb.com/docs/install/

@@ -3,7 +3,7 @@ layout: post
 title: "Using PassportJS OAuth with RethinkDB"
 author: Jorge Silva
 author_github: thejsj
-hero_image:
+hero_image: 2015-06-16-oauth-banner.png
 ---
 
 I've run into many people who have problems setting up authentication on their

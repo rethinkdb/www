@@ -1,46 +1,46 @@
-- title: RethinkDB 2.0 webcast
-  short_date: Apr 21
-  byline: April 21, 2015 via livestream
-  short_description: Learn about new feaures in RethinkDB 2.0 with
-      co-founders Slava Akhmechet and Michael Glukhovsky.
-  description: Join RethinkDB co-founders Slava Akhmechet and Michael
-      Glukhovsky as they share new features and updates in RethinkDB 2.0. 
-  permalink: http://www.meetup.com/RethinkDB-Bay-Area-Meetup-Group/events/220785393/
-  cta: "RSVP here <i class='right-arrow'></i>"
-  tag: Webcast
-- title: RethinkDB 2.0 release happy hour at HQ
-  short_date: Apr 21
-  byline: April 21, 2015 in Mountain View, CA
-  short_description: Join the RethinkDB team at their HQ in Mountain View, CA for
-      happy hour.
-  description: Hang out with the RethinkDB team and other developers over food
-      and drinks. Enjoy some games, video games, and happy hour refreshments.
-      Get architectural advice, improve your code, share your RethinkDB
-      projects, and give the RethinkDB team product feedback on 2.0!
-  permalink: http://www.meetup.com/RethinkDB-Bay-Area-Meetup-Group/events/221248618/
-  tag: Meetup
-  cta: "RSVP here  <i class='right-arrow'></i>"
-- title: RethinkDB & Platzi at Heavybit
-  short_date: Apr 27
-  short_description: RethinkDB and Platzi are hosting an evening of interactive tech talks in San Francsico, CA.
-  byline: April 27, 2015 in San Francisco, CA
-  description: Join the RethinkDB and Platzi teams at Heavybit Industries in
-      San Francisco for an evening of interactive demos, live coding, and great
-      company. Learn how Platzi hosts live streaming classes on design,
-      marketing and code, and how RethinkDB is making it dramatically easier to
-      built realtime apps.
-  permalink: http://www.meetup.com/RethinkDB-SF-Meetup-Group/events/221662951/
-  tag: Meetup
-  cta: "RSVP here <i class='right-arrow'></i>"
-- title: RethinkDB at OpenWest Conference
-  short_date: May 7 - 9
-  byline: May 7 - 9 in Orem, UT
-  short_description: RethinkDB is running workshops and presentations on
-      realtime data at OpenWest this May.
-  description: OpenWest is the largest regional tech conference devoted to all
-      things open source. Join RethinkDB, Compose, and many others at
-      workshops, presentations, and 100+ sessions about open source hardware,
-      data, standards and software.
-  permalink: http://www.openwest.org/
-  tag: Conference
-  cta: "Register here <i class='right-arrow'></i>"
+# - title: RethinkDB 2.0 webcast
+#   short_date: Apr 21
+#   byline: April 21, 2015 via livestream
+#   short_description: Learn about new feaures in RethinkDB 2.0 with
+#       co-founders Slava Akhmechet and Michael Glukhovsky.
+#   description: Join RethinkDB co-founders Slava Akhmechet and Michael
+#       Glukhovsky as they share new features and updates in RethinkDB 2.0.
+#   permalink: http://www.meetup.com/RethinkDB-Bay-Area-Meetup-Group/events/220785393/
+#   cta: "RSVP here <i class='right-arrow'></i>"
+#   tag: Webcast
+
+- title: RethinkDB Talk at Bay Area Open Source
+  short_date: July 9th
+  byline: July 9, 2015 at Santa Cruz JS
+  short_description: Looking for a database to build your next realtime app? Well, RethinkDB may fit your needs.
+  description: Members of RethinkDB will be going down to Santa Cruz to give an interactive walk-through and demo of RethinkdB.
+  permalink: http://www.meetup.com/santacruzjs/
+  cta: "Click here to RSVP <i class='right-arrow'></i>"
+  tag: meetup
+
+- title: RethinkDB Utah meetup
+  short_date: July 15th
+  byline: July 15th, 2015 in Salt Lake City
+  description: This is the first ever meeting of the RethinkDB Utah meetup aka RethinkDB Utah users group. Speakers and location TBD
+  short_description: This is the first ever meeting of the RethinkDB Utah meetup aka RethinkDB Utah users group. Speakers and location TBD
+  permalink: http://www.meetup.com/RethinkDB-Utah/events/223348277/
+  cta: "Click here to RSVP <i class='right-arrow'></i>"
+  tag: meetup
+
+- title: RethinkDB goes to PDX & OSCON!
+  short_date: July 18th - July 23rd
+  byline: July 18th - July 23rd, RethinkDB comes to hang out in PDX and help make OSCON great!
+  short_description: Some members of RethinkDB will be visiting our neighbor city to the north (Portland) and be attending some events around OSCON.
+  description: Some members of RethinkDB will be visiting our neighbor city to the north (Portland) and be attending some events around OSCON, as well as doing some demos of RethinkDB during OSCON.
+  cta: "Tell us you're going to OSCON! <i class='right-arrow'></i>"
+  permalink: https://twitter.com/intent/tweet?text=See you%20at%20@OSCON%20@RethinkDB!
+  tag: conference
+
+- title: RethinkDB goes to Columbus for PyOhio!
+  short_date: July 25th - July 26th
+  byline: July 25th - July 26th in Columbus, OH
+  short_description: Come hang out with two RethinkDB members and visit our talk on asynchronous Python with RethinkDB!
+  description: Come hang out with two RethinkDB members and visit our talk on asynchronous Python with RethinkDB!
+  permalink: https://twitter.com/intent/tweet?text=See you%20at%20@PyOhio%20@RethinkDB!
+  cta: "Tell us you're going to PyOhio! <i class='right-arrow'></i>"
+  tag: conference

@@ -41,7 +41,7 @@ authentication provider. If you don't have RethinkDB installed yet, [go ahead an
 
 Let's get started.
 
-##  1. Clone repository
+#  1. Clone repository
 
 The first thing we need to do is clone the [repository from GitHub][tutorial-repo].
 This repository will have all the code you need to setup this app. Be sure to
@@ -52,7 +52,7 @@ git clone git@github.com:thejsj/passport-rethinkdb-tutorial.git
 cd passport-rethinkdb-tutorial
 ```
 
-## 2. Install dependencies
+# 2. Install dependencies
 
 Let's install our dependencies. You can take a look at all our dependencies
 [here][tutorial-repo-deps].
@@ -102,7 +102,7 @@ it for development, so we'll install it as a dev dependency:
 npm install nodemon --save-dev
 ```
 
-## 3. Get credentials
+# 3. Get credentials
 
 After cloning the repo and installing our dependencies, we'll want to register
 an app in both GitHub and Twitter, in order to get our app ID and app secret.
@@ -167,7 +167,7 @@ module.exports = {
 
 [https://github.com/thejsj/passport-rethinkdb-tutorial/blob/master/config/default.js#L6-L8](https://github.com/thejsj/passport-rethinkdb-tutorial/blob/master/config/default.js#L6-L8)
 
-## 4. Running your server
+# 4. Running your server
 
 After cloning the repo, installing all dependencies, and adding our OAuth keys,
 we can now run our server. For that we can use an npm script included in our
@@ -197,7 +197,7 @@ saved on the database:
 
 ![](/assets/images/posts/2015-06-16-oauth-10-server.png)
 
-## Final thoughts and next steps
+# Final thoughts and next steps
 
 This is the quickest way to get started with RethinkDB and Passport OAuth
 authentication. After getting this demo running, you can start diving into the

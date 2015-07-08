@@ -7,7 +7,8 @@ $algolia_root = '_algolia-build'
 #   - assets/images/docs: Used for images from the docs repo.
 $generated_files = [
     '_includes',
-    'assets/images/docs'
+    'assets/images/docs',
+    '_data/docs',
 ]
 
 # Configuration details for external repos (e.g. docs)
@@ -68,13 +69,14 @@ desc 'Copy assets and includes from the docs repository'
 task :copy_assets do
     # Create each destination directory, if it doesn't already exist
     ['_includes'].each{ |dir_name|
-        Dir.mkdir(dir_name) unless Dir.exists?(dir_name)
+        FileUtils.mkdir_p(dir_name) unless Dir.exists?(dir_name)
     }
 
     assets_to_copy = [
         {:source => '_jekyll/_includes/.', :target => '_includes/'},
         {:source => 'docs/_jekyll/_includes/.', :target => '_includes/docs/'},
-        {:source => 'docs/_jekyll/_images/.', :target => 'assets/images/docs/'}
+        {:source => 'docs/_jekyll/_images/.', :target => 'assets/images/docs/'},
+        {:source => 'docs/_jekyll/_data/.', :target => '_data/docs/'},
     ]
     assets_to_copy.each{ |asset|
         FileUtils.cp_r(asset[:source], asset[:target], :verbose => true)

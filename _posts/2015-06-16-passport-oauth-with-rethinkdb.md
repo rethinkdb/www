@@ -206,7 +206,7 @@ If you're not particularly interested in how everything works (that's totally
 fine), you can also use this repo as a boilerplate to easily add OAuth
 authentication to your apps!
 
-After understanding the code, you can go try to add new authentication provides
+After understanding the code, you can go try to add new authentication providers
 like Facebook, Google and [many more][passport-auth-providers]. You can also
 switch from session-based authentication to token-based authentication, which
 works best on mobile devices.

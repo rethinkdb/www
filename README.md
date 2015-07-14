@@ -142,3 +142,18 @@ Then, configure Bundler to use `n-1` cores, where `n` is the number of cores on 
 ```
 bundle config --global jobs 3
 ```
+
+#Deploying
+
+We currently deploy via rsync.
+
+
+It is highly recommended that you first run rsync with `--dry-run` so you don't do anything catastrophic. As well, 
+it is probably best to run `ssh -p 440 "tar -zcvf /srv/www/year-mo-da.tar.gz /srv/www/public_html"` to easily revert 
+in case of catastrophic circrumstances. 
+
+Also ensure that all newly added images are set with the proper permissions via `chmod 644 /path/to/image`.
+
+```
+rsync -Pvrz _site/ -e 'ssh -p 440' teapot@rethinkdb.com:/srv/www/rethinkdb.com/public_html
+```

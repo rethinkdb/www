@@ -112,5 +112,9 @@ rewrite_links = ->
     links_on_page = $('a')
     for link in links_on_page
         href = $(link).attr('href')
+        # Make sure there's a trailing slash
+        if href.substr(-1) isnt '/'
+            href = "#{href}/"
+        # Rewrite only the right links
         if routes[href]?
             $(link).attr('href', href+lang+'/')

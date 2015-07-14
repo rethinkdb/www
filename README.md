@@ -143,17 +143,17 @@ Then, configure Bundler to use `n-1` cores, where `n` is the number of cores on 
 bundle config --global jobs 3
 ```
 
-#Deploying
+# Deploying
 
-We currently deploy via rsync.
-
-
-It is highly recommended that you first run rsync with `--dry-run` so you don't do anything catastrophic. As well, 
-it is probably best to run `ssh -p 440 "tar -zcvf /srv/www/year-mo-da.tar.gz /srv/www/public_html"` to easily revert 
-in case of catastrophic circrumstances. 
-
-Also ensure that all newly added images are set with the proper permissions via `chmod 644 /path/to/image`.
+We currently deploy via rsync. You can deploy the website using this command:
 
 ```
-rsync -Pvrz _site/ -e 'ssh -p 440' teapot@rethinkdb.com:/srv/www/rethinkdb.com/public_html
+rake deploy
 ```
+
+Under the hood, this will push the site using `rsync`. A few notes:
+  - Make sure your SSH public key has been added to the `.authorized_users` file for the user `teapot` on `rethinkdb.com`.
+  - If you notice someissues with newly-added images, make sure their permissions are set properly (`chmod 644 /path/to/image`).
+
+If you'd like to preserve the website before your first build (in case of catastrophic failure), you can run 
+`ssh -p 440 "tar -zcvf /srv/www/year-mo-da.tar.gz /srv/www/public_html"` to easily revert your deploy.

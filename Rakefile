@@ -16,7 +16,7 @@ $external_repos = [
     {
         "repo" => "docs",
         "destination" => "docs",
-        "branch" => "mg_deploy-www"
+        "branch" => "master"
     },
 ]
 

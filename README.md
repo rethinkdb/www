@@ -40,18 +40,12 @@ rake
 
 ### Other operations
 
-See the complete list of `rake` tasks: `rake -T`
-
-Quickly serve the site: `rake up` (this skips the initial build and serves the site)
-
-Update external `git` repos: `rake pull`
-
-Build the website: `rake build` (outputs to `_site`)
-
-Clean up a generated site: `rake clean`
-
-Deploy the site: `rake deploy` (this requires `_deploy-config.yml`)
-
+- `rake -T`: see the complete list of `rake` tasks
+- `rake up`: quickly serve the site (this skips the initial build)
+- `rake pull`: update external `git` repositories
+- `rake build`: builds the website (outputs to `_site`)
+- `rake clean`: remove all generated directories and reset the site
+- `rake deploy`: deploy the site to rethinkdb.com (this requires `_deploy-config.yml`)
 
 ## Getting your system ready to build the website
 
@@ -142,3 +136,18 @@ Then, configure Bundler to use `n-1` cores, where `n` is the number of cores on 
 ```
 bundle config --global jobs 3
 ```
+
+# Deploying
+
+We currently deploy via rsync. You can deploy the website using this command:
+
+```
+rake deploy
+```
+
+Under the hood, this will push the site using `rsync`. A few notes:
+  - Make sure your SSH public key has been added to the `.authorized_users` file for the user `teapot` on `rethinkdb.com`.
+  - If you notice someissues with newly-added images, make sure their permissions are set properly (`chmod 644 /path/to/image`).
+
+If you'd like to preserve the website before your first build (in case of catastrophic failure), you can run 
+`ssh -p 440 "tar -zcvf /srv/www/year-mo-da.tar.gz /srv/www/public_html"` to easily revert your deploy.

@@ -317,7 +317,7 @@ def clone_repo(root, repo)
     begin 
         destination = "#{root}/#{repo["destination"]}"
         rm_rf destination
-        sh "git clone git@github.com:rethinkdb/#{repo["repo"]} #{destination}"
+        sh "git clone https://github.com/rethinkdb/#{repo["repo"]}.git #{destination}"
         cd destination
         sh "git checkout #{repo["branch"]}"
     rescue Exception

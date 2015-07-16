@@ -17,6 +17,13 @@ $ ->
     if $_sidebar.length
         blog_sidebar_sticky = new Waypoint.Sticky
             element: $('.blog-sidebar ul')
+        blog_sidebar_github = new Waypoint
+            element: $('.blog-sidebar ul')
+            handler: ->
+                # Delay the popup animation
+                setTimeout ->
+                    $('.github-star .popup', $_sidebar).removeClass('hidden')
+                , 2000
 
     # ------------
     # Docs navigation: collapse / expand sections

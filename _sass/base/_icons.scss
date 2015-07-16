@@ -77,7 +77,26 @@
    --- */
 .icon-github-footer {
     $_size: 30px;
-    background-image: url("/assets/images/icons/icon-github-footer.png");
+    background-image: url("/assets/images/icons/icon-github.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: $_size;
+    width: $_size;
+    background-size: $_size $_size;
+    position: relative;
+    text-indent: -9999px;
+    vertical-align: top;
+    opacity: 0.55;
+}
+
+
+/* ---
+   Icons: GitHub popup
+   --- */
+.icon-github-popup {
+    $_size: 20px;
+    background-image: url("/assets/images/icons/icon-github-black.png");
     background-position: center center;
     background-repeat: no-repeat;
     display: inline-block;

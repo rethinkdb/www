@@ -68,8 +68,16 @@ GEM
       sass (>= 3.3)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
+    os (0.9.6)
     parslet (1.5.0)
       blankslate (~> 2.0)
+    piet (0.2.2)
+      png_quantizator
+    piet-binary (0.2.0)
+      os (~> 0.9.6)
+      piet (>= 0.2.0)
+      png_quantizator
+    png_quantizator (0.1.1)
     posix-spawn (0.3.11)
     pry (0.10.1)
       coderay (~> 1.1.0)
@@ -107,7 +115,13 @@ DEPENDENCIES
   jekyll!
   neat (~> 1.7.1)
   nokogiri (~> 1.6.5)
+  piet
+  piet-binary
+  png_quantizator
   pry
   rouge (~> 1.6.0)
   terminal-notifier (~> 1.6.1)
   therubyracer (~> 0.12.1)
+
+BUNDLED WITH
+   1.10.5

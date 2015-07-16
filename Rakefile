@@ -139,7 +139,7 @@ task :deploy do
     rsync = {
         :flags => '-Prvzh --delete',
         :chmod => '--chmod=Du=rwx,Dg=rx,Do=rx,Fu=rw,Fg=r,Fo=r', # 744 for directories, 644 for files
-        :ssh   => "-e 'ssh -p #{$config['web']['port']}'", # ssh command for deployment
+        :ssh   => "-e 'ssh -p #{$deploy_config['web']['port']}'", # ssh command for deployment
     }
     puts "Source: #{src} | Destination: #{dest}"
 

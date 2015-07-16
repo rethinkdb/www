@@ -9,23 +9,6 @@
 #   cta: "RSVP here <i class='right-arrow'></i>"
 #   tag: Webcast
 
-- title: RethinkDB Talk at Bay Area Open Source
-  short_date: July 9th
-  byline: July 9, 2015 at Santa Cruz JS
-  short_description: Looking for a database to build your next realtime app? Well, RethinkDB may fit your needs.
-  description: Members of RethinkDB will be going down to Santa Cruz to give an interactive walk-through and demo of RethinkdB.
-  permalink: http://www.meetup.com/santacruzjs/
-  cta: "Click here to RSVP <i class='right-arrow'></i>"
-  tag: meetup
-
-- title: RethinkDB Utah meetup
-  short_date: July 15th
-  byline: July 15th, 2015 in Salt Lake City
-  description: This is the first ever meeting of the RethinkDB Utah meetup aka RethinkDB Utah users group. Speakers and location TBD
-  short_description: This is the first ever meeting of the RethinkDB Utah meetup aka RethinkDB Utah users group. Speakers and location TBD
-  permalink: http://www.meetup.com/RethinkDB-Utah/events/223348277/
-  cta: "Click here to RSVP <i class='right-arrow'></i>"
-  tag: meetup
 
 - title: RethinkDB goes to PDX & OSCON!
   short_date: July 18th - July 23rd

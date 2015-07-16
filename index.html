@@ -271,7 +271,7 @@ body_class: landing
                     <li>
                         <h1>Latest news</h1>
                     </li>
-                    {% for event in site.data['upcoming-events'] %}
+                    {% for event in site.data['upcoming-events'] limit:4 %}
                         <li>
                             <span>{{ event.short_date }}</span>
                             <h2><a target="_blank" href="{{ event.permalink }}">{{ event.title }}</h2>

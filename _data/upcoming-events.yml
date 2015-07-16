@@ -12,7 +12,7 @@
 
 - title: RethinkDB goes to PDX & OSCON!
   short_date: July 18th - July 23rd
-  byline: July 18th - July 23rd, RethinkDB comes to hang out in PDX and help make OSCON great!
+  byline: July 18th - July 23rd in Portland, OR.
   short_description: Some members of RethinkDB will be visiting our neighbor city to the north (Portland) and be attending some events around OSCON.
   description: Some members of RethinkDB will be visiting our neighbor city to the north (Portland) and be attending some events around OSCON, as well as doing some demos of RethinkDB during OSCON.
   cta: "Tell us you're going to OSCON! <i class='right-arrow'></i>"
@@ -27,36 +27,29 @@
   permalink: https://twitter.com/intent/tweet?text=See you%20at%20@PyOhio%20@RethinkDB!
   cta: "Tell us you're going to PyOhio! <i class='right-arrow'></i>"
   tag: conference
-  
-- title: Heavybit Meetup 
+
+- title: RethinkDB Meetup - San Francisco
   short_date: July 27th
-  byline: July 27th at Heavybit
-  short_description: This is our monthly meetup at Heavybit's beautiful space. 
-  description: This is our monthly meetup at Heavybit's beautiful space. Both @dalanmiller and @thejsj will be giving talks on using RethinkDB with Raspberry Pi. 
+  byline: July 27th at Heavybit - San Francisco
+  short_description: This is our monthly meetup at Heavybit's beautiful space.
+  description: This is our monthly meetup at Heavybit's beautiful space. Both @dalanmiller and @thejsj will be giving talks on using RethinkDB with Raspberry Pi.
   permalink: http://www.meetup.com/RethinkDB-SF-Meetup-Group/events/223655976/
   cta: "Tell us you're going! <i class='right-arrow'></i>"
   tag: meetup
-  
-- title: ForwardJS RethinkDB Workshop
+
+- title: ForwardJS RethinkDB Workshop  - San Francisco
   short_date: July 30th
-  byline: July 30th at ForwardJS Conference
+  byline: July 30th at ForwardJS Conference - Regency Ballroom, San Francisco
   short_description: Rethink your database with RethinkDB w/ Slava Akhmechet and developer evangelist Jorge Silva
   description: Join RethinkDB founder Slava Akhmechet and developer evangelist Jorge Silva as they demo RethinkDB features and answer questions in an interactive workshop session. Interested? Tweet at us to receive a discount code for your ForwardJS registration!
   permalink: http://forwardjs.com
   cta: "See you there! <i class='right-arrow'></i>"
   tag: conference
-  
+
 - title: RethinkDB goes <em>internacional</em> at PlatziConf Colombia
   short_date: August 22nd
   byline: August 22nd in Bogotá, Colombia
-  short_description: @thejsj will be giving a talk on RethinkDB en español on RethinkDB
+  short_description: Our very own -- @thejsj -- will be giving a talk on RethinkDB en español on RethinkDB
   description:
-  permalink: 
-  cta: Check back for more information! 
-  
-
-
-  
-
-  
-
+  permalink:
+  cta: Check back for more information!

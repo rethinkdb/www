@@ -132,10 +132,18 @@ task :deploy do
 
     # Copy the files over with rsync
     src = File.join(Dir.pwd, out_dir)
-    dest = "#{deploy['web']['host']}:#{deploy['web']['directory']}"
+    host = $deploy_config['web']['host']
+    dest = "#{host}:#{$deploy_config['web']['directory']}"
+
+    # Rsync options
+    rsync = {
+        :flags => '-Prvzh --delete',
+        :chmod => '--chmod=Du=rwx,Dg=rx,Do=rx,Fu=rw,Fg=r,Fo=r', # 744 for directories, 644 for files
+        :ssh   => "-e 'ssh -p #{$config['web']['port']}'", # ssh command for deployment
+    }
     puts "Source: #{src} | Destination: #{dest}"
-    command = "rsync -Prvzh --delete -e 'ssh -p #{deploy['web']['ssh_port']}' #{src}/ #{dest}"
-    sh command
+
+    sh "rsync #{rsync[:flags]} #{rsync[:chmod]} #{rsync[:ssh]} #{src}/ #{dest}"
     puts 'Site published to Linode.'
 end 
 

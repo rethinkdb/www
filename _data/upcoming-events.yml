@@ -31,8 +31,8 @@
 - title: Heavybit Meetup 
   short_date: July 27th
   byline: July 27th at Heavybit
-  short_description: This is our monthly meetup at the Heavybit's beautiful space. 
-  description: This is our monthly meetup at the Heavybit's beautiful space.Both @dalanmiller and @thejsj will be giving talks on RethinkDB and Raspberry Pi
+  short_description: This is our monthly meetup at Heavybit's beautiful space. 
+  description: This is our monthly meetup at Heavybit's beautiful space. Both @dalanmiller and @thejsj will be giving talks on using RethinkDB with Raspberry Pi. 
   permalink: http://www.meetup.com/RethinkDB-SF-Meetup-Group/events/223655976/
   cta: "Tell us you're going! <i class='right-arrow'></i>"
   tag: meetup

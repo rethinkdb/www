@@ -130,14 +130,13 @@ task :deploy do
         $stderr.puts "Commit your changes before deploying the site."
         exit 1
     end
-    out_dir = '_deploy'
+
     check_for_required_files
 
-    rm_rf out_dir
-    mkdir out_dir
-
     # Build a clean deployment site
-    jekyll('build -d ' + out_dir)
+    out_dir = '_site'
+    Rake::Task['clean'].invoke
+    Rake::Task['build'].invoke
 
     # Copy the files over with rsync
     src = File.join(Dir.pwd, out_dir)

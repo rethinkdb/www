@@ -131,10 +131,9 @@ task :deploy do
         exit 1
     end
 
-    check_for_required_files
-
     # Build a clean deployment site
     out_dir = '_site'
+    Rake::Task['pull'].invoke
     Rake::Task['clean'].invoke
     Rake::Task['build'].invoke
 

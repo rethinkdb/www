@@ -63,6 +63,22 @@
 
     hr { border-color: darken($teal, 5); }
 
+    // GitHub footer link
+    p.github-footer {
+        @include font-size-rem(24);
+        @extend .three-quarter;
+        padding-top: $base-spacing*1.25;
+        padding-left: $base-spacing*3.5;
+        a {
+            padding: rem(2);
+            border-bottom: thin dashed rgb(40, 87, 101);
+        }
+        i {
+            margin-right: rem(14);
+            margin-top: rem(3);
+        }
+    }
+
     // Footer links
     .footer-links {
         @extend .three-quarter;

@@ -71,3 +71,21 @@
     background-image: url("/assets/images/icons/icon-twitter-landing.png");
 }
 
+
+/* ---
+   Icons: footer for GitHub
+   --- */
+.icon-github-footer {
+    $_size: 30px;
+    background-image: url("/assets/images/icons/icon-github-footer.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: $_size;
+    width: $_size;
+    background-size: $_size $_size;
+    position: relative;
+    text-indent: -9999px;
+    vertical-align: top;
+    opacity: 0.55;
+}

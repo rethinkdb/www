@@ -274,7 +274,7 @@ body_class: landing
                     {% for event in site.data['upcoming-events'] limit:4 %}
                         <li>
                             <span>{{ event.short_date }}</span>
-                            <h2><a target="_blank" href="{{ event.permalink }}">{{ event.title }}</h2>
+                            <h2><a target="_blank" href="{{ event.permalink }}">{{ event.title }}</a></h2>
                             <p>{{ event.short_description }}</p>
                         </li>
                     {% endfor %}
@@ -288,4 +288,3 @@ body_class: landing
 </div>
 <script src="/assets/js/d3.min.js" charset="utf-8"></script>
 <script src="/assets/js/landing.js" /></script>
-

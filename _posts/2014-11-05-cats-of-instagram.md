@@ -423,6 +423,6 @@ For additional information, you can refer to:
 
 [3]: /docs/changefeeds
 [4]: /api/ruby/changes
-[5]: /rethinkdb/cats-of-instagram
+[5]: https://github.com/rethinkdb/cats-of-instagram
 [6]: http://instagram.com/developer/realtime/
 [7]: http://socket.io/

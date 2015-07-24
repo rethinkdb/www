@@ -11,6 +11,25 @@
     overflow: hidden;
 
     &.infobox-alert { background: rgb(249, 243, 219); }
+
+    &.infobox-with-arrow {
+        &:after {
+            $_size: 10px;
+            content: '';
+            border-style: solid;
+            border-color: rgb(230, 241, 244) transparent;
+            border-width: 0 $_size $_size $_size;
+            display: block;
+            width: 0;
+            position: absolute;
+            top: -$_size;
+            left: 10%;
+            margin: 0 0 0 -$_size;
+        }
+        &.infobox-alert:after {
+            border-color: rgb(249, 243, 219) transparent;
+        }
+    }
     
     // Typographic styles
     p, li {

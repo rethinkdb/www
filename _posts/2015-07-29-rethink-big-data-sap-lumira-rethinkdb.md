@@ -3,7 +3,7 @@ layout: post
 title: "Rethink your Big Data with SAP Lumira and RethinkDB"
 author: Shankar Narayanan
 author_github: sgsshankar
-hero_image: 2015-07-15-forbidden-planet-beta-banner.jpg
+hero_image: 2015-07-29-rethink-big-data-sap-lumira-rethinkdb-1.png
 ---
 
 ***This post is cross-posted from the SAP Community Network Lumira Blog***
@@ -26,7 +26,9 @@ Lumira to another growing NoSQL database
 called RethinkDB using a Custom Data Access
 Extension.
 
-##RethinkDB
+<!--more-->
+
+## RethinkDB
 
 RethinkDB is fairly new and constantly
 improving, with features like realtime
@@ -46,7 +48,7 @@ http://www.rethinkdb.com/docs/tutorials/elections/
  extension that I have built to connect to
  RethinkDB is installed in SAP Lumira now.
 
-##Getting data from RethinkDB
+## Getting data from RethinkDB
 
 The SAP Lumira RethinkDB extension appears
 under the External Datasource in the Dataset
@@ -94,7 +96,7 @@ Here you can see a preview of what is going to be imported. Click "Create" to im
 
 You can manipulate this data like any other regular data in the prepare tab in SAP Lumira. You can also import another table by following the above steps and merging them in SAP Lumira.
 
-##Just a Visual
+## Just a Visual
 
 The visualization below was made using the example data. You can refer to the example link above for information about the data.
 

@@ -19,12 +19,4 @@
   cta: "Tell us you're going to PyOhio! <i class='right-arrow'></i>"
   tag: conference
 
-- title: ForwardJS RethinkDB Workshop  - San Francisco
-  short_date: July 30th
-  byline: July 30th at ForwardJS Conference - Regency Ballroom, San Francisco
-  short_description: Rethink your database with RethinkDB w/ Slava Akhmechet and developer evangelist Jorge Silva
-  description: Join RethinkDB founder Slava Akhmechet and developer evangelist Jorge Silva as they demo RethinkDB features and answer questions in an interactive workshop session. Interested? Tweet at us to receive a discount code for your ForwardJS registration!
-  permalink: http://forwardjs.com
-  cta: "See you there! <i class='right-arrow'></i>"
-  tag: conference
 

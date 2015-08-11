@@ -162,7 +162,7 @@ body.landing {
         a { color: rgb(198, 222, 220); }
         .headline-latest-release { font-weight: bold; }
         display: inline-block;
-        margin-right: rem(40);
+        margin-right: rem(25); // update to rem(40)
         &:firsrt
         &:last-child { margin-right: 0; }
         i { margin-right: rem(8); }

@@ -28,8 +28,8 @@ testing. The major features in RethinkDB 2.1 include:
   including `floor`, `ceil`, and `round`.
 <!--more-->
 
-<a href="https://www.youtube.com/watch?v=odi_sCa3pnA">
-    <img src="/assets/images/videos/releases/rethinkdb-1.16.png">
+<a href="https://www.youtube.com/watch?v=IcNCYJOujFw">
+    <img src="/assets/images/videos/releases/rethinkdb-2.1.jpg">
 </a>
 
 {% infobox %}
@@ -61,6 +61,10 @@ loss of availability. Cluster behavior is also more forgiving in
 instances where individual servers fail. For example, you no longer
 have to permanently remove a failed server from the cluster in order
 to perform administrative tasks like table creation.
+
+<a class="framed-image" href="/assets/images/posts/2015-08-11-raft-comic.png">
+    <img src="/assets/images/posts/2015-08-11-raft-comic-cropped.png">
+</a>
 
 Learn more about high availability in RethinkDB 2.1:
 
@@ -149,6 +153,7 @@ the new release for yourself, [download and install][download] it today.
 * Learn about [consistency guarantees][consistency].
 * Read the [failover documentation][failover].
 
+[ahruygt]: https://twitter.com/annieruygt
 [notes]: https://github.com/rethinkdb/rethinkdb/releases/tag/v2.1.0-1
 [download]: /install
 [enhancements]: https://github.com/rethinkdb/rethinkdb/issues?utf8=%E2%9C%93&q=milestone%3A2.1+

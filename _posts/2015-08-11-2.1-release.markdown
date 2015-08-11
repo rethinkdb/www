@@ -6,8 +6,8 @@ author_github: segphault
 hero_image: 2015-08-11-forbidden-planet-banner.jpg
 ---
 
-Today we're proud to announce __RethinkDB 2.1__ (Forbidden
-Planet). [Download it now][download]!
+Today we're proud to announce __RethinkDB 2.1__ ([Forbidden
+Planet][release-poster]). [Download it now][download]!
 
 With over [200 enhancements][enhancements] and a major restructuring
 of the clustering layer to support high availability, this release is
@@ -153,7 +153,7 @@ the new release for yourself, [download and install][download] it today.
 * Learn about [consistency guarantees][consistency].
 * Read the [failover documentation][failover].
 
-[ahruygt]: https://twitter.com/annieruygt
+[release-poster]: /assets/images/posts/2015-08-11-forbidden-planet-poster.jpg
 [notes]: https://github.com/rethinkdb/rethinkdb/releases/tag/v2.1.0-1
 [download]: /install
 [enhancements]: https://github.com/rethinkdb/rethinkdb/issues?utf8=%E2%9C%93&q=milestone%3A2.1+

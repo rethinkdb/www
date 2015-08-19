@@ -52,6 +52,8 @@ previous two. Make sure when wiring up your project that you follow a pinout
 guide [such as this one][rbpi_pinout]. Plugging the wires in the wrong places
 can render your Raspberry Pi unusable, so check twice and plug once!
 
+For reference, I am using **BCM pin #22** (not _physical_ pin 22!) for the data port in my future examples. 
+
 ## Getting RethinkDB setup on the Raspberry Pi
 
 I wish I could say that this part of the process took unprecedented hacker skill

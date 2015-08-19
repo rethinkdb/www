@@ -224,11 +224,11 @@ cursor = r.table("observations").group(
 [adafruit]:https://adafruit.com
 [am2302]:https://www.adafruit.com/products/393
 [android_pushbullet]:https://play.google.com/store/apps/details?id=com.pushbullet.android&hl=en
-[chrome_pushbullet]:https://
+[chrome_pushbullet]:https://chrome.google.com/webstore/detail/pushbullet/chlffgpmiacpedhhbkiomidkjlcfhogd?hl=en
 [cron_ubuntu]:https://help.ubuntu.com/community/CronHowto
 [cron_wikipedia]:https://en.wikipedia.org/wiki/Cron
 [daft_punk]:https://www.youtube.com/watch?v=gAjR4_CbPpQ
-[firefox_pushbullet]:https://
+[firefox_pushbullet]:https://addons.mozilla.org/en-us/firefox/addon/pushbullet/
 [initd_setup]:http://www.rethinkdb.com/docs/start-on-startup/#quick-setup
 [install_retinkdb]:http://rethinkdb.com/docs/install/raspbian/
 [ios_pushbullet]:https://itunes.apple.com/us/app/pushbullet/id810352052?mt=8
@@ -240,3 +240,4 @@ cursor = r.table("observations").group(
 [rbpi_pinout]:http://pi.gadgetoid.com/pinout
 [safari_pushbullet]:http://update.pushbullet.com/extension.safariextz
 [watcherGist]:https://gist.github.com/29ffcc3394c41d70ca8b.git
+[swap_size_instructions]:https://www.bitpi.co/2015/02/11/how-to-change-raspberry-pis-swapfile-size-on-rasbian/

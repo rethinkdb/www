@@ -27,7 +27,7 @@ PushBullet.
 I wasn't sure what I wanted to do for my first hardware project but having a
 Raspberry Pi gave me a great place to start. I knew though that if I kept
 worrying about voltages and GPIO pins I would never get started. So I took a
-leap and went to [Adafruit.com][adafruit] and purchased my first tempeature and
+leap and went to [Adafruit.com][adafruit] and purchased my first temperature and
 humidity sensor. I choose the [AM2302][am2302] because of the support I found on
 the Adafruit website and the special Python-wrapped C libraries which Adafruit
 had already written and put up on Github.
@@ -162,7 +162,6 @@ and table within RethinkDB for the project, just run:
 
 ```bash
 #'sudo' is necessary here to access the GPIO pins
-
 sudo python ~/pusherRethinkDB.py
 ```
 
@@ -172,9 +171,9 @@ check your jumper wires to make sure that they are connected firmly.
 ### The Changefeed Whisperer
 
 The other script we are going to run is the one listening to a RethinkDB
-changefeed and pushing you an alert when a temperature read is too high or too
-low. Because of the asychronous nature of changefeeds, Javascript/Node.js is a
-natural fit that is easy to follow in terms of logic thanks to the uses of
+changefeed and pushing an alert to you when a temperature read is too high or
+too low. Because of the asynchronous nature of changefeeds, Javascript/Node.js
+is a natural fit that is easy to follow in terms of logic thanks to the uses of
 Promises.
 
 To run this code you'll first need to install Node.js and `npm`. The easiest way

@@ -10,13 +10,19 @@ Getting started on your first hardware project can be difficult. Luckily these d
 
 <!--more-->
 
-**I demo'd the result of this tutorial in a talk I gave at the 7/28/15 RethinkDB meetup at HeavyBit in SFO**
+<div style="padding-top:10px; padding-bottom:10px">
+<center><strong>I demo'd this tutorial in a talk I gave at the RethinkDB meetup at HeavyBit,</strong></center>
+<center><strong>you can watch the talk here.</strong></center></div>
 
 I wasn't sure what I wanted to do for my first hardware project but having a Raspberry Pi gave me a great place to start. I knew though that if I kept worrying about voltages and GPIO pins I would never get started. So I took a leap and went to [Adafruit.com][adafruit] and purchased my first tempeature and humidity sensor. I choose the [AM2302][am2302] because of the support I found on the Adafruit website and the special Python-wrapped C libraries which Adafruit had already written and put up on Github.
 
+<img width="100%" style="padding-left:5px; padding-right:5px;" src="http://i.imgur.com/cCgZzI5.gif">
+
+<center style="padding-top:10px;padding-bottom:10px">You too can finish your project this fast!</center>
+
 After my sensor arrived, I realized the three cables coming from the sensor couldn't be directly connected to the Raspberry Pi as the GPIO pins are just that, pins. Where somewhere In my mind I had figured they were female connectors. Not wanting to dive into soldering and burn my fingers or play with molten metal, I decided that I would much rather ride my bike out to Fry's and get some [female-female jumper cables][jumper_cables] for a couple bucks.
 
-Getting started working with the GPIO pins is also somewhat challenging. As I had already lost my Raspberry Pi instructions within the first 30 seconds of opening the box (Were there any instructions in there anyway?) Luckily the Internet is fully of documentation on the layout of the GPIO pins for each version of the Raspberry Pi. My Raspberry Pi 2 being somewhat different than the previous two. Make sure when wiring up your project that you follow a pinout guide [such as this one][rbpi_pinout]. Plugging the wires in the wrong places can render your Raspberry Pi unusable, so check twice and plug once!
+Getting started working with the GPIO pins is also somewhat challenging. As I had already lost my Raspberry Pi instructions within the first 30 seconds of opening the box. Were there any instructions in there anyway? Luckily, the Internet is fully of documentation on the layout of the GPIO pins for each version of the Raspberry Pi. My Raspberry Pi 2 being somewhat different than the previous two. Make sure when wiring up your project that you follow a pinout guide [such as this one][rbpi_pinout]. Plugging the wires in the wrong places can render your Raspberry Pi unusable, so check twice and plug once!
 
 ## Getting RethinkDB setup on the Raspberry Pi
 
@@ -24,11 +30,48 @@ I wish I could say that this part of the process took unprecedented hacker skill
 
 Following the [directions here][install_rethinkdb] and assuming you have Rasbian (or other Debian deviant) on your Raspberry Pi you should be good to go. The process takes a couple hours to compile RethinkDB from source (I'm working on the .deb package for ARM). If you have a Raspberry Pi 2 there's a few modifications that you can make to utilize the extra cores to expedite this process.
 
-I've written this quick Github Gist to download and compile on your Raspbery Pi 2
+I've written this quick Github Gist to download and compile on your Raspbery Pi 2. If you come across a `virtual memory exhausted` error, you need to increase the swap space by [following these instructions][swap_size_instructions]. Increasing your swap size to 512MB should be fine but **do not forget to change this value back to 100MB** once you have successfully compiled RethinkDB.
 
 <script src="https://gist.github.com/dalanmiller/2365fb938fe61f4761c1.js"></script>
 
-Once it's complete, you want to make RethinkDB start on bootup when your RethinkDB powers up. To do that follow the [instructions here][initd_setup] and then run `sudo /etc/init.d/rethinkdb restart` and RethinkDB should start up for the first time.
+You can automatically run the script by just copy and pasting this line into your Raspberry Pi 2 terminal:
+
+```
+curl -sL https://gist.githubusercontent.com/dalanmiller/2365fb938fe61f4761c1/raw/22c8c138b48259b3031dfab5edf2f7ece043ee3c/download_rethinkdb_for_raspberry_pi_2.sh | sh
+```
+
+Once it's complete, you want to make sure that RethinkDB start when your RethinkDB powers up. To do that, you want to edit the `/etc/rc.local` file to look like this:
+
+``` bash
+#!/bin/sh -e
+#
+# rc.local
+#
+# This script is executed at the end of each multiuser runlevel.
+# Make sure that the script will "exit 0" on success or any other
+# value on error.
+#
+# In order to enable or disable this script just change the execution
+# bits.
+#
+# By default this script does nothing.
+
+# Print the IP address
+_IP=$(hostname -I) || true
+if [ "$_IP" ]; then
+  printf "My IP address is %s\n" "$_IP"
+fi
+
+rethinkdb --bind all --server-name rbpi_rethinkdb -d /home/pi --daemon
+
+exit 0
+```
+
+To get RethinkDB running right now, just run this same command you've added:
+
+```
+rethinkdb --bind all --server-name rbpi_rethinkdb -d /home/pi --daemon
+```
 
 ## The Code
 
@@ -36,9 +79,9 @@ After you have the hardware setup and where you want it, the rest is a piece of 
 
 ### The Cron Job
 
-This code assumes you have installed the rethinkdb and Adafruit_DHT modules, and everything else is in the standard Python libraries.
+This code assumes you have installed the `rethinkdb` and `Adafruit_DHT` modules. Everything else used is in the standard Python libraries.
 
-To install the RethinkDB Python driver it's as easy as:
+To install the RethinkDB Python driver [it's as easy as](https://www.youtube.com/watch?v=ho7796-au8U&feature=youtu.be&list=RDho7796-au8U&t=16):
 
 ```
 pip install rethinkdb
@@ -46,13 +89,13 @@ pip install rethinkdb
 #Or if you don't have pip installed: sudo easy_install pip
 ```
 
-To install the Adafruit_DHT modules, first [clone this repository][adafruit_dht]. Then run `python setup.py install` from within the repository directory.
+To install the Adafruit_DHT modules, first [clone this repository][adafruit_dht]. Then run `python setup.py install` from within the repository directory itself.
 
-This code is what will be called via cron job to collect temperature and humidity data. We don't need to manually create the database and table as the script will check for their existence and create them if necessary.
+The following script is what will be called via a `cron` job to collect temperature and humidity data. We don't need to manually create the database and table as the script will check for their existence and create them if necessary. Either copy paste this gist or `git clone` this [URL][pusherGist].
 
 <script src="https://gist.github.com/dalanmiller/7d6bb95e70721d70e6d9.js"></script>
 
-To add this as a `cron` job, enter `sudo crontab -e` on your Raspberry Pi 2. My `crontab` looks like this:
+To add this as a `cron` job, enter `sudo crontab -e` on your Raspberry Pi 2. My `crontab` at this moment looks like this:
 
 ```
 * * * * * sudo python ~/pusherRethinkDB.py
@@ -60,36 +103,50 @@ To add this as a `cron` job, enter `sudo crontab -e` on your Raspberry Pi 2. My 
 
 This runs the script [every minute, for every hour, for every day of the week, for every day of the month, for every day of the week][daft_punk]. To run this less frequently you would change the first asterisk to something like `*/5` for every five minutes or `*/15` to run every fifteen minutes. For more background on what `cron` is and how it works, you should check out [Cron on Wikipedia][cron_wikipedia] or the [Ubuntu documentation on Cron][cron_ubuntu].
 
+To make sure the script works properly and to generate the necessary database and table within RethinkDB for the project, just run:
+
+```bash
+#'sudo' is necessary here to access the GPIO pins
+
+sudo python ~/pusherRethinkDB.py
+```
+
+If your script hangs at `Attempting to read from sensor`, then you should double check your jumper wires to make sure that they are connected firmly.
+
 ### The Changefeed Whisperer
 
-The other script we are going to run is the one listening to a RethinkDB changefeed and pushing you an alert when a temperature read is too high or too low. Because of the asychronous nature of changefeeds I decided to reuse a piece of Node.js code that is easy to follow in terms of logic thanks to the uses of Promises.
+The other script we are going to run is the one listening to a RethinkDB changefeed and pushing you an alert when a temperature read is too high or too low. Because of the asychronous nature of changefeeds, Javascript/Node.js is a natural fit that is easy to follow in terms of logic thanks to the uses of Promises.
 
-To run this code you'll first need to install Node.js and `npm`. The easiest way to do that is to first add the nodesouce.com PPA to your `apt-get` and then install `node` and `npm` normally.
+To run this code you'll first need to install Node.js and `npm`. The easiest way to do that is to first add the nodesource.com PPA to your APT repositories and then install `node` and `npm` normally.
 
-```
+``` bash
 curl -sL https://deb.nodesource.com/setup | sudo bash -
 sudo apt-get install -y nodejs npm
 ```
 
 Then we need to install the necessary packages for the script from `npm`.
 
-```
-npm install pushbullet rethinkdb nodemon
+``` bash
+sudo npm install -g pushbullet rethinkdb forever bluebird
 ```
 
-In order to push notifications for this project I decided to use  PushBullet. PushBullet is a [text|link|file] notification service and has extensions for browsers ([Chrome][chrome_pushbullet], [Safari][safari_pushbullet], [Firefox][firefox_pushbullet]) and apps for both iOS and Android, as well as a simple developer API. Truly, an easy five-minute message queue for all your projects. Before you can use the API you need to [sign up for an account][pushbullet_home], and then grab your access token from the [account page][pushbullet_account_page]. Then just copy paste this into a file in the same folder as your `watcherRethinkDB.js` file named `token`. The node script will expect to find this file and read the first line for your token.
+In order to push notifications for this project I decided to use PushBullet. PushBullet is a text \| link \| file notification service and has extensions for browsers ([Chrome][chrome_pushbullet], [Safari][safari_pushbullet], [Firefox][firefox_pushbullet]) and nice native apps for both [iOS][ios_pushbullet] and [Android](android_pushbullet), as well as a simple developer API. Truly, an easy five-minute message and notification queue for all your projects. Before you can use the API you need to [sign up for an account][pushbullet_home], and then grab your access token from the [account page][pushbullet_account_page]. Then just copy paste this into a file in the same directory as your `watcherRethinkDB.js` in a file named `token`. `watcherRethinkDB.js` will expect to find this file and read it to find your token.
 
-Now that we have all of our dependencies installed, we can now run the watcher script.
+Now that we have all of our node.js dependencies installed, we can now run the `watcherRethinkDB.js` script. Once again, you can copy and paste this gist or `git clone` from this [URL][watcherGist] on your RBPi. Just make sure that the script is referneced correctly further along.
 
 <script src="https://gist.github.com/dalanmiller/29ffcc3394c41d70ca8b.js"></script>
 
 We can set this up to start on bootup of the Raspberry Pi easily by adding another line to `cron`. `cron` has a few special shortcut commands and the one for the job here is `@reboot` which says to run a command only at reboot and not until the next reboot. So `sudo crontab -e` once more and add the following line.
 
 ```
-@reboot nodemon ~/watcherRethinkDB.js
+@reboot forever start ~/watcherRethinkDB.js
 ```
 
-Typically, you execute node files by running `node script.js` but we are going to use the [`nodemon`][nodemon] utility which will ensure that even if our watcher crashes, it will automatically restart it (as well as when it detects modifications to the file).
+Typically, you execute node files by running `node script.js` but we are going to use the [`forever`][forever] utility which will ensure that even if our `watcherRethinkDB.js` crashes, it will automatically restart it . To get it going right now, just run:
+
+```
+forever start ~/watcherRethinkDB.js
+```
 
 ## Finalizing Your First Sensor Setup
 
@@ -99,22 +156,26 @@ Lastly, we are going to give your setup a whirl. Reboot your Raspberry Pi and th
 ps -ef | grep node
 ```
 
-You should see something like this:
+You should see something similar to this:
 
-[IMAGE FOR PS OUTPUT]
+```
+pi@dalanmiller-pi ~ $ ps -ef | grep forever
+pi        3155     1 14 13:46 ?        00:00:02 /usr/bin/nodejs /usr/lib/node_modules/forever/bin/monitor watcherRethinkDB.js
+```
 
-Now, I recommend leaving the portion of the script that will push you a message even at a nominal temperature just to make sure it works and uncomment once you get a message through PushBullet as to not spam you with "The temperature is totally fine."
+Now, I recommend leaving the portion of the script that will push you a message even at a nominal temperature uncommented out just to make sure it works and comment it out once you get a message through PushBullet as to not spam you with "The temperature is totally fine."
 
 One hard part of figuring out a project is the real-world use case. But there are really countless places where having a temperature sensor could be handy:
 
 * Making sure your pets aren't too cold or warm at home.
 * Are your water pipes on the verge of freezing while you're on vacation?
-* Keeping an optimal temperature in your greenhouse.
-* Monitoring a basement or areas near water for humidity and thus possible mold.
+* Keeping an optimal temperature in your greenhouse or small gardening experiment.
+* Monitoring a basement or home areas near water for humidity and thus possible mold.
+* Find out if a family member is actually turning up the heat during the day.
 
 Now that you have RethinkDB going on your Pi, you have an easy way to not only be notified when the temperature hits a desired threshold but also a way to easily query all collected data without burying yourself in text logs or worry about losing your data in case your Raspberry Pi resets.
 
-Need help or advice on how to setup your Pi or connect to your Pi wirelessly?  [Hit me up on Twitter][@dalanmiller].
+Need help or advice on how to setup your Pi or connect to your Pi wirelessly?  [Hit me (@dalanmiller) up on Twitter][@dalanmiller].
 
 ## The Sixth Sensor (Going Further)
 
@@ -124,41 +185,58 @@ Later on you may want to come back and do some analyses on the temperature or hu
 #!/usr/bin/python
 import rethinkdb as r
 from datetime import datetime, timedelta
-
 conn = r.connect("localhost", 28015, db="telemetry_pi")
 
 #Finding the average temperature & humidity for the past 24 hours
 day_ago = datetime.now() - timedelta(hours=24)
-r.table("observations")\
+cursor = r.table("observations")\
   .filter(r.row("datetime") > day_ago))\
+  "avg_humidity": r.avg(r.row("temp")),
   .merge({
-    "avg_humidity": r.avg(r.row("temp")),
     "avg_temperature": r.avg(r.row("humidity"))
     }).run(conn)
 
-#Finding the top ten hottest observations per day (or a _single_ maxima for each day)
+#Finding the hottest observations per day (or a _single_ maxima for each day)
 
-r.table("observations")\
-  .map("")\
-  .reduce("")\
+cursor = r.table("observations").group(
+  lambda doc: return [
+      doc('datetime').year(),
+      doc('datetime').month(),
+      doc('datetime').day()
+  ])\
+  .max("temp")\
+  .ungroup()\
+  ["reduction"]
 
 #Correlation of humidity to temperature (Btemp + c = humidity)
+
 ```
 
+<style>
+  .gist .blob-code {
+    padding:1px 26px !important;
+  }
+</style>
+
+
 [@dalanmiller]:https://twitter.com/dalanmiller
-[adafruit]:https://adafruit.com
 [adafruit_dht]:https://github.com/adafruit/DHT-sensor-library
-[am2302]:
+[adafruit]:https://adafruit.com
+[am2302]:https://www.adafruit.com/products/393
+[android_pushbullet]:https://play.google.com/store/apps/details?id=com.pushbullet.android&hl=en
 [chrome_pushbullet]:https://
 [cron_ubuntu]:https://help.ubuntu.com/community/CronHowto
-[cron_wiki]:https://en.wikipedia.org/wiki/Cron
+[cron_wikipedia]:https://en.wikipedia.org/wiki/Cron
 [daft_punk]:https://www.youtube.com/watch?v=gAjR4_CbPpQ
 [firefox_pushbullet]:https://
 [initd_setup]:http://www.rethinkdb.com/docs/start-on-startup/#quick-setup
 [install_retinkdb]:http://rethinkdb.com/docs/install/raspbian/
-[jumper_cables]:
-[nodemon]: http://nodemon.io/
+[ios_pushbullet]:https://itunes.apple.com/us/app/pushbullet/id810352052?mt=8
+[jumper_cables]:https://www.adafruit.com/products/266
+[forever]: https://github.com/foreverjs/forever
 [pushbullet_account_page]:https://www.pushbullet.com/#settings/account
 [pushbullet_home]:https://www.pushbullet.com
+[pusherGist]:https://gist.github.com/7d6bb95e70721d70e6d9.git
 [rbpi_pinout]:http://pi.gadgetoid.com/pinout
-[safari_pushbullet]:https://
+[safari_pushbullet]:http://update.pushbullet.com/extension.safariextz
+[watcherGist]:https://gist.github.com/29ffcc3394c41d70ca8b.git

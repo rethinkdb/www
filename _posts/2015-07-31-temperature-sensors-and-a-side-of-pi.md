@@ -205,7 +205,7 @@ token.
 Now that we have all of our node.js dependencies installed, we can now run the
 `watcherRethinkDB.js` script. Once again, you can copy and paste this gist or
 `git clone` from this [URL][watcherGist] on your RBPi. Just make sure that the
-script is referneced correctly further along.
+script is referenced correctly further along.
 
 <script src="https://gist.github.com/dalanmiller/29ffcc3394c41d70ca8b.js"></script>
 

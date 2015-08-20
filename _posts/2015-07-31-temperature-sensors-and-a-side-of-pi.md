@@ -54,9 +54,9 @@ can render your Raspberry Pi unusable, so check twice and plug once!
 
 For reference, I am using **BCM pin #22** (not _physical_ pin 22!) for the data port in my future examples.
 
-<img width="100%" style="padding-left:5px; padding-right:5px;" src="/assets/images/posts/2015-07-31-temperature-sensors-and-a-side-of-pi-1.png"> 
+<img width="100%" style="padding-left:5px; padding-right:5px;" src="/assets/images/posts/2015-07-31-temperature-sensors-and-a-side-of-pi-1.png">
 
-## Getting RethinkDB setup on the Raspberry Pi
+# Getting RethinkDB setup on the Raspberry Pi
 
 I wish I could say that this part of the process took unprecedented hacker skill
 or intelligence beyond measure on my part, but it's actually a piece of cake.
@@ -118,7 +118,7 @@ To get RethinkDB running right now, just run this same command you've added:
 rethinkdb --bind all --server-name rbpi_rethinkdb -d /home/pi --daemon
 ```
 
-## The Code
+# The Code
 
 After you have the hardware setup and where you want it, the rest is a piece of
 cake. I've written two scripts that will get this project running. The first
@@ -232,7 +232,7 @@ going right now, just run:
 forever start ~/watcherRethinkDB.js
 ```
 
-## Finalizing Your First Sensor Setup
+# Finalizing Your First Sensor Setup
 
 Lastly, we are going to give your setup a whirl. Reboot your Raspberry Pi and
 then get back to the command line. Let's check if the watcher script is running:
@@ -270,7 +270,7 @@ about losing your data in case your Raspberry Pi resets.
 Need help or advice on how to setup your Pi or connect to your Pi wirelessly?  
 [Hit me (@dalanmiller) up on Twitter][@dalanmiller].
 
-## The Sixth Sensor (Going Further)
+# The Sixth Sensor (Going Further)
 
 Later on you may want to come back and do some analyses on the temperature or
 humidity observations you've collected. Here are some examples of advanced

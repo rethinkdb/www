@@ -32,7 +32,7 @@ humidity sensor. I choose the [AM2302][am2302] because of the support I found on
 the Adafruit website and the special Python-wrapped C libraries which Adafruit
 had already written and put up on Github.
 
-<img width="100%" style="padding-left:5px; padding-right:5px;" src="http://i.imgur.com/cCgZzI5.gif">
+<img width="100%" style="padding-left:5px; padding-right:5px;" src="http://i.imgur.com/qXcXsA9.gif">
 
 <center style="padding-top:10px;padding-bottom:10px">You too can finish your project this fast!</center>
 

@@ -268,7 +268,7 @@ easily query all collected data without burying yourself in text logs or worry
 about losing your data in case your Raspberry Pi resets.
 
 Need help or advice on how to setup your Pi or connect to your Pi wirelessly?  
-[Hit me (@dalanmiller) up on Twitter][@dalanmiller].
+Or just advice on your project? [Hit me (@dalanmiller) up on Twitter][@dalanmiller].
 
 # The Sixth Sensor (Going Further)
 
@@ -276,7 +276,7 @@ Later on you may want to come back and do some analyses on the temperature or
 humidity observations you've collected. Here are some examples of advanced
 queries that could help get you bootstrapped a little faster.
 
-```
+``` python
 #!/usr/bin/python
 import rethinkdb as r
 from datetime import datetime, timedelta
@@ -302,6 +302,74 @@ cursor = r.table("observations").group(
   .max("temp")\
   .ungroup()\
   ["reduction"]
+
+#Finding some basic statistics and calculating a simple linear regression (y_humidity = alpha + beta_temp * temp)  
+# https://en.wikipedia.org/wiki/Simple_linear_regression
+# https://en.wikipedia.org/wiki/Pearson_product-moment_correlation_coefficient
+
+#Start with initial object containing calculations that don't have dependencies
+
+#To dramatically shorten queries
+obs = r.db("telemetry_pi").table("observations")
+
+r.object(
+
+  #Sums
+  "sum_humidity", obs.sum("humidity"),
+  "sum_temp", obs.sum("temp"),
+
+  #Averages
+  "avg_humidity", obs.avg("humidity"),
+  "avg_temp", obs.avg("temp"),
+
+  #Sum of Squares
+  "sumsq_humidity",obs["humidity"].map(lambda d: return d * d).sum(),
+  "sumsq_temp", obs["temp"].map(lambda d: return d * d ).sum(),
+
+  "sum_products_temp_humidity", r.map(
+      obs["temp"],
+      obs["humidity"],
+      lambda temp, humidity:
+      	return temp * humidity
+    ).sum(),
+
+  #n (for convenience)
+  "n", obs.count()
+
+#Now calculate beta estimator and standard deviations and Pearson correlation
+).do( lambda doc:
+  //Calculate the squared averages
+  return doc.merge({
+
+  #Estimated beta for temperature
+    "beta_hat":
+     #Numerator
+     ((doc("n") * doc("sum_products_temp_humidity")) - (doc("sum_humidity") * doc("sum_temp"))) /
+     #Denominator
+     (doc("n") * doc("sumsq_temp")) - (doc("sum_temp") * doc("sum_temp"))
+    ,
+
+    #Standard Deviation calculations
+    "sd_humidity": obs["humidity"].map( lambda d:
+        return (d - doc("avg_humidity") * d - doc("avg_humidity"))
+    ).avg().do(r.js('(function(x) { return Math.sqrt(x); })')),
+
+    "sd_temperature": obs["temp"].map( lambda d:
+        return (d - doc("avg_temp") * d - doc("avg_temp"))
+    ).avg().do(r.js('(function(x) { return Math.sqrt(x); })')),
+
+    #Correlation calculation
+    "temp_humidity_correlation":
+      doc("sum_products_temp_humidity") / ((doc("sumsq_temp") * doc("sumsq_humidity")).do(r.js('(function(x) { return Math.sqrt(x); })')))
+  })  
+
+#Finally calculate alpha estimator
+).do(lambda doc:
+  return doc.merge({
+    "alpha_hat":
+      ((r.expr(1) / doc("n")) * doc("sum_humidity")) - (doc("beta_hat") * (r.expr(1) / doc("n")) * doc("sum_temp"))
+  });
+).run(conn)
 ```
 
 <style>

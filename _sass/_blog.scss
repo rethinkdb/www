@@ -55,6 +55,12 @@
         }
     }
 
+    // Framed image: for image thumbnails that link to full images
+    a.framed-image img {
+        border: thin solid #eee;
+        &:hover { border: thin solid #ccc; }
+    }
+
     // Content styles
     .post-body {
         color: lighten(desaturate($teal, 35), 20);

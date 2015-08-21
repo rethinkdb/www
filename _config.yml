@@ -24,7 +24,7 @@ version:
     codename: Forbidden Planet
     release_post: /blog/2.1-release
 rethinkdb_users: "100,000"
-github_stars: "9.8k"
+github_stars: "9.9k"
 
 sass:
     sass_dir: _sass

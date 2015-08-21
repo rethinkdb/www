@@ -3,7 +3,7 @@ layout: post
 title: "Rethinking temperature, sensors, and Raspberry Pi"
 author: Daniel Alan Miller
 author_github: dalanmiller
-hero_image: 2015-08-21-temperature-sensors-and-a-side-of-pi-hero.png
+hero_image: 2015-07-31-temperature-sensors-and-a-side-of-pi-hero.png
 ---
 
 Getting started on your first hardware project can be difficult. Luckily these

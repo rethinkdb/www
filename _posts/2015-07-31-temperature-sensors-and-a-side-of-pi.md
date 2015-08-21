@@ -7,16 +7,16 @@ hero_image: 2015-07-31-temperature-sensors-and-a-side-of-pi-hero.png
 ---
 
 Getting started on your first hardware project can be difficult. Luckily these
-days we have things like the Raspberry Pi. which put almost everything we need
-into a nice bundled package to get started on your first cool hardware project.
-Even better, the Raspberry Pi runs Rasbian, a variant of Debian, which makes it
-pretty familiar with those already comfortable with popular Linux distributions.
-The next step is to connect a sensor and it's definitely easier than you think.
-But the question always remains, once I'm collecting my data, where will I store
-it and how do I easily setup some sort of notification service? In this post,
-I'll tell you what you need to do to connect your first sensor, get RethinkDB
-going on your Raspberry Pi, and push that data to all your devices using
-PushBullet.
+days we have things like the [Raspberry Pi][rbpi]. which put almost everything
+we need into a nice bundled package to get started on your first cool hardware
+project. Even better, the Raspberry Pi runs [Rasbian][rasbian], a variant of
+Debian, which makes it pretty familiar with those already comfortable with
+popular Linux distributions. The next step is to connect a sensor and it's
+definitely easier than you think. But the question always remains, once I'm
+collecting my data, where will I store it and how do I easily setup some sort of
+notification service? In this post, I'll tell you what you need to do to connect
+your first sensor, get RethinkDB going on your Raspberry Pi, and push that data
+to all your devices using PushBullet.
 
 <!--more-->
 
@@ -32,7 +32,7 @@ humidity sensor. I choose the [AM2302][am2302] because of the support I found on
 the Adafruit website and the special Python-wrapped C libraries which Adafruit
 had already written and put up on Github.
 
-<img width="100%" style="padding-left:5px; padding-right:5px;" src="http://i.imgur.com/qXcXsA9.gif">
+<img width="100%" style="float:left;" src="http://i.imgur.com/qXcXsA9.gif">
 
 <center style="padding-top:10px;padding-bottom:10px">You too can finish your project this fast!</center>
 
@@ -54,7 +54,8 @@ can render your Raspberry Pi unusable, so check twice and plug once!
 
 For reference, I am using **BCM pin #22** (not _physical_ pin 22!) for the data port in my future examples.
 
-<img width="100%" style="padding-left:5px; padding-right:5px;" src="/assets/images/posts/2015-07-31-temperature-sensors-and-a-side-of-pi-1.png">
+<img width="100%" style="float:left;" src="/assets/images/posts/2015-07-31-temperature-sensors-and-a-side-of-pi-1.png">
+
 
 # Getting RethinkDB setup on the Raspberry Pi
 
@@ -118,7 +119,7 @@ To get RethinkDB running right now, just run this same command you've added:
 rethinkdb --bind all --server-name rbpi_rethinkdb -d /home/pi --daemon
 ```
 
-# The Code
+# The code
 
 After you have the hardware setup and where you want it, the rest is a piece of
 cake. I've written two scripts that will get this project running. The first
@@ -126,7 +127,7 @@ will be scheduled to run using `cron` and the second will be constantly
 listening for updates to the database to push them out to you via the PushBullet
 API.
 
-### The Cron Job
+### The cron job
 
 This code assumes you have installed the `rethinkdb` and `Adafruit_DHT` modules.
 Everything else used is in the standard Python libraries.
@@ -172,7 +173,7 @@ sudo python ~/pusherRethinkDB.py
 If your script hangs at `Attempting to read from sensor`, then you should double
 check your jumper wires to make sure that they are connected firmly.
 
-### The Changefeed Whisperer
+### The changefeed whisperer
 
 The other script we are going to run is the one listening to a RethinkDB
 changefeed and pushing an alert to you when a temperature read is too high or
@@ -232,7 +233,7 @@ going right now, just run:
 forever start ~/watcherRethinkDB.js
 ```
 
-# Finalizing Your First Sensor Setup
+# Finalizing your first sensor setup
 
 Lastly, we are going to give your setup a whirl. Reboot your Raspberry Pi and
 then get back to the command line. Let's check if the watcher script is running:
@@ -251,7 +252,7 @@ pi        3155     1 14 13:46 ?        00:00:02 /usr/bin/nodejs /usr/lib/node_mo
 Now, I recommend leaving the portion of the script that will push you a message
 even at a nominal temperature uncommented out just to make sure it works and
 comment it out once you get a message through PushBullet as to not spam you with
-"The temperature is totally fine."
+"The temperature is totally fine." Once you get that message once, you've finished baking your first Raspberry Pi project!
 
 One hard part of figuring out a project is the real-world use case. But there
 are really countless places where having a temperature sensor could be handy:
@@ -259,118 +260,24 @@ are really countless places where having a temperature sensor could be handy:
 * Making sure your pets aren't too cold or warm at home.
 * Are your water pipes on the verge of freezing while you're on vacation?
 * Keeping an optimal temperature in your greenhouse or small gardening experiment.
-* Monitoring a basement or home areas near water for humidity and thus possible mold.
-* Find out if a family member is actually turning up the heat during the day.
+* Monitoring a basement or home areas near water for humidity and possible mold.
+* Find out if a pesky family member is turning up the heat in the middle of summer.
 
 Now that you have RethinkDB going on your Pi, you have an easy way to not only
 be notified when the temperature hits a desired threshold but also a way to
-easily query all collected data without burying yourself in text logs or worry
-about losing your data in case your Raspberry Pi resets.
+easily query all collected data without burying yourself in text logs or
+worrying about losing your data when your Raspberry Pi resets.
 
 Need help or advice on how to setup your Pi or connect to your Pi wirelessly?  
 Or just advice on your project? [Hit me (@dalanmiller) up on Twitter][@dalanmiller].
 
-# The Sixth Sensor (Going Further)
+# The sixth sensor (going further)
 
 Later on you may want to come back and do some analyses on the temperature or
 humidity observations you've collected. Here are some examples of advanced
 queries that could help get you bootstrapped a little faster.
 
-``` python
-#!/usr/bin/python
-import rethinkdb as r
-from datetime import datetime, timedelta
-conn = r.connect("localhost", 28015, db="telemetry_pi")
-
-#Finding the average temperature & humidity for the past 24 hours
-day_ago = datetime.now() - timedelta(hours=24)
-cursor = r.table("observations")\
-  .filter(r.row("datetime") > day_ago))\
-  "avg_humidity": r.avg(r.row("temp")),
-  .merge({
-    "avg_temperature": r.avg(r.row("humidity"))
-    }).run(conn)
-
-#Finding the hottest observations per day (or a _single_ maxima for each day)
-
-cursor = r.table("observations").group(
-  lambda doc: return [
-      doc('datetime').year(),
-      doc('datetime').month(),
-      doc('datetime').day()
-  ])\
-  .max("temp")\
-  .ungroup()\
-  ["reduction"]
-
-#Finding some basic statistics and calculating a simple linear regression (y_humidity = alpha + beta_temp * temp)  
-# https://en.wikipedia.org/wiki/Simple_linear_regression
-# https://en.wikipedia.org/wiki/Pearson_product-moment_correlation_coefficient
-
-#Start with initial object containing calculations that don't have dependencies
-
-#To dramatically shorten queries
-obs = r.db("telemetry_pi").table("observations")
-
-r.object(
-
-  #Sums
-  "sum_humidity", obs.sum("humidity"),
-  "sum_temp", obs.sum("temp"),
-
-  #Averages
-  "avg_humidity", obs.avg("humidity"),
-  "avg_temp", obs.avg("temp"),
-
-  #Sum of Squares
-  "sumsq_humidity",obs["humidity"].map(lambda d: return d * d).sum(),
-  "sumsq_temp", obs["temp"].map(lambda d: return d * d ).sum(),
-
-  "sum_products_temp_humidity", r.map(
-      obs["temp"],
-      obs["humidity"],
-      lambda temp, humidity:
-      	return temp * humidity
-    ).sum(),
-
-  #n (for convenience)
-  "n", obs.count()
-
-#Now calculate beta estimator and standard deviations and Pearson correlation
-).do( lambda doc:
-  //Calculate the squared averages
-  return doc.merge({
-
-  #Estimated beta for temperature
-    "beta_hat":
-     #Numerator
-     ((doc("n") * doc("sum_products_temp_humidity")) - (doc("sum_humidity") * doc("sum_temp"))) /
-     #Denominator
-     (doc("n") * doc("sumsq_temp")) - (doc("sum_temp") * doc("sum_temp"))
-    ,
-
-    #Standard Deviation calculations
-    "sd_humidity": obs["humidity"].map( lambda d:
-        return (d - doc("avg_humidity") * d - doc("avg_humidity"))
-    ).avg().do(r.js('(function(x) { return Math.sqrt(x); })')),
-
-    "sd_temperature": obs["temp"].map( lambda d:
-        return (d - doc("avg_temp") * d - doc("avg_temp"))
-    ).avg().do(r.js('(function(x) { return Math.sqrt(x); })')),
-
-    #Correlation calculation
-    "temp_humidity_correlation":
-      doc("sum_products_temp_humidity") / ((doc("sumsq_temp") * doc("sumsq_humidity")).do(r.js('(function(x) { return Math.sqrt(x); })')))
-  })  
-
-#Finally calculate alpha estimator
-).do(lambda doc:
-  return doc.merge({
-    "alpha_hat":
-      ((r.expr(1) / doc("n")) * doc("sum_humidity")) - (doc("beta_hat") * (r.expr(1) / doc("n")) * doc("sum_temp"))
-  });
-).run(conn)
-```
+<script src="https://gist.github.com/dalanmiller/1cd4fc913d070170c1b9.js"></script>
 
 <style>
   .gist .blob-code {
@@ -396,6 +303,8 @@ r.object(
 [pushbullet_account_page]:https://www.pushbullet.com/#settings/account
 [pushbullet_home]:https://www.pushbullet.com
 [pusherGist]:https://gist.github.com/7d6bb95e70721d70e6d9.git
+[rasbian]:https://www.raspbian.org/
+[rbpi]:https://www.raspberrypi.org/
 [rbpi_pinout]:http://pi.gadgetoid.com/pinout
 [safari_pushbullet]:http://update.pushbullet.com/extension.safariextz
 [swap_size_instructions]:https://www.bitpi.co/2015/02/11/how-to-change-raspberry-pis-swapfile-size-on-rasbian/

@@ -8,15 +8,3 @@
 #   permalink: http://www.meetup.com/RethinkDB-Bay-Area-Meetup-Group/events/220785393/
 #   cta: "RSVP here <i class='right-arrow'></i>"
 #   tag: Webcast
-
-
-- title: RethinkDB goes to Columbus for PyOhio!
-  short_date: July 31st - August 5th
-  byline: July 25th - July 26th in Columbus, OH
-  short_description: Come hang out with two RethinkDB members and visit our talk on asynchronous Python with RethinkDB!
-  description: Come hang out with two RethinkDB members and visit our talk on asynchronous Python with RethinkDB!
-  permalink: https://twitter.com/intent/tweet?text=See you%20at%20@PyOhio%20@RethinkDB!
-  cta: "Tell us you're going to PyOhio! <i class='right-arrow'></i>"
-  tag: conference
-
-

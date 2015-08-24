@@ -156,12 +156,11 @@ end
 
 desc 'Update the nginx configuration'
 task :update_nginx do
-    host = deploy['web']['host']
-    dest = "#{host}:#{deploy['web']['directory']}"
-    port = deploy['web']['port']
-    nginx_conf = "_nginx/nginx.conf"
-    sh "scp -P #{port} #{nginx_conf} #{dest}"
-    sh "ssh #{host} -t -p #{port} 'sudo service nginx restart'"
+    #host = $config['web']['host']
+    #dest = "#{host}:#{$config['web']['directory']}"    -- dest is public_html, so this needs to be refactored TODO
+    #port = $config['web']['port']
+    #nginx_conf = "_nginx/nginx.conf"
+    #sh "scp -P #{port} #{nginx_conf} #{dest}"
 end
 
 # TODO -- nokogiri portion needs to be rewritten, since the DOM has been rearchitected for docs

@@ -150,4 +150,4 @@ Under the hood, this will push the site using `rsync`. A few notes:
   - If you notice someissues with newly-added images, make sure their permissions are set properly (`chmod 644 /path/to/image`).
 
 If you'd like to preserve the website before your first build (in case of catastrophic failure), you can run 
-`ssh -p 440 "tar -zcvf /srv/www/year-mo-da.tar.gz /srv/www/public_html"` to easily revert your deploy.
+`ssh -p 440 teapot@rethinkdb.com "tar -zcvf /srv/www/rethinkdb.com/year-mo-da.tar.gz /srv/www/rethinkdb.com/public_html"` to easily revert your deploy.

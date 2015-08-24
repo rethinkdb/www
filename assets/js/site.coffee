@@ -17,6 +17,13 @@ $ ->
     if $_sidebar.length
         blog_sidebar_sticky = new Waypoint.Sticky
             element: $('.blog-sidebar ul')
+        blog_sidebar_github = new Waypoint
+            element: $('.blog-sidebar ul')
+            handler: ->
+                # Delay the popup animation
+                setTimeout ->
+                    $('.github-star .popup', $_sidebar).removeClass('hidden')
+                , 2000
 
     # ------------
     # Docs navigation: collapse / expand sections
@@ -112,5 +119,12 @@ rewrite_links = ->
     links_on_page = $('a')
     for link in links_on_page
         href = $(link).attr('href')
+        # Trim the hash at the end of URLs
+        if href.substr(-1) is '#'
+            href = href.substr(0, href.length-1)
+        # Make sure there's a trailing slash
+        if href.substr(-1) isnt '/'
+            href = "#{href}/"
+        # Rewrite only the right links
         if routes[href]?
             $(link).attr('href', href+lang+'/')

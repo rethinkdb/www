@@ -55,6 +55,12 @@
         }
     }
 
+    // Framed image: for image thumbnails that link to full images
+    a.framed-image img {
+        border: thin solid #eee;
+        &:hover { border: thin solid #ccc; }
+    }
+
     // Content styles
     .post-body {
         color: lighten(desaturate($teal, 35), 20);
@@ -157,7 +163,7 @@
         &.stuck {
             position: fixed;
             top: 0;
-            z-index: -1; // The sidebar should slide under the footer on short displays
+            z-index: 5; // The sidebar should slide on top of the footer on short displays
         }
     }
 
@@ -181,7 +187,7 @@
         margin-bottom: $_margin-bottom;
         &.read-more {
             margin-top: 0;
-            margin-bottom: $_margin-bottom;
+            margin-bottom: rem(15);
         }
     }
     
@@ -195,6 +201,30 @@
         button {
             display: inline-block;
             margin-top: rem(-2);
+        }
+    }
+
+    // GitHub "star this repo" link
+    li.github-star {
+        position: relative;
+        .popup {
+            @include transition(left 0.2s ease-out);
+            position: absolute;
+            visibility: visible;
+            margin: 0;
+            left: 0%;
+            width: 85%;
+            overflow: visible;
+
+            &.hidden {
+                visibility: hidden;
+                left: $base-spacing*4;
+            }
+
+            i {
+                margin-top: rem(1);
+                margin-right: rem(8);
+            }
         }
     }
 }

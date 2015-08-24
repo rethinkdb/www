@@ -73,13 +73,13 @@ connections.
 
 # Connect to the Instagram realtime API
 
-To use the Instagram API, you will have to [register an application key][1] on
+To use the Instagram API, you will have to [register an application key][2] on
 the Instagram developer site. You will need to use the client ID and client
 secret provided by Instagram in order to hit the API endpoints. You don't need
 to configure the key with a redirect URI, however, as you won't be using
 authentication.
 
-[1]: http://instagram.com/developer/clients/manage/
+[2]: http://instagram.com/developer/clients/manage/
 
 To subscribe to a tag with Instagram's realtime API, make an HTTP POST request
 to the `api.instagram.com/v1/subscriptions/`. In the form data attached to the
@@ -331,7 +331,7 @@ function addCat(cat) {
     markers[0].bindPopup(
         "<img src=\"" + cat.images.thumbnail.url + "\">",
         {minWidth: 150, minHeight: 150});
-    
+
     markers[0].openPopup();
 
     if (count > 100)
@@ -374,7 +374,7 @@ use the `addCat` function shown above.
 ```javascript
 var socket = io.connect();
 
-socket.on("cat", addCat); 
+socket.on("cat", addCat);
 socket.on("recent", function(data) {
   data.reverse().forEach(addCat);
 });
@@ -415,14 +415,14 @@ experience the database in action.
 
 For additional information, you can refer to:
 
-* The RethinkDB [changefeed documentation][2]
-* The [`changes` command page][3] in the ReQL API reference
-* The complete [CatThink source code][4] on GitHub
-* Instagram's [realtime API documentation][5]
-* The official [Socket.io website][6]
+* The RethinkDB [changefeed documentation][3]
+* The [`changes` command page][4] in the ReQL API reference
+* The complete [CatThink source code][5] on GitHub
+* Instagram's [realtime API documentation][6]
+* The official [Socket.io website][7]
 
-[2]: /docs/changefeeds
-[3]: /api/ruby/changes
-[4]: /rethinkdb/cats-of-instagram
-[5]: http://instagram.com/developer/realtime/
-[6]: http://socket.io/
+[3]: /docs/changefeeds
+[4]: /api/ruby/changes
+[5]: https://github.com/rethinkdb/cats-of-instagram
+[6]: http://instagram.com/developer/realtime/
+[7]: http://socket.io/

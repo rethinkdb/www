@@ -95,7 +95,7 @@ body.landing {
             @include font-size-rem(18);
             margin: 0 $base-spacing;
             padding: $base-spacing/1.5 inherit;
-            width: rem(220);
+            width: rem(225);
             display: -moz-inline-box; // Fix for Mozilla -- display inline-block
 
             span {
@@ -162,7 +162,7 @@ body.landing {
         a { color: rgb(198, 222, 220); }
         .headline-latest-release { font-weight: bold; }
         display: inline-block;
-        margin-right: rem(40);
+        margin-right: rem(25); // update to rem(40)
         &:firsrt
         &:last-child { margin-right: 0; }
         i { margin-right: rem(8); }

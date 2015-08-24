@@ -1,35 +1,51 @@
 RethinkDB website
 ===
 
-## NOTE: please do the following to build
-
-To build the site while we're in transition, check out these repos:
-    - rethinkdb/www-thoughtbot (this repo)
-    - rethinkdb/docs, using the `2.0-revised` branch
-
-Symlink the following directories (assuming you've checked out both repos to `~/git`:
-
-```
-ln -s ~/git/docs ~/git/www-thoughtbot/docs
-ln -s ~/git/docs/_images ~/git/www-thoughtbot/assets/images/docs
-```
-
-This is a temporary measure while files are being moved around, and may change abruptly. This notice will be removed from the README when it no longer applies.
-
-(below are the normal build instructions)
-
 ## Building the website
 
-You must have the following tools available on your system:
+__Note:__ Before you can build the website, make sure your system is ready;
+read the "Getting your system ready to build the website" section.
 
-- Ruby
-- Bundler
-- Node.js
+We use [Jekyll][] to build the website. To setup, build,
+and deploy the website, you will use a series of `rake` tasks.
 
-Install the necessary gems:
+The website relies on an external repository ([rethinkdb/docs][]), which is
+managed by the `rake` tasks.
+
+[rethinkdb/docs]: https://github.com/rethinkdb/docs
+[Jekyll]: http://jekyllrb.com/
+
+### First-time setup
+
+Start by cloning this repository:
+
 ```
-bundle install
+git clone git@github.com:rethinkdb/www-thoughtbot.git
 ```
+
+Before you can build the site, you need to install required dependencies with
+Bundler, and initialize external repositories:
+
+```
+rake init
+```
+
+### Build and serve the website
+
+To build and serve the site:
+
+```
+rake
+```
+
+### Other operations
+
+- `rake -T`: see the complete list of `rake` tasks
+- `rake up`: quickly serve the site (this skips the initial build)
+- `rake pull`: update external `git` repositories
+- `rake build`: builds the website (outputs to `_site`)
+- `rake clean`: remove all generated directories and reset the site
+- `rake deploy`: deploy the site to rethinkdb.com (this requires `_deploy-config.yml`)
 
 ## Getting your system ready to build the website
 
@@ -38,7 +54,6 @@ This guide steps through how to build the website, assuming you have no tools in
 - Setting up Homebrew
 - Installing Node.js / `nvm`
 - Installing Ruby / `rbenv` / Bundler
-
 
 Remember: if you update your path at any point in this guide, start a new Bash
 sesion or run (on OS X):
@@ -121,3 +136,18 @@ Then, configure Bundler to use `n-1` cores, where `n` is the number of cores on 
 ```
 bundle config --global jobs 3
 ```
+
+# Deploying
+
+We currently deploy via rsync. You can deploy the website using this command:
+
+```
+rake deploy
+```
+
+Under the hood, this will push the site using `rsync`. A few notes:
+  - Make sure your SSH public key has been added to the `.authorized_users` file for the user `teapot` on `rethinkdb.com`.
+  - If you notice someissues with newly-added images, make sure their permissions are set properly (`chmod 644 /path/to/image`).
+
+If you'd like to preserve the website before your first build (in case of catastrophic failure), you can run 
+`ssh -p 440 "tar -zcvf /srv/www/year-mo-da.tar.gz /srv/www/public_html"` to easily revert your deploy.

@@ -1,0 +1,171 @@
+---
+layout: post
+title: "RethinkDB 2.1: high availability"
+author: Ryan Paul
+author_github: segphault
+hero_image: 2015-08-11-forbidden-planet-banner.jpg
+---
+
+Today we're proud to announce __RethinkDB 2.1__ ([Forbidden
+Planet][release-poster]). [Download it now][download]!
+
+With over [200 enhancements][enhancements] and a major restructuring
+of the clustering layer to support high availability, this release is
+the culmination of over a year of development and many months of
+testing. The major features in RethinkDB 2.1 include:
+
+* __Automatic failover__ -- if a server fails or the cluster
+  experiences a split-brain scenario, RethinkDB will automatically elect
+  new servers and continue to operate without human intervention.
+* __Always on__ -- you can add and remove nodes from a live cluster
+  without experiencing downtime.
+* __Asynchronous APIs__ -- asynchronous queries are now supported via
+  EventMachine in Ruby and Twisted, Tornado, and asyncio frameworks in
+  Python.
+* __SSL access__ -- official drivers now come with SSL support to make
+  it easier to access RethinkDB clusters over the public internet.
+* __More math commands__ -- ReQL now supports more math operators
+  including `floor`, `ceil`, and `round`.
+<!--more-->
+
+<a href="https://www.youtube.com/watch?v=IcNCYJOujFw">
+    <img src="/assets/images/videos/releases/rethinkdb-2.1.jpg">
+</a>
+
+{% infobox %}
+If you're upgrading from previous versions, you may need to [recreate your
+indexes][index].
+
+[index]: /docs/troubleshooting/#my-secondary-index-is-outdated
+{% endinfobox %}
+
+## High availability
+
+In RethinkDB 2.1 we introduced built-in support for automatic failover,
+which enables high-availability clustering. The new version increases
+the reliability of RethinkDB clusters, and dramatically reduces the
+risk of downtime when servers become unresponsive or the cluster
+encounters a split-brain scenario.
+
+When a server with a primary replica experiences failure, the servers
+with remaining replicas elect an acting primary to take its place
+until the wayward server is either restored or permanently excised
+from the cluster. As long as a majority of replicas remain operational
+to elect an acting primary, hardware failure or partial network
+outages will no longer compromise database availability.
+
+Another improvement in the 2.1 release is that tables remain
+accessible during resharding. You can add and remove RethinkDB nodes
+in a live cluster to respond to database load without experiencing
+loss of availability. Cluster behavior is also more forgiving in
+instances where individual servers fail. For example, you no longer
+have to permanently remove a failed server from the cluster in order
+to perform administrative tasks like table creation.
+
+<a class="framed-image" href="/assets/images/posts/2015-08-11-raft-comic.png">
+    <img src="/assets/images/posts/2015-08-11-raft-comic-cropped.png">
+</a>
+
+Learn more about high availability in RethinkDB 2.1:
+
+* Learn about [consistency guarantees][consistency].
+* Read the [failover documentation][failover].
+* Browse [full documentation][docs] for the 2.1 release.
+
+## Development
+
+We started design and development of automatic failover in
+early 2014. Our first task was to pick a distributed consensus
+protocol. We quickly settled on the [Raft][] consensus
+algorithm. [First introduced][paper] in 2013 by Stanford researchers,
+Raft's influence is growing quickly in distributed computing and
+related fields. In RethinkDB 2.1, Raft provides the underlying logic
+that enables replicas to elect an acting primary.
+
+We did a survey of available Raft libraries and after a lot of
+experimentation learned that existing libraries don't integrate well
+with the networking and coroutine layers in RethinkDB. After about a
+month of heavy development we had a compatible implementation of Raft
+that integrated cleanly with lower-level RethinkDB subsystems.
+
+Once we had a robust Raft implementation, the next challenge was to
+move cluster metadata handling into the Raft state. This involved
+significant work due to the complexity of the codebase, and required
+refactoring many of the major clustering components. This work took a
+few more months, at which point we had a working implementation of the
+RethinkDB cluster based on the Raft algorithm.
+
+We chose to only store cluster metadata in Raft due to performance
+limitations imposed by distributed consensus, so the next challenge
+was to safely integrate data handling into the new design. We worked
+with users to define [consistency guarantees][consistency], and then
+collaborated with the community to peer-review the design and the
+implementation. The process took another couple of months, followed by
+a few more months of bug-fixing and polish.
+
+## Testing
+
+We put the RethinkDB 2.1 development branch through four layers of
+testing. Firstly, we unit-tested the Raft implementation and worked to
+peer-review it with the community.
+
+After that, we ran the new clustering implementation through our
+existing integration testing framework. We tested various failure
+scenarios, including individual server failures, network outages, and
+sophisticated split-brain scenarios such as non-transitive
+connectivity.
+
+Once RethinkDB 2.1 passed our internal clustering tests, we added
+support for RethinkDB into the [Jepsen][] tests. The Jepsen test
+framework is the de-facto standard for testing distributed systems,
+and it provided an additional layer of safety over our internal
+testing framework. You can see the timeline of the implementation and
+relevant pull requests on this [GitHub thread][jepsenpr].
+
+Finally, we worked with hundreds of bleeding-edge users to deploy the
+beta version of RethinKDB 2.1 in the wild, to make sure the product
+performs as expected in real world scenarios on a wide variety of
+platforms, use cases, and network topologies.
+
+## Additional features
+
+In RethinkDB 2.1, we added support for performing asynchronous queries
+in Ruby and Python by integrating with the EventMachine and Tornado
+frameworks. Members of our community implemented improvements to the
+Python client driver, extending it to support asyncio and Twisted. You
+can now use the Python client driver with those frameworks in 2.1. The
+asyncio code was contributed by [Thomas Kluyver][tk] and the Twisted
+integration was contributed by [Lahfa Ryan][lr].
+
+Some other useful new features available in the 2.1 release include
+new math commands (`floor`, `ceil`, and `round`) in the ReQL query
+language and Support for securing client driver connections with SSL.
+
+## Download RethinkDB 2.1 today
+
+For more details, check out the [official release notes][notes]. To try
+the new release for yourself, [download and install][download] it today.
+
+* Download [RethinkDB 2.1][download]
+* Reach us [on Twitter][twitter]
+* Start a thread in [our Google Group][group]
+* Join us in the [#rethinkdb channel on Freenode][irc]
+* Learn about [consistency guarantees][consistency].
+* Read the [failover documentation][failover].
+
+[release-poster]: /assets/images/posts/2015-08-11-forbidden-planet-poster.jpg
+[notes]: https://github.com/rethinkdb/rethinkdb/releases/tag/v2.1.0-1
+[download]: /install
+[enhancements]: https://github.com/rethinkdb/rethinkdb/issues?utf8=%E2%9C%93&q=milestone%3A2.1+
+[Raft]: https://raftconsensus.github.io/
+[paper]: http://ramcloud.stanford.edu/raft.pdf
+[twitter]: https://twitter.com/rethinkdb
+[group]: https://groups.google.com/forum/#!forum/rethinkdb
+[irc]: irc://chat.freenode.net/#rethinkdb
+[tk]: https://github.com/takluyver
+[lr]: https://github.com/RaitoBezarius
+[consistency]: /docs/consistency/
+[failover]: /docs/failover/
+[docs]: /docs
+[jepsen]: https://github.com/aphyr/jepsen
+[jepsenpr]: https://github.com/rethinkdb/rethinkdb/issues/1493

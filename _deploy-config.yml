@@ -1,9 +1,9 @@
 --- # Deployment config
 # Connection details for a remote web server
 web:
-    host: your_username@your_server
-    port: your_port
-    directory: your_directory
+    host: teapot@rethinkdb.com
+    port: 440
+    directory: /srv/www/rethinkdb.com/public_html
 
 # Connection details for Algolia
 algolia:

@@ -16,8 +16,9 @@ $ ->
 
     # Realtime query animations
     for n in [0..3]
-        add_realtime_message()
-    setInterval(add_realtime_message, 3000)
+        add_realtime_message(true)
+
+    d3.timer(add_realtime_message(false), 1000)
 
     # Switching between examples & use cases
     $('.examples nav a').on 'click', (event) ->
@@ -44,30 +45,38 @@ $ ->
         , 100
 
 # Realtime messages stream of player scores
-add_realtime_message = ->
-    max_messages = 20
-    msg_height = 22 # height of each message in pixels
+add_realtime_message = (ret) ->
 
-    # Create a new message
-    msg =
-        name: names[Math.floor(Math.random() * names.length)]
-        score: Math.floor(Math.random() * score_cap)
-    $msg = $("<li class='collapsed'>{'player':&nbsp;'#{msg.name}',&#8203;&nbsp;'score':&nbsp;#{msg.score}}</li>")
+    return =>
+      max_messages = 20
+      msg_height = 22 # height of each message in pixels
 
-    # Prepend it to the message list, and slide the messages down
-    $messages = $('.realtime-queries .messages')
-    $messages.prepend($msg)
-    setTimeout (-> $msg.removeClass('collapsed')), 100
+      # Create a new message
+      msg =
+          name: names[Math.floor(Math.random() * names.length)]
+          score: Math.floor(Math.random() * score_cap)
+      $msg = $("<li class='collapsed'>{'player':&nbsp;'#{msg.name}',&#8203;&nbsp;'score':&nbsp;#{msg.score}}</li>")
 
-    # Trim the list if it's too long
-    for _msg in $messages.children().slice(max_messages)
-        $(_msg).remove()
+      # Prepend it to the message list, and slide the messages down
+      $messages = $('.realtime-queries .messages')
+      $messages.prepend($msg)
+      setTimeout (-> $msg.removeClass('collapsed')), 100
 
-    # Update the leaderboard with the new score
-    update_leaderboard(msg)
+      # Trim the list if it's too long
+      for _msg in $messages.children().slice(max_messages)
+          $(_msg).remove()
 
-    # Bump up the score cap
-    score_cap = score_cap + 1
+      # Update the leaderboard with the new score
+      update_leaderboard(msg)
+
+      # Bump up the score cap
+      score_cap = score_cap + 1
+
+      if ret == false
+        d3.timer(add_realtime_message(false), 3000)
+
+      return true
+
 
 # Realtime leaderboard of top scores
 update_leaderboard = (msg) ->

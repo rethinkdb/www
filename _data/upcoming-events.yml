@@ -9,47 +9,47 @@
 #   cta: "RSVP here <i class='right-arrow'></i>"
 #   tag: Webcast
 
-
-- title: RethinkDB goes to PDX & OSCON!
-  short_date: July 18th - July 23rd
-  byline: July 18th - July 23rd in Portland, OR.
-  short_description: Some members of RethinkDB will be visiting our neighbor city to the north (Portland) and be attending some events around OSCON.
-  description: Some members of RethinkDB will be visiting our neighbor city to the north (Portland) and be attending some events around OSCON, as well as doing some demos of RethinkDB during OSCON.
-  cta: "Tell us you're going to OSCON! <i class='right-arrow'></i>"
-  permalink: https://twitter.com/intent/tweet?text=See you%20at%20@OSCON%20@RethinkDB!
-  tag: conference
-
-- title: RethinkDB goes to Columbus for PyOhio!
-  short_date: July 31st - August 5th
-  byline: July 25th - July 26th in Columbus, OH
-  short_description: Come hang out with two RethinkDB members and visit our talk on asynchronous Python with RethinkDB!
-  description: Come hang out with two RethinkDB members and visit our talk on asynchronous Python with RethinkDB!
-  permalink: https://twitter.com/intent/tweet?text=See you%20at%20@PyOhio%20@RethinkDB!
-  cta: "Tell us you're going to PyOhio! <i class='right-arrow'></i>"
-  tag: conference
-
-- title: RethinkDB Meetup - San Francisco
-  short_date: July 27th
-  byline: July 27th at Heavybit - San Francisco
-  short_description: This is our monthly meetup at Heavybit's beautiful space.
-  description: This is our monthly meetup at Heavybit's beautiful space. Both @dalanmiller and @thejsj will be giving talks on using RethinkDB with Raspberry Pi.
-  permalink: http://www.meetup.com/RethinkDB-SF-Meetup-Group/events/223655976/
-  cta: "Tell us you're going! <i class='right-arrow'></i>"
+- title: RethinkDB with Compose.io at Heavybit
+  short_date: August 26th, 6:30pm
+  byline: August 26th, 6:30pm @ Heavybit, Inc in San Francisco
+  short_description: Come hang out with RethinkDB and Compose at our meetup at Heavybit!
+  description: We’re thrilled to team up with our friends from Compose for our August meetup. <a href="https://compose.io">Compose.io</a> will be showing how Compose Transporter helps with database transformations from one store to another and syncs from one to another or several stores.
+  permalink: http://www.meetup.com/RethinkDB-SF-Meetup-Group/events/223656008/
+  cta: "RSVP here <i class='right-arrow'></i>"
   tag: meetup
 
-- title: ForwardJS RethinkDB Workshop  - San Francisco
-  short_date: July 30th
-  byline: July 30th at ForwardJS Conference - Regency Ballroom, San Francisco
-  short_description: Rethink your database with RethinkDB w/ Slava Akhmechet and developer evangelist Jorge Silva
-  description: Join RethinkDB founder Slava Akhmechet and developer evangelist Jorge Silva as they demo RethinkDB features and answer questions in an interactive workshop session. Interested? Tweet at us to receive a discount code for your ForwardJS registration!
-  permalink: http://forwardjs.com
-  cta: "See you there! <i class='right-arrow'></i>"
+- title: RethinkDB @ Strange Loop in St. Louis
+  short_date: September 24th - 26th
+  byline: September 24th - 26th @ Peabody Opera House of St. Louis
+  short_description: Come checkout RethinkDB's hands on workshop at The Strange Loop conference!
+  description: We love the Strange Loop conference and <a href="https://twitter.com/spakhm">Slava Akhemchet</a> and <a href="https://twitter.com/dalanmiller">Daniel Alan Miller</a> are excited to be holding a workshop session on RethinkDB. If you've already managed to grab a ticket, check out our session!
+  permalink: http://www.thestrangeloop.com/2015/rethink-your-database-with-rethinkdb.html
+  cta: "Check out our session! <i class='right-arrow'></i>"
   tag: conference
 
-- title: RethinkDB goes <em>internacional</em> at PlatziConf Colombia
-  short_date: August 22nd
-  byline: August 22nd in Bogotá, Colombia
-  short_description: Our very own -- @thejsj -- will be giving a talk on RethinkDB en español on RethinkDB
-  description:
-  permalink:
-  cta: Check back for more information!
+- title: RethinkDB @ UtahJS in Salt Lake City
+  short_date: September 25th
+  byline: September 25th @ Downtown Salt Lake City Library
+  short_description: We are excited to return to Utah & cofounder <a href="https://twitter.com/mglukhovsky">Michael Glukhovsky</a> will be giving the first keynote of the conference!
+  description: Javascript is one of our well supported languages and Utah is one of our favorite states, so we couldn't be happier to attend UtahJS this year. We were also fortunate enough to be asked to be a keynote speaker for the event! So come say hi to <a href="https://twitter.com/mglukhovsky">Michael Glukhovsky</a> and <a href="https://twitter.com/dalanmiller">Daniel Alan Miller</a> if you'll be there!
+  permalink: http://conf.utahjs.com/schedule
+  cta: "Check out the schedule for UtahJS <i class='right-arrow'></i>"
+  tag: conference
+
+- title: RethinkDB visits Boston
+  short_date: October 13th - 18th
+  byline: October 13th - 18th at a meetup near you (in Boston)
+  short_description: Come find us at one of the great tech meetups in Boston!
+  description: We are looking to come visit the great tech community in Boston as we haven't yet had the opportunity to get out to that corner of the country just yet. We will definitely be at the Node.js meetup and have a couple more tentative visits lined up! If you know of one we should be at, tweet at us!
+  permalink: https://twitter.com/RethinkDB
+  cta: "Tell us where we should go in Boston! <i class='right-arrow'></i>"
+  tag: meetup
+
+- title: All Things Open in Raleigh, NC
+  short_date: October 19th - 20th
+  byline: October 19th - 20th in Raleigh, NC
+  short_description: Come check out our cofounder Slava's talk at the All Things Open conference!
+  description: Both <a href="https://twitter.com/spakhm">Slava Akhemchet</a> and <a href="https://twitter.com/dalanmiller">Daniel Alan Miller</a> will be attending the All Things Open conference this year. Open-source is the core of RethinkDB and we jump at the opportunity to attend conferencs that promote the open-source movement. Slava will be giving a talk on push databases and the realtime web so make sure to come check us out and say hi!
+  permalink: http://allthingsopen.org/talks/push-databases-a-better-way-to-build-realtime-apps/
+  cta: "Check out our talk! <i class='right-arrow'></i>"
+  tag: conference

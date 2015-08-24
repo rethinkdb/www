@@ -22,7 +22,7 @@ $ ->
     # Switching between examples & use cases
     $('.examples nav a').on 'click', (event) ->
         event.preventDefault()
-        
+
         # Add active border styling to the link and remove previous active states
         $(this).siblings().removeClass('active')
         $(this).addClass('active')
@@ -47,7 +47,7 @@ $ ->
 add_realtime_message = ->
     max_messages = 20
     msg_height = 22 # height of each message in pixels
-    
+
     # Create a new message
     msg =
         name: names[Math.floor(Math.random() * names.length)]
@@ -68,7 +68,7 @@ add_realtime_message = ->
 
     # Bump up the score cap
     score_cap = score_cap + 1
-        
+
 # Realtime leaderboard of top scores
 update_leaderboard = (msg) ->
     max_scores = 5
@@ -140,7 +140,13 @@ draw_ui_graph = ->
                 .attr('class', graph_type)
                 .attr('d', line)
 
-    redraw = ->
+    createNextFunction = ->
+
+      return ->
+
+        for arr in [data['reads'], data['writes']]
+              arr.push(arr.shift())
+
         for graph_type in ['reads', 'writes']
             graph.selectAll("path.#{graph_type}")
                 .data([data[graph_type]])
@@ -152,9 +158,14 @@ draw_ui_graph = ->
                 .duration(update_freq)
                 .attr('transform', "translate(#{x(0)})")
 
-    setInterval () ->
-        # Rotate the data for each graph -- pop the first element, push it to the end
-        for arr in [data['reads'], data['writes']]
-            arr.push(arr.shift())
-        redraw()
-    , update_freq
+        d3.timer(createNextFunction(), update_freq+200)
+        return true
+
+    d3.timer(createNextFunction(), update_freq+200);
+
+    # setInterval () ->
+    #     # Rotate the data for each graph -- pop the first element, push it to the end
+    #     for arr in [data['reads'], data['writes']]
+    #         arr.push(arr.shift())
+    #     redraw()
+    # , update_freq

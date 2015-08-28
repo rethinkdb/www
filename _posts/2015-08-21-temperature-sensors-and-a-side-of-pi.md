@@ -33,7 +33,9 @@ had already written and put up on Github.
 
 <img width="100%" style="float:left;" src="http://i.imgur.com/qXcXsA9.gif">
 
-<center style="padding-top:10px;padding-bottom:10px">You too can finish your project this fast!</center>
+{% caption %}
+You too can finish your project this fast!
+{% endcaption %}
 
 After my sensor arrived, I realized the three cables coming from the sensor
 couldn't be directly connected to the Raspberry Pi as the GPIO pins are just

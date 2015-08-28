@@ -1,0 +1,38 @@
+// Remove margin below navigation
+.rethinkdb-users .site-nav { margin-bottom: 0; }
+
+// Shared section styles
+.rethinkdb-users section { padding: 4% 0 5%; }
+
+// Hero
+// Extends the hero design pattern in _hero.scss
+.rethinkdb-users .hero {
+    @extend .hero-bg;
+    @include background-image(url("/assets/images/user-stories/user-hero6.png"));
+    background-position: center rem(-50);
+    background-size: cover;
+    height: rem(400);
+
+    // Top padding should at least the height of the navbar, proper offset
+    padding-top: rem(50);
+
+    @include media($mobile) { background-position: center rem(0); }
+    @include media($medium-screen-up) { background-position: center rem(0); }
+    @include media($large-screen-up) { background-position: center rem(-50); }
+    @include media($x-large-screen-up) { background-position: center rem(-70); }
+}
+
+
+.rethinkdb-users article {
+    margin-bottom: rem(90);
+    &:last-child { margin-bottom: 0; }
+
+    img {
+        float: left;
+        width: 30%;
+    }
+
+    p {
+        margin-left: 40%;
+    }
+}

@@ -19,10 +19,9 @@ your first sensor, get RethinkDB going on your Raspberry Pi, and push that data
 to all your devices using PushBullet.
 
 <!--more-->
-
-<!-- <div style="padding-top:10px; padding-bottom:10px">
-<center><strong>I demo'd this tutorial in a talk I gave at the RethinkDB meetup at HeavyBit,</strong></center>
-<center><strong>you can watch the talk here.</strong></center></div> -->
+{% infobox %}
+[I demo'd this tutorial in a talk I gave at the RethinkDB meetup at HeavyBit which you can watch here.](https://www.youtube.com/watch?v=z5poKPPr4oc)
+{% endinfobox %}
 
 I wasn't sure what I wanted to do for my first hardware project but having a
 Raspberry Pi gave me a great place to start. I knew though that if I kept
@@ -34,7 +33,9 @@ had already written and put up on Github.
 
 <img width="100%" style="float:left;" src="http://i.imgur.com/qXcXsA9.gif">
 
-<center style="padding-top:10px;padding-bottom:10px">You too can finish your project this fast!</center>
+{% caption %}
+You too can finish your project this fast!
+{% endcaption %}
 
 After my sensor arrived, I realized the three cables coming from the sensor
 couldn't be directly connected to the Raspberry Pi as the GPIO pins are just

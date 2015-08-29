@@ -13,76 +13,34 @@ permalink: /user-stories/
 <section class="rethinkdb-users">
     <div class="site-container">
         <article>
-            <img src="/assets/images/used-by/cmune.png">
-            <p>
-                <strong>CMUNE</strong> uses RethinkDB to power their realtime gaming
-                offering. More words go here to describe exactly how CMUNE uses
-                RethinkDB. Hopefully with some <a href="#">links to games</a> and
-                <a href="#">references on how to use</a> RethinkDB.
-            </p>
+
+          <h1>Rethink what you can do with your database</h1>
+
+          <h2>What can you do with RethinkDB?</h2>
+
+          <ul>
+            <li>Stop mangling your data: RethinkDB is an amazing schemaless JSON store.</li>
+            <li>Get your data as fast as it inserts: With realtime changefeeds RethinkDB will tell you when new data is available.</li>
+            <li>Clustering without the ducks: Easy configuration with out interface and with advanced automated possibilities.</li>
+          </ul>
+
         </article>
+
+        {% for story in site.data['user-stories'] %}
         <article>
-            <img src="/assets/images/used-by/jive.png">
-            <p>
-                <strong>CMUNE</strong> uses RethinkDB to power their realtime gaming
-                offering. More words go here to describe exactly how CMUNE uses
-                RethinkDB. Hopefully with some <a href="#">links to games</a> and
-                <a href="#">references on how to use</a> RethinkDB.
-            </p>
+              <img src="{{ story.logo_url }}">
+              <p>
+                  <strong>{{ story.company_name }}</strong> {{ story.subtext }}
+              </p>
+              <p>
+                  {{ story.description }}
+              <p>
         </article>
-        <article>
-            <img src="/assets/images/used-by/mediafly.png">
-            <p>
-                <strong>CMUNE</strong> uses RethinkDB to power their realtime gaming
-                offering. More words go here to describe exactly how CMUNE uses
-                RethinkDB. Hopefully with some <a href="#">links to games</a> and
-                <a href="#">references on how to use</a> RethinkDB.
-            </p>
-        </article>
-        <article>
-            <img src="/assets/images/used-by/narrative.png">
-            <p>
-                <strong>CMUNE</strong> uses RethinkDB to power their realtime gaming
-                offering. More words go here to describe exactly how CMUNE uses
-                RethinkDB. Hopefully with some <a href="#">links to games</a> and
-                <a href="#">references on how to use</a> RethinkDB.
-            </p>
-        </article>
-        <article>
-            <img src="/assets/images/used-by/platzi.png">
-            <p>
-                <strong>CMUNE</strong> uses RethinkDB to power their realtime gaming
-                offering. More words go here to describe exactly how CMUNE uses
-                RethinkDB. Hopefully with some <a href="#">links to games</a> and
-                <a href="#">references on how to use</a> RethinkDB.
-            </p>
-        </article>
-        <article>
-            <img src="/assets/images/used-by/pristine.png">
-            <p>
-                <strong>CMUNE</strong> uses RethinkDB to power their realtime gaming
-                offering. More words go here to describe exactly how CMUNE uses
-                RethinkDB. Hopefully with some <a href="#">links to games</a> and
-                <a href="#">references on how to use</a> RethinkDB.
-            </p>
-        </article>
-        <article>
-            <img src="/assets/images/used-by/socialradar.png">
-            <p>
-                <strong>CMUNE</strong> uses RethinkDB to power their realtime gaming
-                offering. More words go here to describe exactly how CMUNE uses
-                RethinkDB. Hopefully with some <a href="#">links to games</a> and
-                <a href="#">references on how to use</a> RethinkDB.
-            </p>
-        </article>
-        <article>
-            <img src="/assets/images/used-by/wiseio.png">
-            <p>
-                <strong>CMUNE</strong> uses RethinkDB to power their realtime gaming
-                offering. More words go here to describe exactly how CMUNE uses
-                RethinkDB. Hopefully with some <a href="#">links to games</a> and
-                <a href="#">references on how to use</a> RethinkDB.
-            </p>
-        </article>
+        {% endfor %}
     </div>
 </section>
+
+<!-- uses RethinkDB to power their realtime gaming
+offering. More words go here to describe exactly how CMUNE uses
+RethinkDB. Hopefully with some <a href="#">links to games</a> and
+<a href="#">references on how to use</a> RethinkDB. -->

@@ -12,7 +12,7 @@ Last week I got back to RethinkDB HQ in Mountain View from attending [StartFEST 
 
 <!--more-->
 
-![](assets/images/posts/2015-09-04-startfest-is-awesome-01.png)
+![](/assets/images/posts/2015-09-04-startfest-is-awesome-01.png)
 
 I think that a lot of startup-focused-festivals or conferences suffer from one or both of two things. The first being what I call "Conf-Fatigue" which is just that draining feeling one can get after being around hundreds of people in a crowded space day after day. The other, I name loosely as "Lack of Vibe", where there's not a shared kind of spirit or trust between attendees. There's a blanket of implicit social distrust amongst attendees, where not everyone is on the same page on why they are there.
 
@@ -20,9 +20,9 @@ Not surprisingly, the second annual StartFEST had neither of the two. All the ve
 
 When it came time for my workshop, I had a great interactive session with people familiar and not familiar with RethinkDB. I demonstrated our great WebGUI and our changefeeds but even for those who had heard of us, I got to show some of RethinkDB's new failover features from our [2.1 release][2_1]. Using the new features on the WebGUI is a great way to show how replication and sharding work in realtime.
 
-Overall, while I only in Utah for a short 48 hours this time, I had a great time. We at RethinkDB always look forward to coming back to the Beehive State and have a lot of great supporters in the SLC and Provo area. 
+Overall, while I only in Utah for a short 48 hours this time, I had a great time. We at RethinkDB always look forward to coming back to the Beehive State and are thankful for the great community in the SLC and Provo areas.
 
-Also congrats to [Purpose Portfolio][purpose_portfolio] for winning runner-up and to [SimpleCitizen][simplecitizen] for winning both People's Choice and the grand prize! These are both really exciting projects that bridge the gap between social innovation and technology.
+Also congrats to [Purpose Portfolio][purpose_portfolio] for winning runner-up and to [SimpleCitizen][simplecitizen] for winning both People's Choice and the grand prize! These are both really exciting projects that bridge the gap between social innovation and technology and we wish them all the best.  
 
 [2_1]:https://rethinkdb.com/blog/2.1-release/
 [beehive]: https://beehivestartups.com/about/

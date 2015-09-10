@@ -20,7 +20,7 @@ Not surprisingly, the second annual StartFEST had neither of the two. All the ve
 
 When it came time for my workshop, I had a great interactive session with people familiar and not familiar with RethinkDB. I demonstrated our great WebGUI and our changefeeds but even for those who had heard of us, I got to show some of RethinkDB's new failover features from our [2.1 release][2_1]. Using the new features on the WebGUI is a great way to show how replication and sharding work in realtime.
 
-Overall, while I only in Utah for a short 48 hours this time, we at RethinkDB always look forward to coming back to the Beehive State.
+Overall, while I only in Utah for a short 48 hours this time, I had a great time. We at RethinkDB always look forward to coming back to the Beehive State and have a lot of great supporters in the SLC and Provo area. 
 
 Also congrats to [Purpose Portfolio][purpose_portfolio] for winning runner-up and to [SimpleCitizen][simplecitizen] for winning both People's Choice and the grand prize! These are both really exciting projects that bridge the gap between social innovation and technology.
 

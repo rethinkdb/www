@@ -1,11 +1,17 @@
 - company_name: CMUNE
-  subtext: CMUNE uses RethinkDB to power an in-game rewards system
-  description: Based in China, CMUNE is a game development studio responsible for the most popular FPS games currently in the mobile app stores. RethinkDB fits perfectly for them in pushing realtime updates to players mobile devices.
+  subtext: uses RethinkDB to power an in-game rewards system
+  description: Based in Hong Kong & China, CMUNE is a game development studio responsible for the most popular FPS games currently in the mobile app stores. RethinkDB fits perfectly for them in pushing realtime updates to players mobile devices.
   youtube_url:
-  logo_url: "assets/images/user-stories/company-logos/cmune.png"
+  logo_url: /assets/images/user-stories/company-logos/cmune.png
 
 - company_name: Jive Software
-  subtext: Jive uses RethinkDB as the backbone of event driven messages to reactive applications.
+  subtext: uses RethinkDB as the backbone of event driven messages to reactive applications.
   description: To simplify development, Jive used RethinkDB as the persistence layer for their enterprise chat application. Since people need to have access their data at all times, Jive has developed applications for both mobile and desktop and need to be able to push updates to all locations.
   youtube_url:
-  logo_url: "assets/images/user-stories/company-logos/jive.png"
+  logo_url: /assets/images/user-stories/company-logos/jive.png
+
+- company_name: SimplyHired
+  subtext:
+  description:
+  youtube_url:
+  logo_url:

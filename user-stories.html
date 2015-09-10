@@ -6,41 +6,67 @@ permalink: /user-stories/
 ---
 <!-- hero -->
 <section class="hero">
-    <div class="site-container">
-        <h1>See what others have built with RethinkDB.</h1>
-    </div>
+  <div class="site-container">
+    <h1>See what others have built with RethinkDB.</h1>
+  </div>
 </section>
-<section class="rethinkdb-users">
-    <div class="site-container">
-        <article>
+<section class="users">
+  <div class="site-container">
+    <article>
 
-          <h1>Rethink what you can do with your database</h1>
+      <h1>Rethink what you can do with your database</h1>
 
-          <h2>What can you do with RethinkDB?</h2>
+      <h2>What can you do with RethinkDB?</h2>
 
-          <ul>
-            <li>Stop mangling your data: RethinkDB is an amazing schemaless JSON store.</li>
-            <li>Get your data as fast as it inserts: With realtime changefeeds RethinkDB will tell you when new data is available.</li>
-            <li>Clustering without the ducks: Easy configuration with out interface and with advanced automated possibilities.</li>
-          </ul>
+      <ul>
+        <li>Stop mangling your data: RethinkDB is an amazing schemaless JSON store.</li>
+        <li>Get your data as fast as an inserts: With realtime changefeeds RethinkDB will tell you when new data is available. Never poll your database again.</li>
+        <li>Clustering without the ducks: Easy configuration with our web interface and advanced automated configuration.</li>
+      </ul>
 
-        </article>
+    </article>
 
-        {% for story in site.data['user-stories'] %}
-        <article>
-              <img src="{{ story.logo_url }}">
-              <p>
-                  <strong>{{ story.company_name }}</strong> {{ story.subtext }}
-              </p>
-              <p>
-                  {{ story.description }}
-              <p>
-        </article>
-        {% endfor %}
-    </div>
+    {% for story in site.data['user-stories'] %}
+    <article>
+        <img src="{{ story.logo_url }}">
+        <p>
+          <strong>{{ story.company_name }}</strong> {{ story.subtext }}
+        </p>
+        <p>
+          {{ story.description }}
+        <p>
+    </article>
+    {% endfor %}
+  </div>
 </section>
+<section class="contact-us">
+  <div class="site-container">
+    <h1>Ready to Rethink it over?</h1>
+    <p>We offer just the right level of support to fit your needs.</p>
 
-<!-- uses RethinkDB to power their realtime gaming
-offering. More words go here to describe exactly how CMUNE uses
-RethinkDB. Hopefully with some <a href="#">links to games</a> and
-<a href="#">references on how to use</a> RethinkDB. -->
+    <div class="offerings">
+      <div class="third">
+        <h1>Training</h2>
+        <p>Learn the best practices with the people who built RethinkDB from the ground up. We offer hands-on workshops as well as lessons in scalability and performance.</p>
+      </div>
+
+      <div class="third">
+        <h1>Development Support</h2>
+        <p>Let us help you get your idea or app started with our development support.</p>
+
+      </div>
+
+      <div class="third">
+        <h1>Production Support</h2>
+        <p>Find out about our on-demand support from our core team. We can help your company with deployment, scaling strategies, and performance monitoring.</p>
+      </div>
+    </div>
+
+    <p>
+      <button>
+        Contact us now
+      </button>
+    </p>
+  </div>
+
+</section>

@@ -8,6 +8,13 @@
                         realtime web: <a href="/faq">learn how it works</a>.
                     </p>
                 </li>
+                <li class="infobox more-posts">
+                        <h1>Looking for more great posts?</h1>
+                          <p>Wat</p>
+                          {% for post in site.posts limit:5 %}
+                            <p>{{ post.title }}</p>
+                          {% endfor %}
+                </li>
             {% endif %}
             <li class="github-star">
                 <div class="infobox infobox-with-arrow infobox-alert popup hidden">

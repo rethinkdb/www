@@ -80,7 +80,7 @@ add_realtime_message = (ret) ->
       # Bump up the score cap
       score_cap = score_cap + 1
 
-      if ret == false
+      if ret is false
         d3.timer(add_realtime_message(false), 3000)
 
       return true
@@ -178,8 +178,8 @@ draw_ui_graph = ->
                 .duration(update_freq)
                 .attr('transform', "translate(#{x(0)})")
 
-        d3.timer(createNextFunction(), update_freq+200)
+        d3.timer(createNextFunction(), update_freq)
         return true
 
     #Start the line animation loop here.
-    d3.timer(createNextFunction(), update_freq+200);
+    d3.timer(createNextFunction(), update_freq);

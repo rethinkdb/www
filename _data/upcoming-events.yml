@@ -9,15 +9,6 @@
 #   cta: "RSVP here <i class='right-arrow'></i>"
 #   tag: Webcast
 
-- title: RethinkDB with Compose.io at Heavybit
-  short_date: August 26th, 6:30pm
-  byline: August 26th, 6:30pm @ Heavybit, Inc in San Francisco
-  short_description: Come hang out with RethinkDB and Compose at our meetup at Heavybit!
-  description: We’re thrilled to team up with our friends from Compose for our August meetup. <a href="https://compose.io">Compose.io</a> will be showing how Compose Transporter helps with database transformations from one store to another and syncs from one to another or several stores.
-  permalink: http://www.meetup.com/RethinkDB-SF-Meetup-Group/events/223656008/
-  cta: "RSVP here <i class='right-arrow'></i>"
-  tag: meetup
-
 - title: RethinkDB @ Strange Loop in St. Louis
   short_date: September 24th - 26th
   byline: September 24th - 26th @ Peabody Opera House of St. Louis

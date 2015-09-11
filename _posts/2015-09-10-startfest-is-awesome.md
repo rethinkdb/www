@@ -4,6 +4,7 @@ title: "StartFEST 2015 was awesome"
 author: Daniel Alan Miller
 author_github: dalanmiller
 hero_image: 2015-09-04-startfest-is-awesome-02.png
+tags: utah, provo, startfest, startups, conference, workshop
 ---
 
 Not only are the mountains of Utah great, and the people the friendliest, Provo has some things going for it when it comes to technology.

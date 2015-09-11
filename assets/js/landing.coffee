@@ -15,9 +15,12 @@ $ ->
     draw_ui_graph()
 
     # Realtime query animations
+    # This initializes a couple starting messages for the animation but does
+    # not start the animation loop
     for n in [0..3]
         add_realtime_message(true)
 
+    # This call continuously calls the additional messages, every 1000ms
     d3.timer(add_realtime_message(false), 1000)
 
     # Switching between examples & use cases
@@ -45,6 +48,11 @@ $ ->
         , 100
 
 # Realtime messages stream of player scores
+# ret parameter determines whether or not the timer function should be canceled
+# thus for the initial loading of the realtime messages we want the timer to
+# cancel so we return true, but adding data later we want the function to not
+# cancel and continue to keep the data flow.
+# This SO article explains - http://stackoverflow.com/a/13403376
 add_realtime_message = (ret) ->
 
     return =>
@@ -150,6 +158,9 @@ draw_ui_graph = ->
                 .attr('d', line)
 
     createNextFunction = ->
+    # Function which draws the next frame in the line animation. Returns true to
+    # cancel the timer but beforehand calls the next timer with a new instance
+    # of this function as d3.timer maps timers to function _instances_
 
       return ->
 
@@ -170,11 +181,5 @@ draw_ui_graph = ->
         d3.timer(createNextFunction(), update_freq+200)
         return true
 
+    #Start the line animation loop here.
     d3.timer(createNextFunction(), update_freq+200);
-
-    # setInterval () ->
-    #     # Rotate the data for each graph -- pop the first element, push it to the end
-    #     for arr in [data['reads'], data['writes']]
-    #         arr.push(arr.shift())
-    #     redraw()
-    # , update_freq

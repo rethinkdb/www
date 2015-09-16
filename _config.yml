@@ -14,7 +14,7 @@ version:
     # major version number, used primarily for linking to GitHub feature branches
     #   -> e.g. 1.2, 1.3
     major: 2.1
-    # full version number, include point releases and build tags
+    # full version number, include point releases and build tags, used for download links
     #   -> e.g. 1.2.1-3, 1.3.0
     full: 2.1.4
     # ---

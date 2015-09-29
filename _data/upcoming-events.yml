@@ -9,14 +9,6 @@
 #   cta: "RSVP here <i class='right-arrow'></i>"
 #   tag: Webcast
 
-- title: RethinkDB @ Strange Loop in St. Louis
-  short_date: September 24th - 26th
-  byline: September 24th - 26th @ Peabody Opera House of St. Louis
-  short_description: Come checkout RethinkDB's hands on workshop at The Strange Loop conference!
-  description: We love the Strange Loop conference and <a href="https://twitter.com/spakhm">Slava Akhemchet</a> and <a href="https://twitter.com/dalanmiller">Daniel Alan Miller</a> are excited to be holding a workshop session on RethinkDB. If you've already managed to grab a ticket, check out our session!
-  permalink: http://www.thestrangeloop.com/2015/rethink-your-database-with-rethinkdb.html
-  cta: "Check out our session! <i class='right-arrow'></i>"
-  tag: conference
 
 - title: RethinkDB @ UtahJS in Salt Lake City
   short_date: September 25th

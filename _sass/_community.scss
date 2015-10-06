@@ -44,13 +44,22 @@ body.community .site-nav {
         margin: 0;
         padding: rem(20) rem(25);
         float: right;
-        width: 33%;
+        width: 31%;
 
         @include media($mobile) {
             float: none;
             width: 100%;
             margin: rem(15) rem(25);
         }
+    }
+
+    article.getting-help {
+        @extend .two-third;
+	padding-right: 1em;
+	.more-ways-to-reach-us {
+            list-style-type: disc;
+    	    margin-left: 2em;
+	}
     }
 }
 

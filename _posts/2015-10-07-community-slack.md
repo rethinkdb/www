@@ -13,3 +13,5 @@ We use Slack internally here at RethinkDB and it has been a valuable tool to kee
 We plan on hosting office hours with the community team and engineers, but this is also a great way to connect with other RethinkDB users in your local community and all over the world.
 
 [**Click here to join now.**](http://slack.rethinkdb.com)
+
+[![Slack Status](http://slack.rethinkdb.com/badge.svg)](http://slack.rethinkdb.com)

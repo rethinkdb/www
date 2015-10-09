@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Realtime stories: learn how Lendio, ClientSuccess, and Platazi use RethinkDB"
+title: "Realtime stories: learn how Lendio, ClientSuccess, and Platzi use RethinkDB"
 author: Ryan Paul
 author_github: segphault
 hero_image: 2015-10-08-case-study-post.png
@@ -32,4 +32,4 @@ Platzi is an education platform that streams live video alongside realtime discu
 
 # Share your story
 
-We'd love to hear what you've built with RethinkDB. If you tell us about your own RethinkDB project, and we’ll send you a swanky RethinkDB T-shirt. Visit our [Shirts for Stories][/community/shirts-for-stories/] page to learn more.
+We'd love to hear what you've built with RethinkDB. If you tell us about your own RethinkDB project, and we’ll send you a swanky RethinkDB T-shirt. Visit our [Shirts for Stories](/community/shirts-for-stories/) page to learn more.

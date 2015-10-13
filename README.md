@@ -137,6 +137,16 @@ Then, configure Bundler to use `n-1` cores, where `n` is the number of cores on 
 bundle config --global jobs 3
 ```
 
+Now, ensure you're in the root directory of this github repo and run:
+```
+bundle install
+```
+
+You can test that everything was successful by trying to build the site:
+```
+rake serve
+```
+
 # Deploying
 
 We currently deploy via rsync. You can deploy the website using this command:

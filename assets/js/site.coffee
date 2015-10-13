@@ -119,6 +119,8 @@ rewrite_links = ->
     links_on_page = $('a')
     for link in links_on_page
         href = $(link).attr('href')
+        if not href?
+            continue
         # Trim the hash at the end of URLs
         if href.substr(-1) is '#'
             href = href.substr(0, href.length-1)

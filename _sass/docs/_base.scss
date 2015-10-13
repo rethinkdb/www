@@ -20,6 +20,39 @@
     // Hide the menu on mobile devices
     @include media($mobile) { display: none; }
     @include media($medium-screen-up) { display: block; }
+
+    // Horizontal rule for different sections of the docs nav
+    hr.docs-nav-separator {
+        border-bottom: thin solid lighten(desaturate($teal, 25), 65);
+        margin: 0;
+        padding-bottom: rem(20);
+    }
+
+    // Back to top link
+    p.back-to-top {
+        padding-top: rem(10);
+        &.stuck {
+            position:fixed;
+            top: 0;
+        }
+
+        a {
+            @include font-size-rem(16);
+            font-family: $sans-serif-semi-bold;
+            font-weight: 600;
+            color: lighten($teal, 15);
+            i { 
+                font-style: normal;
+                position: relative;
+                top: rem(-3);
+                font-size: rem(7);
+                margin-right: rem(4);
+            }
+            &:hover {
+              color: $teal;
+            }
+        }
+    }
 }
 
 .docs-nav {

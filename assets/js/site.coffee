@@ -30,6 +30,8 @@ $ ->
     # ------------
     $('.docs-nav h1, .mobile-doc-links h1').click (event) ->
         $(this).toggleClass('expand').next('ul').slideToggle('fast')
+        event.preventDefault()
+        return
 
     rewrite_links()
     video_modals()

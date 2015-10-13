@@ -137,9 +137,9 @@ Then, configure Bundler to use `n-1` cores, where `n` is the number of cores on 
 bundle config --global jobs 3
 ```
 
-Now, ensure you're in the root directory of this github repo and run:
+Now, ensure you're in the root directory of the git repo and run:
 ```
-bundle install
+rake init
 ```
 
 You can test that everything was successful by trying to build the site:

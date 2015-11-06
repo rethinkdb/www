@@ -85,4 +85,6 @@ input.checkbox {
 /* Fix width of the textarea */
 .wufoo textarea {
     width: 50%;
+    min-width: auto;
+    max-width: inherit;
 }

@@ -83,6 +83,6 @@ input.checkbox {
 }
 
 /* Fix width of the textarea */
-li#fo31li110 div {
+.wufoo textarea {
     width: 50%;
 }

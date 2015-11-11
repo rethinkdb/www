@@ -111,6 +111,7 @@ nav.lang-selector {
     .languages {
         display: inline-block;
         span.divider { color: rgb(179,179,179); }
+        span.disabled { text-decoration: line-through; }
         a {
             display: inline-block;
             padding: 0 rem(12);
@@ -143,6 +144,7 @@ nav.lang-selector {
                 &.javascript { background-image: url($_root + 'javascript-bw.png'); }
                 &.python { background-image: url($_root + 'python-bw.png'); }
                 &.ruby { background-image: url($_root + 'ruby-bw.png'); }
+                &.java { background-image: url($_root + 'java-bw.png'); }
             }
         }
 
@@ -158,6 +160,7 @@ nav.lang-selector {
             i.javascript { background-image: url($_root + 'javascript.png'); }
             i.python { background-image: url($_root + 'python.png'); }
             i.ruby { background-image: url($_root + 'ruby.png'); }
+            i.java { background-image: url($_root + 'java.png'); }
         }
     }
 }

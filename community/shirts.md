@@ -26,7 +26,7 @@ var s = d.createElement(t), options = {
 'height':'557',
 'async':true,
 'host':'wufoo.com',
-'header':'show',
+'header':'hide',
 'ssl':true};
 s.src = ('https:' == d.location.protocol ? 'https://' : 'http://') + 'www.wufoo.com/scripts/embed/form.js';
 s.onload = s.onreadystatechange = function() {

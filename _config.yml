@@ -24,7 +24,7 @@ version:
     codename: Modern Times
     release_post: /blog/2.2-release
 rethinkdb_users: "100,000"
-github_stars: "10k"
+github_stars: "11k"
 
 sass:
     sass_dir: _sass

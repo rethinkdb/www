@@ -1,8 +1,9 @@
 ---
 layout: post
-title: "How the impressive new networking system in Docker 1.9 improves deployment"
+title: "Simplify deployment with the new networking features in Docker 1.9"
 author: Ryan Paul
 author_github: segphault
+hero_image: 2015-11-23-docker-banner.png
 ---
 
 Docker containers simplify application deployment, making the process more reproducible and conducive to composability. Docker 1.9, which was [released last week][docker-release], introduces a [new approach to container networking][docker-networking] that has significant implications for users. It provides a more flexible way to connect services between containers, making it easier to manage Docker deployments that have multiple interconnected parts.
@@ -53,7 +54,7 @@ r.connect({host: "rethinkdb-stable", port: 28015})
 
 Even though the RethinkDB container's ports are bound to randomized ports on the host, you can still use the standard 28015 port that is exposed by the container. You can also use the name of the container to reference the host because Docker automatically adds the relevant reference to your container's `/etc/hosts` file--much simpler than the environment variables that you use with container linking.
 
-If you destroy the `rethinkdb-stable` container and it replace it with another that has the same name, it will still be accessible to the application container as long as they are both still attached to the `rethinknet` network. That takes a lot of the pain out of updates and similar tasks that require you to destroy containers.
+If you destroy the `rethinkdb-stable` container and replace it with another that has the same name, it will still be accessible to the application container as long as they are both still attached to the `rethinknet` network. That takes a lot of the pain out of updates and similar tasks that require you to destroy containers.
 
 On my home Docker server, I also have a separate container that runs a custom build of RethinkDB's latest code from the git repository. I have that in the same `rethinknet` network, but I named the container `rethinkdb-dev` so that I can easily switch between the stable and development versions in my projects just by using the desired hostname in the client's `connect` method.
 

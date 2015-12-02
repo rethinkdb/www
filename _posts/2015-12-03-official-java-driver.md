@@ -18,6 +18,8 @@ in RethinkDB 2.2. It is designed for use with Java 8 because it takes
 advantage of the language's shiny new anonymous function syntax to deliver
 the expressiveness that developers expect from ReQL.
 
+<!--more-->
+
 # Why support Java?
 
 We chose to add Java to our lineup in order to address the growing demand

@@ -161,3 +161,8 @@ Under the hood, this will push the site using `rsync`. A few notes:
 
 If you'd like to preserve the website before your first build (in case of catastrophic failure), you can run 
 `ssh -p 440 teapot@rethinkdb.com "tar -zcvf /srv/www/rethinkdb.com/year-mo-da.tar.gz /srv/www/rethinkdb.com/public_html"` to easily revert your deploy.
+
+## Having issues with `nokogiri`? Follow these steps. 
+https://github.com/sparklemotion/nokogiri/wiki/What-to-do-if-libxml2-is-being-a-jerk
+
+

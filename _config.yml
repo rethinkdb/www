@@ -39,5 +39,5 @@ excerpt_separator: <!--more-->
 # RSS settings
 rss:
     name: "RethinkDB: the open-source database for the realtime web"
-    description: News and updates from the RethinkDB team. 
+    description: News and updates from the RethinkDB team.
     url: http://rethinkdb.com

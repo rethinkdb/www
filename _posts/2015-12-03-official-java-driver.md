@@ -5,15 +5,16 @@ author: Ryan Paul
 author_github: segphault
 ---
 
-Today, we're pleased to announce the release of our Java client driver for
-RethinkDB. With this release, we now officially support Java for RethinkDB
-application development, alongside Python, Ruby, and JavaScript.
+Today, we're pleased to announce the release of our official Java
+client driver for RethinkDB. [Install it now][installing]!
 
-The Java client driver is fully-featured. It's built on RethinkDB's modern JSON
-wire protocol and supports the latest capabilities introduced in RethinkDB 2.2.
-It is designed for use with Java 8 because it uses the language's shiny new
-anonymous function syntax to deliver the expressiveness that developers expect
-from ReQL.
+With this release, we now officially support Java for RethinkDB
+application development, alongside Python, Ruby, and JavaScript. The
+Java client driver is fully-featured. It's built on RethinkDB's modern
+JSON wire protocol and supports the latest capabilities introduced in
+RethinkDB 2.2.  It is designed for use with Java 8 because it uses the
+language's shiny new anonymous function syntax to deliver the
+expressiveness that developers expect from ReQL.
 
 The client driver is a library that implements RethinkDB's ReQL query language
 and provides support for connecting to a RethinkDB cluster. Java developers can

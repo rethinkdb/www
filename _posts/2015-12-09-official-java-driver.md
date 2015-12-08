@@ -3,22 +3,26 @@ layout: post
 title: "Introducing the official RethinkDB Java client driver"
 author: Ryan Paul
 author_github: segphault
+hero_image: 2015-11-23-docker-networking.md 
 ---
 
 Today, we're pleased to announce the release of our Java client driver for
-RethinkDB. With this release, we now officially support Java for RethinkDB
-application development, alongside Python, Ruby, and JavaScript.
+RethinkDB. Visit the [installation instructions][driver-install] for details
+about how to use it in your Java project.
 
-The Java client driver is fully-featured. It's built on RethinkDB's modern JSON
-wire protocol and supports the latest capabilities introduced in RethinkDB 2.2.
-It is designed for use with Java 8 because it uses the language's shiny new
-anonymous function syntax to deliver the expressiveness that developers expect
-from ReQL.
+With this release, we now officially support Java for RethinkDB application
+development, alongside Python, Ruby, and JavaScript. The Java client driver is
+fully-featured. It's built on RethinkDB's modern JSON wire protocol and
+supports the latest capabilities introduced in RethinkDB 2.2.  It is designed
+for use with Java 8 because it uses the language's shiny new anonymous function
+syntax to deliver the expressiveness that developers expect from ReQL.
 
 The client driver is a library that implements RethinkDB's ReQL query language
 and provides support for connecting to a RethinkDB cluster. Java developers can
 use RethinkDB to build realtime web applications. You can perform queries and
 receive live updates as the output changes.
+
+<!--more-->
 
 # Why support Java?
 
@@ -234,7 +238,7 @@ r.table("fellowship")
  .filter(x -> x.g("species").eq("human")).count().run(conn)
 ```
 
-RethinkDB changefeeds work out of the box, invoked with the standard `change`
+RethinkDB changefeeds work out of the box, invoked with the standard `changes`
 command. You can iterate over the cursor with a conventional for loop:
 
 ```java
@@ -289,13 +293,14 @@ responses and the network code that facilitates communication with a RethinkDB
 cluster. The automation was, however, tremendously helpful in achieving full
 ReQL coverage.
 
-# Next Steps
+# Next steps
 
 If you'd like to build a Java application with RethinkDB, check out our
 [installation instructions][installing] and the [ten-minute guide][10min] to
 learn more about using RethinkDB in Java. To explore the ReQL query language,
 visit the [API documentation][apidocs].
 
+[driver-install]: /docs/install-drivers/java/
 [apidocs]: http://rethinkdb.com/api/ruby/
 [10min]: /docs/guide/ruby/
 [installing]: /docs/install/

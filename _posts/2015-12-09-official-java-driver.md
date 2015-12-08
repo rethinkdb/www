@@ -189,7 +189,7 @@ In my demo application, I use the lightweight Vue.js framework which lets me
 take advantage of simple data binding to present messages to the user. I can
 simply append new incoming messages to an array and let the framework add them
 to the view. You can, however, just as easily use alternatives like React or
-Angular. You can see the [complete demo application source code](#) on GitHub.
+Angular. You can see the [complete demo application source code][gh-demo] on GitHub.
 
 # How the RethinkDB Java client driver differs from other languages
 
@@ -300,9 +300,10 @@ If you'd like to build a Java application with RethinkDB, check out our
 learn more about using RethinkDB in Java. To explore the ReQL query language,
 visit the [API documentation][apidocs].
 
+[gh-demo]: https://github.com/rethinkdb/java-demo
 [driver-install]: /docs/install-drivers/java/
-[apidocs]: http://rethinkdb.com/api/ruby/
-[10min]: /docs/guide/ruby/
+[apidocs]: /api/java/
+[10min]: /docs/guide/java/
 [installing]: /docs/install/
 [metajava]: https://github.com/rethinkdb/rethinkdb/blob/next/drivers/java/metajava.py
 [mako]: http://www.makotemplates.org/

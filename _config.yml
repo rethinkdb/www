@@ -28,6 +28,7 @@ github_stars: "11k"
 
 sass:
     sass_dir: _sass
+    style: compressed
 
 # Blog settings
 paginate: 5

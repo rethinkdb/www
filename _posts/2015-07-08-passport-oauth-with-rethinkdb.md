@@ -68,7 +68,7 @@ After that, we'll install the [RethinkDB driver][rethinkdb-driver] and the
 [rethinkdb-init] module, which adds an `init` method to the RethinkDB driver.
 
 ```
-npm install rethinkdb rehtinkdb-init --save
+npm install rethinkdb rethinkdb-init --save
 ```
 
 For our web framework, we'll use [Express][express]. In order to add sessions to

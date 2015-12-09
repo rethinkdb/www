@@ -12,9 +12,12 @@ $ ->
         # header should be wrapped
         $header.nextUntil("h2").andSelf().wrapAll($wrapper)
         # Get the unique ID for this command from the link to the command article
-        command = $('a', $header).attr('href').split('/').filter((el) -> el.length > 0 ).slice(-1)[0]
-        # Inject an anchor before the header
-        $("<a class='api-anchor' name='#{command}'></a>").insertBefore($(command_header))
+        # Note: Kramdown generates a unique id for these headers by combining the text of the header link and its href
+        $link = $('a', $header)
+        if $link.attr('href')
+            command = $('a', $header).attr('href').split('/').filter((el) -> el.length > 0 ).slice(-1)[0]
+            # Inject an anchor before the header
+            $("<a class='api-anchor' name='#{command}'></a>").insertBefore($(command_header))
 
     # Scroll animation when you click on an anchor link (currenly used on API
     # index pages)

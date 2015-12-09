@@ -5,82 +5,94 @@ active: services
 body_class: services
 permalink: /services/
 ---
-
 <div class="services">
-    <section class="services-description">
-        <div class="site-container">
-            <header>
-                <h1>
-                    Get the most out of RethinkDB with <strong>commercial
-                    services</strong>
-                </h1>
-                <p>
-		  Deliver great products to your customers with the
-		  help of the core team behind RethinkDB. Get up to
-		  speed on best practices, accelerate time to market,
-		  and have a peace of mind.
-		</p>
-            </header>
+  <section class="services-description">
+    <div class="site-container">
+      <header>
+        <h1>
+          Get the most out of RethinkDB with
+          <strong>commercial services
+          </strong>
+        </h1>
+        <p>
+          Deliver great products to your customers with the help of the core team behind RethinkDB. Get up to speed on best practices, accelerate time to market, and have a peace of mind.
+        </p>
+      </header>
 
-            <section class="offerings">
-                <article class="third">
-                    <h1>RethinkDB training</h1>
-                    <p>Learn best practices.</p>
-                    <ul>
-                        <li>Hands-on workshops on ReQL, scalability, and deployment.</li>
-                        <li>Courses taught by core RethinkDB engineers.</li>
-                        <li>Get up to speed quickly and avoid common pitfalls.</li>
-                    </ul>
-                </article>
-                <article class="third">
-                    <h1>Development support</h1>
-                    <p>Accelerate time to market.</p>
-                    <ul>
-		        <li>Online support throughout the development of your project.</li>
-		        <li>Get your questions answered by core RethinkDB engineers.</li>
-                        <li>Dramatically speed up product development.</li>
-                    </ul>
-                </article>
-                <article class="third">
-                    <h1>Production support</h1>
-                    <p>Have peace of mind.</p>
-                    <ul>
-                        <li>On-demand support from core RethinkDB engineers.</li>
-                        <li>Help with deployment, scaleout, and monitoring.</li>
-                        <li>Hot fixes and emergency patches for critical issues.</li>
-                    </ul>
-                </article>
-            </section>
-        </div>
-    </section>
+      <section class="offerings">
+        <article class="third">
+          <h1>RethinkDB training</h1>
+          <p>Learn best practices.</p>
+          <ul>
+            <li>Hands-on workshops on ReQL, scalability, and deployment.</li>
+            <li>Courses taught by core RethinkDB engineers.</li>
+            <li>Get up to speed quickly and avoid common pitfalls.</li>
+          </ul>
+        </article>
+        <article class="third">
+          <h1>Development support</h1>
+          <p>Accelerate time to market.</p>
+          <ul>
+            <li>Online support throughout the development of your project.</li>
+            <li>Get your questions answered by core RethinkDB engineers.</li>
+            <li>Dramatically speed up product development.</li>
+          </ul>
+        </article>
+        <article class="third">
+          <h1>Production support</h1>
+          <p>Have peace of mind.</p>
+          <ul>
+            <li>On-demand support from core RethinkDB engineers.</li>
+            <li>Help with deployment, scaleout, and monitoring.</li>
+            <li>Hot fixes and emergency patches for critical issues.</li>
+          </ul>
+        </article>
+      </section>
+    </div>
+  </section>
 
 
-    {% include used-by.html %}
+  {% include used-by.html %}
 
-    <!-- contact -->
-    <section class="contact">
-        <div class="site-container">
-            <h1>Let's get started</h1>
-            <div id="wufoo-q10q5r4h0rspt8y">
-                Contact the <a href="https://rethinkdb.wufoo.com/forms/q10q5r4h0rspt8y">RethinkDB team</a> to learn more.
-            </div>
-            <script type="text/javascript">var q10q5r4h0rspt8y;(function(d, t) {
-            var s = d.createElement(t), options = {
-            'userName':'rethinkdb',
-            'formHash':'q10q5r4h0rspt8y',
-            'autoResize':true,
-            'height':'815',
-            'async':true,
-            'host':'wufoo.com',
-            'header':'hide',
-            'ssl':true};
-            s.src = ('https:' == d.location.protocol ? 'https://' : 'http://') + 'www.wufoo.com/scripts/embed/form.js';
-            s.onload = s.onreadystatechange = function() {
-            var rs = this.readyState; if (rs) if (rs != 'complete') if (rs != 'loaded') return;
-            try { q10q5r4h0rspt8y = new WufooForm();q10q5r4h0rspt8y.initialize(options);q10q5r4h0rspt8y.display(); } catch (e) {}};
-            var scr = d.getElementsByTagName(t)[0], par = scr.parentNode; par.insertBefore(s, scr);
-            })(document, 'script');</script>
-        </div>
-    </section>
+  <!-- contact -->
+  <section class="contact">
+    <div class="site-container">
+      <h1>Let's get started</h1>
+      <div id="wufoo-q10q5r4h0rspt8y">
+        Contact the <a href="https://rethinkdb.wufoo.com/forms/q10q5r4h0rspt8y">RethinkDB team</a> to learn more.
+      </div>
+      <script type="text/javascript">
+        var q10q5r4h0rspt8y;
+        (function(d, t) {
+          var s = d.createElement(t),
+            options = {
+              'userName': 'rethinkdb',
+              'formHash': 'q10q5r4h0rspt8y',
+              'autoResize': true,
+              'height': '815',
+              'async': true,
+              'host': 'wufoo.com',
+              'header': 'hide',
+              'ssl': true
+            };
+          s.src = ('https:' == d.location.protocol ? 'https://' : 'http://') + 'www.wufoo.com/scripts/embed/form.js';
+          s.onload = s.onreadystatechange = function() {
+            var rs = this.readyState;
+            if (rs)
+              if (rs != 'complete')
+                if (rs != 'loaded') return;
+            try {
+              q10q5r4h0rspt8y = new WufooForm();
+              q10q5r4h0rspt8y.initialize(options);
+              q10q5r4h0rspt8y.display();
+            } catch (e) {}
+          };
+          var scr = d.getElementsByTagName(t)[0],
+            par = scr.parentNode;
+          par.insertBefore(s, scr);
+        })(document, 'script');
+      </script>
+    </div>
+  </section>
 
 </div>

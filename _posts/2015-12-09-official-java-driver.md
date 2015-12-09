@@ -3,7 +3,7 @@ layout: post
 title: "Introducing the official RethinkDB Java client driver"
 author: Ryan Paul
 author_github: segphault
-hero_image: 2015-11-23-docker-networking.md 
+hero_image: 2015-12-09-java-driver-banner.png
 ---
 
 Today, we're pleased to announce the release of our Java client driver for
@@ -53,7 +53,7 @@ in Java:
 ```java
 RethinkDB r = RethinkDB.r;
 Connection conn = r.connection()
-                      .hostname("localhost").port(28015).connect();
+                   .hostname("localhost").port(28015).connect();
 
 // Find the odd numbers, multiply each by 2, and add the total
 Long output = r.range(10)

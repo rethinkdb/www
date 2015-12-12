@@ -123,6 +123,13 @@ task :benchmark do
     puts "Time elapsed #{time*1000} milliseconds"
 end
 
+#This is the first Ruby code @dalanmiller has ever written
+# this process is also lossy by default with PNGs. 
+desc 'Optimize image directories'
+task :imgoptimize do
+    sh "pngquant -s 1 --ext .png -f assets/images/**/*.png"
+end
+
 desc 'Build and deploy to a remote server'
 task :deploy do
     changes = `git diff --exit-code > /dev/null; echo $?`

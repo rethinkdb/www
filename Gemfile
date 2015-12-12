@@ -8,6 +8,9 @@ gem 'bourbon', '~> 4.2.1'
 gem 'neat', '~> 1.7.1'
 gem 'nokogiri', '~> 1.6.5'
 gem 'algoliasearch', '~> 1.3.1'
+gem 'piet'
+gem 'piet-binary'
+gem 'png_quantizator'
 
 group :dev do
     gem 'terminal-notifier', '~> 1.6.1'

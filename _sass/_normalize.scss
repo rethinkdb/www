@@ -145,13 +145,14 @@ mark {
 
 /*
  * Corrects font family set oddly in Safari 5 and Chrome.
+ * Explanation => https://github.com/necolas/normalize.css#pre-code-kbd-samp
  */
 
 code,
 kbd,
 pre,
 samp {
-    font-family: monospace, serif;
+    font-family: monospace, monospace;
     font-size: 1em;
 }
 

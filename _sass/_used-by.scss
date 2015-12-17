@@ -63,7 +63,7 @@ section.used-by .testimonials {
             @include font-size-rem(60);
             font-family: $serif;
             color: lighten($base-font-color, 40);
-            content: '“';
+            content: '"';
             position: absolute;
             top: rem(-35);
             left: -$_quote-width;

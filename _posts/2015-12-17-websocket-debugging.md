@@ -1,8 +1,9 @@
 ---
 layout: post
-title: "A few tricks for debugging Socket.io apps"
+title: "Socket.io inspection techniques to simplify realtime app debugging"
 author: Ryan Paul
 author_github: segphault
+hero_image: 2015-12-17-socketio-debugging.png
 ---
 
 I recently built a poll application that updates a pie graph in realtime as
@@ -106,8 +107,8 @@ application, [consider trying RethinkDB][home]. You can check out our
 
 **Resources:**
 
-* [The official Socket.io website][socketio]
-* [Monitor.io, a Socket.io monitoring middleware][monitorio]
+* [Visit][socketio] the official Socket.io website
+* [Learn more][monitorio] about Monitor.io
 
 [home]: /
 [socketio]: http://socket.io/

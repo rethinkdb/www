@@ -16,6 +16,8 @@ third-party shims and other integration efforts. In this blog post, we
 will look at how you can use the driver today in a selection of popular
 JVM languages, including Scala, Clojure, Groovy, and Kotlin.
 
+<!--more-->
+
 # Interoperability with Java 8 lambdas
 
 Most languages for the JVM are designed with some degree of Java
@@ -48,9 +50,6 @@ When you use the RethinkDB Java driver in languages that don't
 interoperate with Java 8, you have to manually create an anonymous class
 that conforms with one of the `ReqlFunction` interfaces instead of using
 the built-in anonymous functions supported by the language.
-
-
-<!--more-->
 
 # Groovy
 

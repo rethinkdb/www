@@ -3,6 +3,7 @@ layout: post
 title: "Using the official RethinkDB Java driver in other JVM languages"
 author: Ryan Paul
 author_github: segphault
+hero_image: 2015-12-22-alt-jvm-driver-banner.png
 ---
 
 When we [released][] our official Java client driver earlier this month,
@@ -14,6 +15,40 @@ In other languages, there are some roadblocks that will require
 third-party shims and other integration efforts. In this blog post, we
 will look at how you can use the driver today in a selection of popular
 JVM languages, including Scala, Clojure, Groovy, and Kotlin.
+
+# Interoperability with Java 8 lambdas
+
+Most languages for the JVM are designed with some degree of Java
+interoperability, but not all of them have full support for the latest
+features in Java 8. The RethinkDB Java driver relies on the language's
+newly-added support for lambda expressions, which provide a concise way
+for developers to pass anonymous functions to ReQL commands like `map`,
+`reduce`, and `filter`.
+
+Practically every language for the JVM already had its own take on lambdas
+long before the feature arrived in Java 8. They all implement the feature
+in subtly different ways, which poses a number of compatibility problems
+when developers try to pass language-native anonymous functions over to
+Java code that expects to receive Java 8 lambas. That's one of the biggest
+sticking points that users can expect to encounter right now using the
+RethinkDB Java driver in certain JVM languages, particularly Scala and
+Clojure.
+
+Under the hood, a Java 8 lambda compiles down to an anonymous inner class
+with an `apply` method. In our Java client driver, we have a set of five
+[`ReqlFunction`][reqlfunction] interfaces that describe anonymous
+functions with different arities. Each one represents an anonymous
+function with a specific number of parameters, between zero and four. An
+anonymous function with one parameter, for example, uses the
+`ReqlFunction1` interface. In the client driver source code, any method
+that accepts an anonymous function uses one of those interfaces as the
+parameter type.
+
+When you use the RethinkDB Java driver in languages that don't
+interoperate with Java 8, you have to manually create an anonymous class
+that conforms with one of the `ReqlFunction` interfaces instead of using
+the built-in anonymous functions supported by the language.
+
 
 <!--more-->
 
@@ -170,39 +205,6 @@ fun main(args: Array<String>) {
 }
 ```
 
-# Interoperability with Java 8 lambdas
-
-Most languages for the JVM are designed with some degree of Java
-interoperability, but not all of them have full support for the latest
-features in Java 8. The RethinkDB Java driver relies on the language's
-newly-added support for lambda expressions, which provide a concise way
-for developers to pass anonymous functions to ReQL commands like `map`,
-`reduce`, and `filter`.
-
-Practically every language for the JVM already had its own take on lambdas
-long before the feature arrived in Java 8. They all implement the feature
-in subtly different ways, which poses a number of compatibility problems
-when developers try to pass language-native anonymous functions over to
-Java code that expects to receive Java 8 lambas. That's one of the biggest
-sticking points that users can expect to encounter right now using the
-RethinkDB Java driver in certain JVM languages, particularly Scala and
-Clojure.
-
-Under the hood, a Java 8 lambda compiles down to an anonymous inner class
-with an `apply` method. In our Java client driver, we have a set of five
-[`ReqlFunction`][reqlfunction] interfaces that describe anonymous
-functions with different arities. Each one represents an anonymous
-function with a specific number of parameters, between zero and four. An
-anonymous function with one parameter, for example, uses the
-`ReqlFunction1` interface. In the client driver source code, any method
-that accepts an anonymous function uses one of those interfaces as the
-parameter type.
-
-When you use the RethinkDB Java driver in languages that don't
-interoperate with Java 8, you have to manually create an anonymous class
-that conforms with one of the `ReqlFunction` interfaces instead of using
-the built-in anonymous functions supported by the language.
-
 # Scala
 
 [Scala][] is a powerful functional programming language with a
@@ -291,7 +293,7 @@ remaining rough edges.
 # Clojure
 
 [Clojure][] is a functional programming language that is modeled after
-lisp. It is extremely flexible and expressive, with support for dynamic
+Lisp. It is extremely flexible and expressive, with support for dynamic
 typing and macros. The following example demonstrates how to import the
 module, establish a connection to the database, perform a query, and
 display the output:
@@ -304,7 +306,7 @@ display the output:
   (-> (.range r 10) (.coerceTo "array") (.run conn) println))
 ```
 
-As a lisp dialect, Clojure code is written with parenthetical
+As a Lisp dialect, Clojure code is written with parenthetical
 s-expressions and prefix notation. You can invoke conventional Java
 methods by putting a period at the beginning of the method name. To
 express a chained series of method invocations in order instead of with
@@ -360,7 +362,7 @@ guide to RethinkDB][10min] and refer to our Java client driver
 [installation instructions][driverinstall] for details about how to use
 the driver in Maven, Gradle, and Ant.
 
-[released]: http://rethinkdb.com/blog/official-java-driver/
+[released]: /blog/official-java-driver/
 [reqlfunction]: https://github.com/rethinkdb/rethinkdb/blob/next/drivers/java/src/main/java/com/rethinkdb/gen/ast/ReqlFunction1.java
 [Groovy]: http://www.groovy-lang.org/
 [Kotlin]: https://kotlinlang.org/
@@ -370,6 +372,6 @@ the driver in Maven, Gradle, and Ant.
 [implicit-class]: http://docs.scala-lang.org/overviews/core/implicit-classes.html
 [ifn]: https://clojure.github.io/clojure/javadoc/clojure/lang/IFn.html
 [cljr]: https://github.com/apa512/clj-rethinkdb
-[ruby-driver]: https://www.rethinkdb.com/docs/install-drivers/ruby/
-[10min]: http://rethinkdb.com/docs/guide/java/
-[driverinstall]: http://rethinkdb.com/docs/install-drivers/java/
+[ruby-driver]: /docs/install-drivers/ruby/
+[10min]: /docs/guide/java/
+[driverinstall]: /docs/install-drivers/java/

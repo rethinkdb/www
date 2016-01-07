@@ -202,8 +202,11 @@ body.landing {
     p a { border-bottom: 1px dotted $cranberry; }
 
     pre {
-        code { @include font-size-rem(13); }
-        font-family: $monospaced;
+        code {
+          @include font-size-rem(13);
+          font-family: $monospaced;
+        }
+
         padding: 0.5rem 0.6rem;
         margin: $base-spacing 0 $base-spacing*2;
 

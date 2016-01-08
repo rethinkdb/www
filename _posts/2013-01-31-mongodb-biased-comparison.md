@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Our take on RethinkDB vs today's NoSQL"
-author: Slarvae Akhmechet
+author: Slarva Akhmechet
 author_github: coffeemug
 ---
 

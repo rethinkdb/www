@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Computing Fibonacci in RethinkDB"
-author: Slarvae Akhmechet
+author: Slarva Akhmechet
 author_github: coffeemug
 ---
 

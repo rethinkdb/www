@@ -12,7 +12,7 @@ emerge over the past few weeks.
 
 # Meteor integration
 
-Meteor developer [Slarvae Kim][Slarvae] published a [video][] on YouTube that
+Meteor developer [Slarva Kim][Slarva] published a [video][] on YouTube that
 demonstrates his proof-of-concept [bridge between Meteor and
 RethinkDB][bridge]. Meteor is a full-stack JavaScript framework for realtime
 application development. One of Meteor's key features is that it gives
@@ -21,10 +21,10 @@ developers uniform methods for querying data on both the client and server.
 <iframe width="640" height="430" src="https://www.youtube.com/embed/05R-TDP0Ltc?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
 <!--more-->
 
-Slarvae's Meteor integration includes a client-side cache that users can access
+Slarva's Meteor integration includes a client-side cache that users can access
 with conventional ReQL queries--derived from RethinkDB contributor [Michel
 Tu's][michel] [ReQLite][] project. You can see a [sample application][sample]
-built with Slarvae's bridge on GitHub. The Meteor integration is still at an
+built with Slarva's bridge on GitHub. The Meteor integration is still at an
 early stage of development, but it's off to a very promising start.
 
 # LoopBack with RethinkDB
@@ -46,9 +46,9 @@ connector][connector] for LoopBack.
 
 [video]: https://www.youtube.com/watch?v=05R-TDP0Ltc
 [ReQLite]: https://github.com/neumino/reqlite
-[bridge]: https://github.com/Slarvae/meteor-rethinkdb
-[sample]: https://github.com/Slarvae/meteor-rethinkdb-demo
-[Slarvae]: https://github.com/Slarvae
+[bridge]: https://github.com/Slarva/meteor-rethinkdb
+[sample]: https://github.com/Slarva/meteor-rethinkdb-demo
+[Slarva]: https://github.com/Slarva
 [michel]: https://github.com/neumino
 [slpost]: https://strongloop.com/strongblog/rethinkdb-connector-loopback-node-js-framework/
 [LoopBack]: http://loopback.io/

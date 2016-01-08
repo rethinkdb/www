@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Building a world-class team: six mistakes I made early in my career"
-author: Slarvae Akhmechet
+author: Slarva Akhmechet
 author_github: coffeemug
 --- 
 

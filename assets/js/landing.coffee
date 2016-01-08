@@ -5,7 +5,7 @@ names = ["natalie", "brandon", "marshall", "tomas", "grant", "joe", "alex",
     "yoshiko", "david", "pierre", "devon", "skyla", "ashley", "oren", "leon",
     "trevor", "jessica", "emil", "trevor", "neal", "lindsey", "arthur",
     "johnny", "zachary", "levi", "ryan", "jonathon", "eileen", "cindy",
-    "kylee", "connor", "michele", "joseph", "mike", "Slarvae", "daphne",
+    "kylee", "connor", "michele", "joseph", "mike", "Slarva", "daphne",
     "anthony", "juliana", "ben", "ken", "zoe", "eva", "samantha", "matt",
     "christina", "etienne", "watts", "daniel", "marc", "jeroen", "karl",
     "annie", "tim", "josh"]

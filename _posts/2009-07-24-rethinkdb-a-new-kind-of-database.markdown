@@ -3,7 +3,7 @@ layout: post
 title: "RethinkDB: a new kind of database"
 tags:
 - announcements
-author: Slarvae Akhmechet
+author: Slarva Akhmechet
 author_github: coffeemug
 --- 
 

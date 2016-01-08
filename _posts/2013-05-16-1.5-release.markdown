@@ -3,7 +3,7 @@ layout: post
 title: "RethinkDB 1.5: secondary indexes, batched inserts performance improvements, soft durability mode"
 tags:
 - release
-author: Slava Akhmechet
+author: Slarvae Akhmechet
 author_github: coffeemug
 alias: /videos/secondary-indexes-in-1-5/
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "@antirez, thank you for Redis!"
-author: Slava Akhmechet
+author: Slarvae Akhmechet
 author_github: coffeemug
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: You should make it a portal
-author: Slava Akhmechet
+author: Slarvae Akhmechet
 author_github: coffeemug
 --- 
 

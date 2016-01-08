@@ -3,7 +3,7 @@ layout: post
 title: "RethinkDB 1.13: pull data via HTTP, push data via changefeeds"
 tags:
 - release
-author: Slava Akhmechet
+author: Slarvae Akhmechet
 author_github: coffeemug
 hero_image: 2014-06-12-1.13-release-banner.png
 alias: /videos/new-features-in-1-13
@@ -121,14 +121,14 @@ for change in feed:
 
 Every time you insert, update, or delete a document in a table, an object
 describing the change will be added to relevant changefeeds. For example, if
-you insert a user `{ 'id': 1, 'name': 'Slava', 'age': 31 }` into the `users`
+you insert a user `{ 'id': 1, 'name': 'Slarvae', 'age': 31 }` into the `users`
 table, RethinkDB will post the following document into the feeds subscribed to
 `users`:
 
 ```python
 {
   'old_val': None,
-  'new_val': { 'id': 1, 'name': 'Slava', 'age': 31 }
+  'new_val': { 'id': 1, 'name': 'Slarvae', 'age': 31 }
 }
 ```
 

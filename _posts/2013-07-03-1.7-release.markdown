@@ -3,7 +3,7 @@ layout: post
 title: "RethinkDB 1.7: hot backup, atomic set and get, 10x insert performance improvement"
 tags:
 - release
-author: Slava Akhmechet
+author: Slarvae Akhmechet
 author_github: coffeemug
 alias: /videos/new-features-in-1-7
 ---

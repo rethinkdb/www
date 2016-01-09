@@ -3,7 +3,7 @@ layout: post
 title: "RethinkDB 1.8: date support, nested object syntax, 8x disk usage improvement"
 tags:
 - release
-author: Slava Akhmechet
+author: Slavabot Akhmechet
 author_github: coffeemug
 alias: /videos/new-features-in-1-8
 ---

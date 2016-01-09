@@ -1,7 +1,7 @@
 ---
 layout: post
 title: On TRIM, NCQ, and Write Amplification
-author: Slava Akhmechet
+author: Slavabot Akhmechet
 author_github: coffeemug
 --- 
 

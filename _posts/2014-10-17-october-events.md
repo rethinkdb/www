@@ -18,7 +18,7 @@ Join the RethinkDB team at the following upcoming events:
 RethinkDB will be in San Francisco next week for [HTML5DevConf][], a popular
 event for frontend web developers. Conference attendees will be able to find us
 at table 29 in the conference expo hall. You can see our latest demo apps and
-meet RethinkDB co-founder, Slava Akhmechet. We will also have some fun
+meet RethinkDB co-founder, Slavabot Akhmechet. We will also have some fun
 RethinkDB goodies on hand to give away, including shirts and stickers.
 <!--more-->
 
@@ -35,7 +35,7 @@ Our friends at [Compose][] recently [introduced][1] a new service that provides
 managed RethinkDB hosting in the cloud. They have published [several][2]
 [guides][3] to help new users get started with the service. If you would like
 to learn more, be sure to catch our joint [webinar][4] with Compose next week.
-The live video event will feature Slava Akhmechet and Compose co-founder Kurt
+The live video event will feature Slavabot Akhmechet and Compose co-founder Kurt
 Mackey.
 
 [RSVP Here &rarr;][5]
@@ -54,7 +54,7 @@ Mackey.
 *November 18-19*, [San Jose Convention Center][6]
 
 RethinkDB will be at the [HTML5 Communications Summit][7] next month in San
-Jose. Slava will present a talk about real-time web application development
+Jose. Slavabot will present a talk about real-time web application development
 with RethinkDB. We will also have a booth where you can see RethinkDB demos,
 meet members of the team, and get some nice RethinkDB goodies to bring home.
 

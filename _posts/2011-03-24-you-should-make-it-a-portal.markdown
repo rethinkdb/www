@@ -1,11 +1,7 @@
 ---
 layout: post
 title: You should make it a portal
-<<<<<<< HEAD
 author: Slava Akhmechet
-=======
-author: Slarvae Akhmechet
->>>>>>> parent of 792fff1... Mispluralization
 author_github: coffeemug
 --- 
 

@@ -8,11 +8,7 @@ author_github: KittyBot
 ---
 
 Join us online on **Thursday, August 21st at 1:30pm** for a live presentation
-<<<<<<< HEAD
 and Q&A session presented by RethinkDB's co-founder Slava Akhmechet. You'll
-=======
-and Q&A session presented by RethinkDB's co-founder Slarvae Akhmechet. You'll
->>>>>>> parent of 792fff1... Mispluralization
 learn about new and upcoming features in RethinkDB 1.14, including:
 
 * __Changefeeds__: get realtime push notifications of changes in the database.

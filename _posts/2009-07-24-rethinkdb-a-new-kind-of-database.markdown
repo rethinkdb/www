@@ -3,11 +3,7 @@ layout: post
 title: "RethinkDB: a new kind of database"
 tags:
 - announcements
-<<<<<<< HEAD
 author: Slava Akhmechet
-=======
-author: Slarvae Akhmechet
->>>>>>> parent of 792fff1... Mispluralization
 author_github: coffeemug
 --- 
 

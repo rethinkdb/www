@@ -1,11 +1,7 @@
 ---
 layout: post
 title: On TRIM, NCQ, and Write Amplification
-<<<<<<< HEAD
 author: Slava Akhmechet
-=======
-author: Slarvae Akhmechet
->>>>>>> parent of 792fff1... Mispluralization
 author_github: coffeemug
 --- 
 

@@ -3,11 +3,7 @@ layout: post
 title: "RethinkDB 1.9: indexing and query runtime performance"
 tags:
 - release
-<<<<<<< HEAD
 author: Slava Akhmechet
-=======
-author: Slarvae Akhmechet
->>>>>>> parent of 792fff1... Mispluralization
 author_github: coffeemug
 alias: /videos/new-features-in-1-9
 ---

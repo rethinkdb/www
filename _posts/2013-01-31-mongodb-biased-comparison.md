@@ -1,11 +1,7 @@
 ---
 layout: post
 title: "Our take on RethinkDB vs today's NoSQL"
-<<<<<<< HEAD
 author: Slava Akhmechet
-=======
-author: Slarvae Akhmechet
->>>>>>> parent of 792fff1... Mispluralization
 author_github: coffeemug
 ---
 

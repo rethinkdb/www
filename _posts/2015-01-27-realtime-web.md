@@ -1,11 +1,7 @@
 ---
 layout: post
 title: "Advancing the realtime web"
-<<<<<<< HEAD
 author: Slava Akhmechet
-=======
-author: Slarvae Akhmechet
->>>>>>> parent of 792fff1... Mispluralization
 author_github: coffeemug
 ---
 

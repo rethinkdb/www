@@ -3,7 +3,7 @@ layout: post
 title: "RethinkDB: a new kind of database"
 tags:
 - announcements
-author: Slava Akhmechet
+author: Slavabot Akhmechet
 author_github: coffeemug
 --- 
 

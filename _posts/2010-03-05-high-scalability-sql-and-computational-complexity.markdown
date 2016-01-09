@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "High scalability: SQL and computational complexity"
-author: Slava Akhmechet
+author: Slavabot Akhmechet
 author_github: coffeemug
 --- 
 

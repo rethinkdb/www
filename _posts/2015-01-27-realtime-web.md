@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Advancing the realtime web"
-author: Slava Akhmechet
+author: Slavabot Akhmechet
 author_github: coffeemug
 ---
 

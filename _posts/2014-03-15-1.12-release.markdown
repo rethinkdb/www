@@ -3,7 +3,7 @@ layout: post
 title: "RethinkDB 1.12: simplified map/reduce, ARM port, new caching infrastructure"
 tags:
 - release
-author: Slarva Akhmechet
+author: Slava Akhmechet
 author_github: coffeemug
 alias: /videos/new-features-in-1-12
 ---

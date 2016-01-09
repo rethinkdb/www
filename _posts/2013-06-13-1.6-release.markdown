@@ -3,7 +3,7 @@ layout: post
 title: "RethinkDB 1.6: regex matching, new array operations, random sampling"
 tags:
 - release
-author: Slarva Akhmechet
+author: Slava Akhmechet
 author_github: coffeemug
 ---
 
@@ -47,8 +47,8 @@ match.
 You can use it to match regular expressions in strings as follows:
 
 ```javascript
-r.expr('My name is Slarva').match('name is (.*)')
-// returns {"str":"name is Slarva","start":3,"groups":[{"str":"Slarva","start":11,"end":16}],"end":16} 
+r.expr('My name is Slava').match('name is (.*)')
+// returns {"str":"name is Slava","start":3,"groups":[{"str":"Slava","start":11,"end":16}],"end":16} 
 ```
 
 Here's an example of using regular expressions to find every user whose first
@@ -144,7 +144,7 @@ release, filtering documents by non-existent attributes would throw an error.
 The following command:
 
 ```javascript
-r.expr([{name: 'Slarva', age: 30}, {name: 'Mickey'}]).filter(r.row('age').gt(20))
+r.expr([{name: 'Slava', age: 30}, {name: 'Mickey'}]).filter(r.row('age').gt(20))
 ```
 
 would return this error:
@@ -152,7 +152,7 @@ would return this error:
 ```
 RqlRuntimeError: No attribute `age` in object:
 { "Mickey" } in:
-r([{name: "Slarva", age: 30}, {name: "Mickey"}]).filter(function(var_5) { return r.row("age").gt(30); })
+r([{name: "Slava", age: 30}, {name: "Mickey"}]).filter(function(var_5) { return r.row("age").gt(30); })
                                                                                 ^^^^^^^^^^^^
 ```
 
@@ -164,15 +164,15 @@ In RethinkDB 1.6, rows that have missing attributes will automatically be
 skipped by operations like `pluck` and `filter`:
 
 ```javascript
-r.expr([{name: 'Slarva', age: 30}, {name: 'Mickey'}]).filter(r.row('age').gt(30))
+r.expr([{name: 'Slava', age: 30}, {name: 'Mickey'}]).filter(r.row('age').gt(30))
 
-// now returns [{name: 'Slarva', age: 30}]
+// now returns [{name: 'Slava', age: 30}]
 ```
 
 If you need strict error handling in `filter`, you can enable the old behavior:
 
 ```javascript
-r.expr([{name: 'Slarva', age: 30}, {name: 'Mickey'}]).filter(r.row('age').gt(30),
+r.expr([{name: 'Slava', age: 30}, {name: 'Mickey'}]).filter(r.row('age').gt(30),
                                                             {default: r.error()})
 // throws the `No attribute age` error.
 ```

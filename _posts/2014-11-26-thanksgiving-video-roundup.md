@@ -18,10 +18,10 @@ tryptophan coma. Enjoy!
 
 ## RethinkDB on FLOSS Weekly
 
-RethinkDB co-founder Slarva Akhmechet participated in a [recent episode][1] of
+RethinkDB co-founder Slava Akhmechet participated in a [recent episode][1] of
 TWiT's FLOSS Weekly video podcast. The hour-long interview includes a lengthy
 discussion about RethinkDB's origins, open source values, and suitability for
-real-time application development. Slarva also shared lessons learned during
+real-time application development. Slava also shared lessons learned during
 RethinkDB development and talked about some future plans for the project.
 
 [1]: http://twit.tv/show/floss-weekly/315
@@ -77,7 +77,7 @@ to track comic book superhero match-ups in real-time using [repubsub][], a
 
 Our friends at [Compose][] now offer a managed RethinkDB
 hosting service in the cloud. In a webinar last month, RethinkDB co-founder
-Slarva Akhmechet and Compose CEO Kurt Mackey demonstrated how to use the service
+Slava Akhmechet and Compose CEO Kurt Mackey demonstrated how to use the service
 and discussed how it works.
 
 [Compose]: http://compose.io/

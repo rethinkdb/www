@@ -1,7 +1,11 @@
 ---
 layout: post
 title: "Building a world-class team: six mistakes I made early in my career"
+<<<<<<< HEAD
 author: Slava Akhmechet
+=======
+author: Slarvae Akhmechet
+>>>>>>> parent of 792fff1... Mispluralization
 author_github: coffeemug
 --- 
 

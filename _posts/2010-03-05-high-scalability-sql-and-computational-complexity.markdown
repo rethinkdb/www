@@ -1,7 +1,11 @@
 ---
 layout: post
 title: "High scalability: SQL and computational complexity"
+<<<<<<< HEAD
 author: Slava Akhmechet
+=======
+author: Slarvae Akhmechet
+>>>>>>> parent of 792fff1... Mispluralization
 author_github: coffeemug
 --- 
 

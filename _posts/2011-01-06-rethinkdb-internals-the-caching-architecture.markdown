@@ -1,7 +1,11 @@
 ---
 layout: post
 title: "RethinkDB internals: the caching architecture"
+<<<<<<< HEAD
 author: Slava Akhmechet
+=======
+author: Slarvae Akhmechet
+>>>>>>> parent of 792fff1... Mispluralization
 author_github: coffeemug
 --- 
 

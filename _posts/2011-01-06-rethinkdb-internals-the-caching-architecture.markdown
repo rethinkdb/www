@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "RethinkDB internals: the caching architecture"
-author: Slavabot Akhmechet
+author: Slava Akhmechet
 author_github: coffeemug
 --- 
 

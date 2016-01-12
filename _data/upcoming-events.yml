@@ -9,31 +9,56 @@
 #   cta: "RSVP here <i class='right-arrow'></i>"
 #   tag: Webcast
 
-- title: RethinkDB SF meetup at Heavybit
-  short_date: December 14, 2015
-  byline: December 14th at Heavybit
-  short_description: Join us for our last SF meetup of 2015! Lightning talks and drinks at Driftwood to celebrate an amazing year.
-  description: |
-    For our December meetup, we're going to switch things up a bit. First up in the evening, we'll join RethinkDB cofounder <a href="https://twitter.com/mglukhovsky">Mike Glukhovsky</a> as he shares a Year in Review and gives us a glimpse into 2016. Next up, we'd like to open the floor to lightning talks and shout outs! These will not be recorded, but please feel free to post in the comments section any ideas. Otherwise, just show up and present. Lastly, we'd like to spend some time with everyone so we'll head to Driftwood and hang out for a bit.
-  permalink: http://www.meetup.com/RethinkDB-SF-Meetup-Group/events/226738630/
+- title: RethinkDB at B’more on Rails meetup  
+  short_date: January 12, 2016
+  byline: January 12, 2016 at OrderUp HQ 
+  short_description: Learn about RethinkDB at the B’more on Rails meetup in Baltimore. 
+  description: Chase Gilliam will give an intro talk on RethinkDB at the B’more on Rails meetup at OrderUp HQ in Baltimore. 
+  permalink: http://www.meetup.com/bmore-on-rails/events/226228093/
   cta: "RSVP here <i class='right-arrow'></i>"
-  tag: meetup
+  tag: meetup 
 
-- title: "Node.js meetup #13 with RethinkDB"
-  short_date: December 15, 2015
-  byline: December 15th at Wikimedia Deutschland
-  short_description: Learn how to build scalable realtime apps using RethinkDB and deepstream.io, from high level concepts all the way down to wiring it all up.
-  description: |
-    Winter is coming - close the doors, fire up the radiator and   let's talk tech! Join the Berlin Node.js meetup group for an evening of drinks and tech talks. <p>Talk 1: <a href="https://twitter.com/boennemann">Stephan Bönnemann</a> & <a href="https://twitter.com/christophwitzko">Christoph Witzko</a> will talk about making it less painful to follow semver and staying up to date with npm dependencies.</p> <p>Talk 2: <a href="https://github.com/WolframHempel">Wolfram Hempel</a> will give a hands on talk about building scalable realtime apps using RethinkDb and deepstream.io, from high level concepts all the way down to wiring it all up.</p>
-  permalink: http://www.meetup.com/Node-js-Meetup-Berlin/events/225798605/
-  cta: "RSVP here <i class='right-arrow'></i>"
-  tag: meetup
+- title: RethinkDB at Valley Hackathon 
+  short_date: January 15 – 16, 2016
+  byline: January 15 – 16 at Greens Event Center
+  short_description: We’re excited to sponsor the Valley Hackathon again in Modesto, CA. 
+  description: We’re so excited to be part of the Valley Hackathon again this year! RethinkDB developer evangelist , Daniel Miller, will be in attendance to mentor and judge and we’re sponsoring the Lego prize, too! 
+  permalink: https://valleyhackathon.com/events/valley-hackathon-2016
+  cta: “Learn more here <i class=’right-arrow></i>”
+  tag: hackathon 
 
-- title: RethinkDB hosts Sandstorm.io in Mountain View
-  short_date: December 16, 2015
-  byline: December 16th, 2015 at RethinkDB HQ
-  short_description: Join us for introductory talks by the Sandstorm Crew, plus lightning talks and socializing time. This is the second Sandstorm meetup in the South Bay, co-sponsored by Sandstorm and RethinkDB.
-  description: We’re hosting our friends from Sandstorm.io for their monthly South Bay meetup.
-  permalink: http://www.meetup.com/Sandstorm-SF-Bay-Area/events/227155527/
+- title: RethinkDB San Francisco monthly meetup 
+  short_date: January 20, 2016
+  byline: January 20, 2016 at Heavybit Industries 
+  short_description: Join us at at Heavybit in San Francisco for our first meetup of 2016! 
+  description: Join us for our first meetup of 2016 at Heavybit in San Francisco! Learn what’s new for RethinkDB in 2016 with cofounder, Slava Akhmechet. 
+  permalink: http://www.meetup.com/RethinkDB-SF-Meetup-Group/events/226738727/
   cta: "RSVP here <i class='right-arrow'></i>"
-  tag: meetup
+  tag: meetup 
+  
+- title: Boulder Ruby Group
+  short_date: January 20, 2016
+  byline: January 20, 2016 at Pivotal Labs  
+  short_description: Join the Boulder Ruby Group for their 10th anniversary event and learn more about RethinkDB. 
+  description: We're excited to be part of the Boulder Ruby Groups 10th anniversary event! Todd Resudek will present RethinkDB and share his experiences, plus he'll have some swag to hand out too.
+  permalink: http://www.meetup.com/boulder_ruby_group/events/226701243/
+  cta: "RSVP here <i class='right-arrow'></i>"
+  tag: meetup 
+
+- title: RethinkDB Utah monthly meetup 
+  short_date: January 20, 2016
+  byline: January 20, 2016 at Lendio  
+  short_description: Join us at at Lendio in South Jordan for our next meetup.
+  description: This month, the group will discuss the basics of Meteor – a Javascript platform for building realtime web and mobile apps – and how it is likely to soon be compatible with RethinkDB. Show and tell your RethinkDB projects after. 
+  permalink: http://www.meetup.com/RethinkDB-Utah/events/227570892/
+  cta: "RSVP here <i class='right-arrow'></i>"
+  tag: meetup 
+ 
+- title: RethinkDB and Node.js Application Development and Scaling in Mumbai  
+  short_date: January 22, 2016
+  byline: January 22, 2016 in Powai, Mumbai 
+  short_description: Learn about RethinkDB and Node.js application development and scaling at this montly RethinkDB event.  
+  description: Learn about RethinkDB and Node.js application development and scaling at this montly event! Contact Palash Oswal for more details <a href="tel:+9737045733">+9737045733</a> or find more details in our India Dev Slack channel at <a target="_BLANK" href="http://slack.rethinkdb.com">slack.rethinkdb.com</a>. 
+  permalink: 
+  cta: "<a class='button minimal' href='mailto:oswalpalash@gmail.com'>Contact Palash Oswal</a>"
+  tag: meetup 

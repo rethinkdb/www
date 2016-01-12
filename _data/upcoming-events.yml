@@ -60,5 +60,5 @@
   short_description: Learn about RethinkDB and Node.js application development and scaling at this montly RethinkDB event.  
   description: Learn about RethinkDB and Node.js application development and scaling at this montly event! Contact Palash Oswal for more details <a href="tel:+9737045733">+9737045733</a> or find more details in our India Dev Slack channel at <a target="_BLANK" href="http://slack.rethinkdb.com">slack.rethinkdb.com</a>. 
   permalink: 
-  cta: "<a class='button minimal' href='mailto:oswalpalash@gmail.com'>Contact Palash Oswal</a> <i class='right-arrow'></i>"
+  cta: "<a class='button minimal' href='mailto:oswalpalash@gmail.com'>Contact Palash Oswal</a>"
   tag: meetup 

@@ -35,6 +35,15 @@
   permalink: http://www.meetup.com/RethinkDB-SF-Meetup-Group/events/226738727/
   cta: "RSVP here <i class='right-arrow'></i>"
   tag: meetup 
+  
+- title: Boulder Ruby Group
+  short_date: January 20, 2016
+  byline: January 20, 2016 at Pivotal Labs  
+  short_description: Join the Boulder Ruby Group for their 10th anniversary event and learn more about RethinkDB. 
+  description: We're excited to be part of the Boulder Ruby Groups 10th anniversary event! Todd Resudek will present RethinkDB and share his experiences, plus he'll have some swag to hand out too.
+  permalink: http://www.meetup.com/boulder_ruby_group/events/226701243/
+  cta: "RSVP here <i class='right-arrow'></i>"
+  tag: meetup 
 
 - title: RethinkDB Utah monthly meetup 
   short_date: January 20, 2016

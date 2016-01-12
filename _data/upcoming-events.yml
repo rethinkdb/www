@@ -59,6 +59,6 @@
   byline: January 22, 2016 in Powai, Mumbai 
   short_description: Learn about RethinkDB and Node.js application development and scaling at this montly RethinkDB event.  
   description: Learn about RethinkDB and Node.js application development and scaling at this montly event!  Contact Palash Oswal for more details +9737045733 or find more details in our India Dev Slack channel at http://slack.rethinkdb.com. 
-  permalink: none
-  cta: none
+  permalink: 
+  cta: "<a href='mailto:oswalpalash@gmail.com'>Send an email to Palash Oswal</a>"
   tag: meetup 

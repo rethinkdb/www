@@ -15,7 +15,7 @@ of inflated expectations where it will likely be displaced by some shiny
 thing that comes along in the future.
 
 The original AngularJS offered some good ideas, but it wasn't a very good
-framework in practice. Its successor, Angular 2, addresses many
+framework in practice. Its successor, [Angular 2][angulario], addresses many
 shortcomings while retaining many of the strengths that made the original
 framework popular. With the benefit of a clean break, the developers behind
 Angular 2 were able to exorcise many of the framework's most pernicious
@@ -343,10 +343,17 @@ projects will likely be beneficial.
 
 # Next steps
 
-I've published the full source code of my chat demo on [GitHub](#). You can
+I've published the full source code of my chat demo on [GitHub][gh-repo]. You can
 check it out and try it yourself. If you'd like to learn more about
 RethinkDB, visit our [ten-minute guide][10min].
 
+**Resources:**
+
+* [The Angular 2 website][angulario]
+* [The Typescript website][TypeScript]
+* [The Atom Typescript plugin][atom-typescript]
+
+[angulario]: https://angular.io/
 [TypeScript]: http://www.typescriptlang.org/
 [hype-cycle]: https://en.wikipedia.org/wiki/Hype_cycle
 [atom-typescript]: https://atom.io/packages/atom-typescript
@@ -359,3 +366,4 @@ RethinkDB, visit our [ten-minute guide][10min].
 [jsx-ts]: https://github.com/Microsoft/TypeScript/wiki/JSX
 [upgrade-adapter]: https://angular.io/docs/ts/latest/guide/upgrade.html
 [10min]: /docs/guide/javascript/
+[gh-repo]: https://github.com/rethinkdb/angular2-typescript-example

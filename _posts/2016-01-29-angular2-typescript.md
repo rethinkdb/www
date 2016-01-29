@@ -89,7 +89,7 @@ Consider a case where you are building a game and you have information
 about user scores. You could define the following TypeScript interface to
 describe the structure of the JSON objects that you store in your database:
 
-```typescript
+```javascript
 export interface UserRecord {
   id: string;
   username: string;
@@ -103,7 +103,7 @@ retrieving an array of objects that conform with the interface. In the
 following example, written in Node.js on the backend, I retrieve the
 documents from RethinkDB and iterate over them:
 
-```typescript
+```javascript
 var r = require("rethinkdb");
 
 (async function() {
@@ -174,7 +174,7 @@ relevant component metadata like the component's tag name, exposed
 properties, and emitted events. The following code example, a complete
 component from my chat demo, displays a single message sent by a user:
 
-```typescript
+```javascript
 import {Component, View} from "angular2/core";
 import {ChatMessageRecord} from "../interfaces";
 
@@ -234,7 +234,7 @@ of my own custom components in addition to several from Angular's  standard
 libraries. In the following source code, you can see how I use the
 `directives` property to inject the imported components:
 
-```typescript
+```javascript
 import {Component, View} from "angular2/core";
 import {NgFor, NgSwitch, NgSwitchWhen} from "angular2/common";
 
@@ -335,7 +335,7 @@ vanquished.
 
 For existing Angular 1.x users, Angular 2 offers clear benefits in
 performance and ease of development. Migrating existing applications is
-going to be painful, but possible: the framework includes an
+going to be a manageable undertaking: the framework includes an
 [adapter][upgrade-adapter] that enables incremental upgrades, letting
 developers mix Angular 1.x and Angular 2.x components in the same
 application. For existing Angular 1.x shops, switching to 2.x for new

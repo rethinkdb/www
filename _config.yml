@@ -16,7 +16,7 @@ version:
     major: 2.2
     # full version number, include point releases and build tags, used for download links
     #   -> e.g. 1.2.1-3, 1.3.0
-    full: 2.2.3-1
+    full: 2.2.4
     # ---
     # human-readable version number (no build tags), used for marketing copy
     #   -> e.g. 1.2.1, 1.3
@@ -24,7 +24,7 @@ version:
     codename: Modern Times
     release_post: /blog/2.2-release
 rethinkdb_users: "100,000"
-github_stars: "11k"
+github_stars: "12k"
 
 sass:
     sass_dir: _sass

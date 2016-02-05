@@ -77,4 +77,4 @@ Want to run your own instance of Turtl? Start by
 [trello]: https://trello.com/b/yIQGkHia/turtl-product-dev
 [upcoming features]: http://turtlapp.tumblr.com/post/137203111884/look-forward-to-these-features
 [setup instructions]: https://turtl.it/docs/server/
-[install]: http://rethinkdb.com/docs/install/
+[install]: /docs/install/

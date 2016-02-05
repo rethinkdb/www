@@ -13,12 +13,12 @@ passwords, bookmarks, and images. Turtl is the creation of developer
 instance of the application, or they can register an account on a [hosted
 service][] operated by Andrew's independent software company.
 
-Turtl's API backend is implemented in common lisp, with an intriguing
+Turtl's API backend is implemented in Common Lisp, with an intriguing
 stack that Andrew largely built himself. He created his own asynchronous
 HTTP server framework called [Wookie][], which is powered by an
 event-driven [asynchronous IO library][cl-async] that he wrote on top of
 Node's [libuv][]. He also made his own
-[common lisp RethinkDB client driver][cl-rethinkdb], which the Turtl backend
+[Common Lisp RethinkDB client driver][cl-rethinkdb], which the Turtl backend
 uses to communicate with a RethinkDB cluster for data persistence.
 
 <!--more-->
@@ -32,9 +32,9 @@ runtime and Blink-based HTML rendering engine. There's also a
 Cordova-based [Android client][android], with support for iOS planned in
 the future.
 
-The client application synchronizes with the backend. On the client side,
-the user's data is stored in IndexedDB. The user's data is stored and
-transmitted [with encryption][]. Each individual note and board has its
+The client application synchronizes with the backend, [using encryption][]
+to securely store and transmit data. On the client side, it keeps
+the user's data in IndexedDB. Each individual note and board has its
 own encryption key, which makes it possible for multiple users to
 [securely share][] boards with other users.
 
@@ -48,7 +48,7 @@ blocks that are reflow to fit the space. Users can hit the plus button on
 the bottom right-hand corner in order to add a new item. The application
 supports Markdown for formatted text content. When authoring a note, the
 user can optionally add tags and assign it to a board. The application
-includes several other noteworthy features, including full-text searches.
+includes several other noteworthy features, including full-text search.
 
 <img src="/assets/images/posts/2016-02-05-turtl-ui.png">
 
@@ -72,7 +72,7 @@ Want to run your own instance of Turtl? Start by
 [hosted service]: https://turtl.it/pricing/
 [no-web]: http://turtlapp.tumblr.com/post/118259491304/why-not-just-publish-turtl-as-a-web-app
 [android]: https://github.com/turtl/mobile
-[with encryption]: https://turtl.it/docs/security/encryption-specifics/
+[using encryption]: https://turtl.it/docs/security/encryption-specifics/
 [securely share]: https://turtl.it/docs/architecture/#sharing
 [trello]: https://trello.com/b/yIQGkHia/turtl-product-dev
 [upcoming features]: http://turtlapp.tumblr.com/post/137203111884/look-forward-to-these-features

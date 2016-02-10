@@ -34,7 +34,7 @@ without provisioning a Linux server or relying on cloud hosting providers. As
 our Windows support continues to mature, developers can look forward to
 deploying RethinkDB natively in Windows Server environments.
 
-## Extending RethinkDB to Windows
+# Extending RethinkDB to Windows
 
 Under the hood, RethinkDB includes a tremendous amount of low-level plumbing
 built on platform-specific APIs. We decided early in the project that we would
@@ -63,7 +63,7 @@ proved especially taxing, because we had to ensure that all the third-party
 open source libraries we use in the database build consistently on Windows as
 well as Linux and Mac OS X.
 
-## Build a RethinkDB app on Windows in Visual Studio
+# Build a RethinkDB app on Windows in Visual Studio
 
 If you're a seasoned .NET developer and you want to get started with RethinkDB,
 check out the [C# client library][csharp-driver] created by Brian Chavez. Brian
@@ -180,7 +180,7 @@ could just as easily use React or Knockout if you prefer.
 To see the application in action, you can [download the full source code][demo-app]
 from GitHub and run it yourself in Visual Studio.
 
-## Next Steps
+# Next Steps
 
 If you'd like to get started with RethinkDB on Windows, [download][wininstall] the
 Developer Preview today. After you run the database, you can follow our

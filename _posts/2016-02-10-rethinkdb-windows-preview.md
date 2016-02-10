@@ -24,7 +24,8 @@ shouldn't trust it with your data or use it in production environments yet.
 It's also not fully optimized, so you might not get the same performance that
 you would from a stable release.
 
-<!--more-->
+<!--more--> 
+<iframe width="640" height="360" src="https://www.youtube.com/embed/klgE2Jo5beE?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
   
 Starting with the upcoming RethinkDB 2.3 release, we'll provide official
 Windows builds for each version of RethinkDB alongside our binary packages for

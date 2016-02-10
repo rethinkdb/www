@@ -11,14 +11,13 @@ of our Windows build, which runs natively on Microsoft's operating system.
 
 Support for Windows is one of the features
 [most frequently requested][ghissues-win] by RethinkDB users.
-Encouraged by the clear demand, we launched an ambitious engineering project
-to make Windows a first-class citizen inside the RethinkDB code base. The
-undertaking required a year of intensive development, touching nearly every
-part of the database.
+We launched an ambitious engineering project to port RethinkDB to
+Windows--an undertaking that required a year of intensive development,
+touching nearly every part of the database.
 
 To try today's Developer Preview, simply
-[download the executable from our website][windl] and double-click it on your
-computer. We're making the preview available today so that our users can start
+[download RethinkDB][windl] as an executable and run it on a Windows machine.
+We're making the preview available today so that our users can start
 exploring RethinkDB on Windows and help us test it in the real world. You
 shouldn't trust it with your data or use it in production environments yet.
 It's also not fully optimized, so you might not get the same performance that
@@ -180,7 +179,7 @@ could just as easily use React or Knockout if you prefer.
 To see the application in action, you can [download the full source code][demo-app]
 from GitHub and run it yourself in Visual Studio.
 
-# Next Steps
+# Next steps
 
 If you'd like to get started with RethinkDB on Windows, [download][wininstall] the
 Developer Preview today. After you run the database, you can follow our

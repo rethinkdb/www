@@ -12,7 +12,7 @@ emerge over the past few weeks.
 
 # Meteor integration
 
-Meteor developer [Slava Kim][slava] published a [video][] on YouTube that
+Meteor developer [Slava Kim][Slava] published a [video][] on YouTube that
 demonstrates his proof-of-concept [bridge between Meteor and
 RethinkDB][bridge]. Meteor is a full-stack JavaScript framework for realtime
 application development. One of Meteor's key features is that it gives
@@ -48,7 +48,7 @@ connector][connector] for LoopBack.
 [ReQLite]: https://github.com/neumino/reqlite
 [bridge]: https://github.com/Slava/meteor-rethinkdb
 [sample]: https://github.com/Slava/meteor-rethinkdb-demo
-[slava]: https://github.com/Slava
+[Slava]: https://github.com/Slava
 [michel]: https://github.com/neumino
 [slpost]: https://strongloop.com/strongblog/rethinkdb-connector-loopback-node-js-framework/
 [LoopBack]: http://loopback.io/

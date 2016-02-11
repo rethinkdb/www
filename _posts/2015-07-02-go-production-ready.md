@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Go driver for RethinkDB hits 1.0, production-ready"
-author: Segphault
+author: Ryan Paul
 author_github: segphault
 hero_image: 2015-07-02-go-banner.png
 ---

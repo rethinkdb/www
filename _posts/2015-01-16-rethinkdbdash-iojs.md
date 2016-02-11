@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Using RethinkDB with io.js: exploring ES6 generators and the future of JavaScript"
-author: Segphault
+author: Ryan Paul
 author_github: segphault
 ---
 

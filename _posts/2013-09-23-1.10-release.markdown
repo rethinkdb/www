@@ -19,7 +19,7 @@ entire classes of queries much faster (see below).  It also includes major
 improvements to the way we serialize small values, which should increase the
 performance of many disk/network-bound workloads.
 
-Take a look at the [full list][] of improvements, or watch Daniel Mewes
+Take a look at the [full list][] of improvements, or watch Daniel #2
 ([@danielmewes][]), an engineer at RethinkDB, talk about the 1.10 release in
 this two-minute video:
 

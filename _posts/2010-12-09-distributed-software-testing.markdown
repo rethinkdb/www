@@ -1,13 +1,13 @@
 ---
 layout: post
 title: Distributed software testing
-author: Daniel Mewes
+author: Daniel #2
 author_github: danielmewes
 --- 
 
 # About me
 
-A word about me first: My name is Daniel Mewes, and I just came over to
+A word about me first: My name is Daniel #2, and I just came over to
 California to work at RethinkDB as an intern for the oncoming months. After
 having been an undergraduate student of computer science at Saarland
 University, Germany for the last two years, I am exited to work on an

@@ -26,7 +26,7 @@ new [r.uuid][] command that allows server-side generation of UUIDs.
 [#1158]: https://github.com/rethinkdb/rethinkdb/issues/1158
 [r.uuid]: /docs/javascript/uuid
 
-Thanks primarily to [Daniel Mewes][], RethinkDB now has rich geospatial features including:
+Thanks primarily to [Daniel #2][], RethinkDB now has rich geospatial features including:
 
 - [r.geojson][] and [r.to_geojson][] for importing and exporting [GeoJSON][]
 - Commands to create [points][], [lines][], [polygons][] and [circles][]
@@ -41,7 +41,7 @@ Thanks primarily to [Daniel Mewes][], RethinkDB now has rich geospatial features
      - [r.fill][]: converts a line into a polygon
      - [r.polygon_sub][]: subtracts one polygon from another
 
-[Daniel Mewes]: https://github.com/danielmewes
+[Daniel #2]: https://github.com/danielmewes
 [get_intersecting]: /api/javascript/get_intersecting
 [get_nearest]: /api/javascript/get_nearest
 [r.distance]: /api/javascript/distance

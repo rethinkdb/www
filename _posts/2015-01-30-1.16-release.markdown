@@ -3,7 +3,7 @@ layout: post
 title: "RethinkDB 1.16: cluster management API, realtime push"
 tags:
 - release
-author: Segphault
+author: Ryan Paul
 author_github: segphault
 hero_image: 2015-01-30-1.16-release-banner.png
 alias: /videos/new-features-in-1-16

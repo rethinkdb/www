@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Data science on the iPad with RethinkDB and Pythonista"
-author: Ryan Paul
+author: Segphault
 author_github: segphault
 hero_image: 2015-06-11-pythonista-banner.png
 ---

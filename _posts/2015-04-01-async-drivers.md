@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "RethinkDB 2.0 drivers: native support for Tornado and EventMachine"
-author: Ryan Paul
+author: Segphault
 author_github: segphault
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Docker introduces official RethinkDB repository"
-author: Segphault
+author: Ryan Paul
 author_github: segphault
 hero_image: 2015-03-06-docker-banner.png
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "RethinkDB 2.1: high availability"
-author: Segphault
+author: Ryan Paul
 author_github: segphault
 hero_image: 2015-08-11-forbidden-planet-banner.jpg
 ---

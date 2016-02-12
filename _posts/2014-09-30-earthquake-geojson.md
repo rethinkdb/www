@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Building an earthquake map with RethinkDB and GeoJSON"
-author: Segphault
+author: Ryan Paul
 author_github: segphault
 ---
 

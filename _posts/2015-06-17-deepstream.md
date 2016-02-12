@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Hands-on with deepstream.io: build realtime apps with less backend code"
-author: Ryan Paul
+author: Segphault
 author_github: segphault
 hero_image: 2015-06-17-deepstream-banner.png
 ---

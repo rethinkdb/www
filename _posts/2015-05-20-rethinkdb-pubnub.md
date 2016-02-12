@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Build a realtime liveblog with RethinkDB and PubNub"
-author: Ryan Paul
+author: Segphault
 author_github: segphault
 hero_image: 2015-05-20-realtime-blog-pubnub.png
 ---

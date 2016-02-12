@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Using the official RethinkDB Java driver in other JVM languages"
-author: Segphault
+author: Ryan Paul
 author_github: segphault
 hero_image: 2015-12-22-alt-jvm-driver-banner.png
 ---

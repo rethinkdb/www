@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Use RethinkDB with LoopBack and Meteor"
-author: Segphault
+author: Ryan Paul
 author_github: segphault
 ---
 

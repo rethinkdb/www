@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "A realtime RethinkDB cluster monitoring app with live graphs"
-author: Segphault
+author: Ryan Paul
 author_github: segphault
 ---
 

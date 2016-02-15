@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Query RethinkDB tables from PostgreSQL with foreign data wrappers"
-author: Ryan Paul
+author: Segphault
 author_github: segphault
 ---
 

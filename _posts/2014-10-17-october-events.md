@@ -3,7 +3,7 @@ layout: post
 title: "Upcoming RethinkDB events for October and November"
 tags: 
 - event
-author: Ryan Paul
+author: Segphault
 author_github: segphault
 ---
 

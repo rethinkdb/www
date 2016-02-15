@@ -1,13 +1,13 @@
 ---
 layout: post
 title: "Join us online for a live RethinkDB workshop, hosted by Platzi"
-author: Segphault
+author: Ryan Paul
 author_github: segphault
 hero_image: 2015-03-11-platzi-banner.jpg
 ---
 
 Join us Saturday, March 14 for a live RethinkDB training course. The two-hour
-workshop, taught by RethinkDB evangelist Segphault and hosted online by our
+workshop, taught by RethinkDB evangelist Ryan Paul and hosted online by our
 friends at Platzi, will teach you how to build realtime web applications with
 RethinkDB. The course is available for free&mdash;all you have to do is sign
 up.

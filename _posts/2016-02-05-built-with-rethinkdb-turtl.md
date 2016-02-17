@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Built with RethinkDB: secure note-taking app Turtl"
-author: Segphault
+author: Ryan Paul
 author_github: segphault
 hero_image: 2016-02-05-turtl-banner.png
 ---

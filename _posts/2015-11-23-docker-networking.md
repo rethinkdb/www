@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Simplify deployment with the new networking features in Docker 1.9"
-author: Ryan Paul
+author: Segphault
 author_github: segphault
 hero_image: 2015-11-23-docker-banner.png
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "How Angular is reinventing itself with version 2 and TypeScript"
-author: Segphault
+author: Ryan Paul
 author_github: segphault
 hero_image: 2016-01-29-angular-typescript-banner.png
 ---

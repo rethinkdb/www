@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "BeerThink: infinite scrolling in a mobile app with Ionic, Node.js, and RethinkDB"
-author: Segphault
+author: Ryan Paul
 author_github: segphault
 ---
 

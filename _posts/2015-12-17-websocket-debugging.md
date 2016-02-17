@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Socket.io inspection techniques to simplify realtime app debugging"
-author: Ryan Paul
+author: Segphault
 author_github: segphault
 hero_image: 2015-12-17-socketio-debugging.png
 ---

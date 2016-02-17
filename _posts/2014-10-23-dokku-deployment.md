@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Deploying RethinkDB applications with Docker using Dokku"
-author: Ryan Paul
+author: Segphault
 author_github: segphault
 ---
 

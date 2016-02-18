@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Make beautiful charts with RethinkDB queries and Charted.co"
-author: Ryan Paul
+author: Segphault
 author_github: segphault
 ---
 

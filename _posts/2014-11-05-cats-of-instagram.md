@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "CatThink: see the cats of Instagram in realtime with RethinkDB and Socket.io"
-author: Ryan Paul
+author: Segphault
 author_github: segphault
 hero_image: 2014-11-05-cat-instagram.png
 ---

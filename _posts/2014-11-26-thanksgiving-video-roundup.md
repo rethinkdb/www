@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "A tasty RethinkDB video roundup for Thanksgiving"
-author: Segphault
+author: Ryan Paul
 author_github: segphault
 hero_image: 2014-11-26-thanksgiving.png
 ---
@@ -46,7 +46,7 @@ to scale real-time apps in the cloud.
 
 ## Build realtime location-aware apps with RethinkDB
 
-RethinkDB Developer Evangelist Segphault shook up a crowd last month with a
+RethinkDB Developer Evangelist Ryan Paul shook up a crowd last month with a
 short presentation about earthquake mapping. Ryan demonstrated how to use
 [geospatial queries][3] in RethinkDB to [plot earthquake data on a map][4].
 Ryan also demonstrated how location-aware applications can take advantage of

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Introducing the official RethinkDB Java client driver"
-author: Ryan Paul
+author: Segphault
 author_github: segphault
 hero_image: 2015-12-09-java-driver-banner.png
 ---

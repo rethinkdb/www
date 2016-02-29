@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Realtime stories: learn how Lendio, ClientSuccess, and Platzi use RethinkDB"
-author: Segphault
+author: Ryan Paul
 author_github: segphault
 hero_image: 2015-10-08-case-study-post.png
 ---

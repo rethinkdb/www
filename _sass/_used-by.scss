@@ -54,6 +54,14 @@ section.used-by .testimonials {
         &:last-child blockquote { margin-right: 0; }
     }
 
+    .testimonial-full {
+      width: 100%;
+      margin-left: 15%;
+      
+      // No margin on the last testimonial
+      &:last-child blockquote { margin-right: 0; }
+    }
+
     // Blockquote styles for each testimonial
     blockquote {
         $_quote-width: rem(25);

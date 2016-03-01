@@ -8,6 +8,14 @@ section.used-by {
     background: $_bg;
 
     .logos {
+
+        #nasa {
+          width: 18%;
+          margin-left: 33px;
+          margin-right: 45px;
+          padding-top: 0px;
+        }
+
         @include outer-container;
         img {
             @include span-columns(3);
@@ -47,7 +55,7 @@ section.used-by .testimonials {
     }
 
     // Blockquote styles for each testimonial
-    blockquote { 
+    blockquote {
         $_quote-width: rem(25);
         margin: $base-spacing;
         margin-left: $_quote-width;

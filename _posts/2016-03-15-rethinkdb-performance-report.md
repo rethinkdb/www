@@ -11,18 +11,15 @@ We get asked a lot of:
 * "Does RethinkDB (web)scale?"
 * "Can I use the outdated read mode to improve throughput in read-heavy workloads?"
 
-We’ll attempt to answer these questions by using a couple different workloads from the YCSB benchmark. An additional test investigates scalability for analytical workloads.
+We’ll answer these questions by using different workloads from the YCSB benchmark. [You can learn more about YCSB here][ycsb], and review the [source code here][ycsb-fork]. An additional test investigates scalability for analytical workloads.
 
 <!--more-->
 
 In the results, we’ll see how RethinkDB 2.1.5 can be scaled to perform 1.3 million individual reads per second. We will also demonstrate well above 100 thousand transactions per second in a mixed 50:50 read/write workload - while at the full level of durability and data integrity guarantees. All benchmarks are performed across a range of cluster sizes, scaling up to 16 servers.
-Throughout the development of RethinkDB we thought it wise to use a well known testing framework in which to measure RethinkDB performance. Yahoo has created a testing framework for analyzing the performance of databases and released it to the public. [You can learn more about YCSB here][ycsb], and review the [original source code here][ycsb-original].
-
-We ported YCSB to be used with our official Java driver and intend to submit a pull request for it in the near future. [Our fork of YCSB is available for review here.][ycsb-fork]
 
 ## A quick overview of the results
 
-Getting right down to the details, we found that in a mixed read/write workload RethinkDB with two clusters was able to perform nearly 16K queries per second (QPS) and scaled to almost 120K QPS while in a 16 node cluster. Under a “read only” workload and synchronous read settings, RethinkDB was able to scale from about 150,000 QPS up to over 550K QPS. Under the same workload, in an asynchronous “stale read” setting RethinkDB went from 150K QPS on one node to 1.3M in a 16 node cluster. Here we we show how RethinkDB scales up to 16 nodes with these various workloads.
+Getting right down to the details, we found that in a mixed read/write workload RethinkDB with two clusters was able to perform nearly 16K queries per second (QPS) and scaled to almost 120K QPS while in a 16 node cluster. Under a “read only” workload and synchronous read settings, RethinkDB was able to scale from about 150,000 QPS up to over 550K QPS. Under the same workload, in an asynchronous “outdated read” setting RethinkDB went from 150K QPS on one node to 1.3M in a 16 node cluster. Here we we show how RethinkDB scales up to 16 nodes with these various workloads.
 
 ![Workload A][w-a]
 ![Workload C Synchronous][w-c-sync]

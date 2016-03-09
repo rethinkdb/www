@@ -19,14 +19,18 @@ In the results, we’ll see how RethinkDB 2.1.5 can be scaled to perform 1.3 mil
 
 ## A quick overview of the results
 
-Getting right down to the details, we found that in a mixed read/write workload RethinkDB with two clusters was able to perform nearly 16K queries per second (QPS) and scaled to almost 120K QPS while in a 16 node cluster. Under a “read only” workload and synchronous read settings, RethinkDB was able to scale from about 150,000 QPS up to over 550K QPS. Under the same workload, in an asynchronous “outdated read” setting RethinkDB went from 150K QPS on one node to 1.3M in a 16 node cluster. Here we we show how RethinkDB scales up to 16 nodes with these various workloads.
+Getting right down to the details, we found that in a mixed read/write workload RethinkDB with two servers was able to perform nearly 16K queries per second (QPS) and scaled to almost 120K QPS while in a 16 server cluster. Under a “read only” workload and synchronous read settings, RethinkDB was able to scale from about 150,000 QPS up to over 550K QPS. Under the same workload, in an asynchronous “outdated read” setting RethinkDB went from 150K QPS on one server to 1.3M in a 16 server cluster.
+
+Finally, we used a map-reduce query to compute word counts across the whole data set. This test evaluates RethinkDB's scalability for analytical workloads.
+
+Here we we show how RethinkDB scales up to 16 servers with these workloads.
 
 ![Workload A][w-a]
 ![Workload C Synchronous][w-c-sync]
 ![Workload C Asynchronous][w-c-async]
 ![Analytical][analytical]
 
-In the full report you can find the specifics of the tests and learn more about latency distributions as we scaled up to 16 node clusters for each workload.
+In the full report you can find the specifics of the tests and learn more about latency distributions as we scaled up to 16 server clusters for each workload.
 
 ### [Click here to view the full report][perf-report]
 
@@ -36,5 +40,4 @@ In the full report you can find the specifics of the tests and learn more about 
 [w-c-async]: /assets/images/posts/2016-03-15-w-c-async.png
 [w-c-sync]: /assets/images/posts/2016-03-15-w-c-sync.png
 [ycsb-fork]: https://github.com/rethinkdb/ycsb
-[ycsb-original]: https://github.com/brianfrankcooper/YCSB
 [ycsb]: https://labs.yahoo.com/news/yahoo-cloud-serving-benchmark

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Batch image uploading with Amazon S3 and RethinkDB"
-author: Ryan Paul
+author: Segphault
 author_github: segphault
 hero_image: 2015-06-09-s3-batch-upload.png
 ---

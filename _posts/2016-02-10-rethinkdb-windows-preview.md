@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Developer Preview: RethinkDB now available for Windows"
-author: Segphault
+author: Ryan Paul
 author_github: segphault
 hero_image: 2016-02-10-fantasia-windows.png
 ---

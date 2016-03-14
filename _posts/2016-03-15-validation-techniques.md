@@ -244,7 +244,7 @@ RethinkDB, you can refer to our [10 minute][10min] guide.
 
 **Resources:**
 
-* [The `koa-validate` validation middleware for Koa][koa-validate]
+* [The `koa-validate` middleware for Koa][koa-validate]
 * [The official JSON Schema website][JSON Schema]
 * [A list of libraries that support JSON Schema][schema-libs]
 * [The `Thinky` ORM for RethinkDB][Thinky]

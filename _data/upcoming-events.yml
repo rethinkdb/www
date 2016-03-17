@@ -9,15 +9,6 @@
 #   cta: "RSVP here <i class='right-arrow'></i>"
 #   tag: Webcast
 
-- title: RethinkDB at B’more on Rails meetup  
-  short_date: January 12, 2016
-  byline: January 12, 2016 at OrderUp HQ 
-  short_description: Learn about RethinkDB at the B’more on Rails meetup in Baltimore. 
-  description: Chase Gilliam will give an intro talk on RethinkDB at the B’more on Rails meetup at OrderUp HQ in Baltimore. 
-  permalink: http://www.meetup.com/bmore-on-rails/events/226228093/
-  cta: "RSVP here <i class='right-arrow'></i>"
-  tag: meetup 
-
 - title: RethinkDB at Valley Hackathon 
   short_date: January 15 – 16, 2016
   byline: January 15 – 16 at Greens Event Center

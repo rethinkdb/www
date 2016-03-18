@@ -3,6 +3,7 @@ layout: post
 title: "How to validate user input in a NoSQL web application"
 author: Ryan Paul
 author_github: segphault
+hero_image: 2016-03-18-input-validation-banner.png
 ---
 
 Like many other modern JSON databases, RethinkDB is schemaless. The
@@ -14,6 +15,8 @@ Shifting the responsibility for input validation from the persistence
 layer to the application layer gives developers a lot of flexibility in
 how they choose to implement the capability. This blog post demonstrates
 several ways to validate input in Node.js web applications.
+
+<!--more-->
 
 # Validator.js middleware
 

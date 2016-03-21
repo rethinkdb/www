@@ -22,7 +22,7 @@ level of durability and data integrity guarantees. We performed all benchmarks a
 up to 16 servers.
 
 
-## A quick overview of the results
+# A quick overview of the results
 
 We found that in a mixed read/write workload RethinkDB with two servers was able to perform nearly 16K queries per second (QPS) and scaled to almost 120K QPS while in a 16 server cluster. Under a read only workload and synchronous read settings, RethinkDB was able to scale from about 150,000 QPS on a single node up to over 550K QPS on 16 nodes. Under the same workload, in an asynchronous “outdated read” setting, RethinkDB went from 150K QPS on one server to 1.3M in a 16 node cluster.
 
@@ -37,10 +37,22 @@ Here we we show how RethinkDB scales up to 16 servers with these various workloa
 
 In the full report you can find the specifics of the tests and learn more about latency distributions as we scaled up to 16 server clusters for each workload.
 
-### [Click here to view the full report][perf-report]
+## [Click here to view the full report][perf-report]
+
+# Notes
+
+* We were fortunate enough to receive free credits from Rackspace to perform the majority of these tests and are very grateful for their contributions to open source software. All of [Rackspace’s OnMetal offerings can be found here][rackspace].
+* We have published all relevant performance testing code and final results in the [rethinkdb/preformance-reports repository on Github][perf-reports-repo]
+* We’d love to answer any questions you have about these tests. Come join us at [http://slack.rethinkdb.com][slack] and feel free to ask more specific questions we don’t answer here by pinging @danielmewes or @dalanmiller.
+* Recently, the team behind BigchainDB - a scalable blockchain database built on top of RethinkDB - has benchmarked RethinkDB on a 32-server cluster running on Amazon's EC2. They measured throughputs of  more than a million writes per second. Their conclusion: "There is linear scaling in write performance with the number of nodes". The full report is available at [https://www.bigchaindb.com/whitepaper/][bigchaindb]
+
 
 [analytical]: /assets/images/posts/2016-03-15-analytical.png
+[bigchaindb]: https://www.bigchaindb.com/whitepaper/
 [perf-report]: https://rethinkdb.com/docs/performance-reports/2-1-5-performance-report/
+[perf-reports-repo]: https://github.com/rethinkdb/performance-reports
+[rackspace]: https://www.rackspace.com/cloud/servers/onmetal
+[slack]: http://slack.rethinkdb.com
 [w-a]: /assets/images/posts/2016-03-15-w-a.png
 [w-c-async]: /assets/images/posts/2016-03-15-w-c-async.png
 [w-c-sync]: /assets/images/posts/2016-03-15-w-c-sync.png

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Performance & Scaling of RethinkDB"
+title: "RethinkDB Performance & Scalability"
 author: Daniel Alan Miller
 author_github: dalanmiller
 hero_image:
@@ -39,7 +39,7 @@ In the full report you can find the specifics of the tests and learn more about 
 
 ## [Click here to view the full report][perf-report]
 
-# Notes
+**Notes:**
 
 * We were fortunate enough to receive free credits from Rackspace to perform the majority of these tests and are very grateful for their contributions to open source software. All of [Rackspace’s OnMetal offerings can be found here][rackspace].
 * We have published all relevant performance testing code and final results in the [rethinkdb/preformance-reports repository on Github][perf-reports-repo]

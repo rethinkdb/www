@@ -3,7 +3,7 @@ layout: post
 title: "RethinkDB Performance & Scalability"
 author: Daniel Alan Miller
 author_github: dalanmiller
-hero_image:
+hero_image: 2015-03-30-performance-report-2-1-5.png
 ---
 
 We are happy to present our first published RethinkDB performance report to the world. After an internal collaborative effort we can reveal what we’ve discovered about the performance of RethinkDB. Some of the questions you might be looking to address may include:

@@ -10,10 +10,26 @@ section.used-by {
     .logos {
 
         #nasa {
-          width: 18%;
-          margin-left: 33px;
-          margin-right: 45px;
-          padding-top: 0px;
+
+          float:left;
+
+          // @include media($large-screen) {
+          //   width: 18%;
+          //   padding: 80px 0px 0px 0px;
+          //   margin: 4px 79px 0px 0px;
+          // }
+
+          @include media($medium-screen) {
+            width: 12%;
+            padding: 0px 0px 0px 0px;
+            margin: 0px 6% 0px 7%;
+          }
+
+          @include media($mobile) {
+            width: 17%;
+            padding: 1.5rem 0rem 0rem 0rem;
+            margin: 0px 0px 0px 16%;
+          }
         }
 
         @include outer-container;
@@ -57,7 +73,7 @@ section.used-by .testimonials {
     .testimonial-full {
       width: 100%;
       margin-left: 15%;
-      
+
       // No margin on the last testimonial
       &:last-child blockquote { margin-right: 0; }
     }

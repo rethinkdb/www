@@ -13,12 +13,6 @@ section.used-by {
 
           float:left;
 
-          // @include media($large-screen) {
-          //   width: 18%;
-          //   padding: 80px 0px 0px 0px;
-          //   margin: 4px 79px 0px 0px;
-          // }
-
           @include media($medium-screen) {
             width: 12%;
             padding: 0px 0px 0px 0px;

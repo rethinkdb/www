@@ -9,47 +9,65 @@
 #   cta: "RSVP here <i class='right-arrow'></i>"
 #   tag: Webcast
 
-- title: RethinkDB at Valley Hackathon 
-  short_date: January 15 – 16, 2016
-  byline: January 15 – 16 at Greens Event Center
-  short_description: We’re excited to sponsor the Valley Hackathon again in Modesto, CA. 
-  description: We’re so excited to be part of the Valley Hackathon again this year! RethinkDB developer evangelist , Daniel Miller, will be in attendance to mentor and judge and we’re sponsoring the Lego prize, too! 
-  permalink: https://valleyhackathon.com/events/valley-hackathon-2016
-  cta: “Learn more here <i class=’right-arrow></i>”
-  tag: hackathon 
-
 - title: RethinkDB San Francisco monthly meetup 
-  short_date: January 20, 2016
-  byline: January 20, 2016 at Heavybit Industries 
-  short_description: Join us at at Heavybit in San Francisco for our first meetup of 2016! 
-  description: Join us for our first meetup of 2016 at Heavybit in San Francisco! Learn what’s new for RethinkDB in 2016 with cofounder, Slava Akhmechet. 
-  permalink: http://www.meetup.com/RethinkDB-SF-Meetup-Group/events/226738727/
-  cta: "RSVP here <i class='right-arrow'></i>"
-  tag: meetup 
-  
-- title: Boulder Ruby Group
-  short_date: January 20, 2016
-  byline: January 20, 2016 at Pivotal Labs  
-  short_description: Join the Boulder Ruby Group for their 10th anniversary event and learn more about RethinkDB. 
-  description: We're excited to be part of the Boulder Ruby Groups 10th anniversary event! Todd Resudek will present RethinkDB and share his experiences, plus he'll have some swag to hand out too.
-  permalink: http://www.meetup.com/boulder_ruby_group/events/226701243/
+  short_date: March 31, 2016
+  byline: March 31 at Heavybit Industries
+  short_description: Join us at Heavybit in San Francisco to celebrate our 2.3 release.  
+  description: Come celebrate the release of RethinkDB 2.3 plus get an early hands-on preview of Horizon! 
+  permalink: http://www.meetup.com/RethinkDB-SF-Meetup-Group/events/229492706/
   cta: "RSVP here <i class='right-arrow'></i>"
   tag: meetup 
 
-- title: RethinkDB Utah monthly meetup 
-  short_date: January 20, 2016
-  byline: January 20, 2016 at Lendio  
-  short_description: Join us at at Lendio in South Jordan for our next meetup.
-  description: This month, the group will discuss the basics of Meteor – a Javascript platform for building realtime web and mobile apps – and how it is likely to soon be compatible with RethinkDB. Show and tell your RethinkDB projects after. 
-  permalink: http://www.meetup.com/RethinkDB-Utah/events/227570892/
-  cta: "RSVP here <i class='right-arrow'></i>"
-  tag: meetup 
+- title: RethinkDB at Percona Live Conference 
+  short_date: April 20, 2016
+  byline: April 20, 2016 in Santa Clara 
+  short_description: Come learn about RethinkDB with cofounder Slava Akhmechet at Percona Live in Santa Clara.   
+  description: Join RethinkDB cofounder Slava Akhmechet at Percona Live at the Santa Clara Convention Center and learn how RethinkDB makes it easier to build modern, engaging realtime apps. 
+  permalink: https://www.percona.com/live/conferences
+  cta: "Learn more here <i class='right-arrow'></i>"
+  tag: conference 
+  
+- title: Horizon at ng-conf
+  short_date: May 4 - 6, 2016
+  byline: May 5, 2016 in Salt Lake City  
+  short_description:  Learn how to build your own realtime app with Horizon at our workshop!
+  description: Join RethinkDB cofounder Michael Glukhovsky in this interactive workshop and learn how to quickly build realtime apps with Horizon. 
+  permalink: https://www.ng-conf.org/#/
+  cta: "Learn more here <i class='right-arrow'></i>"
+  tag: conference 
+
+- title: Horizon at Space City JS 
+  short_date: May 14, 2016
+  byline: May 14, 2016 in Houston  
+  short_description: Stop by and hear Slava Akhmechet talk about the future of app development with Horizon. 
+  description: RethinkDB cofounder, Slava Akhmechet, will show you how to speed up app development with prefabricated, extensible, open-source backends, like Horizon. 
+  permalink: http://spacecity.codes/#
+  cta: "Learn more here <i class='right-arrow'></i>"
+  tag: conference 
  
-- title: RethinkDB and Node.js Application Development and Scaling in Mumbai  
-  short_date: January 22, 2016
-  byline: January 22, 2016 in Powai, Mumbai 
-  short_description: Learn about RethinkDB and Node.js application development and scaling at this montly RethinkDB event.  
-  description: Learn about RethinkDB and Node.js application development and scaling at this montly event! Contact Palash Oswal for more details <a href="tel:+9737045733">+9737045733</a> or find more details in our India Dev Slack channel at <a target="_BLANK" href="http://slack.rethinkdb.com">slack.rethinkdb.com</a>. 
-  permalink: 
-  cta: "<a class='button minimal' href='mailto:oswalpalash@gmail.com'>Contact Palash Oswal</a>"
-  tag: meetup 
+- title: RethinkDB at the Community Leadership Summit  
+  short_date: May 14 - 15, 2016
+  byline: May 15, 2016 in Austin 
+  short_description:  RethinkDB community manager, Christina Keelan, shares her community experiences at CLS! 
+  description: Join Christina Keelan as she shares her journey into tech, feelings of Imposter Syndrome, and what it's like to build an engaged, open source community. 
+  permalink: http://www.communityleadershipsummit.com/
+  cta: "Learn more here <i class='right-arrow'></i>"
+  tag: conference 
+
+- title: RethinkDB at OSCON  
+  short_date: May 16 - 19, 2016
+  byline: May 16 - 19, 2016 in Austin 
+  short_description: Join the team at OSCON!   
+  description: Join the team in Austin and learn what's new in open source! We'll host a BoF and lightning talk session, too, so be sure to find us! 
+  permalink: http://conferences.oreilly.com/oscon/open-source-us
+  cta: "Learn more here <i class='right-arrow'></i>"
+  tag: conference 
+  
+- title: Horizon at Data by the Bay  
+  short_date: May 16, 2016
+  byline: May 16, 2016 in Oakland 
+  short_description: Join Slava Akhmechet as he talk about the future of app development with Horizon.
+  description: RethinkDB cofounder, Slava Akhmechet, will show you how to speed up app development with prefabricated, extensible, open-source backends, like Horizon. 
+  permalink: http://data.bythebay.io/
+  cta: "Learn more here <i class='right-arrow'></i>"
+  tag: conference

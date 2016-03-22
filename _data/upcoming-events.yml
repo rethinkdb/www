@@ -24,8 +24,8 @@
   short_description: Come learn about RethinkDB with cofounder Slava Akhmechet at Percona Live in Santa Clara.   
   description: Join RethinkDB cofounder Slava Akhmechet at Percona Live at the Santa Clara Convention Center and learn how RethinkDB makes it easier to build modern, engaging realtime apps. 
   permalink: https://www.percona.com/live/conferences
- cta: "Learn more here <i class='right-arrow'></i>"
- tag: conference 
+  cta: "Learn more here <i class='right-arrow'></i>"
+  tag: conference 
   
 - title: Horizon at ng-conf
   short_date: May 4 - 6, 2016
@@ -63,7 +63,7 @@
   cta: "Learn more here <i class='right-arrow'></i>"
   tag: conference 
   
-  - title: Horizon at Data by the Bay  
+- title: Horizon at Data by the Bay  
   short_date: May 16, 2016
   byline: May 16, 2016 in Oakland 
   short_description: Join Slava Akhmechet as he talk about the future of app development with Horizon.

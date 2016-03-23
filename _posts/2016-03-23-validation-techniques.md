@@ -6,7 +6,7 @@ author_github: segphault
 hero_image: 2016-03-18-input-validation-banner.png
 ---
 
-Like many other modern JSON databases, RethinkDB is schemaless. The
+Like many other modern JSON databases, RethinkDB is schemaless: the
 developer doesn't have to define a fixed structure or specify field types
 when creating a new table. In cases where validation is desirable, it's up
 to the developer to build it into their application.
@@ -243,7 +243,7 @@ blog post, but some popular options that might also want to consider are
 [joi][] and [tcomb][].
 
 If you'd like to learn more about building Node.js applications with
-RethinkDB, you can refer to our [10 minute][10min] guide.
+RethinkDB, you can refer to our [10-minute][10min] guide.
 
 **Resources:**
 

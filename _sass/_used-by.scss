@@ -9,22 +9,7 @@ section.used-by {
 
     .logos {
 
-        #nasa {
 
-          float:left;
-
-          @include media($medium-screen) {
-            width: 12%;
-            padding: 0px 0px 0px 0px;
-            margin: 0px 6% 0px 7%;
-          }
-
-          @include media($mobile) {
-            width: 17%;
-            padding: 1.5rem 0rem 0rem 0rem;
-            margin: 0px 0px 0px 16%;
-          }
-        }
 
         @include outer-container;
         img {
@@ -40,6 +25,15 @@ section.used-by {
                 padding: $base-spacing $base-spacing*2;
             }
         }
+
+        // Since the NASA logo is sized differently than the others, need
+        //  to size a little differently.
+        #nasa {
+          @include media($medium-screen) { padding: 0rem 4rem 0rem 6.5rem; }
+          @include media($mobile) { padding: 4% 14% 2% 16% }
+        }
+
+
     }
 
     // Horizontal divider
@@ -58,19 +52,19 @@ section.used-by .testimonials {
     padding-top: $base-spacing/2;
 
     .site-container { padding: 0 rem(29); }
-    .testimonial {
-        @extend .half;
+
+    // Styles common to all testimonial types
+    .testimonial, .testimonial-single {
+
         // No margin on the last testimonial
         &:last-child blockquote { margin-right: 0; }
     }
 
-    .testimonial-full {
-      width: 100%;
-      margin-left: 15%;
+    // Normal testimonial gets one half of container width
+    .testimonial { @extend .half; }
+    // Single testimonial goes to two-thirds
+    .testimonial-single { @extend .two-third; }
 
-      // No margin on the last testimonial
-      &:last-child blockquote { margin-right: 0; }
-    }
 
     // Blockquote styles for each testimonial
     blockquote {

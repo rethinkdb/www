@@ -27,7 +27,8 @@ section.used-by {
         }
 
         // Since the NASA logo is sized differently than the others, need
-        //  to size a little differently.
+        //  to size a little differently. Sizing proportions are more extreme
+        //  on the mobile media query and required percentages on the padding. 
         #nasa {
           @include media($medium-screen) { padding: 0rem 4rem 0rem 6.5rem; }
           @include media($mobile) { padding: 4% 14% 2% 16% }

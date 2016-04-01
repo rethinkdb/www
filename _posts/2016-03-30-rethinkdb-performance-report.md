@@ -37,12 +37,13 @@ In the full report you can find the specifics of the tests and learn more about 
 
 **Notes:**
 
-* We were fortunate enough to receive free credits from Rackspace to perform the majority of these tests and are very grateful for their contributions to open source software. All of [Rackspace’s OnMetal offerings can be found here](https://www.rackspace.com/cloud/servers/onmetal).
-* We’d love to answer any questions you have about these tests. Come join us at [http://slack.rethinkdb.com](http://slack.rethinkdb.com) and feel free to ask more specific questions we don’t answer here by pinging @danielmewes or @dalanmiller.
-* Recently, the team behind BigchainDB – a scalable blockchain database built on top of RethinkDB – has benchmarked RethinkDB on a 32-server cluster running on Amazon's EC2. They measured throughput of more than a million writes per second. Their conclusion: "There is linear scaling in write performance with the number of nodes." The full report is available at [https://www.bigchaindb.com/whitepaper/](https://www.bigchaindb.com/whitepaper/)
-* We also recently employed Kyle Kingsbury, known to the Internet as [Aphyr](https://twitter.com/aphyr), as an independent researcher to evaluate RethinkDB cluster and consistency guarantees. He wrote [a pair of blog posts on how he tested and confirmed RethinkDB clustering and consistency guarantees](https://aphyr.com/tags/RethinkDB).
+* We were fortunate enough to receive free credits from Rackspace to perform the majority of these tests and are very grateful for their contributions to open source software. All of [Rackspace’s OnMetal offerings can be found here][rackspace].
+* We’d love to answer any questions you have about these tests. Come join us at [http://slack.rethinkdb.com][slack] and feel free to ask more specific questions we don’t answer here by pinging @danielmewes or @dalanmiller.
+* Recently, the team behind BigchainDB – a scalable blockchain database built on top of RethinkDB – has benchmarked RethinkDB on a 32-server cluster running on Amazon's EC2. They measured throughput of more than a million writes per second. Their conclusion: "There is linear scaling in write performance with the number of nodes." The full report is available at [https://www.bigchaindb.com/whitepaper/][bigchaindb]
+* We also recently employed Kyle Kingsbury, known to the Internet as [@aphyr][aphyr-twitter], as an independent researcher to evaluate RethinkDB. He wrote [a pair of blog posts][aphyr-blog] on how he tested and confirmed RethinkDB clustering and consistency guarantees.
 
-
+[aphyr-twitter]: https://twitter.com/aphyr
+[aphyr-blog]: https://aphyr.com/tags/RethinkDB
 [analytical]: /assets/images/posts/2016-03-15-analytical.png
 [bigchaindb]: https://www.bigchaindb.com/whitepaper/
 [perf-report]: https://rethinkdb.com/docs/performance-reports/2-1-5-performance-report/

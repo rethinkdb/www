@@ -186,7 +186,7 @@ trouble figuring out RethinkDB. You can learn it too, just check out our
 [ten-minute guide][10-guide]. You can also view my demo application's full
 source code [on GitHub][].
 
-<img src="/assets/images/posts/2014-04-01-skyla.jpg">
+<img src="/assets/images/posts/2016-04-01-skyla.jpg">
 
 **Resources:**
 

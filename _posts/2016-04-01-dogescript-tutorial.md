@@ -22,7 +22,7 @@ giving up indispensable packages like [left-pad][].
 My full-stack Dogescript demo uses Node.js on the backend. The frontend is
 built with the handlebars templating library and jQuery. The application, which
 is called Dogechat, displays a chat room with realtime messaging. It helpfully
-displays each message as a doge meme.
+shows each message as a doge meme.
 
 <!--more-->
 
@@ -119,6 +119,7 @@ application, I decided to rely on [dogr.io][], a cloud platform that provides
 doge memes as a service. In my handlebars template, I simply reference a
 dogr.io address to obtain a doge meme image for each message:
 
+{% raw %}
 ```html
 <script id="message-template" type="text/x-handlebars-template">
   <div class="message">
@@ -129,6 +130,7 @@ dogr.io address to obtain a doge meme image for each message:
   </div>
 </script>
 ```
+{% endraw %}
 
 # Fetch amaze
 

@@ -8,13 +8,13 @@ hero_image: 2016-04-22-nasa-case-study.png
 
 Whenever we hear about another organization using RethinkDB, we always get
 incredibly excited. So when we first heard that NASA was using RethinkDB we were
-over the moon 🌔! We asked Collin Estes, Director of Software Engineering, how
-they were using RethinkDB at NASA and we are happy to present this case-study of
-their usage of RethinkDB below:
+over the moon. We asked Collin Estes, Director of Software Engineering, how
+they use RethinkDB at NASA and we are proud to present this case-study
+of their usage of RethinkDB below:
 
 ---
 
-## RethinkDB Case Study :  NASA (EVA)
+## RethinkDB Case Study:  NASA (EVA)
 
 **Background:**
 
@@ -46,3 +46,15 @@ Shawn McGinty<br>
 
 Ryan Gill<br>
 *Software Engineer*
+
+---
+
+From all of us at RethinkDB, we want to thank Collin and his team for putting together this case study for us and sharing how they use RethinkDB.
+
+* Ready for lift-off? Try out our [ten-minute guide][10m] to RethinkDB.
+* Take a peek at our [Changefeeds API][changefeeds] mentioned in the case study.
+* Check out other companies that use RethinkDB in our [Realtime Stories][realtime-stories].
+
+[10m]: https://rethinkdb.com/docs/guide/javascript/
+[changefeeds]: https://rethinkdb.com/docs/changefeeds/python/
+[realtime-stories]: https://www.youtube.com/playlist?list=PLeOf6NJfdgGOxIXNjShlShNgshy4AXr91

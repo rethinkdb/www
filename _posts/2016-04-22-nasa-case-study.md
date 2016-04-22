@@ -16,12 +16,12 @@ of their usage of RethinkDB below:
 
 ## RethinkDB Case Study:  NASA (EVA)
 
-**Background:**
+**Background**
 
 Within NASA, the EVA office is responsible for everything dealing with Extra-Vehicular Activity (EVA), commonly referred to a spacewalks.  This includes the Extra-Vehicular Mobility Unit (EMU) which supports activities surrounding the International Space Station. The engineering, processing, logistics and operation of the EMU spacesuit is contracted under the “EVA Space Operations Contract” (ESOC) to United Technologies Aerospace Systems and their sub-contract partners, including MRI Technologies.  Part of MRI’s role on the ESOC contract is the software development supporting the property management, hardware processing, logistics, hardware operations and other business activities required to support the ESOC contractor community, EVA Office and the International Space Station program.  The ESOC contract has over 20 years of spacesuit data residing in numerous custom built applications in a wide variety of technology stacks.
 
 
-**Data Integration:**
+**Data Integration**
 
 In 2015, the EVA Office created a project tasked with the broad goal of better data integration across both government and contractor systems.  With support from NASA’s Office of the Chief Information Office (OCIO) and led by NASA’s Chief Architect, Sandeep Shetye, the MRI Dev Team designed and implemented a completely open source, cloud-based, enterprise architecture to begin the process of integrating over three decades of spacesuit data and migrating data and application functionalities to open source solutions hosted in the  AWS GovCloud.  
 

@@ -7,11 +7,12 @@ hero_image: 2016-04-22-nasa-case-study.png
 ---
 
 Whenever we hear about another organization using RethinkDB, we always get
-incredibly excited. So when we first heard that NASA was using RethinkDB we were
+incredibly excited. So when we first heard that NASA was using RethinkDB, we were
 over the moon. We asked Collin Estes, Director of Software Engineering, how
-they use RethinkDB at NASA and we are proud to present this case-study
+they use RethinkDB at NASA and we are proud to present this case study
 of their usage of RethinkDB below:
 
+<!-- more -->
 ---
 
 ## RethinkDB Case Study:  NASA (EVA)

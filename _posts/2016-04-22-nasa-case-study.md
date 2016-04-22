@@ -8,7 +8,7 @@ hero_image: 2016-04-22-nasa-case-study.png
 
 Whenever we hear about another organization using RethinkDB, we always get
 incredibly excited. So when we first heard that NASA was using RethinkDB we were
-on the moon 🌔! We asked Collin Estes, director of Software Engineering, how they
+on the moon 🌔! We asked Collin Estes, Director of Software Engineering, how they
 were using RethinkDB at NASA and we are happy to present this case-study of
 their usage of RethinkDB below:
 

@@ -12,7 +12,7 @@ over the moon. We asked Collin Estes, Director of Software Engineering, how
 they use RethinkDB at NASA and we are proud to present this case study
 of their usage of RethinkDB below:
 
-<!-- more -->
+<!--more-->
 ---
 
 ## RethinkDB Case Study:  NASA (EVA)

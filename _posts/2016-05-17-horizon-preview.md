@@ -4,6 +4,7 @@ title: "Introducing Horizon: build realtime web apps without writing backend
 code"
 author: Ryan Paul
 author_github: segphault
+hero_image: 2016-05-17-horizon-launch.png
 ---
 
 Today we are pleased to announce the first public preview of 
@@ -26,6 +27,8 @@ deploy your application anywhere you want: low-cost VPS hosting environments,
 scalable public cloud platforms, or your own bare metal. Horizon takes advantage
  of RethinkDB's [battle-tested clustering][], which makes it easy to scale as 
 your audience grows.
+
+<!--grow-->
 
 # Why Horizon?
 

@@ -28,7 +28,7 @@ scalable public cloud platforms, or your own bare metal. Horizon takes advantage
  of RethinkDB's [battle-tested clustering][], which makes it easy to scale as 
 your audience grows.
 
-<!--grow-->
+<!--more-->
 
 # Why Horizon?
 

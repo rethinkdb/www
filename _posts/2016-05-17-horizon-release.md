@@ -222,7 +222,7 @@ We're looking forward to working with you as we continue our effort to advance
 the realtime web.
 
 [horizon-install]:  https://horizon.io/install
-[horizon-getting-started]: https://horizon.io/getting-started
+[horizon-getting-started]: https://horizon.io/docs/getting-started
 [horizon-package]: https://www.npmjs.com/package/horizon
 [realtime-web]: https://rethinkdb.com/blog/realtime-web/
 [battle-tested clustering]: https://aphyr.com/posts/329-jepsen-rethinkdb-2-1-5

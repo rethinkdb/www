@@ -29,11 +29,13 @@ your audience grows.
 
 Alongside the open-source Horizon backend, we're also building a cloud 
 management service for deploying, managing, and scaling Horizon applications. 
-Horizon Cloud manages the Horizon backend and the underlying RethinkDB database,
- scaling them up and down automatically as needed to accommodate demand. Horizon
- Cloud also has built-in support for backup and restore, no-downtime version 
-updates, monitoring, and other useful features. Developers will be able to 
-deploy their application to Horizon Cloud with Horizon's command-line tool. 
+[Horizon Cloud][] manages the Horizon backend and the underlying RethinkDB 
+database, scaling them up and down automatically as needed to accommodate 
+demand. Horizon Cloud also has built-in support for backup and restore, 
+no-downtime version updates, monitoring, and other useful features. Developers 
+will be able to deploy their application to Horizon Cloud with Horizon's 
+command-line tool. Horizon Cloud is currently in private beta, but you can 
+expect to see more details soon.
 
 # Why Horizon?
 
@@ -77,9 +79,10 @@ hood, Horizon data collections are backed by RethinkDB tables. When you run
 Horizon in development mode, the server automatically creates tables and indexes
  as needed.
 
-The following example demonstrates how to use the Horizon client library. The 
-code shows how to store a JSON document in a Horizon collection and fetch a 
-filtered subset of the collection's records:
+The following example demonstrates how to use the Horizon client library from 
+the browser, or other frontend environment. The code shows how to store a JSON 
+document in a Horizon collection and fetch a filtered subset of the collection's
+ records:
 
 ```javascript
 var horizon = Horizon();
@@ -107,7 +110,7 @@ users.order("score", "descending").limit(5).watch()
 ```
 
 The query above sorts the users by score in descending order and gives you the 
-first five. Every time that value changes, the `forEach` callback will get a 
+first five. Every time that value changes, the `subscribe` callback will get a 
 complete array with the updated contents. It automatically maintains the sort 
 order and will add and remove users as needed.
 
@@ -124,10 +127,10 @@ supported commands:
 * store, upsert, replace
 * watch, fetch
 
-You can visit Horizon's documentation to learn more about the client library 
-API. We're working on a number of improvements that will increase the power and 
-expressiveness of the query language, like a feature that will let you 
-[combine multiple queries][model relations] to model relations.
+You can visit [Horizon's documentation][docs] to learn more about the client 
+library API. We're working on a number of improvements that will increase the 
+power and expressiveness of the query language, like a feature that will let you
+ [combine multiple queries][model relations] to model relations.
 
 # Integrating Horizon with the JavaScript ecosystem
 
@@ -170,8 +173,8 @@ languages. The protocol consists of simple JSON documents. It's built on top of
 
 Today's Horizon release is a starting point rather than the final destination. 
 You can expect to see new features and major improvements as the project 
-advances. The features [available today][] include: queries, live updates, 
-authentication, permissions, and support for serving static assets.
+advances. The [features available today][available today] include: queries, live
+ updates, authentication, permissions, and support for serving static assets.
 
 Some of the flagship features are less mature than others. The permission system
  and support for validation are recent additions, features that landed very late
@@ -243,5 +246,5 @@ the realtime web.
 [flipace-gh]: https://github.com/flipace
 [protocol]: https://github.com/rethinkdb/horizon/blob/next/docs/protocol.md
 [engine.io]: https://github.com/socketio/engine.io
-
-
+[Horizon Cloud]: http://horizon.io/cloud
+[docs]: http://horizon.io/docs

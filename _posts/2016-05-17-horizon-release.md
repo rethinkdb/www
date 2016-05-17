@@ -1,64 +1,74 @@
 ---
 layout: post
-title: "Introducing Horizon: build realtime web apps without writing backend 
-code"
+title: "Introducing Horizon: build realtime apps without writing backend code"
 author: Ryan Paul
 author_github: segphault
 hero_image: 2016-05-17-horizon-launch.png
 ---
 
-Today we are pleased to announce the first public preview of 
-[Horizon][horizon.io], an open source framework that lets developers build and 
-scale realtime web applications. The Horizon framework includes:
+Today we are pleased to announce the first official release of 
+[Horizon][horizon.io], an open-source backend that lets developers build and 
+scale realtime web applications. Horizon includes:
 
-* A **backend server** built with Node.js and RethinkDB that supports data persistence, input validation, user authentication, and permissions
+* A **backend server** built with Node.js and RethinkDB that supports data persistence, realtime streams, input validation, user authentication, and permissions
 * A **JavaScript client library** that developers can use on the frontend to store JSON documents in the database, perform queries, and subscribe to live updates
-* A **command line tool** that can generate project templates, start up a local Horizon development server, and help you deploy your Horizon application to the cloud
+* A **command-line tool** that can generate project templates, start up a local Horizon development server, and help you deploy your Horizon application to the cloud
 
-The Horizon server is a complete, pre-built backend that developers can use to 
-power their applications. Simply run the Horizon server from the command line 
-and develop your frontend user experience with the Horizon client library. 
-Frontend developers can use Horizon to create complete applications without 
-writing any backend code.
+The Horizon server is a complete backend that developers can use to power their 
+applications. It's great for rapid prototyping: simply run the Horizon server 
+from the command-line and develop your frontend user experience with the Horizon
+ client library. Frontend developers can use Horizon to create full applications
+ without writing any backend code.
 
-Horizon is open source software, which means that you can use and modify it as 
+Horizon is open-source software, which means that you can use and modify it as 
 you see fit. Run a local instance on your laptop during development and then 
 deploy your application anywhere you want: low-cost VPS hosting environments, 
 scalable public cloud platforms, or your own bare metal. Horizon takes advantage
  of RethinkDB's [battle-tested clustering][], which makes it easy to scale as 
 your audience grows.
 
-<!--more-->
+Alongside the open-source Horizon backend, we're also building a cloud 
+management service for deploying, managing, and scaling Horizon applications. 
+Horizon Cloud manages the Horizon backend and the underlying RethinkDB database,
+ scaling them up and down automatically as needed to accommodate demand. Horizon
+ Cloud also has built-in support for backup and restore, no-downtime version 
+updates, monitoring, and other useful features. Developers will be able to 
+deploy their application to Horizon Cloud with Horizon's command-line tool. 
 
 # Why Horizon?
 
 When we introduced changefeeds in RethinkDB 1.16 last year, we shared our plan 
 for [advancing the realtime web][realtime-web]. Instead of polling for changes, 
 we made it possible for developers to tell the database to push a continuous 
-stream of live results to their application. When we began to share this feature
- with our users, one question came up over and over again: can I access 
-RethinkDB's live updates directly from a frontend web application running in the
- browser?
+stream of live results to their application. When we shared this feature with 
+our users, one question came up over and over again: can I access RethinkDB's 
+live updates directly from a frontend web application running in the browser?
 
 We originally designed changefeeds for backend developers, leaving it up to them
- to decide to how to propagate realtime updates to frontend clients. Shortly 
-after we launched the feature, we started to consider the possibility of filling
- in that gap ourselves. We built a middleware layer on top of the database, 
-extending RethinkDB's realtime features all the way to the frontend.
+ to decide how to propagate realtime updates to frontend clients. Shortly after 
+we launched the feature, we started to think about the power of exposing 
+realtime data streams directly to the web browser. WebSocket abstraction 
+libraries, new data retrieval technologies like GraphQL, and powerful 
+asynchronous stream primitives like RxJS Observables promise new ways to 
+retrieve and manipulate data on the frontend. Web applications are evolving 
+beyond the stodgy legacy of conventional REST endpoints and ye olde 
+XMLHttpRequest. Horizon is built for that future, with realtime streaming from 
+the database to the frontend client.
 
 Horizon reduces the amount of friction that developers face when they build and 
 scale web applications. It eliminates repetitive boilerplate and tedious steps 
-like hand-writing endpoints. We set out to flatten the space between the 
-persistence layer and the frontend client, freeing the developer to focus on 
-application logic instead of plumbing.
+like hand-writing CRUD endpoints, authentication, and session management. We set
+ out to flatten the space between the persistence layer and the frontend client,
+ freeing the developer to focus on application logic instead of continually 
+reinventing the wheel.
 
 # Get started with Horizon
 
-To start working with Horizon today, install the 
-[horizon package][horizon-package] from NPM. The package includes the `hz` 
-command line tool, which you can use to generate and run your first project. You
- can find [detailed installation instructions](#) and an [introductory 
-tutorial](#) at the [Horizon website][horizon.io]. 
+To start working with Horizon today, install the [`horizon`][horizon-package] 
+package from NPM. The package includes the `hz` command-line tool, which you can
+ use to generate and run your first project. You can find [detailed installation
+ instructions](#) and an [introductory tutorial](#) at the 
+[Horizon website][horizon.io]. 
 
 The Horizon client library provides a fluent API that lets you express database 
 queries by chaining together methods. The queries return [RxJS][] Observables, 
@@ -82,7 +92,7 @@ messages.store({
 });
 
 messages.findAll({sender: "Bob"}).fetch()
-        .forEach(m => console.log(m));
+        .subscribe(m => console.log(m));
 ```
 
 To run a query continuously and get a stream of live updates for its result set,
@@ -93,7 +103,7 @@ Horizon query to build a realtime leaderboard for an online game:
 var users = horizon("users");
 
 users.order("score", "descending").limit(5).watch()
-     .forEach(items => console.log(items))
+     .subscribe(items => console.log(items))
 ```
 
 The query above sorts the users by score in descending order and gives you the 
@@ -116,8 +126,8 @@ supported commands:
 
 You can visit Horizon's documentation to learn more about the client library 
 API. We're working on a number of improvements that will increase the power and 
-expressiveness of the query language, like a feature that will let you combine 
-multiple queries to [model relations][].
+expressiveness of the query language, like a feature that will let you 
+[combine multiple queries][model relations] to model relations.
 
 # Integrating Horizon with the JavaScript ecosystem
 
@@ -139,39 +149,47 @@ popular frontend state managers like Redux.
 You can find a [selection of examples][examples] that demonstrate how to 
 integrate Horizon with various frontend and backend frameworks in the official 
 Horizon GitHub repository. React developers might also want to check out 
-[lovli.js][], a helpful boilerplate created by community member Patrick 
-Neschkudla that brings together Horizon, React, and Redux.
+[lovli.js][], a helpful boilerplate created by community member 
+[Patrick Neschkudla][flipace-gh] that brings together Horizon, React, and Redux.
 
 We look forward to bringing native Horizon client libraries to mobile platforms 
 at some point in the future. We're also actively 
-[working with our community][rn-discuss] to make sure that the current 
-JavaScript client library works well in React Native and other environments 
-outside of the web browser.
+[working with our community][rn-discuss] to make sure that the Horizon 
+JavaScript client library works in environments like Electron and React Native. 
+JavaScript is making inroads everywhere, from embedded IoT systems to desktop 
+and mobile applications. We think that Horizon has a lot to offer in all of the 
+places that developers choose JavaScript.
+
+We're also documenting the [underlying protocol][protocol] that our client 
+library uses to communicate with the Horizon backend. Developers can use the 
+protocol to build their own client library implementations on other programming 
+languages. The protocol consists of simple JSON documents. It's built on top of 
+[engine.io][], a realtime framework that supports multiple network transports. 
 
 # Roadmap
 
-Horizon is still under heavy active development. The key features 
-[available today][] in the developer preview include: queries, live updates, 
+Today's Horizon release is a starting point rather than the final destination. 
+You can expect to see new features and major improvements as the project 
+advances. The features [available today][] include: queries, live updates, 
 authentication, permissions, and support for serving static assets.
 
-Some of the flagship features are less mature than others, however. The 
-permission system and support for validation are recent additions, features that
- landed very late in the development cycle. You may want to exercise some 
-caution when using those features, because we expect them to need further 
-refinement. Horizon itself also needs some additional time to settle before its 
-ready for production deployment.
+Some of the flagship features are less mature than others. The permission system
+ and support for validation are recent additions, features that landed very late
+ in the development cycle. You might encounter some rough edges as we work to 
+refine those features and incorporate further improvements.
 
 The long-term roadmap is still evolving, but the following is a brief list of 
 features that we'd like to include in future releases of Horizon:
 
-* [A built-in admin dashboard with an interactive data browser][hzadmin]
-* [Better connection lifecycle management and disconnect recovery][issue-reconnect]
-* [Support for building your own Horizon commands with ReQL and JavaScript][issue-endpoints]
-* [Support for handling file uploads from the client][issue-uploads]
-* [Conventional password authentication in addition to OAuth providers][issue-password]
-* [A built-in pagination API that works with realtime queries][issue-pagination]
-* [Native support for performing optimistic updates][issue-optimistic]
-* [Support for relations via query aggregation][model relations]
+* A [built-in admin dashboard][hzadmin] with an interactive data browser
+* Better [connection lifecycle management][issue-reconnect] and disconnect recovery
+* Support for [building your own Horizon commands][issue-endpoints] with ReQL and JavaScript
+* Support for [handling file uploads][issue-uploads] from the client
+* Conventional [password authentication][issue-password] in addition to OAuth providers
+* A built-in [pagination API][issue-pagination] that works with realtime queries
+* Native support for performing [optimistic updates][issue-optimistic]
+* Support for relations via [query aggregation][model relations]
+* Built-in support for [fetching data with GraphQL][issue-graphql]
 
 You can expect to see routine status updates in the [Horizon forum][forum] as we
  work towards completing these features and stabilizing the Horizon code base.
@@ -179,22 +197,22 @@ You can expect to see routine status updates in the [Horizon forum][forum] as we
 # Community participation
 
 During the earliest stages of our work on Horizon, we invited members of the 
-RethinkDB community to participate and provide feedback. As interest increased, 
-we opened the project up to more users. The number of participants in the 
-private preview grew to over 1700 prior to today's launch. The feedback and code
- contributions we received from those users helped drive Horizon development, 
-shaping the project's feature set and developer ergonomics.
+RethinkDB community to participate and provide feedback. The developer preview 
+amassed well over 1,700 contributors testing, building, and adding features to 
+Horizon prior to today's launch. The feedback and code contributions we received
+ from those users helped drive Horizon development, shaping the project's 
+feature set and developer ergonomics.
 
 We're opening Horizon up to everyone today so that more people can get involved 
 and join the community. We're eager to hear your feedback and feature requests. 
 There are several places where you can reach us and other members of the 
 community:
 
-* [The Horizon.io website][horizon.io]
-* [The official Horizon forum][forum]
-* [The Horizon repo and issue tracker on GitHub][repo]
-* [The #horizon channel in our RethinkDB Slack group][slack]
-* [The @horizonjs Twitter account][twitter]
+* The [Horizon.io website][horizon.io]
+* The official [Horizon forum][forum]
+* The [Horizon project][repo] and issue tracker on GitHub
+* The #horizon channel in our [RethinkDB Slack group][slack]
+* Follow us on Twitter: [@horizonjs][twitter]
 
 We're looking forward to working with you as we continue our effort to advance 
 the realtime web.
@@ -221,4 +239,9 @@ the realtime web.
 [issue-password]: https://github.com/rethinkdb/horizon/issues/176
 [issue-pagination]: https://github.com/rethinkdb/horizon/issues/31
 [issue-optimistic]: https://github.com/rethinkdb/horizon/issues/23
+[issue-graphql]: https://github.com/rethinkdb/horizon/issues/125
+[flipace-gh]: https://github.com/flipace
+[protocol]: https://github.com/rethinkdb/horizon/blob/next/docs/protocol.md
+[engine.io]: https://github.com/socketio/engine.io
+
 

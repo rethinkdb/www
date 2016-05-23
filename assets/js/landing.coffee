@@ -15,14 +15,18 @@ $ ->
     draw_ui_graph()
 
     # Realtime query animations
+    # This initializes a couple starting messages for the animation but does
+    # not start the animation loop
     for n in [0..3]
-        add_realtime_message()
-    setInterval(add_realtime_message, 3000)
+        add_realtime_message(true)
+
+    # This call continuously calls the additional messages, every 1000ms
+    d3.timer(add_realtime_message(false), 1000)
 
     # Switching between examples & use cases
     $('.examples nav a').on 'click', (event) ->
         event.preventDefault()
-        
+
         # Add active border styling to the link and remove previous active states
         $(this).siblings().removeClass('active')
         $(this).addClass('active')
@@ -44,31 +48,44 @@ $ ->
         , 100
 
 # Realtime messages stream of player scores
-add_realtime_message = ->
-    max_messages = 20
-    msg_height = 22 # height of each message in pixels
-    
-    # Create a new message
-    msg =
-        name: names[Math.floor(Math.random() * names.length)]
-        score: Math.floor(Math.random() * score_cap)
-    $msg = $("<li class='collapsed'>{'player':&nbsp;'#{msg.name}',&#8203;&nbsp;'score':&nbsp;#{msg.score}}</li>")
+# ret parameter determines whether or not the timer function should be canceled
+# thus for the initial loading of the realtime messages we want the timer to
+# cancel so we return true, but adding data later we want the function to not
+# cancel and continue to keep the data flow.
+# This SO article explains - http://stackoverflow.com/a/13403376
+add_realtime_message = (ret) ->
 
-    # Prepend it to the message list, and slide the messages down
-    $messages = $('.realtime-queries .messages')
-    $messages.prepend($msg)
-    setTimeout (-> $msg.removeClass('collapsed')), 100
+    return =>
+      max_messages = 20
+      msg_height = 22 # height of each message in pixels
 
-    # Trim the list if it's too long
-    for _msg in $messages.children().slice(max_messages)
-        $(_msg).remove()
+      # Create a new message
+      msg =
+          name: names[Math.floor(Math.random() * names.length)]
+          score: Math.floor(Math.random() * score_cap)
+      $msg = $("<li class='collapsed'>{'player':&nbsp;'#{msg.name}',&#8203;&nbsp;'score':&nbsp;#{msg.score}}</li>")
 
-    # Update the leaderboard with the new score
-    update_leaderboard(msg)
+      # Prepend it to the message list, and slide the messages down
+      $messages = $('.realtime-queries .messages')
+      $messages.prepend($msg)
+      setTimeout (-> $msg.removeClass('collapsed')), 100
 
-    # Bump up the score cap
-    score_cap = score_cap + 1
-        
+      # Trim the list if it's too long
+      for _msg in $messages.children().slice(max_messages)
+          $(_msg).remove()
+
+      # Update the leaderboard with the new score
+      update_leaderboard(msg)
+
+      # Bump up the score cap
+      score_cap = score_cap + 1
+
+      if ret is false
+        d3.timer(add_realtime_message(false), 3000)
+
+      return true
+
+
 # Realtime leaderboard of top scores
 update_leaderboard = (msg) ->
     max_scores = 5
@@ -140,7 +157,16 @@ draw_ui_graph = ->
                 .attr('class', graph_type)
                 .attr('d', line)
 
-    redraw = ->
+    createNextFunction = ->
+    # Function which draws the next frame in the line animation. Returns true to
+    # cancel the timer but beforehand calls the next timer with a new instance
+    # of this function as d3.timer maps timers to function _instances_
+
+      return ->
+
+        for arr in [data['reads'], data['writes']]
+              arr.push(arr.shift())
+
         for graph_type in ['reads', 'writes']
             graph.selectAll("path.#{graph_type}")
                 .data([data[graph_type]])
@@ -152,9 +178,8 @@ draw_ui_graph = ->
                 .duration(update_freq)
                 .attr('transform', "translate(#{x(0)})")
 
-    setInterval () ->
-        # Rotate the data for each graph -- pop the first element, push it to the end
-        for arr in [data['reads'], data['writes']]
-            arr.push(arr.shift())
-        redraw()
-    , update_freq
+        d3.timer(createNextFunction(), update_freq)
+        return true
+
+    #Start the line animation loop here.
+    d3.timer(createNextFunction(), update_freq);

@@ -24,7 +24,7 @@ version:
     codename: Fantasia
     release_post: /blog/2.3-release
 rethinkdb_users: "100,000"
-github_stars: "13k"
+github_stars: "14k"
 
 sass:
     sass_dir: _sass

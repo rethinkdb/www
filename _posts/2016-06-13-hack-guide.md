@@ -2,7 +2,7 @@
 layout: post
 title: Write about RethinkDB & you could win a prize!
 author: Christina Keelan
-author_github: kittybot
+author_github: KittyBot
 hero_image: 2016-06-13-contest-banner.png
 --- 
 Starting today, we're sponsoring $500 for the best content written about

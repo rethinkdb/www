@@ -3,6 +3,7 @@ layout: post
 title: Write about RethinkDB & you could win a prize!
 author: Christina Keelan
 author_github: kittybot
+hero_image: 2016-06-13-contest-banner.png
 --- 
 Starting today, we're sponsoring $500 for the best content written about RethinkDB during Pluralsight's [hack.guides() 2016 Tutorial Contest](http://tutorials.pluralsight.com/contest/).
 

@@ -14,9 +14,9 @@ the examples give a good idea of how to put all the pieces together.
 
 So far we've published two applications based on the following stacks:
 
-* A [todo list][todo] built with Flask, Backbone.js, and RethinkDB (see it on
+* A todo list built with Flask, Backbone.js, and RethinkDB (see it on
   [GitHub][todo-github])
-* A [simple Pastie app][pastie] built with Sinatra and RethinkDB (see it on
+* A simple Pastie app built with Sinatra and RethinkDB (see it on
   [GitHub][pastie-github])
 
 [todo]: /docs/examples/flask-backbone-todo

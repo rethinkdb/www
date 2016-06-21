@@ -17,7 +17,7 @@ of their usage of RethinkDB below:
 
 ## RethinkDB Case Study:  NASA (EVA)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/_YPUvv6dEDLc" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/YPUvv6dEDLc" frameborder="0" allowfullscreen></iframe>
 
 **Background**
 

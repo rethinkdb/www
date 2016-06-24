@@ -24,7 +24,7 @@ We found that in a mixed read/write workload, RethinkDB with two servers was abl
 
 Finally, we used a MapReduce query to compute word counts across the whole data set. This test evaluates RethinkDB's scalability for analytic workloads in a simplistic but very common fashion. These types of workloads involve doing information processing on the server itself versus typical single or ranged reads and writes of information processed at the application level.
 
-Here we we show how RethinkDB scales up to 16-nodes with these various workloads:
+Here we we show how RethinkDB scales up to 16 nodes with these various workloads:
 
 ![Workload A][w-a]
 ![Workload C Synchronous][w-c-sync]

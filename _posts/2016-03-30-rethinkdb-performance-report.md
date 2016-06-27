@@ -19,7 +19,7 @@ We’ll answer these questions by using different workloads from the YCSB benchm
 In the results, we’ll see how RethinkDB scales to perform 1.3 million individual reads per second. We will also demonstrate how RethinkDB performs well above 100 thousand operations per second in a mixed 50:50 read/write workload - while at the full level of durability and data integrity guarantees. We performed all benchmarks across a range of cluster sizes, scaling up from one to 16 nodes.
 
 {% infobox %}
-This performance report was done using RethinkDB version 2.1.5 and multiple releases have occurred since then. It takes a large amount of effort to create and perform a quality performance report that covers multiple use cases. In the future, we will be rerunning the tests on subsequent releases of RethinkDB. If you have any recommendations on expanded testing of use cases, please see the notes below to contact us.
+__Note__: This performance report was done using RethinkDB version 2.1.5 which was released October 7th, 2015. It takes a large amount of effort to create a quality performance report that covers multiple use cases. In the future, we plan to update this report for subsequent releases of RethinkDB. If you have any recommendations or thoughts on expanded testing, please see the notes below to contact us.
 {% endinfobox %}
 
 # A quick overview of the results

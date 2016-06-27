@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "RethinkDB 2.1.5 Performance & Scalability"
+title: "RethinkDB 2.1.5 performance & scalability"
 author: Daniel Alan Miller
 author_github: dalanmiller
 hero_image: 2016-03-30-performance-report-2-1-5.png
@@ -37,7 +37,7 @@ Here we we show how RethinkDB scales up to 16 nodes with these various workloads
 
 In the full report you can find the specifics of the tests and learn more about latency distributions as we scaled up to 16 server clusters for each workload.
 
-## [Click here to view the full report][perf-report]
+<a class="post-link button outlined dark" href="https://rethinkdb.com/docs/performance-reports/2-1-5-performance-report/">See the full performance report</a>
 
 **Notes:**
 

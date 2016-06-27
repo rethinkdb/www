@@ -20,7 +20,7 @@ In the results, we’ll see how RethinkDB scales to perform 1.3 million individu
 
 {% infobox %}
 This performance report was done using RethinkDB version 2.1.5 and multiple releases have occurred since then. It takes a large amount of effort to create and perform a quality performance report that covers multiple use cases. In the future, we will be rerunning the tests on subsequent releases of RethinkDB. If you have any recommendations on expanded testing of use cases, please see the notes below to contact us.
-{% end infobox %}
+{% endinfobox %}
 
 # A quick overview of the results
 

@@ -3,7 +3,7 @@ layout: post
 title: "RethinkDB 2.1.5 performance & scalability"
 author: Daniel Alan Miller
 author_github: dalanmiller
-hero_image: 2016-03-30-performance-report-2-1-5.png
+hero_image: 2016-06-29-performance-report-2-1-5.png
 ---
 
 This report describes a recent effort that the RethinkDB team took to measure our database product, RethinkDB, under different workloads and in different clustering configurations. We seek to provide a general overview of RethinkDB’s performance metrics for a variety of workloads and potential use cases. In this report some of the questions we’ll address include:  

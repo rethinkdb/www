@@ -3,7 +3,7 @@ layout: post
 title: "RethinkDB 2.1.5 performance & scalability"
 author: Daniel Alan Miller
 author_github: dalanmiller
-hero_image: 2016-03-30-performance-report-2-1-5.png
+hero_image: 2016-06-29-performance-report-2-1-5.png
 ---
 
 This report describes a recent effort that the RethinkDB team took to measure

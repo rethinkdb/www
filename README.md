@@ -20,7 +20,7 @@ managed by the `rake` tasks.
 Start by cloning this repository:
 
 ```
-git clone git@github.com:rethinkdb/www-thoughtbot.git
+git clone git@github.com:rethinkdb/www.git
 ```
 
 Before you can build the site, you need to install required dependencies with

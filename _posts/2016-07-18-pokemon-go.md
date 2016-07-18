@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "RethinkDB meets Pok&eacute;mon Go: computing the shortest path between Pokestops with ReQL"
+title: "RethinkDB meets Pok&eacute;mon Go: computing the shortest path between Pok&eacute;stops with ReQL"
 author: Ryan Paul
 author_github: segphault
 hero_image: 2016-07-18-pokemon-go-banner.png
@@ -69,7 +69,7 @@ let pokestopRoute = (lat, long) =>
   .min('length')
 ```
 
-Daniel's query takes the closest five Pok&eacute;stops, to a given point,
+Daniel's query takes the closest five Pok&eacute;stops to a given point,
 computes every possible path, adds up the total length of each one, and then
 spits out the path with the shortest distance. It's not fast or particularly
 practical, but we think that it's a great illustration of ReQL's expressive
@@ -86,6 +86,8 @@ about what you can do with RethinkDB's query language, be sure to catch our
 [introduction to ReQL][reqlintro] and the [query cookbook][].
 
 See you at the gym, fellow Pok&eacute;mon trainers!
+
+<img src="/assets/images/posts/2016-07-18-pokemon-thinker.jpg">
 
 [polygon-article]: http://www.polygon.com/2016/7/7/12118576/pokemon-go-pokestop-gym-locations-map-guide
 [map]: https://www.google.com/maps/d/u/0/viewer?mid=1NMi554M7U1HFJhxvDuwEBXEFsSU

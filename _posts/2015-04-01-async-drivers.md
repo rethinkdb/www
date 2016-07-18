@@ -56,7 +56,7 @@ r.set_loop_type("tornado")
 def print_changes():
     conn = yield r.connect(host="localhost", port=28015)
     feed = yield r.table("table").changes().run(conn)
-    while (yield feed.fetch_next())
+    while (yield feed.fetch_next()):
         change = yield feed.next()
         print(change)
 

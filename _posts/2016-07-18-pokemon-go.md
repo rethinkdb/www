@@ -3,6 +3,7 @@ layout: post
 title: "RethinkDB meets Pok&eacute;mon Go: computing the shortest path between Pokestops with ReQL"
 author: Ryan Paul
 author_github: segphault
+hero_image: 2016-07-18-pokemon-go-banner.png
 ---
 
 Mobile developer Niantic recently brought Nintendo's popular Pok&eacute;mon franchise
@@ -55,9 +56,9 @@ let computePathLength = path =>
     prev: point
   }))('dist');
 
-let output =
+let pokestopRoute = (lat, long) => 
   r.table('pokestops')
-   .orderBy({index: 'id'}).limit(5)
+   .getNearest(r.point(long, lat), {index: "location", maxResults: 5})("doc")
    .pluck('location', 'properties')
    .coerceTo('array')
    .do(generatePermutations)
@@ -68,11 +69,11 @@ let output =
   .min('length')
 ```
 
-Daniel's query takes the first five Pok&eacute;stops, computes every possible path,
-adds up the total length of each one, and then spits out the path with the
-shortest distance. It's not fast or particularly practical, but we think that
-it's a great illustration of ReQL's expressive power despite its arguable lack
-of real-world applicability.
+Daniel's query takes the closest five Pok&eacute;stops, to a given point,
+computes every possible path, adds up the total length of each one, and then
+spits out the path with the shortest distance. It's not fast or particularly
+practical, but we think that it's a great illustration of ReQL's expressive
+power despite its arguable lack of real-world applicability.
 
 The query takes advantage of the new [`fold`][fold] command, which debuted in
 [RethinkDB 2.3][r23] earlier this year. It also uses RethinkDB's built-in

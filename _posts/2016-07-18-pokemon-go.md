@@ -91,10 +91,10 @@ See you at the gym, fellow Pok&eacute;mon trainers!
 
 [polygon-article]: http://www.polygon.com/2016/7/7/12118576/pokemon-go-pokestop-gym-locations-map-guide
 [map]: https://www.google.com/maps/d/u/0/viewer?mid=1NMi554M7U1HFJhxvDuwEBXEFsSU
-[r23]: https://rethinkdb.com/blog/2.3-release/
-[fold]: https://rethinkdb.com/api/javascript/fold/
-[rgeojson]: https://rethinkdb.com/docs/geo-support/javascript/
+[r23]: /blog/2.3-release/
+[fold]: /api/javascript/fold/
+[rgeojson]: /docs/geo-support/javascript/
 [tsp]: https://en.wikipedia.org/wiki/Travelling_salesman_problem
-[reqlintro]: https://www.rethinkdb.com/docs/introduction-to-reql/
-[query cookbook]: https://www.rethinkdb.com/docs/cookbook/javascript/
-[ten-minute guide]: https://www.rethinkdb.com/docs/guide/javascript/
+[reqlintro]: /docs/introduction-to-reql/
+[query cookbook]: /docs/cookbook/javascript/
+[ten-minute guide]: /docs/guide/javascript/

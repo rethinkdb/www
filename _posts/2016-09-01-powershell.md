@@ -125,7 +125,7 @@ PowerShell's `@{}` notation for describing object literals is useful for
 inserting new database records and filtering:
 
 ```powershell
-PS> $R.table("fellowship").filter(@{"species" = "hobbit"})["name"].Run($conn)                                                                         
+PS> $R.table("fellowship").filter(@{"species" = "hobbit"})["name"].Run($conn)
 Frodo
 Sam
 Pippin

@@ -3,6 +3,7 @@ layout: post
 title: "Use the RethinkDB C# driver in PowerShell on Linux"
 author: Ryan Paul
 author_github: segphault
+hero_image: 2016-09-06-powershell-banner.png
 ---
 
 PowerShell is a scripting and command line shell built on top of the .NET

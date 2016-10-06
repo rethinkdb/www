@@ -46,16 +46,6 @@
             {% include navbar.html %}
             {{ content }}
 
-            <!-- support -->
-            {% unless page.body_class == 'services' %}
-            <footer class="support-footer">
-                <div class="site-container">
-                    <h1>Need 24 hour support, architectural consulting, or training?</h1>
-                    <a class="button light" href="/services">Buy support <i class="right-arrow white">&rarr;</i></a>
-                </div>
-            </footer>
-            {% endunless %}
-
             <!-- site footer -->
             <footer class="site-footer">
                 <div class="site-container">
@@ -113,8 +103,6 @@
                                 <span>RethinkDB</span>
                             </header>
                             <ul>
-                                <li><a href="/about/">Company</a></li>
-                                <li><a href="/services/">Services</a></li>
                                 <li><a href="/blog/">Blog</a></li>
                             </ul>
                         </li>
@@ -123,19 +111,6 @@
                 </div>
             </footer>
         </div>
-        <script type="text/javascript">
-            var _gauges = _gauges || [];
-            (function() {
-             var t   = document.createElement('script');
-             t.type  = 'text/javascript';
-             t.async = true;
-             t.id    = 'gauges-tracker';
-             t.setAttribute('data-site-id', '509d21aff5a1f5572a000010');
-             t.src = '//secure.gaug.es/track.js';
-             var s = document.getElementsByTagName('script')[0];
-             s.parentNode.insertBefore(t, s);
-             })();
-         </script> 
          <script type="text/javascript">
 
              var _gaq = _gaq || [];
@@ -147,10 +122,6 @@
               ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
               var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
               })();
-        </script>
-        <script type="text/javascript">
-            window.heap=window.heap||[],heap.load=function(e,t){window.heap.appid=e,window.heap.config=t=t||{};var n=t.forceSSL||"https:"===document.location.protocol,a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=(n?"https:":"http:")+"//cdn.heapanalytics.com/js/heap-"+e+".js";var o=document.getElementsByTagName("script")[0];o.parentNode.insertBefore(a,o);for(var r=function(e){return function(){heap.push([e].concat(Array.prototype.slice.call(arguments,0)))}},p=["clearEventProperties","identify","setEventProperties","track","unsetEventProperty"],c=0;c<p.length;c++)heap[p[c]]=r(p[c])};
-            heap.load("3828893724");
         </script>
     </body>
 </html>

@@ -7,7 +7,6 @@
         <li><a href="/docs">Docs</a></li>
         <li><a href="/api">API</a></li>
         <li><a href="/community">Community</a></li>
-        <li><a href="/services">Services</a></li>
         <li><a href="/blog">Blog</a></li>
     </ul>
     {% case page.include_nav %}
@@ -26,7 +25,6 @@
             <li{% if page.active == 'docs' and page.docs_active != 'faq' %}{{ active }}{% endif %}><a href="/docs">Docs</a></li>
             <li{% if page.active == 'api' %}{{ active }}{% endif %}><a href="/api">API</a></li>
             <li{% if page.active == 'community' %}{{ active }}{% endif %}><a href="/community">Community</a></li>
-            <li{% if page.active == 'services' %}{{ active }}{% endif %}><a href="/services">Services</a></li>
             <li{% if page.active == 'blog' %}{{ active }}{% endif %}><a href="/blog">Blog</a></li>
         </ul>
     </div>

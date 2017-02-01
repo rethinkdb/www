@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "StartFEST 2015 was awesome"
-author: Daniel Alan Miller
+author: Dalan Miller
 author_github: dalanmiller
 hero_image: 2015-09-04-startfest-is-awesome-02.png
 ---

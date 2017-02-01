@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Rethinking temperature, sensors, and Raspberry Pi"
-author: Daniel Alan Miller
+author: Dalan Miller
 author_github: dalanmiller
 hero_image: 2015-07-31-temperature-sensors-and-a-side-of-pi-hero.png
 ---

@@ -1,0 +1,115 @@
+---
+layout: document
+title: Contribute to RethinkDB
+active: contribute
+body_class: contribute
+permalink: /contribute/
+---
+<section class="content">
+    <article class="become-a-contributor">
+        <img class="banner" src="/assets/images/contribute/contribute.png" />
+        <h1>Contribute to RethinkDB</h1>
+        <p>RethinkDB is an open-source software project run by volunteers. We depend on participation and financial support from the community to make the project healthy and successful. We're delighted that you want to help us move RethinkDB forward.
+        <h2>Become a contributor</h2>
+        <p>There are many ways to contribute to the project. Although a working knowledge of C++ is necessary for contributing to the development of the database itself, there are many other essential components in the RethinkDB ecosystem that can benefit from users and developers with diverse backgrounds and skill sets. Here are some ways that you can help:</p>
+        <ul>
+            <li>Add new features and improvements to the database</li>
+            <li>Improve RethinkDB's frontend web interface and other administrative tools</li>
+            <li>Identify, report, triage, and fix bugs in RethinkDB and its subprojects</li>
+            <li>Draft and edit documentation for RethinkDB and its subprojects</li>
+            <li>Maintain and improve our testing and build tooling</li>
+            <li>Develop and maintain client libraries for various programming languages (JavaScript, Python, Ruby, Java, and <a href="http://localhost:8888/docs/install-drivers/">many more</a> languages)</li>
+            <li>Build integrations between RethinkDB and useful third-party software</li>
+            <li>Build libraries and frameworks for RethinkDB users</li>
+        </ul>
+        <a class="button outlined dark" href="https://goo.gl/forms/ADYvVdcOSCJteBbP2">Become a contributor<i class="right-arrow">go</i></a>
+    </article>
+    <article>
+        <a name="donate"></a>
+        <h1>Donate to the RethinkDB project</h1>
+        <p>You can make a donation to fund RethinkDB and help secure the project's future. We will use your donations to pay for future development and cover the costs associated with our servers and build infrastructure. The project's finances are administered through <a href="https://www.linuxfoundation.org/">The Linux Foundation</a>, a 501(c)(6) non-profit organization.
+
+        <section class="donation-form">
+            <form id="form" action="/stripe/donate" method="POST">
+                <h2>Every donation is appreciated:</h2>
+                <div class="contribution-level">
+                  <div class="switch">
+                      <input type="radio" id="switch-1" name="level" value="25"/>
+                      <label for="switch-1">$25</label>
+                      <input type="radio" id="switch-2" name="level" value="50" checked />
+                      <label for="switch-2">$50</label>
+            		      <input type="radio" id="switch-3" name="level" value="100" />
+                      <label for="switch-3">$100</label>
+                      <input type="radio" id="switch-4" name="level" value="250" />
+                      <label for="switch-4">$250</label>
+                  </div>
+                  <div class="amount">
+                    <span class="currency">$</span>
+                    <input type="text" id="amount" name="amount" placeholder="Other amount"/>
+                  </div>
+                </div>
+                <input type="hidden" id="stripeToken" name="stripeToken" />
+                <input type="hidden" id="stripeEmail" name="stripeEmail" />
+                <input type="hidden" id="stripeAmount" name="stripeAmount"/>
+            </form>
+
+            <button type="button" id="donate-button">Donate</button>
+        </section>
+        <div class="infobox infobox-alert infobox-stripe"><a href="https://stripe.com">Stripe</a> has generously agreed to <strong>match $25,000 in donations</strong>.</div>
+        <p><strong>We also welcome corporate sponsorship.</strong> If you are interested in making a larger donation, funding specific work on the project, or would like to discuss other ways that your organization can support RethinkDB's future, please get in touch with our leadership team.</p>
+    </article>
+</section>
+<aside class="sidebar">
+  <ul>
+      <li class="infobox read-more">
+          <h1>What is RethinkDB?</h1>
+          <p>
+              RethinkDB is the open source database for the
+              realtime web: <a href="/faq">learn how it works</a>.
+          </p>
+      </li>
+      <li class="infobox infobox-alert">
+          <h1>Donate to support RethinkDB</h1>
+          <p>Your donation helps <a href="#donate">support RethinkDB's future</a> as an open-source project.</p>
+      </li>
+  </ul>
+</aside>
+
+
+<script src="https://checkout.stripe.com/checkout.js"></script>
+<script type="text/javascript">
+  var handler = StripeCheckout.configure({
+      key: 'pk_live_xQihwn4AOg9KJRi8r3hqNQAH',
+      image: 'https://rethinkdb.com/favicon.png',
+      token: function (token) {
+          $("#stripeToken").val(token.id);
+          $("#stripeEmail").val(token.email);
+          $("#form").submit();
+      }
+  });
+
+  $('#donate-button').on('click', function (e) {
+      // Using the custom amount
+      var amount = parseFloat($("#amount").val() * 100);
+      // If we can't use the valid custom amount, use the preselected level
+      if (!amount || amount === NaN) {
+          amount = parseFloat($(".contribution-level .switch input:checked").val() * 100)
+      }
+
+      var displayAmount = Math.floor(amount / 100).toFixed(2);
+      $("#stripeAmount").val(amount);
+
+      // Open Checkout with further options
+      handler.open({
+          name: 'RethinkDB',
+          description: 'Donation to the project: $' + displayAmount,
+          amount: amount
+      });
+      e.preventDefault();
+  });
+
+  // Close Checkout on page navigation
+  $(window).on('popstate', function () {
+      handler.close();
+  });
+</script>

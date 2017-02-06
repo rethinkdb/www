@@ -1,6 +1,6 @@
 // Infobox styles
 
-.infobox, 
+.infobox,
 .documentation .infobox, // overcoming CSS speficity
 .documentation .docs-article .infobox,
 .blog .post .post-body .infobox {
@@ -27,10 +27,10 @@
             margin: 0 0 0 -$_size;
         }
         &.infobox-alert:after {
-            border-color: rgb(249, 243, 219) transparent;
+            border-color: rgb(230, 241, 244) transparent;
         }
     }
-    
+
     // Typographic styles
     p, li {
         @include font-size-rem(16);
@@ -60,7 +60,7 @@
         padding-bottom: 0;
         li:last-child { margin-bottom: 0; }
 
-        > ul { 
+        > ul {
             margin: 0;
             li:last-child { margin-bottom: 0; }
         }

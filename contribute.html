@@ -1,0 +1,75 @@
+---
+layout: document
+title: Contribute to RethinkDB
+active: contribute
+body_class: contribute
+permalink: /contribute/
+---
+    <h1>Contributing to RethinkDB</h1>
+    <p>RethinkDB is an open-source project run by a community of volunteers. We're delighted that you want to contribute.
+    <h2>Become a RethinkDB contributor</h2>
+    <h2>Donate to the RethinkDB project</h2>
+
+
+    <p>We an open-source project run by a community of volunteers. We are supported by the Linux Foundation. We depend on people like you.</p>
+
+    <p>Are you a software developer? Help (write code, contribute to various sub projects, documentation, report issues). RethinkDB contains the following projects that you can contribute to:
+
+    <p>Donations go towards funding RethinkDB's servers, build infrastructure and future development. If you or your company uses RethinkDB, consider making a donation to help secure the project's future.</p>
+
+    <form id="myForm" action="/stripe/donate" method="POST">
+        <h3>Every donation is appreciated:</h3>
+        <div class="contribution-level">
+          <div class="switch">
+              <input type="radio" id="switch-1" name="amount" value="25"/>
+              <label for="switch-1">$25</label>
+              <input type="radio" id="switch-2" name="amount" value="50" checked />
+              <label for="switch-2">$50</label>
+  			      <input type="radio" id="switch-3" name="amount" value="100" />
+              <label for="switch-3">$100</label>
+              <input type="radio" id="switch-4" name="amount" value="250" />
+              <label for="switch-4">$250</label>
+          </div>
+          <div class="amount">
+            <span class="currency">$</span>
+            <input type="text" id="amount" name="amount" placeholder="Other amount"/>
+          </div>
+        </div>
+        <input type="hidden" id="stripeToken" name="stripeToken" />
+        <input type="hidden" id="stripeEmail" name="stripeEmail" />
+        <input type="hidden" id="amount" name="amount"/>
+    </form>
+
+    <button type="button" id="donate-button">Donate</button>
+</div>
+
+<script src="https://checkout.stripe.com/checkout.js"></script>
+<script type="text/javascript">
+  var handler = StripeCheckout.configure({
+      key: 'pk_test_BIpFulpTM6aJcLaSZ90D1nMu',
+      image: 'https://rethinkdb.com/favicon.png',
+      token: function (token) {
+          $("#stripeToken").val(token.id);
+          $("#stripeEmail").val(token.email);
+          $("#amount").val($("#amount").val() * 100);
+          $("#myForm").submit();
+      }
+  });
+
+  $('#donate-button').on('click', function (e) {
+      var amount = $("#amount").val() * 100;
+      var displayAmount = parseFloat(Math.floor($("#amount").val() * 100) / 100).toFixed(2);
+      // Open Checkout with further options
+      handler.open({
+          name: 'RethinkDB',
+          description: 'Donation: $' + displayAmount,
+          amount: amount
+      });
+      e.preventDefault();
+  });
+
+  // Close Checkout on page navigation
+  $(window).on('popstate', function () {
+      handler.close();
+  });
+</script>

@@ -5,6 +5,7 @@ html.embed { background: none; }
 body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-size: 18px;
 }
 
 /* Make the inputs look flat */
@@ -49,7 +50,7 @@ form li.buttons { padding-left: 0; }
     cursor: pointer;
 }
 .wufoo input.submit:hover {
-    background: #214753; 
+    background: #214753;
     color: #FBFBF9;
 }
 
@@ -64,7 +65,7 @@ form li.error p.error {
     font-family: 'freight-sans-pro';
     font-size: 13px;
     font-weight: 500;
-    color: #be465c !important; 
+    color: #be465c !important;
 }
 
 /* Fix checkboxes */
@@ -87,4 +88,10 @@ input.checkbox {
     width: 50%;
     min-width: auto;
     max-width: inherit;
+}
+
+.wufoo p.terms {
+    margin-bottom: 15px;
+    font-size: 18px;
+    line-height: 28px;
 }

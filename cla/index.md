@@ -6,6 +6,18 @@ body_class: cla
 permalink: cla/
 alias: community/cla/
 ---
+# Become a RethinkDB contributor
+
+<section class="cla-choices">
+  <h2>I'm contributing my own changes:</h2>
+  <p>
+    <a class="button" href="/cla/individual/">Individual contributors</a>
+  </p>
+  <h2>I'm contributing on behalf of a company / organization:</h2>
+  <p>
+    <a class="button" href="/cla/individual/">Corporate contributors</a>
+  </p>
+</section>
 
 # Why is this agreement necessary?
 
@@ -32,16 +44,3 @@ permissive license in the future.If you have more questions, shoot us an
 [2]: http://en.wikipedia.org/wiki/Contributor_license_agreement
 [3]: mailto:info@rethinkdb.com
 [4]: irc://chat.freenode.net/#rethinkdb
-
-# Become a RethinkDB contributor
-
-<section class="cla-choices">
-  <h2>I'm contributing my own changes:</h2>
-  <p>
-    <a class="button" href="/cla/individual/">Individual contributors</a>
-  </p>
-  <h2>I'm contributing on behalf of a company / organization:</h2>
-  <p>
-    <a class="button" href="/cla/individual/">Corporate contributors</a>
-  </p>
-</section>

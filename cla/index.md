@@ -15,7 +15,7 @@ alias: community/cla/
   </p>
   <h2>I'm contributing on behalf of a company / organization:</h2>
   <p>
-    <a class="button" href="/cla/individual/">Corporate contributors</a>
+    <a class="button" href="/cla/corporate/">Corporate contributors</a>
   </p>
 </section>
 

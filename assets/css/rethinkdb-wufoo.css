@@ -6,6 +6,7 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: 18px;
+    color: #647276;
 }
 
 /* Make the inputs look flat */
@@ -71,6 +72,7 @@ form li.error p.error {
 /* Fix checkboxes */
 
 .wufoo label.choice {
+    font-size: inherit;
     margin: 0;
     margin-left: 8px;
     display: inline-block;
@@ -83,11 +85,31 @@ input.checkbox {
     vertical-align: middle;
 }
 
+/* Fix label description */
+.wufoo label.desc { font-size: 100%; }
+
 /* Fix width of the textarea */
 .wufoo textarea {
     width: 50%;
     min-width: auto;
     max-width: inherit;
+}
+
+/* Header styles */
+.wufoo .section h3 {
+    font-size: 120%;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.wufoo .section div {
+    font-size: inherit;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.wufoo legend.desc {
+    font-size: 110%;
 }
 
 .wufoo p.terms {

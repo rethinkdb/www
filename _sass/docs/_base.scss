@@ -1,0 +1,166 @@
+/* ---
+   Documentation: general styles
+   --- */
+.documentation {
+    padding: $base-spacing*2 0;
+    @include media($mobile) { padding: $base-spacing; }
+
+    // Documentation grid
+    .docs-grid-block {
+        margin-bottom: $base-spacing*2;
+    }
+}
+
+/* ---
+   Documentation: left-side nav
+   --- */
+.docs-sidebar-left {
+    @extend .quarter;
+
+    // Hide the menu on mobile devices
+    @include media($mobile) { display: none; }
+    @include media($medium-screen-up) { display: block; }
+
+    // Horizontal rule for different sections of the docs nav
+    hr.docs-nav-separator {
+        border-bottom: thin solid lighten(desaturate($teal, 25), 65);
+        margin: 0;
+        padding-bottom: rem(20);
+    }
+
+    // Back to top link
+    p.back-to-top {
+        padding-top: rem(10);
+        &.stuck {
+            position:fixed;
+            top: 0;
+        }
+
+        a {
+            @include font-size-rem(16);
+            font-family: $sans-serif-semi-bold;
+            font-weight: 600;
+            color: lighten($teal, 15);
+            i { 
+                font-style: normal;
+                position: relative;
+                top: rem(-3);
+                font-size: rem(7);
+                margin-right: rem(4);
+            }
+            &:hover {
+              color: $teal;
+            }
+        }
+    }
+}
+
+.docs-nav {
+    h1, .nav-header {
+        @include font-size-rem(16);
+        font-family: $sans-serif-medium;
+        font-weight: 600;
+        padding: $base-spacing/2 0 0;
+        width: 90%;
+        a { color: lighten(desaturate($teal, 28), 28); }
+    }
+    .nav-header {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+    
+    // Styles for each section
+    ul {
+        // Hide each section initially for the accordion
+        display: none;
+        margin-top: rem(6);
+        padding-left: rem(11);
+        border-left: 1px solid $smoke-gray;
+        &.expanded, &.active { display: block; }
+    }
+    li {
+        @include font-size-rem(15);
+        line-height: rem(22);
+        &.active a { color: $teal; }
+        &.nested { margin-left: rem(13); } 
+    }
+}
+
+/* ---
+   Documentation: byline
+   --- */
+
+.docs-article .byline, .api-docs .byline {
+    background: rgba(244, 244, 244, 1);
+    border-radius: $base-border-radius;
+    padding: rem(5) rem(17);
+}
+
+/* ---
+   Documentation: language switcher
+   --- */
+nav.lang-selector {
+    color: $smoke-gray;
+    p.caption { 
+        display: inline-block; 
+        margin: 0 rem(10) 0 0;
+        @include font-size-rem(16);
+        font-weight: 600;
+        color: $base-font-color;
+    }
+    .languages {
+        display: inline-block;
+        span.divider { color: rgb(179,179,179); }
+        span.disabled { text-decoration: line-through; }
+        a {
+            display: inline-block;
+            padding: 0 rem(12);
+
+            &:first-child { padding-left: 0; }
+            &:last-child { padding-right: 0; }
+
+            span {
+                @include font-size-rem(16);
+                display: inline;
+                font-family: $sans-serif-medium;
+                font-weight: 500;
+                margin-bottom: 0;
+                padding-top: 0;
+                color: lighten($base-font-color, 20);
+                border-bottom: thin dotted desaturate(lighten($base-font-color, 40), 5);
+            }
+
+            i {
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+                display: inline-block;
+                width: rem(15);
+                height: rem(15);
+                margin-right: rem(5);
+                margin-top: rem(-1);
+                vertical-align: middle;
+                
+                $_root: '/assets/images/docs/driver-languages/minicons/';
+                &.javascript { background-image: url($_root + 'javascript-bw.png'); }
+                &.python { background-image: url($_root + 'python-bw.png'); }
+                &.ruby { background-image: url($_root + 'ruby-bw.png'); }
+                &.java { background-image: url($_root + 'java-bw.png'); }
+            }
+        }
+
+        // The active language should have a bright icon and bold text
+        a.active {
+            span {
+                color: $base-font-color;
+                font-weight: 600;
+                border-bottom: 0;
+            }
+
+            $_root: '/assets/images/docs/driver-languages/minicons/';
+            i.javascript { background-image: url($_root + 'javascript.png'); }
+            i.python { background-image: url($_root + 'python.png'); }
+            i.ruby { background-image: url($_root + 'ruby.png'); }
+            i.java { background-image: url($_root + 'java.png'); }
+        }
+    }
+}

@@ -1,0 +1,31 @@
+---
+layout: post
+title: "Join us online for a live presentation and Q&A for RethinkDB 1.14"
+tags:
+- event
+author: Christina Keelan
+author_github: KittyBot
+---
+
+Join us online on **Thursday, August 21st at 1:30pm** for a live presentation
+and Q&A session presented by RethinkDB's co-founder Slava Akhmechet. You'll
+learn about new and upcoming features in RethinkDB 1.14, including:
+
+* __Changefeeds__: get realtime push notifications of changes in the database.
+* __r.http__: Don't fetch data from the internet and store it in the database,
+  get the database to fetch it for you!
+* __Binary data types__: store images, zip files, and arbitrary binary data in
+  a field.
+* Other features in RethinkDB 1.14: Promises in the JavaScript driver, Python 3
+  support, and seamless migrations.
+
+To attend, [register for the webinar][], and follow the instructions you
+receive via email.
+<!--more-->
+
+[register for the webinar]: https://attendee.gotowebinar.com/register/4543556240365418498
+
+If you have any problems signing up or any questions about the event, please
+contact [christina@rethinkdb.com][].
+
+[christina@rethinkdb.com]: mailto:christina@rethinkdb.com

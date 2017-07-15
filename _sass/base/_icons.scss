@@ -1,0 +1,110 @@
+/* ---
+   Icons: left and right arrows
+   --- */
+.right-arrow, .left-arrow {
+    @include transition(all 0.1s linear);
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 25px;
+    width: 7px;
+    position: relative;
+    text-align: left;
+    text-indent: -9999px;
+    vertical-align: top;
+}
+
+.left-arrow {
+    background-image: url("/assets/images/icons/icon-sm-left-arrow.png");
+    left: 0;
+    margin-right: rem(5);
+}
+
+.right-arrow {
+    background-image: url("/assets/images/icons/icon-sm-right-arrow.png");
+    left: rem(4);
+    &.white {
+        background-image: url("/assets/images/icons/right-arrow.png");
+        background-size: contain;
+        left: rem(7);
+    }
+}
+
+/* ---
+   Icons: location
+   --- */
+.icon-location {
+    background-image: url("/assets/images/icons/icon-location.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 25px;
+    position: relative;
+    text-indent: -9999px;
+    vertical-align: top;
+}
+
+
+
+/* ---
+   Icons: used on the landing page
+   --- */
+.icon-github-landing, .icon-twitter-landing {
+    $_size: 20px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: $_size;
+    width: $_size;
+    background-size: $_size $_size;
+    position: relative;
+    text-indent: -9999px;
+    vertical-align: top;
+    opacity: 0.55;
+}
+
+.icon-github-landing { 
+    background-image: url("/assets/images/icons/icon-github-landing.png");
+}
+
+.icon-twitter-landing {
+    background-image: url("/assets/images/icons/icon-twitter-landing.png");
+}
+
+
+/* ---
+   Icons: footer for GitHub
+   --- */
+.icon-github-footer {
+    $_size: 30px;
+    background-image: url("/assets/images/icons/icon-github.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: $_size;
+    width: $_size;
+    background-size: $_size $_size;
+    position: relative;
+    text-indent: -9999px;
+    vertical-align: top;
+    opacity: 0.55;
+}
+
+
+/* ---
+   Icons: GitHub popup
+   --- */
+.icon-github-popup {
+    $_size: 20px;
+    background-image: url("/assets/images/icons/icon-github-black.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: $_size;
+    width: $_size;
+    background-size: $_size $_size;
+    position: relative;
+    text-indent: -9999px;
+    vertical-align: top;
+    opacity: 0.55;
+}

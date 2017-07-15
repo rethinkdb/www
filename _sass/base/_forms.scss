@@ -1,0 +1,75 @@
+fieldset {
+    background: lighten($base-border-color, 10);
+    border: $base-border;
+    margin: 0 0 ($base-spacing / 2) 0;
+    padding: $base-spacing;
+}
+
+input,
+label,
+select {
+    display: block;
+    font-family: $form-font-family;
+    font-size: $form-font-size;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: $base-spacing / 4;
+
+    &.required:after { content: "*"; }
+    abbr { display: none; }
+}
+
+textarea,
+#{$all-text-inputs},
+select[multiple=multiple] {
+    @include transition(border-color);
+    box-sizing: border-box;
+    background-color: rgba(255,255,255, 0.5);
+    border-radius: $form-border-radius;
+    border: 1px solid $form-border-color;
+    font-family: $form-font-family;
+    font-size: $form-font-size;
+    padding: ($base-spacing/1.5);
+    width: 100%;
+
+    @include placeholder { color: rgb(145, 198, 194); }
+
+    &:hover { border-color: $form-border-color-hover; }
+
+    &:focus {
+        border-color: $form-border-color-focus;
+        outline: none;
+    }
+
+    &.small {
+        padding: $base-spacing/4 $base-spacing/2;
+        width: 80%;
+    }
+}
+
+textarea {
+    resize: vertical;
+}
+
+input[type="search"] {
+    @include appearance(none);
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    display: inline;
+    margin-right: $base-spacing / 4;
+}
+
+input[type="file"] {
+    padding-bottom: $base-spacing / 2;
+    width: 100%;
+}
+
+select {
+    margin-bottom: $base-spacing;
+    max-width: 100%;
+    width: auto;
+}

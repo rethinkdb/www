@@ -1,0 +1,45 @@
+// Hero backgrounds
+// Seen on /about and /community
+.hero-bg {
+    background-repeat: no-repeat;
+    height: rem(460);
+    position: relative;
+
+    // Background overlay color
+    &:after {
+        //@include background(linear-gradient(to top right, lighten($teal, 20), darken(#005662, 10)));
+        background: rgba(28, 42, 52, 0.85);
+        bottom: 0;
+        content: '';
+        left: 0;
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 2;
+        opacity: .80;
+    }
+
+
+    // Set to table display so text will always be centered vertically
+    .site-container {
+        display: table;
+        position: relative;
+        height: 100%;
+        z-index: 3;
+    }
+
+    // Title text
+    h1 {
+        @include font-size-rem(38);
+        color: $cream;
+        display: table-cell;
+        font-weight: 400;
+        line-height: rem(44);
+        position: relative;
+        text-align: center;
+        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+        margin: 0 auto;
+        width: 100%;
+        vertical-align: middle;
+    }
+}

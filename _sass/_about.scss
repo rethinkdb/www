@@ -1,0 +1,70 @@
+body.about {
+    // Override
+    .site-nav {
+        margin-bottom: 0;
+        @extend .site-nav.translucent;
+    }
+    .about h1 { margin-bottom: $base-spacing/4; }
+    .about h2 {
+        @include font-size-rem(22);
+        font-family: $sans-serif-semi-bold;
+        padding-top: $base-spacing/4;
+        padding-bottom: $base-spacing/4;
+        font-weight: 600;
+    }
+    // Shared section styles
+    .about section { padding: 6% 0 8%; }
+    // Hero
+    // Extends the hero design pattern in _hero.scss
+    .hero {
+        @extend .hero-bg;
+        @include background-image(url("/assets/images/company/2.jpg"));
+        background-position: center rem(-40);
+        background-size: cover;
+        height: rem(600);
+
+        @include media($mobile) { background-position: center rem(0); }
+        @include media($medium-screen-up) { background-position: center rem(0); }
+        @include media($large-screen-up) { background-position: center rem(0); }
+        @include media($x-large-screen-up) { background-position: center rem(-50); }
+    }
+    // Intro
+    .intro {
+        .intro-text {
+            @include font-size-rem(24);
+            @extend .two-third;
+            line-height: rem(32);
+            padding-right: $base-spacing*6;
+        }
+        .intro-img { @extend .third; }
+        .intro-callout { margin-top: rem(20); }
+        .infobox {
+            @include font-size-rem(20);
+            @extend .half;
+        }
+
+        @include media($mobile) {
+            .intro-text { padding-right: 0; }
+        }
+    }
+
+    // Jobs
+    .jobs {
+        background: rgb(241, 245, 245);
+        li {
+            @extend .half;
+            border: 1px solid $smoke-gray;
+            border-top: 3px solid $teal;
+            border-radius: $base-border-radius;
+            padding: $base-spacing;
+            margin-top: $base-spacing;
+            background: $cream;
+
+            // Color those borders
+            &:nth-child(1n) { border-top: 3px solid lighten($teal, 20); }
+            &:nth-child(2n) { border-top: 3px solid saturate(darken($surf, 20), 30); }
+            &:nth-child(3n) { border-top: 3px solid saturate(darken($sunshine, 10), 5); }
+            &:nth-child(4n) { border-top: 3px solid desaturate(lighten($cranberry, 5), 25); }
+        }
+    }
+}

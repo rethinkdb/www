@@ -1,0 +1,57 @@
+// Modal for videos
+.video-modal {
+    background: rgba(2, 29, 38, 0.8);
+    display: none;
+    left: 0px;
+    height: 100%;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    z-index: 7;
+    
+    &:before {
+        content: '\2715';
+        @include font-size-rem(30);
+        color: white;
+        display: block;
+        height: auto;
+        padding: $base-spacing;
+        position: absolute;
+        right: 0;
+        text-align: right;
+        top: 0;
+        width: 100%;
+    }
+
+    .iframe-container {
+        height: 0;
+        margin: 5% auto;
+        max-width: rem(975);
+        padding-top: $base-spacing*2;
+        position: relative;
+        width: 80%;
+
+        @include media($mobile) {
+            padding-bottom: 39.25%;
+            margin: 15% auto;
+        }
+        @include media($medium-screen-up) {
+            padding-bottom: 42.5%;
+            margin: 10% auto;
+        }
+        @include media($large-screen-up) {
+            padding-bottom: rem(530);
+            margin: 5% auto;
+        }
+    }
+
+    iframe {
+        border: 6px solid $teal;
+        background: black;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+    }
+}

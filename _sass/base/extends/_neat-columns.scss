@@ -1,0 +1,49 @@
+// Width based on .site-container, includes outer-container()
+@include media($mobile) {
+    .three-quarter, .half, .third, .quarter {
+        @include fill-parent;
+    }
+
+    .sixth {
+        @include span-columns(4 of 12);
+        @include omega(3n);
+    }
+}
+
+@include media($medium-screen-up) {
+    .three-quarter {
+        @include span-columns(9 of 12);
+        @include omega();
+    }
+    .two-third {
+        @include span-columns(8 of 12);
+        @include omega();
+    }
+    .half {
+        @include span-columns(6 of 12);
+        @include omega(2n);
+    }
+
+    .third {
+        @include span-columns(4 of 12);
+        @include omega(3n);
+    }
+
+    .quarter {
+        @include span-columns(3 of 12);
+        @include omega(4n);
+    }
+
+    .sixth {
+        @include span-columns(4 of 12);
+        @include omega(3n);
+    }
+}
+
+@include media($large-screen-up) {
+    .sixth {
+        @include omega-reset(3n);
+        @include span-columns(2 of 12);
+        @include omega(6n);
+    }
+}

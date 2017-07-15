@@ -1,0 +1,70 @@
+/* ---
+   Docs install page 
+   --- */
+.docs .install-illustration, .docs .documentation .docs-article p img.install-illustration {
+    float: right;
+    width: rem(280);
+    margin-left: rem(40);
+}
+.docs .supported-platforms {
+    background: rgb(241, 245, 245);
+    padding: $base-spacing $base-spacing*1.5;
+    border-radius: $base-border-radius;
+}
+
+.docs .platform-category, .docs .documentation .docs-article .platform-category {
+    margin-bottom: rem(20);
+    &:last-child { margin-bottom: 0; }
+    h1 { @include font-size-rem(28); }
+    h2 {
+        margin-top: 0;
+        margin-bottom: rem(11);
+        color: darken($base-font-color, 7);
+    }
+
+    // Set of platform buttons
+    .platform-buttons {
+        @include display(flex);
+        @include flex-direction(row);
+        @include flex-wrap(wrap);
+        @include align-items(flex-start);
+        @include align-content(flex-start);
+        @include justify-content(flex-start);
+
+        // Each platform button is a simple button
+        li {
+            @extend .simple-button;
+            position: relative;
+            width: rem(190);
+            margin-left: 0;
+            margin-bottom: rem(10);
+            margin-right: rem(15);
+            padding: 0 $base-spacing;
+            list-style-type: none;
+
+            img {
+                width: rem(22);
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+            }
+            p {
+                $_line-height: rem(41); // the height of the button
+                @include font-size-rem(22);
+                margin: 0;
+                line-height: $_line-height;
+                margin-left: rem(40);
+                color: $teal;
+                &.smaller-font {
+                    @include font-size-rem(19);
+                    line-height: $_line-height;
+                }
+                span.driver-author {
+                    @include font-size-rem(14);
+                    color: desaturate(lighten($teal, 10), 15);
+                }
+            }
+        }
+    }
+}

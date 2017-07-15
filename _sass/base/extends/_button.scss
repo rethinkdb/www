@@ -1,0 +1,80 @@
+%button, .button {
+  @include transition(background 0.1s linear);
+  @include font-size-rem(17);
+  -webkit-font-smoothing: antialiased;
+  background-color: lighten($base-button-color, 5);
+  border: 1px solid $base-button-color;
+  border-bottom: 2px solid darken($base-button-color, 4);
+  border-top: 1px solid lighten($base-button-color, 6);
+  border-radius: $base-border-radius;
+  color: white;
+  display: inline-block;
+  font-family: $sans-serif-semi-bold;
+  font-weight: 600;
+  padding: $base-spacing/2 $base-spacing*2 $base-spacing/1.8;
+  text-decoration: none;
+
+  &:hover {
+    background-color: $hover-button-color;
+    border-top: 1px solid transparent;
+    color: $cream;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
+
+  &.light {
+    background-color: darken($cranberry, 5);
+    border: 1px solid darken($cranberry, 12);
+    border-bottom: 2px solid darken($cranberry, 18);
+    border-top: 1px solid darken($cranberry, 10);
+
+    &:hover { background-color: darken($cranberry, 10); }
+  }
+
+  &.outlined {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+
+    @include media($mobile) { padding-bottom: $base-spacing/2.5; }
+
+    &:hover {
+      background: $teal;
+      border-color: darken($teal, 2);
+    }
+    &.dark {
+      border-color: $teal;
+      color: $teal;
+
+      &:hover { color: $cream; }
+    }
+    i {
+      padding-left: rem(14);
+      padding-top: rem(1);
+    }
+  }
+
+  &.small {
+    @include font-size-rem(15);
+    padding: $base-spacing/3 $base-spacing/2;
+  }
+
+  &.minimal {
+    @include transition(all 0.1s linear);
+    background: none;
+    border: none;
+    color: lighten($teal, 15);
+    display: inline-block;
+    font-family: $sans-serif-semi-bold;
+    font-weight: 600;
+    padding: 0;
+    text-transform: uppercase;
+    &:hover {
+      color: $teal;
+      i.left-arrow { left: rem(-6); }
+      i.right-arrow { left: rem(10); }
+    }
+  }
+}

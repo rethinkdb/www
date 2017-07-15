@@ -1,0 +1,28 @@
+@import "neat-helpers"; // or "../neat/neat-helpers" when not in Rails
+
+// Neat Overrides
+$column: 90px;
+$gutter: 30px;
+$grid-columns: 12;
+$max-width: rem(1088);
+
+// Neat Breakpoints
+$medium-screen: rem(450);
+$large-screen: rem(660);
+$x-large-screen: rem(1100);
+
+$mobile: new-breakpoint(max-width $medium-screen 4);
+$medium-screen-up: new-breakpoint(min-width $medium-screen 4);
+$large-screen-up: new-breakpoint(min-width $large-screen 8);
+$x-large-screen-up: new-breakpoint(min-width $x-large-screen 8);
+
+// ------------------------------------------------------------
+// Omega Reset
+// A mixin that let's you change the number of columns at any breakpoint
+// Based on the work of http://joshfry.me/blog/2013/05/13/omega-reset-for-bourbon-neat
+// ------------------------------------------------------------
+
+@mixin omega-reset($nth) {
+  &:nth-child(#{$nth}) { margin-right: flex-gutter(); }
+  &:nth-child(#{$nth}+1) { clear: none }
+}

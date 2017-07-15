@@ -1,0 +1,103 @@
+/* ---
+   Used by: general styles
+   --- */
+section.used-by {
+    $_bg: rgb(241, 245, 245);
+    $_color: desaturate(lighten($teal, 50), 70);
+    padding: $base-spacing*2 0;
+    background: $_bg;
+
+    .logos {
+
+
+
+        @include outer-container;
+        img {
+            @include span-columns(3);
+            @include omega(4n);
+            padding: rem(15) rem(29);
+            // Convert images themselves
+            opacity: 0.7;
+
+            @include media($mobile) {
+                @include span-columns(2);
+                @include omega(2n);
+                padding: $base-spacing $base-spacing*2;
+            }
+        }
+
+        // Since the NASA logo is sized differently than the others, need
+        //  to size a little differently. Sizing proportions are more extreme
+        //  on the mobile media query and required percentages on the padding. 
+        #nasa {
+          @include media($medium-screen) { padding: 0rem 4rem 0rem 6.5rem; }
+          @include media($mobile) { padding: 4% 14% 2% 16% }
+        }
+
+
+    }
+
+    // Horizontal divider
+    hr {
+        width: 94%;
+        margin: 3rem auto;
+        border-color: rgb(220, 224, 224);
+    }
+}
+
+/* ---
+   Used by: testimonials
+   --- */
+section.used-by .testimonials {
+    clear: both;
+    padding-top: $base-spacing/2;
+
+    .site-container { padding: 0 rem(29); }
+
+    // Styles common to all testimonial types
+    .testimonial, .testimonial-single {
+
+        // No margin on the last testimonial
+        &:last-child blockquote { margin-right: 0; }
+    }
+
+    // Normal testimonial gets one half of container width
+    .testimonial { @extend .half; }
+    // Single testimonial goes to two-thirds
+    .testimonial-single { @extend .two-third; }
+
+
+    // Blockquote styles for each testimonial
+    blockquote {
+        $_quote-width: rem(25);
+        margin: $base-spacing;
+        margin-left: $_quote-width;
+        margin-right: rem(30);
+        padding: 0 $base-spacing;
+        padding-left: $base-spacing / 2;
+        border-left: none;
+
+        @include font-size-rem(22);
+        color: lighten($base-font-color, 15);
+
+        &:before {
+            @include font-size-rem(60);
+            font-family: $serif;
+            color: lighten($base-font-color, 40);
+            content: '"';
+            position: absolute;
+            top: rem(-35);
+            left: -$_quote-width;
+        }
+
+        cite { @include font-size-rem(18); }
+    }
+
+
+    @include media($mobile) {
+        padding-top: $base-spacing;
+
+        blockquote { padding: 0; }
+        blockquote:before { display: none; }
+    }
+}

@@ -1,0 +1,38 @@
+    <aside class="blog-sidebar">
+        <ul>
+            {% if blog_sidebar != 'post' %}
+                <li class="infobox read-more">
+                    <h1>What is RethinkDB?</h1>
+                    <p>
+                        RethinkDB is the open source database for the
+                        realtime web: <a href="/faq">learn how it works</a>.
+                    </p>
+                </li>
+            {% endif %}
+            <li class="infobox infobox-alert">
+                <h1>Donate to support RethinkDB</h1>
+                <p>Your donation helps <a href="/contribute#donate">support RethinkDB's future</a> as an open-source project.</p>
+            </li>
+            <li class="github-star">
+                <div class="infobox infobox-with-arrow popup hidden">
+                    <h1>Like what you see?</h1>
+                    <p>
+                        <i class="icon-github-popup"></i><a href="https://github.com/rethinkdb/rethinkdb">Star this project</a> on GitHub.
+                    </p>
+                </div>
+            </li>
+            {% comment %}
+            <!-- TODO REMOVED -->
+            <li class="subscribe-mailing-list">
+                <h1>Want the latest updates?</h1>
+                <input class="medium" type="text" placeholder="Your email address" type="text">
+                <button class="button subscribe small" type="submit">Subscribe</button>
+            </li>
+            <li>
+                <h1>Share this post</h1>
+                <a href="icon twitter">Twitter</a>
+                <a href="icon facebook">Facebook</a>
+            </li>
+            {% endcomment %}
+        </ul>
+    </aside>

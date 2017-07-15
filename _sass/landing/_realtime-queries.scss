@@ -1,0 +1,130 @@
+/* ---
+   Landing: intro realtime query animations
+   --- */
+.landing .intro .realtime-queries {
+    $_border-color: rgb(209, 225, 229);
+    $_padding: rem(10);
+    background: #E5EEED;
+    position: absolute;
+    top: rem(-4);
+    left: 50%;
+    margin-left: rem(75);
+    overflow: auto;
+    border: 2px solid $_border-color;
+    border-radius: 4px;
+    
+    @include media($mobile) { display: none; }
+
+    p { margin: 0; }
+
+    p.query {
+        padding: $_padding $_padding * 1.7;
+        background: #fff;
+        font-family: $monospaced;
+        @include font-size-rem(18);
+        span.term { color: $cranberry; }
+    }
+
+    p.title {
+        text-transform: uppercase;
+        @include font-size-rem(14);
+        font-weight: 500;
+        margin-bottom: $_padding;
+
+        // Loading text + animation (pulsating dot)
+        &.messages-title {
+            $_size: rem(9);
+            $_color: #91bd09;
+
+            &:before {
+                content: '';
+                display: inline-block;
+                margin-right: $_size*1.5;
+                height: $_size;
+                width: $_size;
+                border-radius: $_size/2;
+                background-color: $_color;
+                @include animation(pulse 2s infinite);
+            }
+
+            // Pulse and fade in / out animations for the loading indicator
+            @include keyframes(pulse) {
+                $blur-size: 4px;
+                from {
+                    background-color: $_color;
+                    box-shadow: 0 0 $blur-size rgba(255,255,255,0.4);
+                }
+                50% {
+                    background-color: lighten($_color, 8);;
+                    box-shadow: 0 0 $blur-size*8 lighten($_color, 8);
+                }
+                to {
+                    background-color: $_color;
+                    box-shadow: 0 0 $blur-size rgba(255,255,255,0.1);
+                }
+            }
+        }
+    }
+
+    .query-results {
+        padding: $_padding $_padding*1.2 $_padding*1.2 $_padding*1.2;
+        border-top: thin solid $_border-color;
+
+        .messages-panel {
+            width: 55%;
+        }
+
+        .leaderboard-panel {
+            float: right;
+            width: 38%;
+        }
+
+    $_padding: rem(10);
+        ul.messages {
+            padding: $_padding*0.75 $_padding;
+            background: rgba(255,255,255,0.8);
+            border: thin solid $_border-color;
+            border-radius: $base-border-radius*2;
+
+            height: rem(322);
+            overflow: hidden;
+            position: relative;
+
+            li {
+                @include font-size-rem(15);
+                font-family: $monospaced;
+
+                vertical-align: center;
+
+                @include transition(height 0.3s ease-in-out);
+                &.collapsed { height: 0; }
+            }
+        }
+
+        ul.leaderboard-nums {
+            float: left;
+            margin-right: rem(5);
+        }
+        ul.leaderboard, ul.leaderboard-nums {
+            $_height: rem(24);
+            height: $_height*3;
+            overflow: hidden;
+            li {
+                height: $_height;
+                vertical-align: center;
+                overflow: hidden;
+                @include transition(height 0.3s ease-in-out);
+                &.collapsed { height: 0; }
+                @include font-size-rem(16);
+                left: rem(20);
+                &:before {
+                    @include font-size-rem(18);                    
+                    color: #222;
+                    display: inline-block;
+                    margin-right: rem(10);
+                }
+            }
+        }
+    }
+}
+

@@ -1,0 +1,31 @@
+{% assign active=' class="active"' %}
+<!-- site nav -->
+<nav class="mobile-menu push-menu-right">
+    <ul>
+        <li class="menu-trigger"><a href="/">Close</a></li>
+        <li><a href="/faq">FAQ</a></li>
+        <li><a href="/docs">Docs</a></li>
+        <li><a href="/api">API</a></li>
+        <li><a href="/community">Community</a></li>
+        <li><a href="/blog">Blog</a></li>
+    </ul>
+    {% case page.include_nav %}
+        {% when 'docs' %}
+            {% include docs/docs-navigation.html %}
+        {% when 'api' %}
+            {% include docs/api-navigation.html %}
+    {% endcase %}
+</nav>
+<nav class="site-nav">
+    <div class="site-container">
+        <a class="logo" href="/">RethinkDB</a>
+        <ul>
+            <li class="menu-trigger"><a href="/"><img class="menu-trigger-icon" src="/assets/images/icons/icon-menu-white.png"></a></li>
+            <li{% if page.docs_active == 'faq' %}{{ active }}{% endif %}><a href="/faq">FAQ</a></li>
+            <li{% if page.active == 'docs' and page.docs_active != 'faq' %}{{ active }}{% endif %}><a href="/docs">Docs</a></li>
+            <li{% if page.active == 'api' %}{{ active }}{% endif %}><a href="/api">API</a></li>
+            <li{% if page.active == 'community' %}{{ active }}{% endif %}><a href="/community">Community</a></li>
+            <li{% if page.active == 'blog' %}{{ active }}{% endif %}><a href="/blog">Blog</a></li>
+        </ul>
+    </div>
+</nav>

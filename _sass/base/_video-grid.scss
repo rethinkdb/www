@@ -1,0 +1,108 @@
+// Video grid, seen on the landing and community pages
+// Video container
+.video-grid {
+    // Collapse grid columns for mobile
+    @include media($mobile) {
+        @include column-count(1);
+        width: 100%;
+        margin-right: 0;
+        padding-right: 0;
+
+        .video { height: rem(250) !important; }
+    }
+
+    @include media($medium-screen-up) {
+        padding-right: 0;
+        margin-right: 0;
+        width: 100%;
+    }
+
+    // Individual video grid item
+    .video {
+        border-radius: $base-border-radius;
+        color: $white;
+        cursor: pointer;
+        display: table;
+        margin: 0 0 $base-spacing/2;
+        position: relative;
+        -webkit-column-break-inside:avoid;
+        -moz-column-break-inside:avoid;
+        -o-column-break-inside:avoid;
+        -ms-column-break-inside:avoid;
+        column-break-inside:avoid;
+
+        // Overlay background color to dampen preview images
+        &:before {
+            @include transition(background 0.2s linear);
+            background: darken(saturate($teal, 5), 5);
+            content: '';
+            left: 0px;
+            height: 100%;
+            position: absolute;
+            opacity: 0.3;
+            top: 0px;
+            width: 100%;
+        }
+
+        // Arrow icon
+        &:after {
+            background: transparent url('/assets/images/icons/icon-right.png') center center no-repeat;
+            content: '';
+            right: $base-spacing;
+            height: rem(40);
+            position: absolute;
+            bottom: $base-spacing;
+            width: rem(40);
+        }
+
+        // Video title
+        p {
+            @include transition(opacity 0.1s linear);
+            @include transition(padding-top 0.1s linear);
+            @include font-size-rem(28);
+            font-family: $sans-serif-semi-bold;
+            font-weight: 400;
+            display: table-cell;
+            line-height: rem(38);
+            opacity: 0;
+            padding: $base-spacing $base-spacing*1.5;
+            padding-top: $base-spacing*2.5;
+            position: relative;
+            vertical-align: middle;
+            width: 100%;
+
+            @include media($large-screen-up) {
+                min-width: rem(262);
+            }
+        }
+
+        // Speaker name & date
+        span {
+            @include font-size-rem(18);
+            display: block;
+            margin-top: $base-spacing;
+
+            // Date
+            small {
+                display: block;
+                text-transform: uppercase;
+                font-weight: 500;
+            }
+        }
+
+        // Show full background color on hover
+        // Hide preview image
+        &:hover {
+            background-image: none;
+            p {
+                opacity: 1;
+                padding-top: $base-spacing*1.5;
+                vertical-align: top;
+            }
+            &:before {
+                background: lighten($teal, 10);
+                opacity: 1;
+            }
+        }
+    }
+}

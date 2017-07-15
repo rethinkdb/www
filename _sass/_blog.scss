@@ -1,0 +1,240 @@
+/* ---
+   Blog: layout and general styles
+   --- */
+.blog {
+    // Shared typographic styles
+    .posts, .post-container {
+        h1 {
+            @include font-size-rem(33);
+            font-weight: 400;
+            line-height: rem(38);
+        }
+
+        h2 {
+            @include font-size-rem(22);
+            font-family: $sans-serif-semi-bold;
+            font-weight: 600;
+        }
+
+        h1, h2 { margin: $base-spacing*1.5 0 $base-spacing;}
+
+        .post:first-child h1 { margin-top: 0; }
+    }
+
+    // Shared layout styles
+    $_padding: $base-spacing*2;
+    .posts, .post-container {
+        @extend .three-quarter;
+        padding-right: $base-spacing*3;
+        padding-top: $_padding;
+        padding-bottom: $_padding;
+    }
+    .blog-sidebar {
+        @extend .quarter;
+        padding-top: $_padding;
+    }
+}
+
+/* ---
+   Blog: post styles
+   --- */
+.blog .post {
+    // General post styles
+    border-bottom: 1px solid darken($smoke-gray, 5);
+    padding-bottom: $base-spacing*1.6;
+    a { color: lighten(saturate($teal, 25), 25); }
+
+    // Hero image
+    .post-hero {
+        $_padding: $base-spacing*1.5;
+        width: 100%;
+        img { padding-top: $_padding; }
+        &.above img {
+            padding-top: 0;
+            padding-bottom: $_padding;
+        }
+    }
+
+    // Framed image: for image thumbnails that link to full images
+    a.framed-image img {
+        border: thin solid #eee;
+        &:hover { border: thin solid #ccc; }
+    }
+
+    // Caption image: for captions on images
+    div.caption {
+      margin-top: 0.5rem;
+      text-align: center;
+      p {
+        color:grey;
+        font-style:italic;
+      }
+    }
+
+    // Content styles
+    .post-body {
+        color: lighten(desaturate($teal, 35), 20);
+        padding-top: $base-spacing;
+
+        ul { @extend ul%default-ul; }
+        ul li:last-child { margin-bottom: $base-spacing; }
+
+        p { margin-bottom: $base-spacing; }
+        .infobox p {
+            @include font-size-rem(16);
+            font-family: $sans-serif-medium;
+            font-weight: 500;
+            margin-bottom: 0;
+        }
+
+        // iframes are used for embeds from YouTube and Vimeo
+        iframe {
+            margin: rem(15) 0;
+        }
+
+        // Infoboxes at the top of posts should have a smaller margin
+        .infobox:first-child {
+            margin-top: rem(10);
+        }
+
+    }
+
+    // 'Read more' link for each post
+    a.post-link {
+        margin-top: rem(15);
+        padding: rem(8) rem(30);
+    }
+}
+
+/* ---
+   Blog: post bylines (author, tags, date)
+   --- */
+.blog .post-byline {
+    color: lighten(desaturate($teal, 35), 20);
+
+    .avatar, .post-timestamp, .post-tags {
+        display: inline-block;
+    }
+
+    .avatar {
+        @include font-size-rem(16);
+        font-family: $sans-serif-medium;
+        font-weight: 500;
+        margin-right: $base-spacing;
+
+        img {
+            border-radius: 50%;
+            height: rem(50);
+            margin-right: $base-spacing/2;
+            overflow: hidden;
+            width: rem(50);
+            vertical-align: middle;
+        }
+    }
+
+    .post-timestamp {
+        @include font-size-rem(14);
+        font-family: $sans-serif-semi-bold;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+
+    .post-tags {
+        margin-left: $base-spacing;
+
+        li {
+            @include font-size-rem(14);
+            border-radius: $base-border-radius/2;
+            border-bottom: 2px solid $smoke-gray;
+            display: inline-block;
+            margin-right: rem(10);
+            font-family: $sans-serif-medium;
+            font-weight: 500;
+        }
+    }
+}
+
+/* ---
+   Blog: pagination
+   --- */
+.blog .pagination {
+    padding-top: $base-spacing*1.5;
+    text-align: right;
+    a.older-posts { float: left; }
+}
+
+/* ---
+   Blog: sidebar
+   --- */
+.blog-sidebar {
+    ul {
+        width: rem(300);
+        // The blog sidebar sticks when you scroll past it
+        &.stuck {
+            position: fixed;
+            top: 0;
+            z-index: 5; // The sidebar should slide on top of the footer on short displays
+        }
+    }
+
+    p {
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        @include font-size-rem(16);
+        font-family: $sans-serif-medium;
+        font-weight: 600;
+        margin-bottom: $base-spacing/3;
+    }
+
+    li {
+        $_margin-bottom: $base-spacing*1.5;
+        @include font-size-rem(16);
+        font-family: $sans-serif-medium;
+        font-weight: 500;
+        margin-bottom: $_margin-bottom;
+        &.read-more {
+            margin-top: 0;
+            margin-bottom: rem(15);
+        }
+    }
+
+    .subscribe-mailing-list {
+        input {
+            display: inline-block;
+            width: rem(195);
+            margin-right: rem(5);
+            padding: rem(8) rem(13);
+        }
+        button {
+            display: inline-block;
+            margin-top: rem(-2);
+        }
+    }
+
+    // GitHub "star this repo" link
+    li.github-star {
+        position: relative;
+        .popup {
+            @include transition(left 0.2s ease-out);
+            position: absolute;
+            visibility: visible;
+            margin: 0;
+            left: 0%;
+            width: 85%;
+            overflow: visible;
+
+            &.hidden {
+                visibility: hidden;
+                left: $base-spacing*4;
+            }
+
+            i {
+                margin-top: rem(1);
+                margin-right: rem(8);
+            }
+        }
+    }
+}

@@ -1,0 +1,44 @@
+---
+layout: default
+active: blog
+body_class: blog
+blog_sidebar: 'post'
+---
+{% if page.author_github %}
+    {% capture avatar %}/assets/images/blog/authors/{{page.author_github}}.png{% endcapture %}
+{% else %}
+    {% assign avatar = '/assets/images/blog/authors/rethinkdb.png' %}
+{% endif %}
+<div class="site-container">
+    <section class="post-container">
+        <article class="post">
+            <div class="post-hero above">
+                {% if page.hero_image %}
+                    <img src="/assets/images/posts/{{ page.hero_image }}">
+                {% endif %}
+            </div>
+            <a href="{{ page.url }}"><h1 class="title">{{page.title }}</h1></a>
+            <div class="post-byline">
+                <a class="avatar" href="{{ author_link }}">
+                    <img src="{{ avatar }}">
+                    <!--default-->
+                    {% if page.author %}
+                        {{ page.author }}
+                    {% else %}
+                        RethinkDB Team
+                    {% endif %}
+                </a>
+                <span class="post-timestamp">{{ page.date | date: "%B %d, %Y" }}</span>
+                <ul class="post-tags">
+                    {% for tag in page.tags %}
+                        <li><a href="#">{{ tag }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="post-body">
+                {{ content }}
+            </div>
+        </article>
+    </section>
+    {% include blog-sidebar.html %}
+</div>

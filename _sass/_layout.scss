@@ -1,0 +1,44 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    @include font-size-rem(18);
+    color: $base-font-color;
+}
+
+.site-container {
+    @include outer-container;
+    @include pad(0 $base-spacing);
+    position: relative;
+
+    @include media($mobile) {
+        @include pad(0 $base-spacing);
+    }
+    @include media($medium-screen-up) {
+        @include pad(0 $base-spacing*1.5);
+    }
+    @include media($large-screen-up) {
+        @include pad(0 $base-spacing);
+    }
+}
+
+// Adjust font sizes globally
+@include media($mobile) {
+    html {
+        font-size: 58%;
+    }
+}
+
+@include media($medium-screen-up) {
+    html {
+        font-size: 60%;
+    }
+}
+
+@include media($large-screen-up) {
+    html {
+        font-size: 62.5%;
+    }
+}

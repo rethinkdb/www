@@ -1,0 +1,11 @@
+--- # Deployment config
+# Connection details for a remote web server
+web:
+    host: your_username@your_server
+    port: your_port
+    directory: your_directory
+
+# Connection details for Algolia
+algolia:
+    app_id: your_algolia_app_id
+    api_key: your_algolia_api_key

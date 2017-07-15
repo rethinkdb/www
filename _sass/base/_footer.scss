@@ -1,0 +1,168 @@
+/* ---
+   Footer: support footer
+   --- */
+.support-footer {
+    background: $teal;
+    padding: $base-spacing 0;
+    text-align: center;
+
+    .site-container {
+        h1 {
+            @include font-size-rem(24);
+            display: inline-block;
+            color: $cream;
+            margin-right: $base-spacing;
+        }
+
+        a {
+            padding: rem(7) rem(22);
+            color: $cream;
+        }
+
+        // Mobile styles
+        @include media($mobile) {
+            a { margin: $base-spacing auto 0; }
+        }
+    }
+}
+
+/* ---
+   Footer: site footer
+   --- */
+.site-footer {
+    background: darken($teal, 10);
+    color: $cream;
+    font-family: $sans-serif-medium;
+    font-weight: 500;
+    padding-bottom: $base-spacing*5;
+
+    a, h1 { color: $cream }
+
+    // Get started, install
+    .get-started {
+        @extend .quarter;
+        padding-top: $base-spacing*2;
+
+        h1 {
+            @include font-size-rem(20);
+            font-weight: 500;
+        }
+        p { 
+            @include font-size-rem(16);
+            color : $surf;
+        }
+
+        .button {
+            margin-top: $base-spacing/2;
+            margin-bottom: $base-spacing/3;
+            margin-right: $base-spacing/2;
+            min-width: rem(100);
+            text-align: center;
+        }
+    }
+
+    hr { border-color: darken($teal, 5); }
+
+    // GitHub footer link
+    p.github-footer {
+        @include font-size-rem(24);
+        @extend .three-quarter;
+        padding-top: $base-spacing*1.25;
+        padding-left: $base-spacing*3.5;
+        a {
+            padding: rem(2);
+            border-bottom: thin dashed rgb(40, 87, 101);
+        }
+        i {
+            margin-right: rem(14);
+            margin-top: rem(3);
+        }
+    }
+
+    // Footer links
+    .footer-links {
+        @extend .three-quarter;
+        margin-top: $base-spacing*2;
+
+        header {
+            margin-bottom: rem(10);
+            span {
+                border-bottom: thin solid rgb(26, 55, 65);
+                padding-bottom: rem(4);
+            }
+        }
+
+        ul { @include outer-container; }
+
+        li {
+            @extend .quarter;
+            @include font-size-rem(16);
+            font-family: $sans-serif-semi-bold;
+            font-weight: 600;
+            text-transform: lowercase;
+            margin-bottom: $base-spacing;
+            padding: 0 0 0 $base-spacing*3.5;
+
+            ul li {
+                @include fill-parent;
+                font-family: $sans-serif-medium;
+                font-weight: 500;
+                margin-bottom: 0;
+                padding: 0;
+            }
+
+            @include media($mobile) {
+                padding-left: 0;
+                padding-bottom: $base-spacing;
+
+                ul li { padding-top: $base-spacing/3; }
+            }
+        }
+    }
+
+    // Contact information
+    .contact-info {
+        @include font-size-rem(14);
+        font-weight: 400;
+        margin-top: $base-spacing;
+
+        address, p {
+            @include font-size-rem(16);
+            color : $surf;
+            margin-bottom: rem(10);
+
+            // Icons for contact info
+            &:before {
+                $_size: rem(22);
+                content: '';
+                display: block;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: $_size;
+                height: $_size;
+                background-size: $_size;
+                background-position: left top;
+                background-repeat: no-repeat;
+                opacity: 0.3;
+            }
+        }
+
+        address {
+            position: relative;
+            padding-left: rem(30);
+            // Location icon
+            &:before { background-image: url('/assets/images/icons/icon-location.png'); }
+        }
+
+        p.irc {
+            position: relative;
+            padding-left: rem(30);
+            // IRC icon
+            &:before {
+                background-image: url('/assets/images/icons/icon-irc.png');
+
+            }
+        }
+    }
+}

@@ -1,0 +1,73 @@
+# - title: RethinkDB 2.0 webcast
+#   short_date: Apr 21
+#   byline: April 21, 2015 via livestream
+#   short_description: Learn about new feaures in RethinkDB 2.0 with
+#       co-founders Slava Akhmechet and Michael Glukhovsky.
+#   description: Join RethinkDB co-founders Slava Akhmechet and Michael
+#       Glukhovsky as they share new features and updates in RethinkDB 2.0.
+#   permalink: http://www.meetup.com/RethinkDB-Bay-Area-Meetup-Group/events/220785393/
+#   cta: "RSVP here <i class='right-arrow'></i>"
+#   tag: Webcast
+
+- title: RethinkDB San Francisco monthly meetup 
+  short_date: March 31, 2016
+  byline: March 31 at Heavybit Industries
+  short_description: Join us at Heavybit in San Francisco to celebrate our 2.3 release.  
+  description: Come celebrate the release of RethinkDB 2.3 plus get an early hands-on preview of Horizon! 
+  permalink: http://www.meetup.com/RethinkDB-SF-Meetup-Group/events/229492706/
+  cta: "RSVP here <i class='right-arrow'></i>"
+  tag: meetup 
+
+- title: RethinkDB at Percona Live Conference 
+  short_date: April 20, 2016
+  byline: April 20, 2016 in Santa Clara 
+  short_description: Come learn about RethinkDB with cofounder Slava Akhmechet at Percona Live in Santa Clara.   
+  description: Join RethinkDB cofounder Slava Akhmechet at Percona Live at the Santa Clara Convention Center and learn how RethinkDB makes it easier to build modern, engaging realtime apps. 
+  permalink: https://www.percona.com/live/conferences
+  cta: "Learn more here <i class='right-arrow'></i>"
+  tag: conference 
+  
+- title: Horizon at ng-conf
+  short_date: May 4 - 6, 2016
+  byline: May 5, 2016 in Salt Lake City  
+  short_description:  Learn how to build your own realtime app with Horizon at our workshop!
+  description: Join RethinkDB cofounder Michael Glukhovsky in this interactive workshop and learn how to quickly build realtime apps with Horizon. 
+  permalink: https://www.ng-conf.org/#/
+  cta: "Learn more here <i class='right-arrow'></i>"
+  tag: conference 
+
+- title: Horizon at Space City JS 
+  short_date: May 14, 2016
+  byline: May 14, 2016 in Houston  
+  short_description: Stop by and hear Slava Akhmechet talk about the future of app development with Horizon. 
+  description: RethinkDB cofounder, Slava Akhmechet, will show you how to speed up app development with prefabricated, extensible, open-source backends, like Horizon. 
+  permalink: http://spacecity.codes/#
+  cta: "Learn more here <i class='right-arrow'></i>"
+  tag: conference 
+ 
+- title: RethinkDB at the Community Leadership Summit  
+  short_date: May 14 - 15, 2016
+  byline: May 15, 2016 in Austin 
+  short_description:  RethinkDB community manager, Christina Keelan, shares her community experiences at CLS! 
+  description: Join Christina Keelan as she shares her journey into tech, feelings of Imposter Syndrome, and what it's like to build an engaged, open source community. 
+  permalink: http://www.communityleadershipsummit.com/
+  cta: "Learn more here <i class='right-arrow'></i>"
+  tag: conference 
+
+- title: RethinkDB at OSCON  
+  short_date: May 16 - 19, 2016
+  byline: May 16 - 19, 2016 in Austin 
+  short_description: Join the team at OSCON!   
+  description: Join the team in Austin and learn what's new in open source! We'll host a BoF and lightning talk session, too, so be sure to find us! 
+  permalink: http://conferences.oreilly.com/oscon/open-source-us
+  cta: "Learn more here <i class='right-arrow'></i>"
+  tag: conference 
+  
+- title: Horizon at Data by the Bay  
+  short_date: May 16, 2016
+  byline: May 16, 2016 in Oakland 
+  short_description: Join Slava Akhmechet as he talk about the future of app development with Horizon.
+  description: RethinkDB cofounder, Slava Akhmechet, will show you how to speed up app development with prefabricated, extensible, open-source backends, like Horizon. 
+  permalink: http://data.bythebay.io/
+  cta: "Learn more here <i class='right-arrow'></i>"
+  tag: conference

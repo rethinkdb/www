@@ -1,0 +1,18 @@
+---
+layout: default
+---
+<div class="example-app section">
+    <div class="infobox infobox-right infobox-slim infobox-github">
+        <p>See the <a href="{{page.github_url}}">project on Github</a> for this example.</p>
+    </div>
+    <h1 class="title">{{page.title}}</h1>
+    {{content}}
+</div>
+<script type="text/javascript">
+    $( function() {
+        $('td.docs code').closest('a').hover( function() {
+                $(this).css('text-decoration','none')
+        });
+    });
+            
+</script>

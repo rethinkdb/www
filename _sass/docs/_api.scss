@@ -1,0 +1,54 @@
+/* ---
+   Documentation: API docs
+   --- */
+.api-docs.documentation {
+    // API header
+    #api-header {
+        overflow: auto;
+        &.stuck {
+            position: fixed;
+            top: 0;
+        }
+    }
+
+    // API commands
+    .api-command {
+        padding-bottom: $base-spacing*2;
+        border-bottom: 1px solid $smoke-gray;
+
+        h2 a { color: $teal; }
+
+        // Button to read expanded docs of a single command
+        > p:last-child {
+            margin: 0;
+
+            a {
+                color: rgb(45,129,148);
+                border-bottom: thin solid rgb(207,207,207);
+            }
+        }
+    }
+
+}
+
+
+/* ---
+   Documentation: API docs -- individual command styles
+   --- */
+.documentation .api-command {
+    .command-syntax {
+        border-left: 3px solid darken($smoke-gray, 3);
+        padding-left: $base-spacing/2;
+        margin-top: 2rem;
+
+        p {
+            @include font-size-rem(16);
+            font-family: $monospaced;
+            padding: 0;
+            margin: $base-spacing/3 0;
+
+            &:first-child { margin-top: 0; }
+            &:last-child { margin-bottom: 0; }
+        }
+    }
+}

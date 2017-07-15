@@ -1,0 +1,119 @@
+/* Remove background */
+html.embed { background: none; }
+
+/* Font smoothing */
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 18px;
+    color: #647276;
+}
+
+/* Make the inputs look flat */
+input.text, input.search, textarea.textarea {
+    border: thin solid #ddd;
+    border-radius: 2px;
+    background: #fff;
+}
+
+/* Change the required field asterisk to cranberry */
+form span.req { color: #be465c !important; }
+
+/* Remove unnecessary padding */
+form li { padding-left: 0; }
+
+/* Remove the yellow fields + bold colors for focused fields */
+.wufoo li.focused { background: none; }
+.wufoo li.focused label.desc,
+.wufoo li.focused legend.desc,
+.wufoo li.focused div,
+.wufoo li.focused span,
+.wufoo li.focused div label,
+.wufoo li.focused span label,
+.safari .wufoo li.focused input.file { color: #647276; }
+
+/* Hide blue outlines for inputs */
+input, textarea { outline: 0; }
+
+/* Fancy submit button */
+form li.buttons { padding-left: 0; }
+.wufoo input.submit {
+    font-family: 'freight-sans-pro';
+    font-weight: 600;
+    border: thin solid #214753;
+    color: #214753;
+    background: transparent;
+    transition: background 0.1s linear;
+    border-radius: 3px;
+    display: inline-block;
+    padding: 10px 40px;
+    font-size: 17px;
+    cursor: pointer;
+}
+.wufoo input.submit:hover {
+    background: #214753;
+    color: #FBFBF9;
+}
+
+/* Hide details on error (remove gratuitious red) */
+form li#errorLi { display: none; }
+form li.error {
+    background: none !important;
+    margin-bottom: 0 !important;
+}
+form li.error label.desc { color: #647276 !important; }
+form li.error p.error {
+    font-family: 'freight-sans-pro';
+    font-size: 13px;
+    font-weight: 500;
+    color: #be465c !important;
+}
+
+/* Fix checkboxes */
+
+.wufoo label.choice {
+    font-size: inherit;
+    margin: 0;
+    margin-left: 8px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+input.checkbox {
+    margin: 0;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Fix label description */
+.wufoo label.desc { font-size: 100%; }
+
+/* Fix width of the textarea */
+.wufoo textarea {
+    width: 50%;
+    min-width: auto;
+    max-width: inherit;
+}
+
+/* Header styles */
+.wufoo .section h3 {
+    font-size: 120%;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.wufoo .section div {
+    font-size: inherit;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.wufoo legend.desc {
+    font-size: 110%;
+}
+
+.wufoo p.terms {
+    margin-bottom: 15px;
+    font-size: 18px;
+    line-height: 28px;
+}

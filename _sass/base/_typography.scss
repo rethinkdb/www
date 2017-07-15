@@ -1,0 +1,119 @@
+body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: $base-background-color;
+    color: $base-font-color;
+    font-family: $base-font-family;
+    line-height: $base-line-height;
+    font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: $base-font-color;
+    font-family: $header-font-family;
+    line-height: $header-line-height;
+    margin: 0;
+    text-rendering: optimizeLegibility; // Fix the character spacing for headings
+}
+
+h1 {
+    @include font-size-rem(33);
+    line-height: rem(60);
+    font-weight: 400;
+}
+h2 { font-size: $h2-font-size; }
+h3 { font-size: $h3-font-size; }
+h4 { font-size: $h4-font-size; }
+h5 { font-size: $h5-font-size; }
+h6 { font-size: $h6-font-size; }
+
+p {
+    margin: 0 0 ($base-spacing / 2);
+    @include font-size-rem(18);
+    line-height: rem(30);
+}
+
+a {
+    @include transition(color 0.1s linear);
+    color: lighten(saturate($teal, 25), 25);
+    text-decoration: none;
+
+    &:hover { color: $hover-link-color; }
+
+    &:active, &:focus {
+        color: $hover-link-color;
+        outline: none;
+    }
+}
+
+hr {
+    border-bottom: $base-border;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    margin: $base-spacing 0;
+}
+
+strong {
+    font-family: $sans-serif-semi-bold;
+    font-weight: 600;
+}
+
+img,
+picture {
+    margin: 0;
+    max-width: 100%;
+}
+
+blockquote {
+    $_color: rgb(131, 131, 131);
+    margin: 0;
+    padding-left: rem(16);
+    position: relative;
+    font-family: $sans-serif;
+    font-weight: 400;
+    color: $_color; 
+    border-left: 4px solid rgb(221, 221, 221);
+    p { color: $_color; }
+}
+
+cite {
+    color: lighten($base-font-color, 25);
+    display: block;
+    font-family: $sans-serif-italic;
+    font-weight: 400;
+    padding-top: $base-spacing / 2;
+
+    &:before {
+        content: "\2014 \00A0";
+    }
+}
+
+address {
+    font-family: $sans-serif-italic;
+    font-weight: 500;
+}
+
+// Code blocks
+code {
+    @include font-size-rem(15);
+    background: $smoke-gray;
+    border-radius: $base-border-radius;
+    margin: 0 $base-spacing/6;
+    padding: 3px 4px;
+}
+pre { border-radius: $base-border-radius; }
+div.highlighter-rouge, .highlight {
+    background: $smoke-gray;
+    border-radius: $base-border-radius;
+    padding: $base-spacing/2;
+    margin: $base-spacing/1.5 0;
+
+    pre { margin: 0.4rem 1.2rem; }
+    code {
+        font-family: $monospaced;
+        @include font-size-rem(15);
+        margin: 0;
+        padding: 0;
+    }
+}

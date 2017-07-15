@@ -1,0 +1,97 @@
+/* ---
+   Documentation: landing page
+   --- */
+.documentation .docs-landing {
+    h1 { margin-bottom: rem(25); }
+
+    // Intro section that welcomes users to the documentation
+    .docs-intro {
+        background: rgb(241, 245, 245);
+        padding: $base-spacing $base-spacing*1.5;
+        border-radius: $base-border-radius;
+        margin-top: $base-spacing/2;
+        margin-bottom: $base-spacing * 2;
+
+        h2 {
+            margin-top: 0;
+            color: darken($base-font-color, 7);
+        }
+
+        > p {
+            @include font-size-rem(20);
+        }
+
+        .video {
+            padding: 0 6%; // TODO try to center align the image
+        }
+    }
+
+    // Large action items at the top of page, each is a simple button
+    .primary-docs {
+        @include outer-container;
+        li {
+            @extend .third;
+            @extend .simple-button;
+            list-style: none;
+            margin-left: 0;
+            padding: $base-spacing/2;
+            position: relative;
+
+            p {
+                margin: 0;
+                color: $teal;
+                text-align: center;
+                @include font-size-rem(22);
+            }
+        }
+
+        @include media($mobile) {
+            li {
+                min-height: none;
+                img { display: none; }
+            }
+        }
+    }
+
+    // List of featured articles
+    .featured-articles {
+        h1 { margin-bottom: rem(10); }
+        .article-list {
+            @extend .article-list;
+        }
+    }
+
+    // Complete list of documentation articles -- TODO REMOVE
+    .docs-nav {
+        @include column-count(3);
+        @include column-gap(rem(10));
+        margin-left: 0;
+        margin-top: rem(50);
+
+        section {
+            -webkit-column-break-inside:avoid;
+            -moz-column-break-inside:avoid;
+            -o-column-break-inside:avoid;
+            -ms-column-break-inside:avoid;
+            column-break-inside:avoid;
+            margin-bottom: rem(40);
+
+            ul {
+                display: block;
+                border-left: thin solid #eee;
+                margin-top: rem(15);
+                padding: 0;
+                li {
+                    list-style-type: none;
+                    margin-left: rem(15);
+                }
+            }
+
+            h1 {
+                margin-top: 0;
+                @include font-size-rem(24);
+            }
+        }
+    }
+}
+

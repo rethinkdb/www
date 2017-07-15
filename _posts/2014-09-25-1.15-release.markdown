@@ -1,0 +1,250 @@
+---
+layout: post
+title: "RethinkDB 1.15: Geospatial queries"
+tags:
+- release
+author: Josh Kuhn
+author_github: deontologician
+hero_image: 2014-09-25-1.15-release-banner.png
+alias: /videos/new-features-in-1-15
+---
+
+Today, we're happy to announce __RethinkDB 1.15__ ([Lawrence of Arabia][yt]).
+[Download it now!][install]
+
+[yt]: https://www.youtube.com/watch?v=zmr1iSG3RTA
+[install]: /docs/install
+
+The 1.15 release includes over [50 enhancements][] and introduces geospatial
+queries to RethinkDB. This has been _by far_ the [most requested
+feature][#1158] by RethinkDB users. In addition, we've sped up many queries
+dramatically by lazily deserializing data from disk. This release also brings a
+new [r.uuid][] command that allows server-side generation of UUIDs.
+<!--more-->
+
+[50 enhancements]: https://github.com/rethinkdb/rethinkdb/issues?q=is%3Aissue+milestone%3A1.15+is%3Aclosed
+[#1158]: https://github.com/rethinkdb/rethinkdb/issues/1158
+[r.uuid]: /docs/javascript/uuid
+
+Thanks primarily to [Daniel Mewes][], RethinkDB now has rich geospatial features including:
+
+- [r.geojson][] and [r.to_geojson][] for importing and exporting [GeoJSON][]
+- Commands to create [points][], [lines][], [polygons][] and [circles][]
+- Geospatial queries:
+     - [get_intersecting][]: finds all documents that intersect with a given geometric object
+     - [get_nearest][]: finds the closest documents to a point
+- Geospatial indexes to make `get_intersecting` and `get_nearest` blindingly fast
+- Functions that operate on geometry:
+     - [r.distance][]: gets the distance between a point and another geometric object
+     - [r.intersects][]: determines whether two geometric objects intersect
+     - [r.includes][]: tests whether one geometric object is completely contained in another
+     - [r.fill][]: converts a line into a polygon
+     - [r.polygon_sub][]: subtracts one polygon from another
+
+[Daniel Mewes]: https://github.com/danielmewes
+[get_intersecting]: /api/javascript/get_intersecting
+[get_nearest]: /api/javascript/get_nearest
+[r.distance]: /api/javascript/distance
+[r.intersects]: /api/javascript/intersects
+[r.includes]: /api/javascript/includes
+[r.fill]: /api/javascript/fill
+[r.polygon_sub]: /api/javascript/polygon_sub
+[r.to_geojson]: /api/javascript/to_geojson
+[r.geojson]: /api/javascript/geojson
+[GeoJSON]: http://geojson.org
+[points]: /api/javascript/point
+[lines]: /api/javascript/line
+[polygons]: /api/javascript/polygon
+[circles]: /api/javascript/circle
+
+<a href="https://www.youtube.com/watch?v=jJ6SwALDt2c">
+    <img src="/assets/images/videos/releases/rethinkdb-1.15.png">
+</a>
+
+{% infobox %}
+__Upgrading to RethinkDB 1.15?__
+
+  - If you're upgrading from version 1.12 or earlier, you will need to [migrate
+    your data][] one last time.
+  - If you're coming from 1.13, you don't need to migrate your data but you may
+    need to [recreate your indexes][].
+
+[migrate your data]: /docs/migration/
+[recreate your indexes]: /docs/troubleshooting/#my-secondary-index-is-outdated
+{% endinfobox %}
+
+{% infobox alert %}
+__Upgrading on Ubuntu?__ If you're upgrading from 1.12 or earlier, first [set
+up the new RethinkDB PPA][ubuntu].
+
+[ubuntu]: /docs/install/ubuntu
+{% endinfobox %}
+
+# Using geospatial queries
+
+Let's insert a couple of locations into RethinkDB:
+
+```py
+> r.table('geo').insert([
+  {
+    'id': 1,
+    'name': 'San Francisco',
+    'location': r.point(-122.423246, 37.779388)
+  },
+  {
+    'id': 2,
+    'name': 'San Diego',
+    'location': r.point(-117.220406, 32.719464)
+  }
+]).run(conn)
+```
+
+Throughout RethinkDB, all coordinates are entered as longitude/latitude to be
+consistent with GeoJSON.
+
+In order for geospatial queries to return these points as results, we need to
+create a geospatial index:
+
+```py
+> r.table('geo').createIndex('location', geo=True).run(conn)
+```
+
+Now, let's find which of these cities is nearest to a given point &mdash; for
+example, [Santa Maria, CA][]:
+
+[Santa Maria, CA]: https://goo.gl/maps/iRVWv
+
+```py
+> r.table('geo').get_nearest(
+    r.point(-120.4333, 34.9514),  # Santa Maria's long/lat
+    index='location',
+    max_dist=300,
+    unit='mi',
+    max_results=1).run(conn)
+
+[{"doc": {
+    "id": 1,
+    "name": "San Francisco",
+    "location": {
+      "$reql_type$": "GEOMETRY",
+      "type": "Point",
+      "coordinates": [-122.423246, 37.779388] }},
+  "dist": 224.34241555826364 }]
+```
+
+We see that Santa Maria is about 224 miles from San Francisco. Note that
+RethinkDB returns the matched document, as well as the distance to the original
+point.
+
+We can also find all geometric shapes that intersect with a polygon. This is
+useful when you're given a viewing window, and need to return all geometry
+that's inside the window:
+
+```py
+def query_view_window(top, bottom, left, right):
+    # top and bottom are latitudes, left and right are longitudes
+    bounding_box = r.polygon(
+        r.point(left, top),
+        r.point(right, top),
+        r.point(right, bottom),
+        r.point(left, bottom))
+    return r.table('geo').get_intersecting(bounding_box, index='location').run(conn)
+```
+
+## Going further ##
+
+For the full details, read the in-depth article on [geospatial support][] by
+[Watts Martin][].
+
+In addition, check out an [example web application][] that uses RethinkDB to
+dynamically load street maps and points of interest.
+
+[geospatial support]: /docs/geo-support/
+[Watts Martin]: https://github.com/chipotle
+[example web application]: https://github.com/rethinkdb/geojson-streetmaps
+
+# Faster queries #
+
+Prior to the 1.15 release, every time a query touched a document RethinkDB
+would pull the entire document from disk and deserialize it into a full ReQL
+data structure in memory.
+
+In RethinkDB 1.15, the database intelligently deserializes only portions of the
+document when they become necessary. If a field isn't required by the query,
+RethinkDB no longer spends time looking at it. This speeds up queries that only
+need part of a document, most notoriously `count`.
+
+You should see performance increases for:
+
+- analytic queries which only need summary information
+- queries which don't touch every part of a document.
+
+In our (unscientific) tests, we saw performance improvements of around 15% for
+simple read queries, &times;2 for analytic queries, and &times;50 for `count`
+queries on tables. We'll be publishing scientific benchmarks soon, but in the
+meantime, enjoy the better performance!
+
+# Server-side UUIDs
+
+The new `r.uuid` command lets you generate server-side UUIDs wherever you like.
+
+Let's say that when you create a new player they get a default item in their
+inventory. Additionally, each item needs a unique identifier:
+
+```py
+> r.table("player").insert({
+      "name": player_name,
+      "inventory": [{
+          "item_type": "potion",
+          "item_id": r.uuid(),
+      }]
+  }, non_atomic=True, return_changes=True).run(conn)
+```
+
+This will return:
+
+```
+{ "inserted": 1,
+  "changes": [
+    {
+      "new_val": {
+        "id": "063ab596-543e-45a7-904f-c3fafa96bf42",
+        "name": "for_my_friends",
+        "inventory": [{
+          "item_type": "potion",
+          "item_id": "e985d732-c2ac-40a4-bf19-9b4946632859",
+        }]
+      },
+      "old_val": null
+    }
+}
+```
+
+RethinkDB has always created a UUID automatically for the primary key if it
+isn't specified in the inserted document, but now we can generate UUIDs for
+embedded documents as well. You can get the generated keys by using
+`return_changes=True`.
+
+Since UUID generation is random (and therefore can't be done atomically),
+you'll need to add the `non_atomic=True` flag to any update or insert that uses
+`r.uuid`.
+
+# Next steps 
+
+See the [full list][] of enhancements, and take the new release [for a spin][]!
+
+The team is already hard at work on the upcoming [1.16 release][] that will
+focus on more flexible changefeeds. As always, if there is something you'd like
+us to prioritize or if you have any feedback on the release, please [let us
+know][]!
+
+[full list]: https://github.com/rethinkdb/rethinkdb/issues?q=milestone%3A1.15
+[for a spin]: /docs/install/
+[1.16 release]: https://github.com/rethinkdb/rethinkdb/issues?q=milestone%3A1.16+is%3Aopen
+[let us know]: https://github.com/rethinkdb/rethinkdb/issues
+
+{% infobox %}
+__Help work on the 1.16 release:__ RethinkDB is [hiring][].
+
+[hiring]: /jobs
+{% endinfobox %}

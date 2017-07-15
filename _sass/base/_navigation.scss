@@ -1,0 +1,278 @@
+/* ---
+   Navigation bar: general styles and typography
+     --> applies to both the global nav and sub-nav
+   --- */
+.site-nav, .sub-nav {
+    background: $teal;
+    margin-bottom: $base-spacing;
+
+    .site-container { position: relative; }
+
+    a {
+        color: $cream;
+        &:hover { color: darken($cream, 8); }
+    }
+
+    // RethinkDB logo
+    a.logo {
+        display: block;
+        @include span-columns(2);
+        @include font-size-rem(26);
+        font-weight: 400;
+        text-indent: -9999px;
+        line-height: rem(40);
+        background-image: url('/assets/images/logo.png');
+        background-repeat: no-repeat;
+        background-size: 85%;
+        background-position: 0 rem(9);
+    }
+
+    ul {
+        @include span-columns(10);
+        text-align: right;
+    }
+
+    li {
+        margin: $base-spacing/4 0 0 $base-spacing*2.5;
+        @include font-size-rem(18);
+        display: inline-block;
+        font-family: $sans-serif-semi-bold;
+        line-height: rem(28);
+        text-transform: lowercase;
+        font-weight: 600;
+    }
+    // Hide the menu trigger
+    .menu-trigger { display: none; }
+    .menu-trigger-icon { opacity: 0.6; }
+}
+
+/* ---
+   Navigation bar: global nav
+   --- */
+.site-nav {
+    // Spacing within the global nav (i.e. height)
+    .site-container { padding: $base-spacing; }
+
+    li {
+        padding: rem(1) rem(3);
+        &.active { border-bottom: 2px solid rgb(59, 101, 115); }
+    }
+    // Show a mobile navbar
+    @include media($mobile) {
+        // Hide other links until user taps 'Menu'
+        li { display: none; }
+        // Only show the 'menu' link at first
+        .menu-trigger {
+            display: block;
+            text-indent: -9999px;
+        }
+    }
+
+
+    // Move the nav to an absolute position, so it overlaps the hero
+    //   -> used on the community + about pages
+    &.translucent {
+        margin-bottom: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 4;
+        background: rgba(22, 44, 50, 0.65);
+    }
+}
+
+/* ---
+   Sub-navigation bar: used on inner pages, below the header image (e.g.
+   'about' and 'community')
+   --- */
+.sub-nav {
+    // Spacing within the sub nav (i.e. height)
+    .site-container { padding: $base-spacing/8*7; }
+    background: $surf;
+    margin-bottom: 0;
+    a { color: $teal; }
+    ul {
+        @include fill-parent;
+        text-align: center;
+    }
+    li {
+        @include font-size-rem(16);
+        line-height: rem(20);
+        padding: $base-spacing/4 $base-spacing;
+        margin: 0;
+    }
+}
+
+/* ---
+   Site wrapper: allows the entire page to shift when the mobile menu is shown
+   --- */
+#wrapper {
+    @include transition(all 0.1s linear);
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 5;
+}
+
+// Slider navigation
+body { overflow-x: hidden; }
+
+// Set right global nav sliding position when open
+body.pmr-open .push-menu-right { right: 0; }
+body.pmr-open #wrapper { left: -50%; }
+
+
+/* ---
+   Mobile menu: pops out from the right
+   --- */
+.mobile-menu {
+    @include transition(all 0.1s linear);
+    background-color: darken($teal, 10);
+    position: fixed;
+    z-index: 6;
+    overflow-x: hidden;
+
+    a {
+        color: $cream;
+        text-transform: lowercase;
+    }
+
+    // Mobile menu is initially hidden -- when opened, pushes from the right side
+    &.push-menu-right {
+        height: 100%;
+        right: -50%;
+        top: 0;
+        width: 50%;
+
+        li {
+            border-bottom: 1px solid darken($teal, 5);
+            display: block;
+        }
+
+        a {
+            @include font-size-rem(18);
+            font-family: $sans-serif-semi-bold;
+            font-weight: 600;
+            display: block;
+            padding: $base-spacing/2 $base-spacing $base-spacing/1.8;
+
+            &:hover {
+                background: darken($teal, 11);
+            }
+        }
+
+        // Add 'x' to the close button
+        .menu-trigger a:before {
+            content: '\2715';
+            display: inline-block;
+            padding-right: $base-spacing/2;
+        }
+    }
+
+    // Page-specific navigation with sub-menus appear below the main navigation
+    // on moble. The only place this is currently used is the documentation
+    // navigation.
+    .docs-nav {
+        border-top: 3px solid rgb(56,83,92);
+
+        h1 {
+            border-bottom: 1px solid darken($teal, 5);
+            a { color: $cream; }
+        }
+        // Submenus should appear visually distinct (different font weight, left border)
+        ul {
+            margin: 0;
+            padding: 0;
+            border-left: 5px solid rgb(110, 139, 148);
+
+            li { 
+                a {
+                    font-family: $sans-serif;
+                    color: rgb(110, 139, 148);
+                } 
+                &.active a { color: $cream; }
+            }
+        }
+    }
+
+    .mobile-search {
+        left: 0px;
+        padding: $base-spacing;
+        position: absolute;
+        top: 0px;
+        width: 100%;
+
+        input {
+            @include font-size-rem(16);
+            background: darken($teal, 8);
+            border: none;
+            color: $cream;
+            margin: 0 auto;
+            padding: $base-spacing/2;
+            text-align: center;
+            width: 100%;
+        }
+        .clear-search {
+            color: $surf;
+            border-radius: 50%;
+            display: none;
+            height: rem(30);
+            padding: $base-spacing/2;
+            position: absolute;
+            right: $base-spacing*1.5;
+            top: $base-spacing/1.1;
+            width: rem(30);
+            &:hover { background: none; }
+        }
+
+        // Initially hide the search results
+        .search-results {
+            display: none;
+
+            li {
+                border-bottom: 1px solid darken($teal, 4);
+                color: $cream;
+                padding: $base-spacing/2 0;
+            }
+        }
+    }
+}
+
+/*** DEPRECATED
+
+// DEPRECATED REMOVE TODO
+// Open wider on mobile search (like FB)
+body.pml-open-wide {
+    #wrapper { left: 100%; }
+    .push-menu-left { width: 100%; }
+    .mobile-search input { text-align: left; }
+}
+// DEPRECATED TODO REMOVE
+// review and include relevant styles for the API and docs navbars
+.mobile-doc-links {
+    height: 92%;
+    overflow-y: scroll;
+    margin-top: $base-spacing*4;
+    width: 106%;
+
+    h1, .nav-header {
+        @include font-size-rem(14);
+        color: lighten($teal, 15);
+        cursor: pointer;
+        font-family: $sans-serif-semi-bold;
+        font-weight: 600;
+        padding: $base-spacing $base-spacing 0;
+        text-transform: uppercase;
+
+        &:hover { background: none; }
+    }
+    ul { display: none; }
+    // API nav list needs to show
+    ul.nav-list { display: block; }
+    ul li a {
+        @include font-size-rem(16);
+        color: $surf;
+    }
+}
+
+***/

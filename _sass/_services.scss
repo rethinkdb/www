@@ -1,0 +1,49 @@
+body.services {
+    // Override
+    .site-nav { margin-bottom: 0; }
+
+    /* ---
+       Services: layout and general styles
+       --- */
+    .services-description, .contact {
+        background: $cream;
+        padding: $base-spacing*2 0;
+    }
+
+    /* ---
+       Services: description of services offered
+       --- */
+    .services-description {
+        p {
+            @include font-size-rem(23);
+            margin-top: $base-spacing;
+        }
+
+        // List of offerings (training + support)
+        .offerings   {
+            padding-top: $base-spacing*2;
+            article {
+                border-right: thin solid #ccc;
+                padding: 0 $base-spacing*1.25 0 $base-spacing*0.75;
+                padding-bottom: $base-spacing*2;
+
+                &:first-child { padding-left: 0; }
+                &:last-child { border-right: none; }
+
+                h1 {
+                    @include font-size-rem(27);
+                    line-height: rem(27);
+                    margin-bottom: rem(20);
+                    font-weight: 600;
+                }
+
+                ul { @extend ul%default-ul; }
+            }
+        }
+    }
+
+    /* ---
+       Services: contact form
+       --- */
+    .contact iframe { margin-top: $base-spacing; }
+}

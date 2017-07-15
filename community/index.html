@@ -1,0 +1,157 @@
+---
+layout: default
+title: Community
+active: community
+body_class: community
+---
+
+<div class="community-wrapper">
+    <!-- hero -->
+    <section class="hero">
+        <div class="site-container">
+            <h1>Building great things together</h1>
+        </div>
+    </section>
+    <!-- intro -->
+    <section class="intro">
+        <div class="site-container">
+          <!--
+            <div class="infobox infobox-alert s4s">
+
+                <p><strong>Get a free RethinkDB T-shirt</strong></p>
+                <p>
+                    Tell us how you're using RethinkDB. We're trading <a
+                    href="/community/shirts-for-stories">shirts for
+                    stories</a>.
+                </p>
+            </div>
+          -->
+            <h1>Get help from the RethinkDB community</h1>
+	    <article class="getting-help">
+                <ul>
+    		    <!-- Slack -->
+                    <li>
+                        <h2>Join us on Slack</h2>
+                        <p>Meet the RethinkDB team, chat with the community members, and get your questions answered on our <a href="http://slack.rethinkdb.com">community Slack</a>.</p>
+                    </li>
+    		    <!-- Report an issue -->
+                    <li>
+                        <h2>Report an issue</h2>
+                        <p>Submit bug reports, suggest new features, or follow development on our <a href="https://github.com/rethinkdb/rethinkdb">GitHub repo</a>.</p>
+                    </li>
+    		    <!-- Alternative ways to reach us -->
+		    <li>
+    		      <h2>More ways to reach the team</h2>
+    		      <ul class="more-ways-to-reach-us">
+    			<li>Post your RethinkDB questions on <a href="https://groups.google.com/forum/#!forum/rethinkdb">Google Groups</a> or <a href="http://stackoverflow.com/tags/rethinkdb">Stack Overflow</a>.</li>
+    			<li>Reach us on <a href="https://twitter.com/rethinkdb">Twitter</a>.</li>
+    			<li>Join us on IRC (<a href="irc://chat.freenode.net/#rethinkdb">#rethinkdb</a> on Freenode).</li>
+    		      </ul>
+    		    </li>
+                </ul>
+	    </article
+        </div>
+    </section>
+    <!-- intro -->
+    <section class="events">
+        <div class="site-container">
+            <h1>Upcoming events and meetups</h1>
+            <ul>
+                {% for event in site.data['upcoming-events'] %}
+                    <li class="event">
+                        <h1><a target="_blank" href="{{ event.permalink }}">{{ event.title }}</a></h1>
+                        <h2>{{ event.byline }}</h2>
+                        <p>{{ event.description }}</p>
+                        <p><a class="button minimal" target="_blank" href="{{ event.permalink }}">{{ event.cta }}</a></p>
+                    </li>
+                {% endfor %}
+            </ul>
+            <div class="community-illustration">
+                <img src="/assets/images/landing/features/4.png">
+            </div>
+        </div>
+    </section>
+    {% comment %}
+    <!-- TODO REMOVED -->
+    <!-- videos/talks -->
+    <section class="talks">
+        <h1>Recent talks from the community</h1>
+        <div class="site-container">
+            <section class="videos">
+                <div class="video">
+                    <p>
+                        RethinkDB Geolocation Features
+                        <span>Ryan Paul <small>Nov 4, 2014</small></span>
+                    </p>
+                    <div class="video-modal">
+                        <a href="#" class="close">&#x2715;</a>
+                        <div class="iframe-container">
+                            <iframe width="560" height="315" src="//www.youtube.com/embed/BWGL1eAmscE" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="video">
+                    <p>
+                        Deploying realtime apps with RethinkDB and Docker
+                        <span>Michael Glukhovsky <small>Nov 7, 2014</small></span>
+                    </p>
+                    <div class="video-modal">
+                        <a href="#" class="close">&#x2715;</a>
+                        <div class="iframe-container">
+                            <iframe width="560" height="315" src="//www.youtube.com/embed/yDS1e_Sg4WQ" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="video">
+                    <p>
+                        Publish-Subscribe with RethinkDB
+                        <span>Josh Kuhn <small>Sept 11, 2014</small></span>
+                    </p>
+                    <div class="video-modal">
+                        <a href="#" class="close">&#x2715;</a>
+                        <div class="iframe-container">
+                            <iframe width="560" height="315" src="//www.youtube.com/embed/3FQtVXZuG8c" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="video">
+                    <p>
+                        Art and Open Source
+                        <span>Annie Ruygt <small>Sept 11, 2014</small></span>
+                    </p>
+                    <div class="video-modal">
+                        <a href="#" class="close">&#x2715;</a>
+                        <div class="iframe-container">
+                            <iframe width="560" height="315" src="//www.youtube.com/embed/aH19JpTy6x8" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="video">
+                    <p>
+                        Publish-Subscribe with RethinkDB
+                        <span>Josh Kuhn <small>Sept 11, 2014</small></span>
+                    </p>
+                    <div class="video-modal">
+                        <a href="#" class="close">&#x2715;</a>
+                        <div class="iframe-container">
+                            <iframe width="560" height="315" src="//www.youtube.com/embed/3FQtVXZuG8c" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+                <div class="video">
+                    <p>
+                        Art and Open Source
+                        <span>Annie Ruygt <small>Sept 11, 2014</small></span>
+                    </p>
+                    <div class="video-modal">
+                        <a href="#" class="close">&#x2715;</a>
+                        <div class="iframe-container">
+                            <iframe width="560" height="315" src="//www.youtube.com/embed/aH19JpTy6x8" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </section>
+    {% endcomment %}
+</div>

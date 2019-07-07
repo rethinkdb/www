@@ -13,18 +13,18 @@ exclude: [_drafts, Rakefile, node_modules, Gemfile, Gemfile.lock, README.md]
 version:
     # major version number, used primarily for linking to GitHub feature branches
     #   -> e.g. 1.2, 1.3
-    major: 2.2
+    major: 2.3
     # full version number, include point releases and build tags, used for download links
     #   -> e.g. 1.2.1-3, 1.3.0
-    full: 2.2.1
+    full: 2.3.5
     # ---
     # human-readable version number (no build tags), used for marketing copy
     #   -> e.g. 1.2.1, 1.3
-    human: 2.2
-    codename: Modern Times
-    release_post: /blog/2.2-release
+    human: 2.3
+    codename: Fantasia
+    release_post: /blog/2.3-release
 rethinkdb_users: "100,000"
-github_stars: "11k"
+github_stars: "15k"
 
 sass:
     sass_dir: _sass
@@ -39,5 +39,5 @@ excerpt_separator: <!--more-->
 # RSS settings
 rss:
     name: "RethinkDB: the open-source database for the realtime web"
-    description: News and updates from the RethinkDB team. 
+    description: News and updates from the RethinkDB team.
     url: http://rethinkdb.com

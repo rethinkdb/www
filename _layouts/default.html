@@ -14,7 +14,7 @@
         <meta property="twitter:account_id" content="52351557" />
 
         <link rel="alternate" type="application/rss+xml" title="{{ site.rss.name }}" href="/feed.xml">
-        <link rel="stylesheet" media="screen" href="/assets/css/styles.css"/>
+        <link rel="stylesheet" media="screen" href="/assets/css/styles-02.css"/>
         <link rel="stylesheet" media="screen" href="/assets/css/jekyll-github.css"/>
         <link rel="icon" type="image/png" href="/favicon.png">
         <!-- typekit -->
@@ -39,16 +39,6 @@
             {% include navbar.html %}
             {{ content }}
 
-            <!-- support -->
-            {% unless page.body_class == 'services' %}
-            <footer class="support-footer">
-                <div class="site-container">
-                    <h1>Need 24 hour support, architectural consulting, or training?</h1>
-                    <a class="button light" href="/services">Buy support <i class="right-arrow white">&rarr;</i></a>
-                </div>
-            </footer>
-            {% endunless %}
-
             <!-- site footer -->
             <footer class="site-footer">
                 <div class="site-container">
@@ -60,10 +50,6 @@
 
                         <hr>
                         <section class="contact-info">
-                            <address>
-                                156 E Dana St,<br>
-                                Mountain View, CA 94041
-                            </address>
                             <p class="irc">#rethinkdb on freenode</p>
                         </section>
                     </section>
@@ -96,7 +82,7 @@
                             </header>
                             <ul>
                                 <li><a href="/community">Events</a></li>
-                                <li><a href="/community/shirts-for-stories/">Shirts for Stories</a></li>
+                                <!--<li><a href="/community/shirts-for-stories/">Shirts for Stories</a></li>-->
                                 <li><a href="https://github.com/rethinkdb/rethinkdb">GitHub</a></li>
                                 <li><a href="https://twitter.com/rethinkdb">Twitter</a></li>
                             </ul>
@@ -106,8 +92,6 @@
                                 <span>RethinkDB</span>
                             </header>
                             <ul>
-                                <li><a href="/about/">Company</a></li>
-                                <li><a href="/services/">Services</a></li>
                                 <li><a href="/blog/">Blog</a></li>
                             </ul>
                         </li>
@@ -116,8 +100,7 @@
                 </div>
             </footer>
         </div>
-
-
+      
         <!-- js-cookie -->
         <script type="text/javascript" src="/assets/js/js.cookie.js"></script>
         <!-- waypoints -->
@@ -138,6 +121,7 @@
              s.parentNode.insertBefore(t, s);
              })();
          </script>
+
          <script type="text/javascript">
 
              var _gaq = _gaq || [];

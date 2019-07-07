@@ -111,6 +111,7 @@ div.highlighter-rouge, .highlight {
 
     pre { margin: 0.4rem 1.2rem; }
     code {
+        font-family: $monospaced;
         @include font-size-rem(15);
         margin: 0;
         padding: 0;

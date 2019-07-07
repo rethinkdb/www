@@ -153,6 +153,7 @@ body.landing {
 
     p {
         @include font-size-rem(16);
+        line-height: rem(19);
         color: rgb(198, 222, 220);
         font-family: $sans-serif-medium;
         font-weight: 500;
@@ -163,7 +164,6 @@ body.landing {
         .headline-latest-release { font-weight: bold; }
         display: inline-block;
         margin-right: rem(25); // update to rem(40)
-        &:firsrt
         &:last-child { margin-right: 0; }
         i { margin-right: rem(8); }
     }
@@ -202,8 +202,11 @@ body.landing {
     p a { border-bottom: 1px dotted $cranberry; }
 
     pre {
-        code { @include font-size-rem(13); }
-        font-family: $monospaced;
+        code {
+          @include font-size-rem(13);
+          font-family: $monospaced;
+        }
+
         padding: 0.5rem 0.6rem;
         margin: $base-spacing 0 $base-spacing*2;
 
@@ -419,7 +422,7 @@ body.landing {
         left: 50%;
         position: absolute;
         img { max-width: rem(900); }
-        
+
         .ui-graph-wrapper { position: relative; }
 
         @include media($medium-screen-up) {
@@ -613,4 +616,3 @@ body.landing {
     // Extends design pattern _video-modal
     @extend .video-modal;
 }
-

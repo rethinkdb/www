@@ -2,7 +2,7 @@
 layout: document
 title: Thanks for becoming a RethinkDB contributor
 active: community
-permalink: community/cla/thanks/
+permalink: cla/thanks/
 ---
 
 # Thanks for becoming a RethinkDB contributor!

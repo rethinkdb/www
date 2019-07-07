@@ -1,0 +1,178 @@
+/* Layout */
+
+body.contribute {
+    $_padding: $base-spacing*2;
+    .content{
+        @extend .three-quarter;
+        padding-right: $base-spacing*3;
+        padding-top: $_padding;
+        padding-bottom: $_padding;
+    }
+    .sidebar {
+        @extend .quarter;
+        padding-top: $_padding;
+    }
+}
+
+body.contribute {
+    img.banner {
+      margin-bottom: $base-spacing;
+    }
+
+    article {
+      &:first-child {
+        margin-top: 0;
+        padding-top: 0;
+        border: none;
+      }
+      border-top: 1px solid #e1e1e1;
+      margin-top: rem(42);
+      padding-top: rem(32)
+    }
+}
+
+section.document .become-a-contributor {
+  a.button {
+    margin-top: rem(15);
+  }
+}
+
+section.document .donation-form {
+    background: #e4eff3;
+    padding: $base-spacing;
+    margin-bottom: $base-spacing;
+    .contribution-level {
+        display: flex;
+        margin-bottom: 20px;
+    }
+
+    form h2 {
+      margin-top: 0;
+      color: #576265;
+    }
+    #donate-button {
+        background-color: #016d8e;
+        font-size: rem(18);
+        line-height: rem(20);
+    }
+    .switch {
+        overflow: hidden;
+        input { display: none; }
+        label {
+            float: left;
+            display: inline-block;
+            width: 70px;
+            background-color: #f0eaea;
+            color: rgba(0, 0, 0, 0.6);
+            font-size: 17px;
+            font-weight: 500;
+            text-align: center;
+            text-shadow: none;
+            padding: 6px 14px;
+            border: 1px solid rgba(0, 0, 0, 0.2);
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px rgba(255, 255, 255, 0.1);
+            @include transition(all 0.1s ease-in-out);
+
+            &:hover { cursor: pointer; }
+            &:first-of-type {
+                border-radius: 4px 0 0 4px;
+            }
+            &:last-of-type {
+                border-radius: 0 4px 4px 0;
+            }
+        }
+
+        input:checked + label {
+            background-color: #29bb71;
+            box-shadow: none;
+            font-weight: 600;
+            color: white;
+            text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+    }
+    .amount {
+        position: relative;
+        margin-left: 20px;
+
+        span {
+            position: absolute;
+            left: 10px;
+            line-height: 39px;
+        }
+
+        input {
+            padding: 7px;
+            padding-left: 30px;
+            font-size: 18px;
+            border-color: #b9b9b9;
+            width: 160px;
+            $_color: #808080;
+            &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+                color: $_color;
+            }
+            &::-moz-placeholder { /* Firefox 19+ */
+                color: $_color;
+            }
+            &:-ms-input-placeholder { /* IE 10+ */
+                color: $_color;
+            }
+            &:-moz-placeholder { /* Firefox 18- */
+                color: $_color;
+            }
+            &:focus {
+              border-color: #9c9999;
+            }
+        }
+    }
+    .infobox-stripe {
+      font-weight: 500;
+    }
+    p.error {
+      font-size: 14px;
+      color: $cranberry;
+      position: absolute;
+      display: none;
+      &.showing {
+        display: block;
+      }
+    }
+}
+
+/* ---
+   Blog: sidebar
+   --- */
+section.document .sidebar {
+    ul {
+        width: rem(300);
+        // The blog sidebar sticks when you scroll past it
+        &.stuck {
+            position: fixed;
+            top: 0;
+            z-index: 5; // The sidebar should slide on top of the footer on short displays
+        }
+    }
+
+    p {
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        @include font-size-rem(16);
+        font-family: $sans-serif-medium;
+        font-weight: 600;
+        margin-bottom: $base-spacing/3;
+    }
+
+    li {
+        $_margin-bottom: $base-spacing*1.5;
+        @include font-size-rem(16);
+        font-family: $sans-serif-medium;
+        font-weight: 500;
+        margin-bottom: $_margin-bottom;
+        &.read-more {
+            margin-top: 0;
+            margin-bottom: rem(15);
+        }
+    }
+}

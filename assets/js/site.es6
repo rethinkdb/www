@@ -21,7 +21,7 @@ class SiteUtils {
             const $_sidebar = $('.blog-sidebar ul');
             if ($_sidebar.length) {
                 const blog_sidebar_sticky = new Waypoint.Sticky({ element: $('.blog-sidebar ul') });
-                blog_sidebar_github = new Waypoint({
+                const blog_sidebar_github = new Waypoint({
                     element: $('.blog-sidebar ul'),
                     handler: () => {
                         // Delay the popup animation

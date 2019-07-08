@@ -13,7 +13,7 @@ module Jekyll
 
         def render(context)
             site = context.registers[:site]
-            converter = site.getConverterImpl(Jekyll::Converters::Markdown)
+            converter = site.find_converter_instance(Jekyll::Converters::Markdown)
             content = converter.convert(super.strip)
           "<div class='faqsection'><h1 data-alt='#{@name}'>#{@alt_name}</h1>#{content}</div>".strip
         end

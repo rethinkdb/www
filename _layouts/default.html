@@ -1,13 +1,20 @@
 <!doctype html>
+
+{% comment %} 
+TODO: Variable assignment and layout/page "conflict" should be resolved.
+This is an ugly hack to mitigate the issue described at https://github.com/jekyll/jekyll/issues/4246.
+{% endcomment %}
+
+{% assign title = layout.title | append: page.title %}
+{% assign body_class = layout.body_class | append: page.body_class %}
+
 <html>
     <head>
-        <title>
-            {% if page.body_class == 'landing' %}
-                RethinkDB: the open-source database for the realtime web
-            {% else %}
-                {{ page.title }} - RethinkDB
-            {% endif %}
-        </title>
+        {% if body_class == 'landing' %}
+            <title>RethinkDB: the open-source database for the realtime web</title>
+        {% else %}
+            <title>{{ title }} - RethinkDB</title>
+        {% endif %}
         <meta charset="utf-8">
         <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,10 +30,11 @@
         <!-- jquery -->
         <script type="text/javascript" src="/assets/js/jquery-2.1.3.min.js"></script>
 
-        {% if page.body_class == 'api' %}
+        <script type="text/javascript" src="/assets/js/site.js"></script>
+        {% if body_class == 'api' %}
             <script type="text/javascript" src="/assets/js/api.js"></script>
         {% endif %}
-        {% if page.body_class == 'docs' %}
+        {% if body_class == 'docs' %}
             <!-- algolia -->
             <!--
             <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/latest/algoliasearch.min.js"></script>
@@ -34,7 +42,7 @@
             -->
         {% endif %}
     </head>
-    <body class="{{ page.body_class}}">
+    <body class="{{body_class}}">
         <div id="wrapper">
             {% include navbar.html %}
             {{ content }}

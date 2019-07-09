@@ -6,7 +6,7 @@ kramdown:
     hard_wrap: false
     toc_levels: '1'
 highlighter: rouge
-gems: ['bourbon', 'neat']
+gems: ['jekyll-paginate', 'jekyll-babel', 'bourbon', 'neat']
 exclude: [_drafts, Rakefile, node_modules, Gemfile, Gemfile.lock, README.md]
 
 # Current RethinkDB version
@@ -16,15 +16,15 @@ version:
     major: 2.3
     # full version number, include point releases and build tags, used for download links
     #   -> e.g. 1.2.1-3, 1.3.0
-    full: 2.3.5
+    full: 2.3.6
     # ---
     # human-readable version number (no build tags), used for marketing copy
     #   -> e.g. 1.2.1, 1.3
     human: 2.3
     codename: Fantasia
-    release_post: /blog/2.3-release
+    release_post: /blog/2.3.6-release
 rethinkdb_users: "100,000"
-github_stars: "15k"
+github_stars: "22k"
 
 sass:
     sass_dir: _sass

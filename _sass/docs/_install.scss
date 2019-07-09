@@ -1,18 +1,18 @@
 /* ---
    Docs install page 
    --- */
-.docs .install-illustration, .docs .documentation .docs-article p img.install-illustration {
+.install-illustration, .documentation .docs-article p img.install-illustration {
     float: right;
     width: rem(280);
     margin-left: rem(40);
 }
-.docs .supported-platforms {
+.supported-platforms {
     background: rgb(241, 245, 245);
     padding: $base-spacing $base-spacing*1.5;
     border-radius: $base-border-radius;
 }
 
-.docs .platform-category, .docs .documentation .docs-article .platform-category {
+.platform-category, .documentation .docs-article .platform-category {
     margin-bottom: rem(20);
     &:last-child { margin-bottom: 0; }
     h1 { @include font-size-rem(28); }

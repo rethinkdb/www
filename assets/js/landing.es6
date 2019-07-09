@@ -38,8 +38,8 @@ $(() => {
         $('.examples .example').eq($tab_index).addClass('active');
 
         // Target active (visible) elements
-        $img_el = $('.example.active').children();
-        $txt_el = $('.example.active .example-text').children();
+        const $img_el = $('.example.active').children();
+        const $txt_el = $('.example.active .example-text').children();
 
         // Wait before animating in the content
         setTimeout(() => {

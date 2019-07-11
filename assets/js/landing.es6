@@ -28,9 +28,9 @@ $(() => {
         event.preventDefault();
         
         // Add active border styling to the link and remove previous active states
-        $(this).siblings().removeClass('active');
-        $(this).addClass('active');
-        const $tab_index = $(this).index();
+        $(event.target).siblings().removeClass('active');
+        $(event.target).addClass('active');
+        const $tab_index = $(event.target).index();
 
         // Remove the current active example
         $('.examples .example, .example h3, .example p, .example img').removeClass('active');

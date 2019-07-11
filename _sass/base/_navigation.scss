@@ -30,6 +30,7 @@
     ul {
         @include span-columns(10);
         text-align: right;
+        margin-right: 0;
     }
 
     li {

@@ -40,7 +40,7 @@
     }
 
     p { margin: $base-spacing 0; }
-    ul { @extend ul%default-ul; }
+    ul { @extend ul, %default-ul; }
     p img.illustration,  p img.api_command_illustration {
         display: block;
         margin: 4% auto;

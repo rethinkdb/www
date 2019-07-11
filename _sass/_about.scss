@@ -2,7 +2,7 @@ body.about {
     // Override
     .site-nav {
         margin-bottom: 0;
-        @extend .site-nav.translucent;
+        @extend .site-nav, .translucent;
     }
     .about h1 { margin-bottom: $base-spacing/4; }
     .about h2 {

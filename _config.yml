@@ -6,7 +6,7 @@ kramdown:
     hard_wrap: false
     toc_levels: '1'
 highlighter: rouge
-gems: ['jekyll-paginate', 'jekyll-babel', 'bourbon', 'neat']
+plugins: ['jekyll-paginate', 'jekyll-babel', 'bourbon', 'neat']
 exclude: [_drafts, Rakefile, node_modules, Gemfile, Gemfile.lock, README.md]
 
 # Current RethinkDB version

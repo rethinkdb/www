@@ -1,5 +1,5 @@
 body.community .site-nav {
-    @extend .site-nav.translucent;
+    @extend .site-nav, .translucent;
 }
 
 .community-wrapper a { color: lighten(saturate($teal, 25), 25); }

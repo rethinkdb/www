@@ -76,7 +76,7 @@
         color: lighten(desaturate($teal, 35), 20);
         padding-top: $base-spacing;
 
-        ul { @extend ul%default-ul; }
+        ul { @extend ul, %default-ul; }
         ul li:last-child { margin-bottom: $base-spacing; }
 
         p { margin-bottom: $base-spacing; }

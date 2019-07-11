@@ -37,7 +37,7 @@ body.services {
                     font-weight: 600;
                 }
 
-                ul { @extend ul%default-ul; }
+                ul { @extend ul, %default-ul; }
             }
         }
     }

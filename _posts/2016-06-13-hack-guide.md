@@ -24,7 +24,7 @@ to communicate your point, and overall quality... no _Cs get degrees here_,
 folks!
 
 If you need help organizing your thoughts or want to run an idea by us, join
-the #content channel at [slack.rethinkdb.com](http://slack.rethinkdb.com/) or
+the #content channel at [slack.rethinkdb.com](https://join.slack.com/t/rethinkdb/shared_invite/enQtNzAxOTUzNTk1NzMzLWY5ZTA0OTNmMWJiOWFmOGVhNTUxZjQzODQyZjIzNjgzZjdjZDFjNDg1NDY3MjFhYmNhOTY1MDVkNDgzMWZiZWM/) or
 shoot us a tweet [@rethinkdb](https://twitter.com/rethinkdb). 
 
 We're excited to read all of your entries...good luck!

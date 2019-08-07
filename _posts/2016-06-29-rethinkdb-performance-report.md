@@ -72,7 +72,7 @@ latency distributions as we scaled up to 16 server clusters for each workload.
   these tests. We are grateful for their contributions to open source software.
   All of [Rackspace’s OnMetal offerings can be found here][rackspace].
 * We’d love to answer any questions you have about these tests. Come join us at
-  [http://slack.rethinkdb.com][slack] and feel free to ask more specific
+  [https://join.slack.com/t/rethinkdb/shared_invite/enQtNzAxOTUzNTk1NzMzLWY5ZTA0OTNmMWJiOWFmOGVhNTUxZjQzODQyZjIzNjgzZjdjZDFjNDg1NDY3MjFhYmNhOTY1MDVkNDgzMWZiZWM][slack] and feel free to ask more specific
   questions we don’t answer here by pinging @danielmewes or @dalanmiller.
 * Recently, the team behind BigchainDB – a scalable blockchain database built
   on top of RethinkDB – has benchmarked RethinkDB on a 32-server cluster
@@ -92,7 +92,7 @@ latency distributions as we scaled up to 16 server clusters for each workload.
 [perf-report]: https://rethinkdb.com/docs/performance-reports/2-1-5-performance-report/
 [perf-reports-repo]: https://github.com/rethinkdb/performance-reports
 [rackspace]: https://www.rackspace.com/cloud/servers/onmetal
-[slack]: http://slack.rethinkdb.com
+[slack]: https://join.slack.com/t/rethinkdb/shared_invite/enQtNzAxOTUzNTk1NzMzLWY5ZTA0OTNmMWJiOWFmOGVhNTUxZjQzODQyZjIzNjgzZjdjZDFjNDg1NDY3MjFhYmNhOTY1MDVkNDgzMWZiZWM
 [w-a]: /assets/images/posts/2016-03-15-w-a.png
 [w-c-async]: /assets/images/posts/2016-03-15-w-c-async.png
 [w-c-sync]: /assets/images/posts/2016-03-15-w-c-sync.png

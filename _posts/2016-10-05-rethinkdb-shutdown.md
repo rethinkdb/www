@@ -7,7 +7,7 @@ author_github: coffeemug
 
 Today I have sad news to share. After more than seven years of development, the company behind RethinkDB is shutting down. We worked very hard to make RethinkDB successful, but in spite of all our efforts we were ultimately unable to build a sustainable business. There is a lot of information to unpack -- over the next few months, I'll write about lessons learned so the startup community can benefit from our mistakes.
 
-I just installed RethinkDB 2.3.5 on a new laptop and took a few minutes to slow down and play with the product. I'm very proud of what we built alongside our community -- RethinkDB's technology more often feels like magic, and I hope it will continue to play an important role in advancing the state of the art in database technology.
+I just installed RethinkDB 2.3.5 on a new laptop and took a few minutes to slow down and play with the product. I'm very proud of what we built alongside our community -- RethinkDB's technology more often feels like magic, and I hope it will continue to play an important role in advancing the state-of-the-art in database technology.
 
 We're working with members of our community to develop a continuity plan for [RethinkDB](https://rethinkdb.com) and [Horizon](https://horizon.io). Both projects will continue to be available, distributed under open source licenses. We hope to continue our open development process with a larger community of contributors.
 

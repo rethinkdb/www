@@ -46,7 +46,7 @@ The sensitive nature of the transaction made it difficult to discuss the specifi
 If you'd like to participate in the project, there are many ways that you can get involved:
 
   - Learn [how to contribute](/contribute) to RethinkDB
-  - Join the #open-rethinkdb channel in the [RethinkDB Slack](http://slack.rethinkdb.com)
+  - Join the #open-rethinkdb channel in the [RethinkDB Slack](https://join.slack.com/t/rethinkdb/shared_invite/enQtNzAxOTUzNTk1NzMzLWY5ZTA0OTNmMWJiOWFmOGVhNTUxZjQzODQyZjIzNjgzZjdjZDFjNDg1NDY3MjFhYmNhOTY1MDVkNDgzMWZiZWM)
   - Submit pull requests and open issues [on GitHub](https://github.com/rethinkdb)
   - Follow [@rethinkdb](https://rethinkdb.com) on Twitter
   - [Get started](/docs/quickstart) with RethinkDB

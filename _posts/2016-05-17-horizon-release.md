@@ -235,7 +235,7 @@ the realtime web.
 [horizon.io]: http://horizon.io
 [forum]: https://discuss.horizon.io/
 [repo]: https://github.com/rethinkdb/horizon
-[slack]: http://slack.rethinkdb.com/
+[slack]: https://join.slack.com/t/rethinkdb/shared_invite/enQtNzAxOTUzNTk1NzMzLWY5ZTA0OTNmMWJiOWFmOGVhNTUxZjQzODQyZjIzNjgzZjdjZDFjNDg1NDY3MjFhYmNhOTY1MDVkNDgzMWZiZWM/
 [twitter]: https://twitter.com/horizonjs
 [available today]: https://discuss.horizon.io/t/the-road-to-1-0/28
 [hzadmin]: https://github.com/rethinkdb/horizon/issues/154

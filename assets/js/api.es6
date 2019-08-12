@@ -3,11 +3,16 @@
 
 'use strict';
 
+// Scrolls to the specified offset, and calls the specified callback (optional)
+const scroll_to = (offset, callback) => {
+    $('html, body').animate({scrollTop: offset}, 250, 'swing', callback);
+}
+
 $(() => {
     const $api = $('.api-sections');
 
     // Wrap each command with a div (used for styling)
-    $('h2', $api).forEach((i, command_header) => {
+    $('h2', $api).each((_, command_header) => {
         const $header = $(command_header);
         const $wrapper = $("<article class='api-command'></article>");
         /* All the content between this command header and the next command
@@ -38,9 +43,3 @@ $(() => {
         scroll_to(0);
     });
 });
-
-
-// Scrolls to the specified offset, and calls the specified callback (optional)
-scroll_to = (offset, callback) => {
-    $('html, body').animate({scrollTop: offset}, 250, 'swing', callback);
-}

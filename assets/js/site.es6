@@ -36,7 +36,7 @@ class SiteUtils {
                Docs navigation: collapse / expand sections
                ------------ */
             $('.docs-nav h1, .mobile-doc-links h1').click((event) => {
-                $(this).toggleClass('expand').next('ul').slideToggle('fast', () => {
+                $(event.target).parent().toggleClass('expand').next('ul').slideToggle('fast', () => {
                      // Refresh any waypoints: expanding the the menu may have shifted trigger points
                     if (Waypoint) { Waypoint.refreshAll(); }
                 });

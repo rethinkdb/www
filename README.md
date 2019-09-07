@@ -45,7 +45,8 @@ rake
 - `rake pull`: update external `git` repositories
 - `rake build`: builds the website (outputs to `_site`)
 - `rake clean`: remove all generated directories and reset the site
-- `rake deploy`: deploy the site to rethinkdb.com (this requires `_deploy-config.yml`)
+- `rake serve`: serve the development locally **with** hot reloading
+- `rake pyserve`: serve the development locally with python **without** hot reloading
 
 ## Getting your system ready to build the website
 
@@ -149,20 +150,6 @@ rake serve
 
 # Deploying
 
-We currently deploy via rsync. You can deploy the website using this command:
+We are automatically deploying to Netlify. This means, whenever a pull request is merged, after the successulf build, the new version of the site will be available.
 
-```
-rake deploy
-```
-
-Under the hood, this will push the site using `rsync`. A few notes:
-  - Make sure your SSH public key has been added to the `.authorized_users` file for the user `teapot` on `rethinkdb.com`.
-  - If you notice someissues with newly-added images, make sure their permissions are set properly (`chmod 644 /path/to/image`).
-
-If you'd like to preserve the website before your first build (in case of catastrophic failure), you can run 
-`ssh -p 440 teapot@rethinkdb.com "tar -zcvf /srv/www/rethinkdb.com/year-mo-da.tar.gz /srv/www/rethinkdb.com/public_html"` to easily revert your deploy.
-
-## Having issues with `nokogiri`? Follow these steps. 
-https://github.com/sparklemotion/nokogiri/wiki/What-to-do-if-libxml2-is-being-a-jerk
-
-
+*Note: A preview site will be generated for every pull request.*

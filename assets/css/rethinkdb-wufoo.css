@@ -30,7 +30,7 @@ form li { padding-left: 0; }
 .wufoo li.focused span,
 .wufoo li.focused div label,
 .wufoo li.focused span label,
-.safari .wufoo li.focused input.file { color: #647276; }
+.safari .wufoo li.focused input.file { color: #000000; }
 
 /* Hide blue outlines for inputs */
 input, textarea { outline: 0; }
@@ -61,7 +61,7 @@ form li.error {
     background: none !important;
     margin-bottom: 0 !important;
 }
-form li.error label.desc { color: #647276 !important; }
+form li.error label.desc { color: #000000 !important; }
 form li.error p.error {
     font-family: 'freight-sans-pro';
     font-size: 13px;

@@ -36,53 +36,8 @@ body.community .site-nav {
     @include media($x-large-screen-up) { background-position: center rem(-70); }
 }
 
-.stories .hero {
-    @extend .hero-bg;
-    @include background-image(url("/assets/images/community/s4s-hero.png"));
-    background-position: center rem(-50);
-    background-size: cover;
-    height: rem(400);
-    opacity: 1.0;
-
-    // Top padding should at least the height of the navbar, proper offset
-    padding-top: rem(50);
-
-    @include media($mobile) { background-position: center rem(0); }
-    @include media($medium-screen-up) { background-position: center rem(0); }
-    @include media($large-screen-up) { background-position: center rem(-50); }
-    @include media($x-large-screen-up) { background-position: center rem(-70); } 
-
-    &:after {
-        //@include background(linear-gradient(to top right, lighten($teal, 20), darken(#005662, 10)));
-        background: rgba(28, 42, 52, 0.85);
-        bottom: 0;
-        content: '';
-        left: 0;
-        position: absolute;
-        top: 0;
-        right: 0;
-        z-index: 2;
-        opacity: .20;
-    }   
-} 
-
 // Community intro
 .community-wrapper .intro {
-    // Shirts for stories
-    .infobox.s4s {
-        p { @include font-size-rem(18); }
-        margin: 0;
-        padding: rem(20) rem(25);
-        float: right;
-        width: 31%;
-
-        @include media($mobile) {
-            float: none;
-            width: 100%;
-            margin: rem(15) rem(25);
-        }
-    }
-
     article.getting-help {
         @extend .two-third;
 	padding-right: 1em;

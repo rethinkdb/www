@@ -40,12 +40,10 @@ This is an ugly hack to mitigate the issue described at https://github.com/jekyl
         {% if body_class == 'api' %}
             <script type="text/javascript" src="/assets/js/api.js"></script>
         {% endif %}
-        {% if body_class == 'docs' %}
+        {% if body_class == 'docs' or body_class == 'api' %}
             <!-- algolia -->
-            <!--
-            <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/latest/algoliasearch.min.js"></script>
+            <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/2/algoliasearch.min.js"></script>
             <script type="text/javascript" src="/assets/js/search.js"></script>
-            -->
         {% endif %}
     </head>
     <body class="{{body_class}}">

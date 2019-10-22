@@ -40,4 +40,7 @@ excerpt_separator: <!--more-->
 rss:
     name: "RethinkDB: the open-source database for the realtime web"
     description: News and updates from the RethinkDB team.
-    url: http://rethinkdb.com
+    url: https://rethinkdb.com
+
+algolia:
+    app_id: U39D71436I

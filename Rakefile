@@ -113,7 +113,6 @@ task :benchmark do
     puts "Time elapsed #{time*1000} milliseconds"
 end
 
-# TODO -- nokogiri portion needs to be rewritten, since the DOM has been rearchitected for docs
 desc 'Build Algolia search data'
 task :algolia do
     require 'yaml'
@@ -125,6 +124,7 @@ task :algolia do
     exclude_from_index = [
         'docs/api/deprecated/1.12.md',
         'docs/api/deprecated/1.13.md',
+        'docs/api/java/index.md',
         'docs/api/javascript/index.md',
         'docs/api/python/index.md',
         'docs/api/ruby/index.md',
@@ -191,16 +191,10 @@ task :algolia do
             else
                 article_content = File.open(path) { |f| Nokogiri::HTML(f) }
                 case article[:layout]
-                when 'documentation'
-                    article_content = article_content.at_css('.documentation-content').text()
-                when 'document'
-                    article_content = article_content.at_css('.content').text()
                 when 'api'
-                    article_content = article_content.at_css('#api-sections').text()
-                when 'example-app'
-                    article_content = article_content.at_css('.example-app.section').text()
+                    article_content = article_content.at_css('.alg-content').text()
                 when 'api-command'
-                    article_content = article_content.at_css('#api-details')
+                    article_content = article_content.at_css('.alg-content')
                     article_content.search("#docs-switcher").remove()
                     article_content.search(".linksbox-container").remove()
                     article_content = article_content.text()
@@ -208,7 +202,8 @@ task :algolia do
                     article_content = ''
                     puts "Article could not be parsed, unknown layout:\n\t * Layout: #{article[:layout]}\n\t * Title: #{article[:title]}"
                 end
-                article[:content] = article_content
+                # Get the first 2500 characters due to Agolia Quota limitations
+                article[:content] = article_content[0..2500]
                 docs_processed += 1
                 STDOUT.write "\r#{docs_processed} / #{total_docs} documents processed."
             end
@@ -222,14 +217,18 @@ task :algolia do
     require 'rubygems'
     require 'algoliasearch'
 
-    deploy = YAML.load_file($deploy_config)
+    deploy = YAML.load_file('_config.yml')
 
     puts "\nUploading index to Algolia..."
-    Algolia.init :application_id => deploy['algolia']['app_id'], :api_key => deploy['algolia']['api_key']
+    Algolia.init :application_id => deploy['algolia']['app_id'], :api_key => ENV['ALGOLIA_API_KEY']
     algolia_index = Algolia::Index.new('docs')
     algolia_index.clear_index
     algolia_index.add_objects(index)
     puts "Done."
+end
+
+desc 'Build site with Jekyll and upload indexes to Algolia'
+task :generate => ['build', 'algolia'] do
 end
 
 

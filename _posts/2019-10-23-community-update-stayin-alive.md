@@ -49,7 +49,7 @@ For help in development
 For the community support
 
 * [Alisson Cavalcante Agiani](https://github.com/thelinuxlich)
-* [Chris Abrams](https://gist.github.com/chrisabrams)
+* [Chris Abrams](https://github.com/chrisabrams)
 * [Floyd Kots](https://github.com/floydkots)
 * [Christina Keelan Cottrell](https://github.com/kittybot)
 * [Marshall Cottrell](https://github.com/marshall007)

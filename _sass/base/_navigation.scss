@@ -21,14 +21,17 @@
         font-weight: 400;
         text-indent: -9999px;
         line-height: rem(40);
+        width: 27.5%;
+        max-height: .8em;
         background-image: url('/assets/images/logo.png');
         background-repeat: no-repeat;
-        background-size: 85%;
-        background-position: 0 rem(9);
+        background-size: contain;
+        margin-top: .5rem;
     }
 
     ul {
         @include span-columns(10);
+        width: 70.1%;
         text-align: right;
         margin-right: 0;
     }

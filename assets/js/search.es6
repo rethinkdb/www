@@ -72,7 +72,6 @@ class RDBSearch {
 
             for (let j = 0; j < Object.keys(r).length; j++) {
                 const item = r[Object.keys(r)[j]];
-                console.log(item);
 
                 const snippet = item._snippetResult.content.value.substring(0, 30);
                 const permalink = item.permalink && item.permalink.startsWith('/') ? item.permalink : `/${item.permalink}`

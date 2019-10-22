@@ -8,8 +8,8 @@ gem 'rouge', '~> 1.10.1'
 gem 'bourbon', '~> 4.2.1'
 gem 'neat', '~> 1.7.1'
 gem 'nokogiri', '~> 1.10.4'
-gem 'algoliasearch', '~> 1.6.1'
-gem 'json', '~> 1.8.5'
+gem 'algoliasearch', '~> 1.18'
+gem 'json', '~> 2.0'
 
 group :dev do
     gem 'terminal-notifier', '~> 1.6.1'

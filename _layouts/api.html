@@ -15,23 +15,6 @@ api_index: true
             <p class="back-to-top"><a href="#"><i class="up-arrow">&#9650;</i> Back to top</a></p>
         </section>
         <section class="api-content docs-article">
-            {% comment %}
-            <!-- REVIEW for removal TODO: used by search for results, check search.coffee as well
-            <div class="search-results">
-                <div class="results-header">
-                    <h1>Results</h1>
-                    <a class="close-results" href="#">&#x2715;</a>
-                </div>
-                <ul>
-                    <li>
-                        <h2>Section heading</h2>
-                        <p>Blurb of matching string</p>
-                        <span>Language</span>
-                    </li>
-                </ul>
-            </div>
-            -->
-            {% endcomment %}
             <h1 class="title">{{page.language}} ReQL command reference</h1>
             <section class="byline">
                 {% include docs/docs-switcher.html %}
@@ -44,7 +27,7 @@ api_index: true
                 </p>
             </div>
             <section class="api-sections">
-                {{ content }}
+                <div class="alg-content">{{content}}</div>
             </section>
 
             <section class="api-footer">

@@ -6,7 +6,7 @@
 class RDBSearch {
     constructor() {
         // Algolia connection details
-        this.client = new AlgoliaSearch('KCOV7EA2RN', 'd3fe58627b3cdf453a83f59e502ae80b');
+        this.client = new AlgoliaSearch('U39D71436I', 'd39b26296a5e556a451a46b1c9475fe7');
         // Set up the Algolia search index
         this.index = this.client.initIndex('docs');
 
@@ -22,12 +22,16 @@ class RDBSearch {
             /* Takes the following parameters
                - title (required): the title of the result
                - snippet (required): the snippet in the result that matched
+               - language (required): language of the result
                - url (required): the permalink / URL of the result */
-            desktop_result: (title, snippet, url) => {
+            desktop_result: (title, snippet, language, url) => {
                 return `
                     <a href="${url}">
                         <li class="search-result" data-url="${url}">
-                            <p><strong>${title}</strong> <span class="snippet">${snippet}</span></p>
+                            <p>
+                                <strong>${title}</strong>&nbsp;<span class="language">${language}</span>
+                                <span class="snippet">${snippet}</span>
+                            </p>
                         </li>
                     </a>`;
             },
@@ -43,46 +47,50 @@ class RDBSearch {
     }
 
     search_algolia(success, content) {
-        if (success) {
-            let out = "";
-            const tmpl = this.templates.desktop_result;
-
-            // Organize results by title (we want one result across languages)
-        }
-
-        const results_index = {};
+        let out = "";
         let results = [];
-        for (hit in content.hits) {
-            // Have we already added at least one article with this title to the results?
-            let r = results_index.find(hit.title);
-            if (r === undefined) {
-                // Add it to the index of results, since it's the first of its kind
-                const r = results.length;
-                results_index[hit.title] = r;
-                results.push({});
-            }
 
-            // Group the hit properly by language (will be null if it's not specified)
-            results[r][hit.language] = hit;
+        for (let index = 0; index < content.hits.length; index++) {
+            const hit = content.hits[index];
+            const result_index = results.findIndex(function(item, index, array) {
+                return item.hasOwnProperty(hit.title);
+            })
+
+            if (result_index === -1) {
+                let result = {}
+                result[hit.title] = {}
+                result[hit.title][hit.language] = hit
+                results.push(result)
+            } else {
+                results[result_index][hit.title][hit.language] = hit
+            }            
         }
-        console.log(results);
 
-        // Use the search result template to build the list of results
-        for (result in results) {
-            /* Pick one of the returned results for the template (it doesn't
-               matter which one, because we're going to render all the languages
-               as a compound result) */
-            const first = result[Object.keys(result)[0]];
-            const snippet = first._snippetResult.content.value;
-            out += tmpl(first.title, snippet, first.permalink);
+        for (let i = 0; i < results.length; i++) {
+            const result = results[i];
+            const r = results[i][Object.keys(result)[0]];
+
+            for (let j = 0; j < Object.keys(r).length; j++) {
+                const item = r[Object.keys(r)[j]];
+
+                const snippet = item._snippetResult.content.value.substring(0, 30);
+                const permalink = item.permalink && item.permalink.startsWith('/') ? item.permalink : `/${item.permalink}`
+
+                out += rdb_search.templates.desktop_result(
+                    item.title,
+                    snippet,
+                    item.language,
+                    permalink
+                );   
+            }
         }
 
         // No search results? Show a message in the search results
-        if (results.length===0) {
+        if (results.length === 0) {
             out = rdb_search.templates.desktop_no_results();
         }
 
-        this.$results.html(out);
+        rdb_search.$results.html(out);
     }
 
     dom_ready() {
@@ -91,17 +99,16 @@ class RDBSearch {
            Desktop search behavior
            --- */
         $('.search input').keyup((event) => {
-            const query = $(this).val();
+            const query = $(event.target).val();
             // No query, so hide the results
             if (!query) {
                 this.$results.hide()
             }
-            else if (query.length > 0) {
+            else if (query.length > 2) {
                 // Timer to track when the user last typed in the search box
                 clearTimeout(this.typing_timer);
                 this.typing_timer = setTimeout(() => {
-                    console.log('Querying Algolia: '+query);
-                    this.index.search(query, this.search_algolia, { attributesToSnippet: 'content:20'})
+                    this.index.search(query, this.search_algolia, { attributesToSnippet: 'content:30'})
                 }, this.typing_interval);
                 // Show the results
                 this.$results.show();
@@ -200,3 +207,5 @@ class RDBSearch {
         */
     }
 }
+
+const rdb_search = new RDBSearch();

@@ -38,7 +38,7 @@ We will need volunteers to help revisit the website’s content, check client an
 
 ## Thank you!
 
-We honestly could not have gotten back on track if it was not for the persistent support of this community. A few notable thank you’s (please let us know if we need to add anyone from this list):
+We honestly could not have gotten back on track if it was not for the persistent support of this community. A few notable thank you’s (please let us know if we need to add anyone to this list):
 
 For help in development
 

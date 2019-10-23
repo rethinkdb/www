@@ -44,11 +44,13 @@ For help in development
 
 * [Adam Grandquist](https://github.com/grandquista)
 * [Etienne Laurin](https://github.com/atnnn)
+* [Sagiv Frankel](https://github.com/sagivf)
 * [Sam Hughes](https://github.com/srh)
 
 For the community support
 
 * [Alisson Cavalcante Agiani](https://github.com/thelinuxlich)
+* [Annie Ruygt](https://github.com/ahruygt)
 * [Chris Abrams](https://github.com/chrisabrams)
 * [Floyd Kots](https://github.com/floydkots)
 * [Christina Keelan Cottrell](https://github.com/kittybot)

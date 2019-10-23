@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "RethinkDB community update: Stayin' alive!"
-author: Gábor Boros
-author_github: gabor-boros
+author: Christina Keelan & Gábor Boros
+author_github: rethinkdb
 hero_image: rethinkdb-general-blog.png
 ---
 

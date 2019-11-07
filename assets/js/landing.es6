@@ -12,8 +12,8 @@ const names = ["natalie", "brandon", "marshall", "tomas", "grant", "joe", "alex"
     "kylee", "connor", "michele", "joseph", "mike", "slava", "daphne",
     "anthony", "juliana", "ben", "ken", "zoe", "eva", "samantha", "matt",
     "christina", "etienne", "watts", "daniel", "marc", "jeroen", "karl",
-    "annie", "tim", "josh"]
-let score_cap = 30
+    "annie", "tim", "josh", "gabor"];
+let score_cap = 30;
 
 $(() => {
     const example = new RealtimeExample();
@@ -21,7 +21,9 @@ $(() => {
 
     // Realtime query animations
     for (let n of Array(3).fill()) { example.add_message(); }
-    setInterval(example.add_message, 3000);
+    setInterval(() => {
+        example.add_message()
+    }, 3000);
 
     // Switching between examples & use cases
     $('.examples nav a').on('click', (event) => {
@@ -52,8 +54,7 @@ $(() => {
 class RealtimeExample {
     // Realtime leaderboard of top scores
     update_leaderboard(msg) {
-        const max_scores = 5
-        const score_height = 24 // height of each score in pixels
+        const max_scores = 5;
 
         // Create a new score, add it to the leaderboard, and reorder the scores
         const $new_score = $(`<li class='collapsed' data-score='${msg['score']}' data-name='${msg['name']}' />`).html(`${msg['name']}: ${msg['score']} points`);
@@ -61,7 +62,7 @@ class RealtimeExample {
 
         const delayed_expand = (_s) => {
             setTimeout(() => { $(_s).removeClass('collapsed')}, 100);
-        }
+        };
 
         // If the leaderboard is empty, add the score as the first entry
         if( $leaderboard.is(':empty')) {
@@ -75,7 +76,7 @@ class RealtimeExample {
                 const  curr = {
                     score: parseInt($(_s).data('score')),
                     name: $(_s).data('name')
-                }
+                };
 
                 /* If the new score is higher than the current score (or if the name
                    comes before it alphabetically), time to add it to the list */
@@ -101,8 +102,7 @@ class RealtimeExample {
 
     // Realtime messages stream of player scores
     add_message() {
-        const max_messages = 20
-        const msg_height = 22 // height of each message in pixels
+        const max_messages = 20;
         
         // Create a new message
         const msg = {
@@ -130,11 +130,13 @@ class RealtimeExample {
     draw_ui_graph() {
         // Moving line graph on the landing page
         const graph = d3.select('.ui-graph').append('svg:svg').attr('width', '100%').attr('height', '100%');
+        
         // Generate a set of random values for the read and write graph -- we'll rotate through these for the line graphs
         const data = {
             reads: Array(80).fill().map((i) => Math.floor(Math.random() * 4 + 42)),
             writes: Array(80).fill().map((i) => Math.floor(Math.random() * 20 + 15))
-        }
+        };
+
         const update_freq = 1250;
 
         const width = 400;
@@ -169,7 +171,7 @@ class RealtimeExample {
                     .duration(update_freq)
                     .attr('transform', `translate(${x(0)})`);
             }
-        }
+        };
 
         setInterval(() => {
             // Rotate the data for each graph -- pop the first element, push it to the end
@@ -179,7 +181,6 @@ class RealtimeExample {
             redraw();
         }, update_freq);
     }
-
 }
 
         

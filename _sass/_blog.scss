@@ -2,6 +2,12 @@
    Blog: layout and general styles
    --- */
 .blog {
+    .improve-link {
+        font-size: 10pt;
+        text-align: right;
+        padding: 0.5em 2em;
+        margin: 0;
+    }
     // Shared typographic styles
     .posts, .post-container {
         h1 {

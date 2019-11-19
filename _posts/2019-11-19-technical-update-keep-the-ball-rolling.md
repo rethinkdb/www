@@ -5,7 +5,7 @@ author: Gábor Boros
 author_github: gabor-boros
 ---
 
-As you have noticed in our [previous blog post](https://rethinkdb.com/blog/community-update-stayin-alive), we did not cover every technical detail of what is going on around RethinkDB. Also mentioned earlier in a GitHub [issue](https://github.com/rethinkdb/rethinkdb/issues/6747), communication was not our strength with regard to the future of the project, and we promised this would change. In keeping our word, here is a summary of what’s been going on the last few months and what’s in store.
+As you may have noticed in our [previous blog post](https://rethinkdb.com/blog/community-update-stayin-alive), we did not cover every technical detail of what is going on around RethinkDB. Also mentioned earlier in a GitHub [issue](https://github.com/rethinkdb/rethinkdb/issues/6747), communication was not our strength with regard to the future of the project, and we promised this would change. In keeping our word, here is a summary of what’s been going on the last few months and what’s in store.
 
 ## Database related changes
 
@@ -27,7 +27,7 @@ Our plan, until v2.4 is released, is to keep drivers in the same repository as b
 
 ### Building RethinkDB
 
-Since we lost the ability to build RethinkDB with [Thanos](https://thanos.atnnn.com/project/rethinkdb), we had to find a solution to be able to do continuous builds and releases. For this purpose, [Sam Hughes](https://github.com/srh) created a [solution](https://github.com/srh/rethinkdb-package-builder) to build packages for main Linux distributions, namely: Debian, Ubuntu, and Centos. More build targets will come in the future along with the Docker image, which is discussed [here](https://github.com/rethinkdb/rethinkdb/issues/6772). It’s worth it to mention that we have built a [DigitalOcean Marketplace image](https://marketplace.digitalocean.com/apps/rethinkdb) as well, which will be integrated into the pipeline discussed above. With the solution Sam created, everyone can compile his RethinkDB package for a specific commit or tag by parameterizing its setup script.
+Since we lost the ability to build RethinkDB with [Thanos](https://thanos.atnnn.com/project/rethinkdb), we had to find a solution to be able to do continuous builds and releases. For this purpose, [Sam Hughes](https://github.com/srh) created a [solution](https://github.com/srh/rethinkdb-package-builder) to build packages for main Linux distributions, namely: Debian, Ubuntu, and CentOS. More build targets will come in the future along with the Docker image, which is discussed [here](https://github.com/rethinkdb/rethinkdb/issues/6772). It’s worth it to mention that we have built a [DigitalOcean Marketplace image](https://marketplace.digitalocean.com/apps/rethinkdb) as well, which will be integrated into the pipeline discussed above. With the solution Sam created, everyone can compile his RethinkDB package for a specific commit or tag by parameterizing its setup script.
 
 As you may have noticed, the Windows release was not mentioned in the list above. The reason for this is that we have no capacity at the moment to build for Windows, though we are not saying that we will not accept contributions to support that release in the future.
 
@@ -37,7 +37,7 @@ We did a lot of changes in the background, which may or may not be transparent o
 
 ### Credentials
 
-During the years, people came and went and resulted in most of our credentials and access to third-party services being lost. Together with Christina Keelan Cottrell, we were able to recover these credentials with success. As a result, we can:
+During the years, people came and went and resulted in most of our credentials and access to third-party services being lost. Together with [Christina Keelan Cottrell](https://github.com/KittyBot), we were able to recover these credentials with success. As a result, we can:
 
 * deploy our website again
 * manage Slack again
@@ -45,9 +45,9 @@ During the years, people came and went and resulted in most of our credentials a
 * use JFrog’s BinTray to rerelease new Java drivers in the future
 * access DNSimple to change our domain settings
 
-And a lot more. If this is not enough, this allowed us to move the download and update servers to DigitalOcean, which certificate [expired](https://github.com/rethinkdb/rethinkdb/issues/6764).
+And a lot more. All of this allowed us to move the download and update servers to DigitalOcean, of which the certificate was [expired](https://github.com/rethinkdb/rethinkdb/issues/6764).
 
-There are still some credentials we have not recover yet, but we are continuously working to get the credentials back and create a secret store for them to prevent similar situations.
+There are still some credentials we have yet to recover, but we are continuously working to get the credentials back and create a secret store for them to prevent similar situations.
 
 ### Website and documentation
 
@@ -59,6 +59,6 @@ Also, we set up static code analysis for some of the repositories (this will be 
 
 ## Get involved
 
-Most of you asked us about the current status of the project. From a technical point of view, the project is still maintained, though we need maintainers and volunteers who help the community through the journey of this formation. We will also announce a formal fundraiser in the near future and are actively looking for corporate sponsors
+Most of you asked us about the current status of the project. From a technical point of view, the project is still maintained, though we need maintainers and volunteers who help the community through the journey of this formation. We will also announce a formal fundraiser in the near future and are actively looking for corporate sponsors.
 
 Find us on [Slack](http://slack.rethinkdb.com/), [Discord](https://discord.gg/kaQDYB4), [Twitter](https://twitter.com/rethinkdb), or Freenode (#rethinkdb).

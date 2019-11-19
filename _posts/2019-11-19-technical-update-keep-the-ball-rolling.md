@@ -5,7 +5,7 @@ author: Gábor Boros
 author_github: gabor-boros
 ---
 
-As you assumedhave noticed in our in our [previous blog post](https://rethinkdb.com/blog/community-update-stayin-alive), we did not cover every technical detail of what is going on around RethinkDB. Also mentioned earlier in a GitHub [issue](https://github.com/rethinkdb/rethinkdb/issues/6747), communication was not our strength with regard to the future of the project, and we promised this would change. In keeping our word, here is a summary of what’s been going on the last few months and what’s in store.
+As you have noticed in our [previous blog post](https://rethinkdb.com/blog/community-update-stayin-alive), we did not cover every technical detail of what is going on around RethinkDB. Also mentioned earlier in a GitHub [issue](https://github.com/rethinkdb/rethinkdb/issues/6747), communication was not our strength with regard to the future of the project, and we promised this would change. In keeping our word, here is a summary of what’s been going on the last few months and what’s in store.
 
 ## Database related changes
 
@@ -37,7 +37,7 @@ We did a lot of changes in the background, which may or may not be transparent o
 
 ### Credentials
 
-During the years, people came and went and resulted in most of our credentials and access to third-party services being lost. Together with Christina Keelan Cottrell, we were able to recover these credentials with success. As a result, we can
+During the years, people came and went and resulted in most of our credentials and access to third-party services being lost. Together with Christina Keelan Cottrell, we were able to recover these credentials with success. As a result, we can:
 
 * deploy our website again
 * manage Slack again

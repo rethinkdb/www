@@ -33,7 +33,7 @@ As you may have noticed, the Windows release was not mentioned in the list above
 
 ## Other changes
 
-We did a lot of changes in the background, which may or may not be transparent on a daily basis.
+We made a lot of changes in the background, which may or may not be transparent on a daily basis.
 
 ### Credentials
 

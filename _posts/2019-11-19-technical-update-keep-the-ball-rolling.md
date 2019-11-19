@@ -35,7 +35,7 @@ As you may have noticed, the Windows release was not mentioned in the list above
 
 We did a lot of changes in the background, which may or may not be transparent on a daily basis.
 
-### Credentials
+### Credentials
 
 During the years, people came and went and resulted in most of our credentials and access to third-party services being lost. Together with Christina Keelan Cottrell, we were able to recover these credentials with success. As a result, we can
 

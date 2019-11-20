@@ -1,0 +1,42 @@
+/* ---
+   Used by: general styles
+   --- */
+section.sponsors {
+    padding: $base-spacing*2 0;
+
+    .title {
+        text-align: center;
+        margin-bottom: 0.5em;
+    }
+
+    .logos {
+        @include outer-container;
+        img {
+            @include span-columns(3);
+            @include omega(4n);
+            padding: rem(29);
+
+            @include media($mobile) {
+                @include span-columns(2);
+                @include omega(2n);
+                padding: $base-spacing $base-spacing*2;
+            }
+        }
+    }
+
+    // Horizontal divider
+    hr {
+        width: 94%;
+        margin: 3rem auto;
+        border-color: rgb(220, 224, 224);
+    }
+
+    section.description {
+        h2 {
+            font-weight: 500;
+        }
+
+        width: 94%;
+        margin: 0 auto;
+    }
+}

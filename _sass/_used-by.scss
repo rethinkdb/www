@@ -7,9 +7,12 @@ section.used-by {
     padding: $base-spacing*2 0;
     background: $_bg;
 
+    .title {
+        text-align: center;
+        margin-bottom: 2em;
+    }
+
     .logos {
-
-
 
         @include outer-container;
         img {

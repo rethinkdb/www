@@ -38,6 +38,7 @@ of those users. Common user contributions include (but are not limited to):
 * informing developers of strengths and weaknesses from a new user perspective
 * providing moral support
 * providing financial support
+* requesting new features
 
 Users who continue to engage with RethinkDB and its community will often become more and
 more involved. Such users may find themselves becoming Contributors, as described in the

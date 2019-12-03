@@ -14,3 +14,6 @@ _algolia-build
 /assets/images/docs
 /docs
 /_data/docs
+
+# Local Netlify folder
+.netlify

@@ -8,21 +8,15 @@ active: community
 
 ## Foreword
 
-The intention behind the Open Governance Model is to make it clear and understandable
-for new contributors and even existing ones how to help the project and influence its future.
-Based on this document, the community can choose who they trust to handle RethinkDB’s funding,
-and corporate sponsors can make sure how their contributions are being handled.
+The intention behind the Open Governance Model is to maintain transparency for new and existing contributors on how to help the project and influence its future, and so corporate sponsors can see how their contributions are being handled. This document and edits are based on conversation in [this](https://github.com/rethinkdb/www/pull/254) GitHub issue.
 
-It must be highlighted that the community will never be micromanaged by neither corporate
-supporters or anyone from the project management committee.
+It must be highlighted that **the community will never be micromanaged** by neither corporate supporters nor anyone from the project management committee (PMC).
 
 ## Overview
 
-Anyone with an interest in RethinkDB can join the community, contribute to RethinkDB design
-and participate in the decision-making process. This document describes how that participation
-takes place and how to set about earning merit within the RethinkDB community.
+Anyone with an interest in RethinkDB can join the community, contribute to RethinkDB and participate in the decision-making process. This document describes how that participation takes place, and community roles.
 
-## Roles and responsibilities
+## Who's Who
 
 ### Users
 
@@ -36,8 +30,6 @@ of those users. Common user contributions include (but are not limited to):
 
 * evangelizing about RethinkDB (e.g. a link on a website and word-of-mouth awareness raising)
 * informing developers of strengths and weaknesses from a new user perspective
-* providing moral support
-* providing financial support
 * requesting new features
 * reporting bugs
 
@@ -65,10 +57,7 @@ more of the following:
 
 Contributors engage with RethinkDB through the issue tracker, and writing or editing documentation.
 They submit changes to RethinkDB itself via patches. The developer Slack channel is the most
-appropriate place to ask for help when making that first contribution.
-
-As contributors gain experience and familiarity with RethinkDB, their profile within,
-and commitment to the community will increase.
+efficient place to ask for help when making that first contribution.
 
 ### Project Management Committee
 
@@ -87,21 +76,6 @@ in public.
 Membership of the PMC is by invitation from the existing PMC members. A nomination will result in
 discussion and then a vote by the existing PMC members. PMC membership votes are subject to consensus
 approval of the current PMC members.
-
-### PMC Chair
-
-The PMC Chair is a single individual, voted for by the PMC members. Once someone has been appointed Chair,
-they remain in that role until they choose to retire, or the PMC casts a simple majority vote to remove them.
-
-The PMC Chair has no additional authority over other members of the PMC: the role is one of coordinator and
-facilitator. The Chair is also expected to ensure that all governance processes are adhered to and has the
-casting vote when RethinkDB fails to reach a simple majority.
-
-## Support
-
-All participants in the community are encouraged to provide support for new users within the RethinkDB management
-infrastructure. This support is provided as a way of growing the community. Those seeking support should recognize that all
-support activity within RethinkDB is voluntary and is therefore provided as and when time allows.
 
 ## Decision-making process
 
@@ -122,12 +96,10 @@ Decision making typically involves the following steps:
 
 Any community member can make a proposal for consideration by the community. In order to initiate a discussion about a new idea, they should send a message to the RethinkDB contributors’ list, Slack channel or submit a patch implementing the idea to the issue tracker.
 This will prompt a review and, if necessary, a discussion of the idea. The goal of this review and discussion is to gain approval for
-the contribution. Since most people in the RethinkDB community have a shared vision, there is often little need for discussion in order
-to reach consensus.
+the contribution.
 
 In general, as long as nobody explicitly opposes a proposal or patch, it is recognized as having the support of the community. This is
-called lazy consensus - that is, those who have not stated their opinion explicitly have implicitly agreed to the implementation of the
-proposal.
+called lazy consensus - that is, **those who have not stated their opinion explicitly have implicitly agreed to the implementation of the proposal.**
 The lazy consensus is a very important concept within RethinkDB. It is this process that allows a large group of people to efficiently
 reach consensus, as someone with no objections to a proposal need not spend time stating their position, and others need not spend time
 reading such mails.

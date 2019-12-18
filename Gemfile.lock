@@ -17,7 +17,6 @@ GEM
       multipart-post (>= 1.2, < 3)
     ffi (1.11.1)
     forwardable-extended (2.6.0)
-    httpclient (2.8.3)
     jekyll (3.6.3)
       addressable (~> 2.4)
       colorator (~> 1.0)

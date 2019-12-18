@@ -27,60 +27,28 @@
     }
 }
 
-// Search results
-.docs-sidebar-left ul.search-results {
-    display: none; // Search results are hidden by default, shown with JS
-    // position: absolute;
-    margin: 0;
-    padding: 0;
-    // top: 100%;
-    // left: 0;
-    max-height: rem(400);
-    overflow: scroll;
-    background: white;
-    border: 6px solid darken($cream, 2);
-    border-top: 0;
-    margin-left: -6px;
-    margin-right: -6px;
+.algolia-autocomplete .algolia-docsearch-suggestion--subcategory-column {
+    color: gray;
+}
 
-    // Search results: each is a list element
-    li.search-result {
-        $_height: $base-spacing*2;
-        list-style-type: none;
-        margin: 0;
-        padding: 0 $base-spacing;
-        border-top: thin solid darken($cream, 1);
-        height: 5.4rem;
-        overflow: hidden;
-        width: 100%;
+.algolia-autocomplete .algolia-docsearch-suggestion--category-header {
+    color: #294C59;
+}
 
-        &:hover {
-            background: lighten($cream, 1);
-            cursor: pointer;
-        }
+.algolia-autocomplete .algolia-docsearch-suggestion--subcategory-inline {
+    color: #294C59;
+}
 
-        p {
-            margin: 0;
-            text-overflow: ellipsis;
-            strong {
-                color: lighten(desaturate($teal, 35), 10);
-            }
-            span.snippet { 
-                display: block;
-                padding: 0;
-                margin: 0;
-                line-height: 1;
-                font-size: smaller;
-                $_color: lighten(desaturate($teal, 35), 45);
-                color: $_color;
-                em { color: $_color; }
-            }
-            span.language { 
-                font-size: smaller;
-                $_color: lighten($teal, 45);
-                color: $_color;
-                em { color: $_color; }
-            }
-        }
-    }
+.algolia-autocomplete .algolia-docsearch-suggestion--title {
+    font-weight: bold;
+    color: black;
+}
+
+.algolia-autocomplete .algolia-docsearch-suggestion--text {
+    font-size: 0.8rem;
+    color: #294C59;
+}
+
+.algolia-autocomplete .algolia-docsearch-suggestion--highlight {
+    color: #B14E5D;
 }

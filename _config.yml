@@ -42,9 +42,6 @@ rss:
     description: News and updates from the RethinkDB team.
     url: https://rethinkdb.com
 
-algolia:
-    app_id: U39D71436I
-
 # GitHub settings
 github:
     source:

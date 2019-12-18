@@ -42,8 +42,7 @@ This is an ugly hack to mitigate the issue described at https://github.com/jekyl
         {% endif %}
         {% if body_class == 'docs' or body_class == 'api' %}
             <!-- algolia -->
-            <script type="text/javascript" src="//cdn.jsdelivr.net/algoliasearch/2/algoliasearch.min.js"></script>
-            <script type="text/javascript" src="/assets/js/search.js"></script>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
         {% endif %}
         <script>
             (function(h,o,t,j,a,r){
@@ -122,6 +121,18 @@ This is an ugly hack to mitigate the issue described at https://github.com/jekyl
                 </div>
             </footer>
         </div>
+        {% if body_class == 'docs' or body_class == 'api' %}
+            <!-- algolia -->
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" />
+            <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js"></script>
+            <script type="text/javascript"> docsearch({
+                apiKey: 'a33e586ddcc6f914b6c3eb48760d6235',
+                indexName: 'rethinkdb',
+                inputSelector: '#wrapper > section > div > section.docs-sidebar-left > div > input',
+                debug: false
+                });
+            </script>
+        {% endif %}
         <script type="text/javascript">
 
             var _gaq = _gaq || [];

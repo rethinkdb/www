@@ -17,7 +17,7 @@ the [insert][] command now uses a different syntax.___
 
 [install]: /docs/install/
 [driver-spec]: /docs/driver-spec/
-[drivers]: /docs/install-drivers
+[drivers]: /docs/install-drivers/
 [geo]: /docs/geo-support/
 [insert]: /api/javascript/insert
 

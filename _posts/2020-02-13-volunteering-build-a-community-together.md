@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Build a community together"
+title: "Getting involved in 2020"
 author: Gábor Boros
 author_github: gabor-boros
 ---

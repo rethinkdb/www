@@ -8,7 +8,7 @@ gem 'therubyracer', '~>0.12.3'
 gem 'rouge', '~> 1.10.1'
 gem 'bourbon', '~> 4.2.1'
 gem 'neat', '~> 1.7.1'
-gem 'nokogiri', '~> 1.10.4'
+gem 'nokogiri', '~> 1.10.8'
 gem 'json', '~> 2.0'
 
 group :dev do

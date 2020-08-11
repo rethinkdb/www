@@ -18,8 +18,8 @@ Generally speaking, the new repository schema will look like `https://download.r
 To install RethinkDB from an APT repository, you will need to run the following:
 
 ```bash
-$ apt-key adv —keyserver keys.gnupg.net —recv-keys “539A 3A8C 6692 E6E3 F69B 3FE8 1D85 E93F 801B B43F”
-$ echo “deb https://download.rethinkdb.com/repository/$APT_REPOSITORY $DISTRIBUTION_NAME main” > /etc/apt/sources.list.d/rethinkdb.list
+$ apt-key adv --keyserver keys.gnupg.net --recv-keys "539A 3A8C 6692 E6E3 F69B 3FE8 1D85 E93F 801B B43F"
+$ echo "deb https://download.rethinkdb.com/repository/$APT_REPOSITORY $DISTRIBUTION_NAME main" > /etc/apt/sources.list.d/rethinkdb.list
 $ sudo apt-get update
 $ sudo apt-get install rethinkdb
 ```
@@ -28,8 +28,8 @@ Compared to the previous installation method, the only change is in line 2. You 
 As an example, it would look like the following for ubuntu-focal:
 
 ```bash
-$ apt-key adv —keyserver keys.gnupg.net —recv-keys “539A 3A8C 6692 E6E3 F69B 3FE8 1D85 E93F 801B B43F”
-$ echo “deb https://download.rethinkdb.com/repository/ubuntu-focal focal main” > /etc/apt/sources.list.d/rethinkdb.list
+$ apt-key adv --keyserver keys.gnupg.net --recv-keys "539A 3A8C 6692 E6E3 F69B 3FE8 1D85 E93F 801B B43F"
+$ echo "deb https://download.rethinkdb.com/repository/ubuntu-focal focal main" > /etc/apt/sources.list.d/rethinkdb.list
 $ sudo apt-get update
 $ sudo apt-get install rethinkdb
 ```

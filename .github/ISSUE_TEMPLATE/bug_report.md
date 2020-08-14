@@ -21,7 +21,7 @@ If applicable, add screenshots to help explain your problem.
 
 **System info**
  - OS: [e.g. macOS Mojave 10.14.3]
- - RethinkDB Version: [e.g. 2.4.0]
+ - RethinkDB Version: [e.g. 2.4.1]
 
 **Additional context**
 Add any other context about the problem here.

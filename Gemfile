@@ -5,7 +5,7 @@ gem 'jekyll-babel', '~>1.1.0'
 gem 'jekyll-paginate', '~>1.1.0'
 gem "jekyll-github-metadata", "~> 2.12"
 gem 'therubyracer', '~>0.12.3'
-gem 'rouge', '~> 1.10.1'
+gem 'rouge', '~> 2.2.1'
 gem 'bourbon', '~> 4.2.1'
 gem 'neat', '~> 1.7.1'
 gem 'nokogiri', '~> 1.10.10'

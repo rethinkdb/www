@@ -76,7 +76,7 @@ GEM
     sawyer (0.8.2)
       addressable (>= 2.3.5)
       faraday (> 0.8, < 2.0)
-    terminal-notifier (1.6.3)
+    terminal-notifier (2.0.0)
     therubyracer (0.12.3)
       libv8 (~> 3.16.14.15)
       ref
@@ -96,7 +96,7 @@ DEPENDENCIES
   nokogiri (~> 1.10.10)
   pry
   rouge (~> 2.2.1)
-  terminal-notifier (~> 1.6.1)
+  terminal-notifier (~> 2.0.0)
   therubyracer (~> 0.12.3)
 
 BUNDLED WITH

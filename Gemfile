@@ -12,6 +12,6 @@ gem 'nokogiri', '~> 1.10.10'
 gem 'json', '~> 2.3'
 
 group :dev do
-    gem 'terminal-notifier', '~> 1.6.1'
+    gem 'terminal-notifier', '~> 2.0.0'
     gem 'pry'
 end

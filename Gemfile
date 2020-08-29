@@ -1,6 +1,6 @@
 source "https://rubygems.org"
 
-gem 'bourbon', '~> 4.2.1'
+gem 'bourbon', '~> 7.0.0'
 gem 'jekyll-babel', '~>1.1.0'
 gem 'jekyll-paginate', '~>1.1.0'
 gem 'jekyll', '~>3.9.0'

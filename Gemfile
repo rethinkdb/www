@@ -3,7 +3,7 @@ source "https://rubygems.org"
 gem 'jekyll', '~>3.6.3'
 gem 'jekyll-babel', '~>1.1.0'
 gem 'jekyll-paginate', '~>1.1.0'
-gem "jekyll-github-metadata", "~> 2.12"
+gem "jekyll-github-metadata", "~> 2.13"
 gem 'therubyracer', '~>0.12.3'
 gem 'rouge', '~> 2.2.1'
 gem 'bourbon', '~> 4.2.1'

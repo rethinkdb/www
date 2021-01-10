@@ -81,11 +81,11 @@ latency distributions as we scaled up to 16 server clusters for each workload.
   performance with the number of nodes." The full report is available at
   [https://www.bigchaindb.com/whitepaper/][bigchaindb]
 * We also recently contracted Kyle Kingsbury, known to the Internet as
-  [@aphyr][aphyr-twitter], as an independent researcher to evaluate RethinkDB.
+  [aphyr][aphyr-website], as an independent researcher to evaluate RethinkDB.
   He wrote [a pair of blog posts][aphyr-blog] on how he tested and confirmed
   RethinkDB clustering and consistency guarantees.
 
-[aphyr-twitter]: https://twitter.com/aphyr
+[aphyr-website]: https://aphyr.com/
 [aphyr-blog]: https://aphyr.com/tags/RethinkDB
 [analytical]: /assets/images/posts/2016-03-15-analytical.png
 [bigchaindb]: https://www.bigchaindb.com/whitepaper/

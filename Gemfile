@@ -10,7 +10,7 @@ gem 'nokogiri', '~> 1.10.10'
 gem 'rouge', '~> 2.2.1'
 gem 'therubyracer', '~>0.12.3'
 gem "jekyll-github-metadata", "~> 2.13"
-gem "kramdown", "~> 2.3.0"
+gem "kramdown", "~> 2.3.1"
 gem "kramdown-parser-gfm", "~> 1.1.0"
 
 group :dev do

@@ -69,7 +69,7 @@ GEM
       sass (~> 3.4)
     jekyll-watch (2.2.1)
       listen (~> 3.0)
-    json (2.5.1)
+    json (2.6.1)
     kramdown (2.3.1)
       rexml
     kramdown-parser-gfm (1.1.0)
@@ -130,7 +130,7 @@ DEPENDENCIES
   jekyll-babel (~> 1.1.0)
   jekyll-github-metadata (~> 2.14)
   jekyll-paginate (~> 1.1.0)
-  json (~> 2.3)
+  json (~> 2.6)
   kramdown (~> 2.3.1)
   kramdown-parser-gfm (~> 1.1.0)
   neat (~> 1.7.1)

@@ -61,7 +61,7 @@ GEM
       safe_yaml (~> 1.0)
     jekyll-babel (1.1.0)
       babel-transpiler
-    jekyll-github-metadata (2.14.0)
+    jekyll-github-metadata (2.15.0)
       jekyll (>= 3.4, < 5.0)
       octokit (~> 4.0, != 4.4.0)
     jekyll-paginate (1.1.0)
@@ -128,7 +128,7 @@ DEPENDENCIES
   bourbon (~> 4.2.1)
   jekyll (~> 3.9.0)
   jekyll-babel (~> 1.1.0)
-  jekyll-github-metadata (~> 2.14)
+  jekyll-github-metadata (~> 2.15)
   jekyll-paginate (~> 1.1.0)
   json (~> 2.3)
   kramdown (~> 2.3.1)

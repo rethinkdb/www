@@ -16,15 +16,15 @@ version:
     major: 2.4
     # full version number, include point releases and build tags, used for download links
     #   -> e.g. 1.2.1-3, 1.3.0
-    full: 2.4.2
+    full: 2.4.3
     # ---
     # human-readable version number (no build tags), used for marketing copy
     #   -> e.g. 1.2.1, 1.3
-    human: 2.4.2
+    human: 2.4.3
     codename: "Night Of The Living Dead"
-    release_post: /blog/2.4.2-release
+    release_post: /blog/2.4.3-release
 rethinkdb_users: "100,000"
-github_stars: "23k"
+github_stars: "26k"
 
 sass:
     sass_dir: _sass

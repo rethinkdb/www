@@ -24,6 +24,7 @@ task :default => :serve
 desc 'Set up the build environment'
 task :init do
     # Install packages
+    sh 'bundle config --local build.therubyracer --with-v8-dir=$(brew --prefix v8)'
     sh 'bundle install'
 
     # Clone the external repos

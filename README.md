@@ -77,29 +77,30 @@ Update Homebrew formulae:
 brew update
 ```
 
-Install `nvm` to manage Node.js version (using v0.17.3 in this case):
+Install `nvm` to manage Node.js version (using v0.39.7 in this case):
 ```
-curl https://raw.githubusercontent.com/creationix/nvm/v0.17.3/install.sh | bash
+curl https://raw.githubusercontent.com/creationix/nvm/v0.39.7/install.sh | bash
 ```
 
-Tell `nvm` to install the latest version of Node.js (in this case, 0.10)
+Tell `nvm` to install the latest LTS version of Node.js (in this case, 18)
 ```
-nvm install 0.10
+nvm install 18
 ```
 
 Set the default version of Node.js:
 ```
-nvm alias default 0.10
+nvm alias default 18
 ```
 
 Install `rbenv` to manage Ruby versions:
 ```
-brew install rbenv ruby-build
+brew install rbenv ruby-build v8
 ```
 
 *Add this to your path:* Uses Homebrew's directories rather than `~/.rbenv`:
 ```
 export RBENV_ROOT=~/.rbenv
+export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 ```
 
 *Add this to your path:* enable shims and autocompletions for `rbenv`:
@@ -107,14 +108,14 @@ export RBENV_ROOT=~/.rbenv
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 ```
 
-Install the latest version of Ruby (in this case, 2.1.3)
+Install the latest version of Ruby 2.7.x (in this case, 2.7.8)
 ```
-rbenv install -s 2.1.3
+rbenv install -s 2.7.8
 ```
 
 Set the Ruby version to be the global default
 ```
-rbenv global 2.1.3
+rbenv global 2.7.8
 rbenv rehash
 ```
 

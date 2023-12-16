@@ -13,7 +13,7 @@ $external_repos = [
     {
         "repo" => "docs",
         "destination" => "docs",
-        "branch" => "master"
+        "branch" => "gabor/bump-ruby"
     },
 ]
 
@@ -66,7 +66,7 @@ desc 'Copy assets and includes from the docs repository'
 task :copy_assets do
     # Create each destination directory, if it doesn't already exist
     ['_includes'].each{ |dir_name|
-        FileUtils.mkdir_p(dir_name) unless Dir.exists?(dir_name)
+        FileUtils.mkdir_p(dir_name) unless Dir.exist?(dir_name)
     }
 
     assets_to_copy = [
@@ -132,7 +132,7 @@ end
 def check_for_required_files(opts={})
     missing_files = 0
     $generated_files.each do |f|
-        if !File.exists?(f)
+        if !File.exist?(f)
             puts "Required file missing: #{f}"
             missing_files +=1
         end

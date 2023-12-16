@@ -13,7 +13,7 @@ $external_repos = [
     {
         "repo" => "docs",
         "destination" => "docs",
-        "branch" => "gabor/bump-ruby"
+        "branch" => "master"
     },
 ]
 

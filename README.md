@@ -108,14 +108,14 @@ export RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@1.1)"
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 ```
 
-Install the latest version of Ruby 2.7.x (in this case, 2.7.8)
+Install the latest version of Ruby 3.2.x (in this case, 3.2.2)
 ```
-rbenv install -s 2.7.8
+rbenv install -s 3.2.2
 ```
 
 Set the Ruby version to be the global default
 ```
-rbenv global 2.7.8
+rbenv global 3.2.2
 rbenv rehash
 ```
 

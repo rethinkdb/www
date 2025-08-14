@@ -1,7 +1,7 @@
 /*---
    Document: layout and general styles
    --- */
-section.document {
+   section.document {
     padding: $base-spacing*2 0;
 
 
@@ -29,6 +29,20 @@ section.document {
 
     ul { @extend ul, %default-ul; }
     ul li:last-child { margin-bottom: $base-spacing; }
+    
+    ol { @extend ol, %default-ol; }
+    ol li:last-child { margin-bottom: $base-spacing; }
+    
+    // Additional styling for ordered lists in documents
+    ol li {
+        margin-left: 2rem;
+        @include font-size-rem(18);
+        line-height: rem(30);
+        // The last list element should include a margin below
+        &:last-child { margin-bottom: $base-spacing; }
+        // ...unless it's part of a nested list
+        ol li:last-child { margin-bottom: 0; }
+    }
 
     p { margin-bottom: $base-spacing; }
     .infobox p {

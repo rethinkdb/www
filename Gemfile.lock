@@ -60,7 +60,6 @@ GEM
       rexml (>= 3.3.9)
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
-    libv8 (3.16.14.19.1)
     libv8 (3.16.14.19.1-universal-darwin)
     liquid (4.0.4)
     listen (3.9.0)

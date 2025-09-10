@@ -63,7 +63,7 @@ This Charter sets forth the responsibilities and procedures for technical contri
 
 2. Quorum for TSC meetings requires at least fifty percent of all voting members of the TSC to be present. The TSC may continue to meet if quorum is not met but will be prevented from making any decisions at the meeting.
 
-3. Except as provided in Section 7.c. and 8.a, decisions by vote at a meeting require a majority vote of those in attendance, provided quorum is met. Decisions made by electronic vote without a meeting require a majority vote of all voting members of the TSC.
+3. Except as provided in Section 7.3., decisions by vote at a meeting require a majority vote of those in attendance, provided quorum is met. Decisions made by electronic vote without a meeting require a majority vote of all voting members of the TSC.
 
 4. In the event a vote cannot be resolved by the TSC, any voting member of the TSC may refer the matter to the Series Manager for assistance in reaching a resolution.
 
@@ -99,7 +99,7 @@ The Project will:
 
 1. Collaborators acknowledge that the copyright in all new contributions will be retained by the copyright holder as independent works of authorship and that no contributor or copyright holder will be required to assign copyrights to the Project.
 
-2. Except as described in Section 7.c., all contributions to the Project are subject to the following:
+2. Except as described in Section 7.3., all contributions to the Project are subject to the following:
 
    1. All new inbound code contributions to the Project must be made using Apache License, Version 2.0 available at http://www.apache.org/licenses/LICENSE-2.0 (the "Project License").
 
@@ -119,3 +119,11 @@ The Project will:
 
 This charter may be amended by a two-thirds vote of the entire TSC and is subject to approval by LF Projects.
 
+---
+
+## Current TSC Members
+
+_Participation in the Project through becoming a Contributor and Committer is open to anyone so long as they abide by the terms of this Charter. Committer and TSC membership is open to anyone who meets the criteria for Contributor membership and is approved by the TSC._
+
+- [Gábor Boros](https://github.com/gabor-boros) @ [Open Code Technologies](https://www.opcotech.com)
+- [James Ross](https://github.com/cherry) @ [Nodecraft](https://www.nodecraft.com)

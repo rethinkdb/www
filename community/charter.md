@@ -101,13 +101,13 @@ The Project will:
 
 2. Except as described in Section 7.3., all contributions to the Project are subject to the following:
 
-   1. All new inbound code contributions to the Project must be made using Apache License, Version 2.0 available at http://www.apache.org/licenses/LICENSE-2.0 (the "Project License").
+   1. All new inbound code contributions to the Project must be made using Apache License, Version 2.0 available at https://www.apache.org/licenses/LICENSE-2.0 (the "Project License").
 
-   2. All new inbound code contributions must also be accompanied by a Developer Certificate of Origin ([http://developercertificate.org](http://developercertificate.org)) sign-off in the source code system that is submitted through a TSC-approved contribution process which will bind the authorized contributor and, if not self-employed, their employer to the applicable license;
+   2. All new inbound code contributions must also be accompanied by a Developer Certificate of Origin ([https://developercertificate.org](httsp://developercertificate.org)) sign-off in the source code system that is submitted through a TSC-approved contribution process which will bind the authorized contributor and, if not self-employed, their employer to the applicable license;
 
    3. All outbound code will be made available under the Project License.
 
-   4. Documentation will be received and made available by the Project under the Creative Commons Attribution 4.0 International License (available at [http://creativecommons.org/licenses/by/4.0/](http://creativecommons.org/licenses/by/4.0/)).
+   4. Documentation will be received and made available by the Project under the Apache License, Version 2.0 (available at https://www.apache.org/licenses/LICENSE-2.0).
 
    5. The Project may seek to integrate and contribute back to other open source projects ("Upstream Projects"). In such cases, the Project will conform to all license requirements of the Upstream Projects, including dependencies, leveraged by the Project. Upstream Project code contributions not stored within the Project's main code repository will comply with the contribution process and license terms for the applicable Upstream Project.
 
@@ -126,4 +126,4 @@ This charter may be amended by a two-thirds vote of the entire TSC and is subjec
 _Participation in the Project through becoming a Contributor and Committer is open to anyone so long as they abide by the terms of this Charter. Committer and TSC membership is open to anyone who meets the criteria for Contributor membership and is approved by the TSC._
 
 - [Gábor Boros](https://github.com/gabor-boros) @ [Open Code Technologies](https://www.opcotech.com)
-- [James Ross](https://github.com/cherry) @ [Nodecraft](https://www.nodecraft.com)
+- [James Ross](https://github.com/cherry) @ [Nodecraft](https://nodecraft.com)
